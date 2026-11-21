@@ -6,6 +6,16 @@
 <title>Arktos Leon · Automações com IA</title>
 <meta name="description" content="Automações com IA para pequenos negócios: recepção 24h no WhatsApp, lembretes de horário, recepção digital e painel com os números do seu negócio.">
 <link rel="icon" href="emblema.png">
+<meta name="theme-color" content="#0b1a3a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arktos Leon">
+<meta property="og:title" content="Arktos Leon · Recepção 24h no WhatsApp com IA">
+<meta property="og:description" content="Seu negócio atende, agenda e lembra os clientes mesmo fora do horário. Veja uma demonstração com o seu negócio.">
+<meta property="og:image" content="https://arketosleon.github.io/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://arketosleon.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://arketosleon.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -37,6 +47,37 @@ a{color:inherit}
 .btn.sec{border-color:var(--line);color:var(--ink);background:transparent}.btn.sec:hover{border-color:var(--blue2)}
 .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #6f97ff;outline-offset:2px}
 
+/* acessibilidade, barra fixa no celular, comparação, contato */
+.skip{position:absolute;left:-999px;top:8px;background:var(--blue);color:#fff;padding:10px 16px;border-radius:8px;z-index:50}.skip:focus{left:8px}
+.btn{transition:transform .15s ease,background .15s ease}.btn:hover{transform:translateY(-1px)}
+.example{display:block;text-align:center;font-size:13px;color:var(--mute);margin-top:10px}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
+.mbar.on{transform:none}.mbar .btn{flex:1}
+@media(max-width:760px){.mbar{display:flex}footer{padding-bottom:96px!important}}
+.wa{position:fixed;right:18px;bottom:18px;z-index:31;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:none;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+.wa.on{display:grid}@media(max-width:760px){.wa{bottom:84px}}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:34px;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.cmp th,.cmp td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font:700 15px Montserrat,sans-serif;background:var(--soft)}
+.cmp thead th:last-child{background:var(--navy);color:#fff}
+.cmp td:first-child{font-weight:600;width:28%}
+.cmp td:last-child{background:color-mix(in srgb,var(--blue) 7%,var(--card));font-weight:600}
+.cmp td:last-child::after{content:" ✓";color:var(--ok)}
+@media(max-width:600px){.cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:auto!important}.cmp thead{display:none}
+.cmp tr{border-bottom:1px solid var(--line);padding:14px 16px}.cmp tr:last-child{border-bottom:0}
+.cmp td{border:0;padding:4px 0}.cmp td:first-child{font:700 16px Montserrat,sans-serif;margin-bottom:4px}
+.cmp td:nth-child(2)::before{content:"Faça você mesmo: ";font-weight:600;color:var(--ink)}.cmp td:nth-child(2){color:var(--mute)}
+.cmp td:last-child{background:none;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--blue) 8%,var(--card));margin-top:4px}
+.cmp td:last-child::before{content:"Arktos Leon: ";color:var(--blue2)}}
+.next{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;counter-reset:n}
+.next li{position:relative;padding-left:44px;color:#dbe3f6}
+.next li::before{counter-increment:n;content:counter(n);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);color:#ffe08a;display:grid;place-items:center;font:700 14px Montserrat,sans-serif}
+.trust{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:24px;font-size:14px;color:#b9c6e6}
+.trust a{color:#ffe08a}
+.ok-box{display:none;text-align:center;padding:10px 0}.ok-box b{display:block;font:800 22px Montserrat,sans-serif;margin-bottom:6px}
+form.done .ok-box{display:block}form.done label,form.done button[type=submit]{display:none}
+.req{color:#b42318}
 /* topo */
 header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:20px;padding:10px max(5vw,16px);max-width:1340px;margin:0 auto}
@@ -47,7 +88,8 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
 .links a{text-decoration:none;font-weight:500;color:var(--mute);padding:10px 12px;border-radius:8px}
 .links a:hover{color:var(--ink);background:var(--soft)}
-.nav .btn{min-height:44px}
+.nav .btn{min-height:44px;white-space:nowrap}
+img{height:auto;max-width:100%}.badge img,.seal img{max-width:none}
 .menu{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:44px;height:44px;font-size:20px}
 
 /* hero */
@@ -112,6 +154,7 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .met{background:var(--soft)}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .tabs button{min-height:44px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer}
+.tabs button:hover{border-color:var(--blue2)}
 .tabs button[aria-selected=true]{background:var(--blue);border-color:var(--blue);color:#fff}
 .mgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;margin-top:22px;align-items:start}
 .mlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
@@ -186,24 +229,26 @@ footer .kj{font:700 26px serif;color:#fff;letter-spacing:.2em}
 </style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header>
 <nav class="nav" aria-label="Principal">
-<a class="brand" href="#inicio"><span class="badge"><img src="emblema.png" alt=""></span><b>ARKTOS <span>LEON</span></b></a>
+<a class="brand" href="#inicio"><span class="badge"><img src="emblema.webp" width="600" height="325" alt=""></span><b>ARKTOS <span>LEON</span></b></a>
 <div class="links" id="links">
-<a href="#produtos">Produtos</a><a href="#metricas">Métricas</a><a href="#time">Quem somos</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a>
+<a href="#produtos">Produtos</a><a href="#metricas">Métricas</a><a href="#diferenca">Por que nós</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a>
 </div>
-<a class="btn pri" href="#contato">Quero uma demonstração</a>
+<a class="btn pri" href="#contato" data-cta="nav">Quero uma demonstração</a>
 <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
 </nav>
 </header>
 
-<main id="inicio">
-<section class="band"><div class="wrap hero">
+<main id="conteudo">
+<span id="inicio"></span>
+<section class="band" id="hero"><div class="wrap hero">
 <div>
 <span class="pill"><i></i>Atendendo agora, 24 horas por dia</span>
 <h1>Seu negócio atende, agenda e vende mesmo quando você está dormindo.</h1>
 <p class="lead">A Arktos Leon coloca uma assistente com inteligência artificial no seu WhatsApp. Ela responde seus clientes na hora, marca horários, lembra quem vai vir e mostra para você, em números simples, como seu negócio está indo.</p>
-<div class="cta"><a class="btn pri" href="#contato">Quero ver funcionando no meu negócio</a><a class="btn sec" href="#produtos">Conhecer os produtos</a></div>
+<div class="cta"><a class="btn pri" href="#contato" data-cta="hero">Quero uma demonstração grátis</a><a class="btn sec" href="#produtos" data-cta="hero-produtos">Ver o que ela faz</a></div>
 <div class="ticks"><span>Sem precisar entender de tecnologia</span><span>Funciona no seu WhatsApp</span><span>Você assume a conversa quando quiser</span></div>
 </div>
 <div class="stage" aria-label="Exemplo de conversa atendida pela assistente">
@@ -211,6 +256,7 @@ footer .kj{font:700 26px serif;color:#fff;letter-spacing:.2em}
 <div class="ph-top"><span class="av">C</span><div><b>Sua Clínica</b><small>online</small></div></div>
 <div class="chat" id="chat"></div>
 </div>
+<span class="example" style="position:absolute;bottom:-26px;left:0;right:0">Exemplo de conversa</span>
 <div class="chip c1"><b>23:47</b>respondido em 8 segundos</div>
 <div class="chip c2"><b>✓ Agendado</b>sem ninguém na recepção</div>
 </div>
@@ -229,8 +275,8 @@ footer .kj{font:700 26px serif;color:#fff;letter-spacing:.2em}
 <div class="ln"><span class="k" aria-hidden="true">獅</span><h2>Leon<small>O leão · nosso lado comercial</small></h2>
 <p>Quem vai até você, escuta e entende como seu negócio funciona de verdade, antes de propor qualquer coisa.</p>
 <ul><li>Conversa com você na sua língua, sem termos técnicos</li><li>Mostra uma demonstração com o seu negócio</li><li>Acompanha os resultados junto com você todo mês</li></ul></div>
-<span class="seal" id="seal"><img src="emblema.png" alt="Emblema Arktos Leon: metade urso, metade leão"></span>
-<p class="duo-note"><span>Dois lados, um só time: a força da tecnologia com quem entende de gente.</span></p>
+<span class="seal" id="seal"><img src="emblema.webp" width="600" height="325" alt="Emblema Arktos Leon: metade urso, metade leão"></span>
+<p class="duo-note"><span>Dois lados, um só time. Empresa de São Paulo, com uma pessoa responsável pelo seu projeto do começo ao fim.</span></p>
 </section>
 
 <section id="produtos" class="band"><div class="wrap">
@@ -270,6 +316,19 @@ footer .kj{font:700 26px serif;color:#fff;letter-spacing:.2em}
 </div>
 </div></section>
 
+<section id="diferenca" class="band pain"><div class="wrap">
+<h2>Você não compra um sistema. A gente faz e cuida por você.</h2>
+<p class="lead">Existem muitas plataformas de atendimento por aí, mas quase todas esperam que <b>você</b> aprenda a montar os robôs. Aqui é diferente.</p>
+<table class="cmp">
+<thead><tr><th></th><th>Plataforma “faça você mesmo”</th><th>Arktos Leon</th></tr></thead>
+<tbody>
+<tr><td>Quem monta o atendimento</td><td>Você ou sua equipe, depois de aprender a ferramenta</td><td>A gente monta, com as suas regras</td></tr>
+<tr><td>Mudou preço, horário ou serviço</td><td>Você entra no sistema e altera</td><td>Você avisa e a gente ajusta</td></tr>
+<tr><td>Linguagem</td><td>Termos técnicos, painéis cheios de opção</td><td>Conversa simples, no seu dia a dia</td></tr>
+<tr><td>Resultados</td><td>Você procura os números no painel</td><td>Mostramos os números e o que fazer com eles, todo mês</td></tr>
+</tbody></table>
+</div></section>
+
 <section id="como" class="band"><div class="wrap">
 <h2>Como funciona</h2>
 <p class="lead">Você não precisa instalar nada nem aprender sistema novo. A gente faz o trabalho pesado.</p>
@@ -290,18 +349,23 @@ footer .kj{font:700 26px serif;color:#fff;letter-spacing:.2em}
 
 <section id="contato" class="band final"><div class="wrap">
 <div><h2>Veja a assistente funcionando com o seu negócio.</h2>
-<p class="lead">Preencha o formulário e o Leon chama você no WhatsApp para marcar uma demonstração gratuita, sem compromisso.</p><p class="arrow"><svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M2 10h34M28 3l8 7-8 7"/></svg>Leva menos de 1 minuto</p></div>
+<p class="lead">Preencha o formulário e o Leon chama você no WhatsApp para marcar uma demonstração gratuita, sem compromisso.</p><p class="arrow"><svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M2 10h34M28 3l8 7-8 7"/></svg>Leva menos de 1 minuto</p>
+<ol class="next"><li>Você envia seus dados pelo WhatsApp</li><li>O Leon responde e marca um horário que seja bom para você</li><li>Você vê a assistente funcionando com os serviços do seu negócio</li></ol>
+<p class="trust"><span>São Paulo, SP</span><span>Sem compromisso</span><span>Dados tratados conforme a LGPD · <a href="privacidade.html">Privacidade</a></span></p></div>
 <form id="form" novalidate>
-<label>Seu nome<input id="f-nome" autocomplete="name" required></label>
-<label>Nome do seu negócio<input id="f-neg" required></label>
+<label><span>Seu nome <span class="req" aria-hidden="true">*</span></span><input id="f-nome" autocomplete="name" required aria-required="true"></label>
+<label><span>Nome do seu negócio <span class="req" aria-hidden="true">*</span></span><input id="f-neg" autocomplete="organization" required aria-required="true"></label>
 <label>Tipo de negócio<select id="f-tipo"><option>Clínica ou consultório</option><option>Salão, barbearia ou estética</option><option>Pet shop ou veterinária</option><option>Academia ou estúdio</option><option>Restaurante ou delivery</option><option>Loja ou comércio</option><option>Outro</option></select></label>
 <label>O que mais te incomoda hoje?<select id="f-dor"><option>Mensagens sem resposta</option><option>Clientes que faltam</option><option>Agenda bagunçada</option><option>Não sei meus números</option><option>Clientes que somem</option></select></label>
-<button class="btn pri" type="submit">Chamar no WhatsApp</button>
+<button class="btn pri" type="submit" data-cta="form">Enviar e conversar no WhatsApp</button>
+<div class="ok-box" role="status"><b>Tudo certo! ✓</b><p>Sua mensagem está pronta no WhatsApp. É só tocar em enviar.</p></div>
 <p class="fmsg" id="fmsg" aria-live="polite"></p>
 </form>
 </div></section>
 </main>
 
+<div class="mbar" id="mbar"><a class="btn pri" href="#contato" data-cta="mbar">Quero uma demonstração grátis</a></div>
+<a class="wa" id="wa" href="#contato" aria-label="Conversar no WhatsApp" data-cta="whatsapp-flutuante"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
 <footer><div class="wrap">
 <span class="kj" aria-hidden="true"><span style="color:#c08a5c">熊</span><span style="color:#e0ad2e">獅</span></span>
 <span><b style="color:#fff">ARKTOS LEON</b> · Automações com IA</span>
@@ -335,46 +399,49 @@ document.getElementById('pain').innerHTML=pain.map(p=>`<div class="pc"><span cla
 
 const M={
 'Atendimento':[
-['Conversas por dia','Quantas pessoas procuram seu negócio, dia a dia.'],
-['Tempo de resposta','Quanto tempo o cliente espera até ser respondido.'],
-['Mensagens fora do horário','Quanta gente chama quando a recepção está fechada.'],
-['Resolvidas pela IA','Quantas conversas a assistente resolveu sozinha.'],
-['Passadas para a equipe','Quando foi preciso uma pessoa, e por quê.'],
-['Dúvidas mais frequentes','O que os clientes mais perguntam, para você se preparar.']],
+['Quantas pessoas me procuram por dia?','Conversas por dia, para você ver o movimento real.'],
+['Quanto tempo meu cliente espera?','Tempo de resposta, de dia e de madrugada.'],
+['Quanta gente chama fora do horário?','Mensagens que antes ficavam sem resposta.'],
+['Quanto a assistente resolve sozinha?','Conversas resolvidas sem ninguém da equipe.'],
+['Quando foi preciso uma pessoa?','Conversas passadas para a equipe, e o motivo.'],
+['O que mais me perguntam?','As dúvidas mais frequentes, para você se preparar.']],
 'Agenda':[
-['Agendamentos feitos pela IA','Horários marcados sem ninguém da equipe.'],
-['Taxa de comparecimento','De cada 10 marcados, quantos realmente vieram.'],
-['Faltas e cancelamentos','Quem faltou ou desmarcou, e com quanta antecedência.'],
-['Ocupação da agenda','Quanto da sua agenda está cheia e onde sobram horários.'],
-['Horários mais procurados','Os dias e horas em que mais querem ser atendidos.'],
-['Vagas preenchidas','Horários desmarcados que foram ocupados por outro cliente.']],
+['Quantos horários a IA marcou?','Agendamentos feitos sem ninguém da recepção.'],
+['De cada 10 marcados, quantos vieram?','Taxa de comparecimento da semana e do mês.'],
+['Quem faltou ou desmarcou?','Faltas e cancelamentos, e com quanta antecedência.'],
+['Minha agenda está cheia?','Ocupação por dia e onde ainda sobram horários.'],
+['Quais horários são mais disputados?','Dias e horas em que mais querem ser atendidos.'],
+['Quantas vagas foram reaproveitadas?','Horários desmarcados que outro cliente ocupou.']],
 'Clientes':[
-['Clientes novos x que voltam','Quanto do movimento é gente nova e quanto é cliente fiel.'],
-['Clientes sumidos','Quem não aparece há 30, 60 ou 90 dias.'],
-['Clientes que voltaram','Quem retornou depois de receber uma mensagem de convite.'],
-['Satisfação','A nota que os clientes dão depois do atendimento.'],
-['Avaliações no Google','Quantas avaliações novas chegaram pelo convite automático.'],
-['De onde vieram','Se o cliente chegou por indicação, Instagram, Google…']],
+['É cliente novo ou que já voltou?','Quanto do movimento é gente nova e quanto é cliente fiel.'],
+['Quem sumiu?','Clientes que não aparecem há 30, 60 ou 90 dias.'],
+['Quem voltou depois do convite?','Clientes que retornaram após a mensagem de reativação.'],
+['Meus clientes estão satisfeitos?','A nota que dão depois do atendimento.'],
+['Quantas avaliações novas no Google?','Avaliações que chegaram pelo convite automático.'],
+['Como me encontraram?','Indicação, Instagram, Google ou outro caminho.']],
 'Vendas':[
-['Conversas que viraram horário','De cada 10 que perguntam, quantos marcam de verdade.'],
-['Serviços mais procurados','O que mais vende e o que quase ninguém pede.'],
-['Faturamento previsto','Quanto a agenda da semana deve render.'],
-['Dinheiro salvo das faltas','Quanto você deixou de perder com lembretes e vagas preenchidas.'],
-['Valor médio por cliente','Quanto cada cliente gasta, em média, por visita.'],
-['Pacotes e retornos','Quem está perto de terminar um pacote e pode renovar.']]};
+['De cada 10 que perguntam, quantos marcam?','Conversas que viraram horário marcado.'],
+['O que mais vende?','Serviços mais procurados e os que quase ninguém pede.'],
+['Quanto a semana deve render?','Faturamento previsto pela agenda.'],
+['Quanto deixei de perder com faltas?','Valor salvo com lembretes e vagas preenchidas.'],
+['Quanto cada cliente gasta?','Valor médio por visita.'],
+['Quem pode renovar o pacote?','Clientes perto de terminar um pacote ou tratamento.']]};
 const tabs=document.getElementById('tabs'),list=document.getElementById('mlist');
 const keys=Object.keys(M);
-tabs.innerHTML=keys.map((k,i)=>`<button role="tab" id="t${i}" aria-selected="${i==0}">${k}</button>`).join('');
+tabs.innerHTML=keys.map((k,i)=>`<button role="tab" id="t${i}" aria-controls="mlist" aria-selected="${i==0}" tabindex="${i==0?0:-1}">${k}</button>`).join('');
 const show=i=>{
-tabs.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-selected',j==i));
+tabs.querySelectorAll('button').forEach((b,j)=>{b.setAttribute('aria-selected',j==i);b.tabIndex=j==i?0:-1});list.setAttribute('aria-labelledby','t'+i);
 list.innerHTML=M[keys[i]].map(m=>`<div class="mi"><h3>${m[0]}</h3><p>${m[1]}</p></div>`).join('');};
 tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(+b.id.slice(1))});
 show(0);
+tabs.addEventListener('keydown',e=>{const c=+document.activeElement.id.slice(1);let n=null;if(e.key=='ArrowRight')n=(c+1)%keys.length;if(e.key=='ArrowLeft')n=(c-1+keys.length)%keys.length;if(n!=null){show(n);document.getElementById('t'+n).focus();e.preventDefault()}});
 
 const bars=[['8h',52],['12h',71],['18h',88],['22h',64],['Madrug.',23]];
 document.getElementById('bars').innerHTML=bars.map(b=>`<div class="bar"><span>${b[0]}</span><div><i style="width:${b[1]}%"></i></div><span>${b[1]}</span></div>`).join('');
 
 const faq=[
+['Quanto custa?','Depende do que o seu negócio precisa: só a recepção no WhatsApp ou também lembretes, painel e o resto. Depois da demonstração você recebe uma proposta por escrito, com o valor, antes de decidir qualquer coisa.'],
+['E se eu não gostar da demonstração?','Tudo bem. A demonstração é gratuita e serve justamente para você ver se faz sentido para o seu negócio.'],
 ['Preciso entender de tecnologia?','Não. A gente configura tudo e cuida da parte técnica. Você só continua usando o WhatsApp como já usa.'],
 ['A IA pode falar algo errado para o meu cliente?','A assistente só responde com as informações e regras que você aprovou. Quando não sabe ou o assunto é delicado, ela passa a conversa para você ou sua equipe.'],
 ['Eu consigo assumir a conversa quando quiser?','Sim. Você ou sua equipe podem entrar em qualquer conversa a qualquer momento, e a assistente para de responder ali.'],
@@ -391,13 +458,24 @@ const form=document.getElementById('form'),fmsg=document.getElementById('fmsg');
 form.addEventListener('submit',e=>{
 e.preventDefault();
 const v=id=>document.getElementById(id).value.trim();
-if(!v('f-nome')||!v('f-neg')){fmsg.textContent='Preencha seu nome e o nome do negócio, por favor.';return}
+if(!v('f-nome')||!v('f-neg')){fmsg.textContent='Falta preencher: '+[!v('f-nome')&&'seu nome',!v('f-neg')&&'nome do negócio'].filter(Boolean).join(' e ')+'.';(document.getElementById(!v('f-nome')?'f-nome':'f-neg')).focus();return}
 const txt=`Olá, Arktos Leon! Sou ${v('f-nome')}, do(a) ${v('f-neg')} (${v('f-tipo')}). O que mais me incomoda hoje: ${v('f-dor')}. Quero ver uma demonstração.`;
 if(!WHATSAPP){fmsg.textContent='Nosso WhatsApp será publicado em breve. Obrigado pelo interesse!';return}
 const a=document.createElement('a');a.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
-fmsg.textContent='Abrindo o WhatsApp com sua mensagem pronta…';});
+fmsg.textContent='';form.classList.add('done');track('lead_whatsapp');});
 
 document.getElementById('ano').textContent=new Date().getFullYear();
+
+// Eventos para medir os botões (funciona quando o Google Analytics / Clarity for instalado)
+function track(n){try{(window.dataLayer=window.dataLayer||[]).push({event:n})}catch(e){}}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-cta]');if(a)track('cta_'+a.dataset.cta)});
+
+if(WHATSAPP){const wa=document.getElementById('wa');wa.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Olá, Arktos Leon! Quero saber mais.');wa.target='_blank';wa.rel='noopener';wa.classList.add('on')}
+
+const mbar=document.getElementById('mbar');let heroOut=false,contactIn=false;
+const upd=()=>mbar.classList.toggle('on',heroOut&&!contactIn);
+const io=new IntersectionObserver(es=>{es.forEach(x=>{if(x.target.id=='hero')heroOut=!x.isIntersecting;else contactIn=x.isIntersecting});upd()});
+io.observe(document.getElementById('hero'));io.observe(document.getElementById('contato'));
 }
 </script>
 </body>
