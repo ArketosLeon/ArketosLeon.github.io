@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arktos Leon | Seu WhatsApp enchendo sua agenda</title>
-<meta name="description" content="Seu WhatsApp ligado à sua agenda: o cliente marca, remarca e recebe lembrete sozinho. A gente monta e cuida de tudo. Planos a partir de R$ 450/mês. Demonstração grátis.">
+<title>Arktos Leon | Saiba quanto sua agenda perde. E pare de perder.</title>
+<meta name="description" content="Faltas, horários vagos e mensagens sem resposta em reais, no seu WhatsApp, na hora. E uma assistente que confirma, remarca e preenche a agenda. A gente monta tudo. Planos a partir de R$ 450/mês.">
 <link rel="icon" href="emblema.png">
 <meta name="theme-color" content="#0b1a3a">
 <meta name="facebook-domain-verification" content="4jyu7r6f8ojnco7zl371gm3jfbnf1b" />
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arktos Leon">
-<meta property="og:title" content="Arktos Leon | Seu WhatsApp enchendo sua agenda">
-<meta property="og:description" content="Seu negócio atende, agenda e lembra os clientes mesmo fora do horário. Veja uma demonstração com o seu negócio.">
+<meta property="og:title" content="Arktos Leon | Saiba quanto sua agenda perde. E pare de perder.">
+<meta property="og:description" content="Os números da sua agenda em tempo real, no seu WhatsApp: faltas, horários vagos e mensagens sem resposta, em reais. Calcule quanto você perde.">
 <meta property="og:image" content="https://arketosleon.github.io/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://arketosleon.github.io/">
@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .msg{max-width:84%;padding:8px 10px 6px;border-radius:10px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.1);opacity:0;transform:translateY(8px);animation:in .5s forwards}
 .msg em{display:block;text-align:right;font-style:normal;font-size:11px;color:#667;margin-top:2px}
 .in{background:#fff;align-self:flex-start}.out{background:#dcf8c6;align-self:flex-end}
-.chip{position:absolute;right:0;bottom:12%;background:var(--card);color:var(--ink);border-radius:14px;padding:10px 14px;box-shadow:0 14px 30px -12px rgba(11,26,58,.45);font-size:13px;line-height:1.3}
+.chip{position:absolute;right:0;top:4%;background:var(--card);color:var(--ink);border-radius:14px;padding:10px 14px;box-shadow:0 14px 30px -12px rgba(11,26,58,.45);font-size:13px;line-height:1.3}
 .chip b{display:block;font-size:18px;font-family:Montserrat,sans-serif}
 @keyframes in{to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.msg{animation:none;opacity:1;transform:none}html{scroll-behavior:auto}}
@@ -86,6 +86,23 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .pc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
 .pc .ic{width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue2);display:grid;place-items:center;margin-bottom:12px}
 .pc p{color:var(--mute);margin-top:6px;font-size:15px}
+
+.srcs{font-size:13px;color:var(--mute);margin-top:16px}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.cbox2{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,30px);display:grid;gap:20px}
+.cin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cin input{background:var(--bg);color:var(--ink);border-color:var(--line);font-size:18px}
+.cout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border-top:1px solid var(--line);padding-top:18px}
+.cout span{display:block;font-size:14px;color:var(--mute)}
+.cout b{display:block;font:800 clamp(28px,3.4vw,38px)/1.15 Montserrat,sans-serif;color:light-dark(#b42318,#ff8a7a)}
+.cnote{font-size:15px;color:var(--mute)}
+
+/* painel do dono */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
+.kp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.kp p{color:var(--mute);margin-top:6px;font-size:15px}
 
 /* comparação */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -183,6 +200,7 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 @media(max-width:900px){
 .links{display:none}.nav .btn{margin-left:auto}
 .pains{grid-template-columns:1fr 1fr}
+.calc{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}
 .plans{grid-template-columns:1fr;max-width:520px;gap:26px}
 }
 @media(max-width:760px){
@@ -196,9 +214,10 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 @media(max-width:480px){
 .nav .btn{font-size:14px;padding:0 14px}.nav .g{display:none}.brand b{white-space:nowrap;font-size:15px}
 .pains{grid-template-columns:1fr}
+.cin,.kpis,.cout{grid-template-columns:1fr}
 .pc{display:grid;grid-template-columns:40px 1fr;gap:2px 14px;padding:16px}.pc .ic{grid-row:span 2;margin:0}
 .cta .btn{width:100%}
-.chip{right:-4px}
+.chip{display:none}
 }
 </style>
 </head>
@@ -207,7 +226,7 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <header>
 <nav class="nav" aria-label="Principal">
 <a class="brand" href="#hero"><span class="badge"><img src="emblema.webp" width="600" height="325" alt=""></span><b>ARKTOS <span>LEON</span></b></a>
-<div class="links"><a href="#diferenca">Por que nós</a><a href="#planos">Planos</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a></div>
+<div class="links"><a href="#calculadora">Calcule</a><a href="#painel">Painel</a><a href="#diferenca">Por que nós</a><a href="#planos">Planos</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a></div>
 <a class="btn pri" href="#contato" data-cta="nav">Demonstração<span class="g"> grátis</span></a>
 </nav>
 </header>
@@ -215,25 +234,55 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <main id="conteudo">
 <section class="band" id="hero"><div class="wrap hero">
 <div>
-<span class="pill"><i></i>Você não configura nada</span>
-<h1>Seu WhatsApp enchendo sua agenda. A gente monta e cuida de tudo.</h1>
-<p class="lead">Seu cliente marca, remarca e confirma o horário pelo WhatsApp, a qualquer hora, e recebe lembrete antes de vir. A gente liga tudo à sua agenda e acompanha os resultados com você todo mês.</p>
-<div class="cta"><a class="btn pri" href="#contato" data-cta="hero">Pedir demonstração grátis</a><a class="price" href="#planos">A partir de <b>R$ 450/mês</b></a></div>
-<div class="ticks"><span>Sem entender de tecnologia</span><span>No seu WhatsApp</span><span>Você assume quando quiser</span></div>
+<span class="pill"><i></i>Os números da sua agenda em tempo real</span>
+<h1>Saiba quanto sua agenda perde hoje. E pare de perder.</h1>
+<p class="lead">Faltas, horários vagos e mensagens sem resposta viram números em reais, no seu WhatsApp, na hora. E a assistente confirma, remarca e preenche os horários para recuperar esse dinheiro. A gente monta e cuida de tudo.</p>
+<div class="cta"><a class="btn pri" href="#calculadora" data-cta="hero-calc">Calcular quanto eu perco</a><a class="btn sec" href="#contato" data-cta="hero">Pedir demonstração grátis</a></div>
+<div class="ticks"><span>Faltas em reais</span><span>Resumo no seu WhatsApp</span><span>A partir de R$ 450/mês</span></div>
 </div>
-<div class="stage" aria-label="Exemplo de conversa atendida pela assistente">
+<div class="stage" aria-label="Exemplo de conversa do dono com o painel">
 <div class="phone">
-<div class="ph-top"><span class="av">S</span><div><b>Seu Negócio</b><small>online</small></div></div>
+<div class="ph-top"><span class="av">A</span><div><b>Arktos · seu painel</b><small>online</small></div></div>
 <div class="chat" id="chat"></div>
 </div>
-<div class="chip"><b>✓ Agendado às 23:48</b>sem ninguém na recepção</div>
-<p class="cap">Exemplo de conversa no plano Premium IA</p>
+<div class="chip"><b>R$ 1.500 em faltas</b>na semana, visto na hora</div>
+<p class="cap">Exemplo ilustrativo no plano Premium IA</p>
 </div>
 </div></section>
 
 <section class="band soft"><div class="wrap">
-<h2>Isso acontece no seu negócio?</h2>
+<h2>O dinheiro que some sem passar pelo caixa</h2>
+<p class="lead">A agenda parece cheia, mas o horário fica vazio. Quase ninguém sabe quanto isso custa no mês, porque ninguém soma.</p>
 <div class="pains" id="pain"></div>
+<p class="srcs">Fontes: <a href="https://agilize.com.br/artigos/?p=2339" target="_blank" rel="noopener">Agilize</a> (faltas em consultórios sem automação) e levantamento do BoaConsulta com 21,9 mil pedidos em 2026, publicado pela <a href="https://medicinasa.com.br/?p=174980" target="_blank" rel="noopener">Medicina S/A</a> (tempo de resposta).</p>
+</div></section>
+
+<section id="calculadora" class="band"><div class="wrap calc">
+<div><h2>Calcule quanto você perde com faltas</h2>
+<p class="lead">Coloque os números do seu negócio. A conta é simples: atendimentos por mês × taxa de faltas × valor do atendimento.</p></div>
+<div class="cbox2">
+<div class="cin">
+<label>Atendimentos por mês<input id="c-at" type="number" inputmode="numeric" min="0" value="400"></label>
+<label>Faltas (%)<input id="c-fa" type="number" inputmode="numeric" min="0" max="100" value="20"></label>
+<label>Valor médio (R$)<input id="c-va" type="number" inputmode="numeric" min="0" value="150"></label>
+</div>
+<div class="cout" aria-live="polite"><div><span>Você perde por mês</span><b id="c-mes">R$ 12.000</b></div><div><span>Em um ano</span><b id="c-ano">R$ 144.000</b></div></div>
+<p class="cnote"><b id="c-qt">80</b> horários por mês viram cadeira vazia. A Arktos confirma cada um na véspera, oferece o horário liberado e mostra no seu painel quanto foi recuperado.</p>
+<a class="btn pri" href="#contato" data-cta="calc">Quero ver isso no meu negócio</a>
+</div>
+</div></section>
+
+<section id="painel" class="band soft"><div class="wrap">
+<h2>O painel do dono</h2>
+<p class="lead">Os números que importam para o caixa, sem planilha e sem perguntar para a recepção. No celular, em tempo real, e num resumo no seu WhatsApp no fim do dia.</p>
+<div class="kpis">
+<div class="kp"><h3>Faltas em reais</h3><p>Quem faltou e quanto custou, por dia, profissional e horário.</p></div>
+<div class="kp"><h3>Confirmações</h3><p>Quem confirmou, quem remarcou e quem ainda não respondeu para amanhã.</p></div>
+<div class="kp"><h3>Horários vagos</h3><p>Buracos da semana e quantos a assistente conseguiu preencher.</p></div>
+<div class="kp"><h3>Mensagens sem resposta</h3><p>Quantas chegaram, em quanto tempo foram respondidas e quantas viraram horário marcado.</p></div>
+<div class="kp"><h3>De onde vem o cliente</h3><p>Instagram, anúncio, indicação ou Google: quanto cada canal trouxe de agendamento.</p></div>
+<div class="kp"><h3>Previsão da semana</h3><p>Atendimentos confirmados e o faturamento esperado até sexta.</p></div>
+</div>
 </div></section>
 
 <section id="diferenca" class="band"><div class="wrap">
@@ -245,6 +294,7 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <tr><td>Quem monta</td><td>Você, depois de aprender a ferramenta</td><td>Vem pronto, você configura</td><td>A gente monta, com as suas regras</td></tr>
 <tr><td>Ligado à sua agenda</td><td>Só se você fizer a integração</td><td>Sim, dentro daquele sistema</td><td>Sim: Google Agenda e planilhas; outros sistemas sob consulta</td></tr>
 <tr><td>Usa o que você já tem</td><td>Você adapta a ferramenta</td><td>Você troca de sistema</td><td>Seu WhatsApp e sua agenda de hoje</td></tr>
+<tr><td>Quanto você perde</td><td>Você soma na mão, se somar</td><td>Relatórios, se você for procurar</td><td>Faltas e horários vagos em reais, na hora, no seu WhatsApp</td></tr>
 <tr><td>Acompanhamento</td><td>Você procura os números sozinho</td><td>Suporte quando você chama</td><td>Todo mês, com os números e o que ajustar</td></tr>
 </tbody></table>
 </div></section>
@@ -265,13 +315,13 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <p class="val"><b>R$ 450</b>/mês</p><p class="impl">Até 300 clientes por mês</p>
 <ul><li>A gente monta e ajusta para você</li><li>Cliente marca, remarca e cancela sozinho, a qualquer hora</li><li>Lembrete automático um dia antes, com confirmação</li><li>Agenda separada por profissional</li><li>Menos faltas e menos telefone tocando</li></ul>
 <a class="btn sec" href="#contato" data-plano="Essencial">Quero o Essencial</a></article>
-<article class="plan top"><span class="tag">Mais escolhido</span><h3>Gestão</h3><p class="what">Atendimento e visão do dono</p>
+<article class="plan top"><span class="tag">Mais escolhido</span><h3>Gestão</h3><p class="what">Painel do dono em tempo real</p>
 <p class="val"><b>R$ 1.000</b>/mês</p><p class="impl">Até 800 clientes por mês</p>
-<ul><li><b>Tudo do Essencial</b></li><li>Sua equipe controla a agenda pelo WhatsApp: inclui, tira e bloqueia horários</li><li>Check-in do cliente num tablet no balcão</li><li>Resumo diário: atendimentos, faltas e horários vagos</li><li>Painel com os números do negócio</li></ul>
+<ul><li><b>Tudo do Essencial</b></li><li>Sua equipe controla a agenda pelo WhatsApp: inclui, tira e bloqueia horários</li><li>Check-in do cliente num tablet no balcão</li><li>Painel em tempo real: faltas em reais, confirmações e horários vagos</li><li>Resumo diário no seu WhatsApp: atendimentos, faltas e horários vagos</li></ul>
 <a class="btn pri" href="#contato" data-plano="Gestão">Quero o Gestão</a></article>
 <article class="plan"><h3>Premium IA</h3><p class="what">Atendente com inteligência artificial</p>
 <p class="val"><b>R$ 2.000</b>/mês</p><p class="impl">Até 2.000 clientes por mês</p>
-<ul><li><b>Tudo do Gestão</b></li><li>Atendente com IA que conversa de forma natural e entende áudio</li><li>Tira dúvidas sobre serviços e valores</li><li>Você pergunta e recebe na hora: “quantas faltas tive esta semana?”</li><li>Ajustes e melhorias todo mês</li></ul>
+<ul><li><b>Tudo do Gestão</b></li><li>Atendente com IA que conversa de forma natural e entende áudio</li><li>Tira dúvidas sobre serviços e valores</li><li>Você pergunta e recebe na hora: “quanto perdi com faltas esta semana?”</li><li>Ajustes e melhorias todo mês</li></ul>
 <a class="btn sec" href="#contato" data-plano="Premium IA">Quero o Premium IA</a></article>
 </div>
 <article class="custom"><div><h3>Sob Medida: sua empresa inteira respondendo pelo WhatsApp</h3>
@@ -318,7 +368,7 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <a class="wa" id="wa" href="#contato" aria-label="Conversar no WhatsApp" data-cta="whatsapp-flutuante"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
 <footer><div class="wrap">
 <span class="kj" aria-hidden="true"><span style="color:#c08a5c">熊</span><span style="color:#e0ad2e">獅</span></span>
-<span><b style="color:#fff">ARKTOS LEON</b>, automação de atendimento. São Paulo, SP<br><small>Arktos Leon é o nome fantasia de 70.234.742 CARLOS HENRIQUE DA SILVA SANTOS, CNPJ 70.234.742/0001-67.</small></span>
+<span><b style="color:#fff">ARKTOS LEON</b>, automação e gestão de agendas. São Paulo, SP<br><small>Arktos Leon é o nome fantasia de 70.234.742 CARLOS HENRIQUE DA SILVA SANTOS, CNPJ 70.234.742/0001-67.</small></span>
 <span><a href="mailto:arktos.leon.ia@gmail.com">arktos.leon.ia@gmail.com</a></span><span><a href="privacidade.html">Privacidade</a> &nbsp; <a href="termos.html">Termos de Uso</a> &nbsp; © <span id="ano">2026</span></span>
 </div></footer>
 
@@ -332,10 +382,10 @@ const EMAIL = 'arktos.leon.ia@gmail.com';
 // =========================
 
 const chat=[
-['in','Oi, boa noite! Vocês têm horário amanhã de manhã? 😊','23:47'],
-['out','Boa noite! Temos sim 🙂 Amanhã tenho 8h30, 10h e 11h30. Qual fica melhor?','23:47'],
-['in','10h tá ótimo','23:48'],
-['out','Prontinho! Agendado para amanhã às 10h. Te mando um lembrete pela manhã ✅','23:48']];
+['in','Quanto perdi com faltas esta semana?','18:02'],
+['out','6 faltas, cerca de R$ 1.500. Já remarquei 4 🙂','18:02'],
+['in','E amanhã?','18:03'],
+['out','22 confirmados. O horário vago já foi preenchido ✅','18:03']];
 document.getElementById('chat').innerHTML=chat.map((m,i)=>`<div class="msg ${m[0]}" style="animation-delay:${.4+i*.9}s">${m[1]}<em>${m[2]}${m[0]=='out'?' ✓✓':''}</em></div>`).join('');
 
 const ic={
@@ -344,13 +394,14 @@ cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16
 user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',
 eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'};
 const pain=[
-['moon','Mensagem sem resposta à noite','No outro dia o cliente já marcou com o concorrente.'],
-['cal','Cliente marca e não vem','Horário vazio é dinheiro perdido.'],
-['user','Recepção sobrecarregada','Telefone, WhatsApp e balcão ao mesmo tempo.'],
-['eye','Você não vê seus números','Quem perguntou e não marcou? Quem sumiu?']];
+['cal','Cliente marca e não vem','Em consultórios sem confirmação automática, faltas costumam levar de 15% a 30% da agenda.'],
+['moon','Mensagem sem resposta','Quando a primeira resposta demora mais de um dia, 57% dos pedidos de consulta expiram.'],
+['eye','Você não vê o prejuízo','Ninguém soma quanto o horário vazio custou no mês.'],
+['user','Recepção sem tempo','Confirmar um por um, por telefone, não cabe no dia.']];
 document.getElementById('pain').innerHTML=pain.map(p=>`<div class="pc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ic[p[0]]}</svg></span><h3>${p[1]}</h3><p>${p[2]}</p></div>`).join('');
 
 const faq=[
+['O que aparece no painel?','Faltas e quanto elas custaram, confirmações para amanhã, horários vagos, mensagens sem resposta e de onde vêm seus clientes. No plano Gestão você vê tudo no celular, em tempo real, e recebe um resumo no WhatsApp no fim do dia.'],
 ['Quanto custa?','Os planos vão de R$ 450 a R$ 2.000 por mês, conforme quantos clientes você atende, mais uma implantação única a partir de R$ 990. Os 5 primeiros clientes não pagam implantação. Projetos Sob Medida são orçados à parte. Depois da demonstração você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
 ['Tenho que ficar preso a um contrato longo?','Não. A fidelidade é de 3 meses. Depois disso é mês a mês, e você pode cancelar quando quiser.'],
 ['O WhatsApp já tem IA grátis. Por que contratar vocês?','Ela responde perguntas, mas você precisa configurar sozinho e ela não cuida da sua agenda. A gente monta, liga à sua agenda e acompanha os resultados com você todo mês.'],
@@ -361,6 +412,13 @@ const faq=[
 ['Funciona com o número que eu já tenho?','Na maioria dos casos, sim. Verificamos o seu número na primeira conversa.'],
 ['E os dados dos meus clientes?','São usados só para atender o seu negócio e tratados conforme a LGPD.']];
 document.getElementById('faq').innerHTML=faq.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
+
+const brl=x=>'R$ '+Math.round(x).toLocaleString('pt-BR');
+const calc=()=>{const n=id=>{const x=Number(document.getElementById(id).value);return isFinite(x)&&x>0?x:0};
+const at=n('c-at'),fa=Math.min(n('c-fa'),100),va=n('c-va'),mes=at*fa/100*va;
+document.getElementById('c-mes').textContent=brl(mes);document.getElementById('c-ano').textContent=brl(mes*12);
+document.getElementById('c-qt').textContent=Math.round(at*fa/100).toLocaleString('pt-BR')};
+['c-at','c-fa','c-va'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
 
 function track(n){try{(window.dataLayer=window.dataLayer||[]).push({event:n})}catch(e){}}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-cta]');if(a)track('cta_'+a.dataset.cta)});
