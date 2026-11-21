@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arktos Leon | Atendimento automático 24h no WhatsApp</title>
-<meta name="description" content="Atendimento automático 24h no WhatsApp para pequenos negócios: seu cliente agenda, remarca e recebe lembrete sozinho. Planos a partir de R$ 450/mês. Demonstração grátis.">
+<title>Arktos Leon | Seu WhatsApp enchendo sua agenda</title>
+<meta name="description" content="Seu WhatsApp ligado à sua agenda: o cliente marca, remarca e recebe lembrete sozinho. A gente monta e cuida de tudo. Planos a partir de R$ 450/mês. Demonstração grátis.">
 <link rel="icon" href="emblema.png">
 <meta name="theme-color" content="#0b1a3a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arktos Leon">
-<meta property="og:title" content="Arktos Leon | Atendimento automático 24h no WhatsApp">
+<meta property="og:title" content="Arktos Leon | Seu WhatsApp enchendo sua agenda">
 <meta property="og:description" content="Seu negócio atende, agenda e lembra os clientes mesmo fora do horário. Veja uma demonstração com o seu negócio.">
 <meta property="og:image" content="https://arketosleon.github.io/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
@@ -85,6 +85,24 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .pc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
 .pc .ic{width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue2);display:grid;place-items:center;margin-bottom:12px}
 .pc p{color:var(--mute);margin-top:6px;font-size:15px}
+
+/* comparação */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;font-size:15px}
+.cmp th,.cmp td{padding:15px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font:700 15px Montserrat,sans-serif;background:var(--soft)}
+.cmp thead th:last-child{background:var(--navy);color:#fff}
+.cmp td:first-child{font-weight:600;width:22%}
+.cmp td:nth-child(2),.cmp td:nth-child(3){color:var(--mute)}
+.cmp td:last-child{background:color-mix(in srgb,var(--blue) 8%,var(--card));font-weight:600}
+@media(max-width:700px){.cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:auto!important}.cmp thead{display:none}
+.cmp tr{border-bottom:1px solid var(--line);padding:14px 16px}.cmp tr:last-child{border-bottom:0}
+.cmp td{border:0;padding:3px 0}.cmp td:first-child{font:700 16px Montserrat,sans-serif;margin-bottom:4px}
+.cmp td:nth-child(2)::before{content:"Faça você mesmo: ";font-weight:600;color:var(--ink)}
+.cmp td:nth-child(3)::before{content:"Sistema de gestão: ";font-weight:600;color:var(--ink)}
+.cmp td:last-child{padding:8px 10px;border-radius:10px;margin-top:6px}
+.cmp td:last-child::before{content:"Arktos Leon: ";color:var(--blue2)}}
 
 /* faixa urso | leão */
 .duo{background:linear-gradient(90deg,var(--navy) 0 50%,var(--blue) 50% 100%);color:#fff;padding:28px max(5vw,16px)}
@@ -188,7 +206,7 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <header>
 <nav class="nav" aria-label="Principal">
 <a class="brand" href="#hero"><span class="badge"><img src="emblema.webp" width="600" height="325" alt=""></span><b>ARKTOS <span>LEON</span></b></a>
-<div class="links"><a href="#planos">Planos</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a></div>
+<div class="links"><a href="#diferenca">Por que nós</a><a href="#planos">Planos</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a></div>
 <a class="btn pri" href="#contato" data-cta="nav">Demonstração<span class="g"> grátis</span></a>
 </nav>
 </header>
@@ -196,9 +214,9 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <main id="conteudo">
 <section class="band" id="hero"><div class="wrap hero">
 <div>
-<span class="pill"><i></i>Atendendo 24 horas por dia</span>
-<h1>Seu WhatsApp atende, agenda e lembra seus clientes, 24 horas por dia.</h1>
-<p class="lead">Seu cliente marca, remarca e confirma o horário pelo WhatsApp, a qualquer hora, sem ninguém da equipe parar o que está fazendo. A gente monta e cuida de tudo.</p>
+<span class="pill"><i></i>Você não configura nada</span>
+<h1>Seu WhatsApp enchendo sua agenda. A gente monta e cuida de tudo.</h1>
+<p class="lead">Seu cliente marca, remarca e confirma o horário pelo WhatsApp, a qualquer hora, e recebe lembrete antes de vir. A gente liga tudo à sua agenda e acompanha os resultados com você todo mês.</p>
 <div class="cta"><a class="btn pri" href="#contato" data-cta="hero">Pedir demonstração grátis</a><a class="price" href="#planos">A partir de <b>R$ 450/mês</b></a></div>
 <div class="ticks"><span>Sem entender de tecnologia</span><span>No seu WhatsApp</span><span>Você assume quando quiser</span></div>
 </div>
@@ -217,6 +235,19 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <div class="pains" id="pain"></div>
 </div></section>
 
+<section id="diferenca" class="band"><div class="wrap">
+<h2>Por que não fazer sozinho?</h2>
+<p class="lead">Hoje existem ferramentas que você mesmo configura e sistemas de gestão que trazem lembrete. A diferença é quem faz o trabalho.</p>
+<table class="cmp">
+<thead><tr><th><span class="sr">Item</span></th><th>Faça você mesmo</th><th>Sistema de gestão</th><th>Arktos Leon</th></tr></thead>
+<tbody>
+<tr><td>Quem monta</td><td>Você, depois de aprender a ferramenta</td><td>Vem pronto, você configura</td><td>A gente monta, com as suas regras</td></tr>
+<tr><td>Ligado à sua agenda</td><td>Só se você fizer a integração</td><td>Sim, dentro daquele sistema</td><td>Sim: Google Agenda e planilhas; outros sistemas sob consulta</td></tr>
+<tr><td>Usa o que você já tem</td><td>Você adapta a ferramenta</td><td>Você troca de sistema</td><td>Seu WhatsApp e sua agenda de hoje</td></tr>
+<tr><td>Acompanhamento</td><td>Você procura os números sozinho</td><td>Suporte quando você chama</td><td>Todo mês, com os números e o que ajustar</td></tr>
+</tbody></table>
+</div></section>
+
 <section class="duo" aria-label="Quem somos"><div class="wrap">
 <div class="a"><b><span class="k" aria-hidden="true">熊</span>Arktos, o urso</b><p>Monta e cuida da tecnologia nos bastidores.</p></div>
 <span class="seal"><img src="emblema.webp" width="600" height="325" alt="Emblema Arktos Leon: metade urso, metade leão"></span>
@@ -229,9 +260,9 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <p class="lead">O plano acompanha o tamanho do seu negócio: quanto mais clientes você atende por mês, mais recursos fazem diferença. Dá para subir de plano quando quiser.</p>
 <p class="fund">Cliente fundador: os 5 primeiros clientes não pagam implantação.</p>
 <div class="plans">
-<article class="plan"><h3>Essencial</h3><p class="what">Agenda 24h no WhatsApp</p>
+<article class="plan"><h3>Essencial</h3><p class="what">Agenda cheia e menos faltas</p>
 <p class="val"><b>R$ 450</b>/mês</p><p class="impl">Até 300 clientes por mês</p>
-<ul><li>Cliente marca, remarca e cancela sozinho, a qualquer hora</li><li>Lembrete automático um dia antes, com confirmação</li><li>Agenda separada por profissional</li><li>Menos faltas e menos telefone tocando</li></ul>
+<ul><li>A gente monta e ajusta para você</li><li>Cliente marca, remarca e cancela sozinho, a qualquer hora</li><li>Lembrete automático um dia antes, com confirmação</li><li>Agenda separada por profissional</li><li>Menos faltas e menos telefone tocando</li></ul>
 <a class="btn sec" href="#contato" data-plano="Essencial">Quero o Essencial</a></article>
 <article class="plan top"><span class="tag">Mais escolhido</span><h3>Gestão</h3><p class="what">Atendimento e visão do dono</p>
 <p class="val"><b>R$ 1.000</b>/mês</p><p class="impl">Até 800 clientes por mês</p>
@@ -321,6 +352,8 @@ document.getElementById('pain').innerHTML=pain.map(p=>`<div class="pc"><span cla
 const faq=[
 ['Quanto custa?','Os planos vão de R$ 450 a R$ 2.000 por mês, conforme quantos clientes você atende, mais uma implantação única a partir de R$ 990. Os 5 primeiros clientes não pagam implantação. Projetos Sob Medida são orçados à parte. Depois da demonstração você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
 ['Tenho que ficar preso a um contrato longo?','Não. A fidelidade é de 3 meses. Depois disso é mês a mês, e você pode cancelar quando quiser.'],
+['O WhatsApp já tem IA grátis. Por que contratar vocês?','Ela responde perguntas, mas você precisa configurar sozinho e ela não cuida da sua agenda. A gente monta, liga à sua agenda e acompanha os resultados com você todo mês.'],
+['Funciona com a agenda que eu já uso?','Funciona com Google Agenda e planilhas. Outros sistemas, como os de salão ou de clínica, avaliamos na primeira conversa.'],
 ['Qual a diferença entre os planos?','No Essencial e no Gestão o cliente agenda por um atendimento automático, com opções simples. No Premium IA uma inteligência artificial conversa de forma natural, entende áudio e tira dúvidas.'],
 ['Preciso entender de tecnologia?','Não. A gente configura e cuida de tudo. Você continua usando o WhatsApp como já usa.'],
 ['A IA pode falar algo errado para o meu cliente?','No Premium IA ela só responde com as informações que você aprovou. Quando não sabe, passa a conversa para você ou sua equipe. Em qualquer plano você pode assumir a conversa quando quiser.'],
