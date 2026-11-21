@@ -325,7 +325,7 @@ form.addEventListener('submit',e=>{
 e.preventDefault();
 const v=id=>document.getElementById(id).value.trim();
 if(!v('f-nome')||!v('f-neg')){fmsg.textContent='Falta preencher: '+[!v('f-nome')&&'seu nome',!v('f-neg')&&'nome do negócio'].filter(Boolean).join(' e ')+'.';document.getElementById(!v('f-nome')?'f-nome':'f-neg').focus();return}
-const txt=`Olá, Arktos Leon! Sou ${v('f-nome')}, do(a) ${v('f-neg')} ${v('f-tipo')?' ('+v('f-tipo')+')':''}. Plano de interesse: ${v('f-plano')}. Quero ver uma demonstração.`;
+const txt=`Olá, Arktos Leon! Sou ${v('f-nome')}, do(a) ${v('f-neg')}${v('f-tipo')?' ('+v('f-tipo')+')':''}. Plano de interesse: ${v('f-plano')}. Quero ver uma demonstração.`;
 let url='';
 if(WHATSAPP)url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
 else if(EMAIL){url=`mailto:${EMAIL}?subject=${encodeURIComponent('Demonstração - '+v('f-neg'))}&body=${encodeURIComponent(txt)}`;document.getElementById('ok-txt').textContent='Abrimos seu e-mail com o pedido já escrito. É só tocar em enviar.'}
