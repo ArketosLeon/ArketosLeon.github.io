@@ -219,6 +219,25 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 .cta .btn{width:100%}
 .chip{display:none}
 }
+
+/* contratação pelo site */
+.pays{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:14px;color:var(--mute)}.pays span::before{content:"✓ ";color:var(--ok);font-weight:700}
+.plan .demo{display:block;text-align:center;margin-top:10px;font-size:14px;color:var(--mute);padding:6px}.plan.top .demo{color:#c9d4ee}
+dialog#pay{border:0;border-radius:20px;padding:0;width:min(480px,94vw);background:var(--card);color:var(--ink)}
+dialog#pay::backdrop{background:rgba(7,15,36,.6)}
+#payform{display:grid;gap:14px;padding:clamp(20px,3vw,28px)}
+#payform input[type=text],#payform input:not([type]),#payform input[type=tel],#payform input[type=email]{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px}.dhead h3{font-size:22px}
+.dhead button{background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:var(--mute);min-width:44px;min-height:44px}
+.modo{border:0;margin:0;padding:0;display:grid;gap:8px}.modo legend{font-weight:600;font-size:14px;margin-bottom:6px}
+.op{display:flex!important;flex-direction:row!important;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
+.op:has(input:checked){border-color:var(--blue2);box-shadow:0 0 0 1px var(--blue2)}
+.op input{width:auto;min-height:0;margin-top:4px;accent-color:var(--blue)}.op b{display:block}.op small{display:block;font-weight:400;color:var(--mute);font-size:14px;line-height:1.4}
+.resumo{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:15px}.resumo b{font:800 22px Montserrat,sans-serif}
+.dnote{font-size:13px;color:var(--mute)}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:60;width:min(560px,92vw);background:var(--card);color:var(--ink);border-radius:16px;padding:18px 20px;box-shadow:0 20px 50px -12px rgba(7,15,36,.5);border-left:6px solid var(--blue)}
+.toast.ok{border-color:var(--ok)}.toast.bad{border-color:#b42318}.toast b{display:block;font:800 18px Montserrat,sans-serif;margin-bottom:4px}
+.toast button{float:right;background:none;border:0;font-size:24px;cursor:pointer;color:var(--mute);min-width:44px;min-height:44px;margin:-10px -10px 0 0}
 </style>
 </head>
 <body>
@@ -309,27 +328,47 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <section id="planos" class="band"><div class="wrap">
 <h2>Planos</h2>
 <p class="lead">O plano acompanha o tamanho do seu negócio: quanto mais clientes você atende por mês, mais recursos fazem diferença. Dá para subir de plano quando quiser.</p>
-<p class="fund">Cliente fundador: os 5 primeiros clientes não pagam implantação.</p>
+<p class="fund" id="fund">Cliente fundador: os 5 primeiros clientes não pagam implantação.</p>
+<p class="pays"><span>Contrate pelo site</span><span>Pix ou cartão</span><span>Pagamento seguro pela InfinitePay</span><span>Recibo na hora</span></p>
 <div class="plans">
 <article class="plan"><h3>Essencial</h3><p class="what">Agenda cheia e menos faltas</p>
 <p class="val"><b>R$ 450</b>/mês</p><p class="impl">Até 300 clientes por mês</p>
 <ul><li>A gente monta e ajusta para você</li><li>Cliente marca, remarca e cancela sozinho, a qualquer hora</li><li>Lembrete automático um dia antes, com confirmação</li><li>Agenda separada por profissional</li><li>Menos faltas e menos telefone tocando</li></ul>
-<a class="btn sec" href="#contato" data-plano="Essencial">Quero o Essencial</a></article>
+<button class="btn sec" type="button" data-pagar="essencial">Contratar o Essencial</button><a class="demo" href="#contato" data-plano="Essencial">ou peça a demonstração grátis</a></article>
 <article class="plan top"><span class="tag">Mais escolhido</span><h3>Gestão</h3><p class="what">Os números da clínica no seu WhatsApp</p>
 <p class="val"><b>R$ 1.000</b>/mês</p><p class="impl">Até 800 clientes por mês</p>
 <ul><li><b>Tudo do Essencial</b></li><li>Sua equipe controla a agenda pelo WhatsApp: inclui, tira e bloqueia horários</li><li>Check-in do paciente num tablet no balcão</li><li>Resumo diário no seu WhatsApp: atendimentos, faltas em reais e horários vagos</li><li>Painel com os números da clínica</li></ul>
-<a class="btn pri" href="#contato" data-plano="Gestão">Quero o Gestão</a></article>
+<button class="btn pri" type="button" data-pagar="gestao">Contratar o Gestão</button><a class="demo" href="#contato" data-plano="Gestão">ou peça a demonstração grátis</a></article>
 <article class="plan"><h3>Premium IA</h3><p class="what">Atendente com inteligência artificial</p>
 <p class="val"><b>R$ 2.000</b>/mês</p><p class="impl">Até 2.000 clientes por mês</p>
 <ul><li><b>Tudo do Gestão</b></li><li>Atendente com IA que conversa de forma natural e entende áudio</li><li>Tira dúvidas sobre serviços e valores</li><li>Você pergunta e recebe na hora: “quanto perdi com faltas esta semana?”</li><li>Ajustes e melhorias todo mês</li></ul>
-<a class="btn sec" href="#contato" data-plano="Premium IA">Quero o Premium IA</a></article>
+<button class="btn sec" type="button" data-pagar="premium">Contratar o Premium IA</button><a class="demo" href="#contato" data-plano="Premium IA">ou peça a demonstração grátis</a></article>
 </div>
 <article class="custom"><div><h3>Sob Medida: sua empresa inteira respondendo pelo WhatsApp</h3>
 <p>A IA aprende com os seus documentos (tabelas de preço, protocolos, manuais, contratos) e responde na hora, com base no que é seu. Você decide o que a equipe e o que os clientes podem consultar.</p>
 <ul><li>Sua equipe pergunta “qual o protocolo pós-procedimento?” e recebe a resposta em segundos</li><li>Seus clientes tiram dúvidas com informação oficial, sem esperar ninguém</li><li>Funcionário novo aprende sem precisar te interromper</li><li>Conectado aos sistemas que você já usa</li><li>Projeto desenhado junto com você, do zero</li></ul></div>
 <div class="cbox"><p class="val"><b>Sob consulta</b></p><a class="btn gold" href="#contato" data-plano="Sob Medida">Quero um projeto sob medida</a></div></article>
-<p class="small">Implantação única a partir de R$ 990, informada na proposta. Cliente é cada pessoa diferente que conversou com você no mês; passou da faixa por 2 meses seguidos, a gente conversa sobre subir de plano. As mensagens do WhatsApp, cobradas pela Meta, são repassadas à parte. Fidelidade de 3 meses, depois mês a mês.</p>
+<p class="small">Implantação única a partir de R$ 990 (grátis para os 5 primeiros clientes), já incluída no primeiro pagamento. Pelo site você paga a implantação junto com o 1º mês, ou os 3 meses da fidelidade de uma vez, no Pix ou parcelado no cartão; os meses seguintes chegam por link no seu WhatsApp. Cliente é cada pessoa diferente que conversou com você no mês; passou da faixa por 2 meses seguidos, a gente conversa sobre subir de plano. As mensagens do WhatsApp, cobradas pela Meta, são repassadas à parte. Fidelidade de 3 meses, depois mês a mês.</p>
 </div></section>
+
+
+<dialog id="pay" aria-labelledby="pay-t">
+<form id="payform" novalidate>
+<div class="dhead"><h3 id="pay-t">Contratar o plano</h3><button type="button" id="pay-x" aria-label="Fechar">×</button></div>
+<fieldset class="modo"><legend>Como prefere pagar?</legend>
+<label class="op"><input type="radio" name="modo" value="entrada" checked><span><b>Mês a mês</b><small id="op-entrada"></small></span></label>
+<label class="op"><input type="radio" name="modo" value="trimestral"><span><b>3 meses de uma vez</b><small id="op-tri"></small></span></label>
+</fieldset>
+<div class="resumo" id="pay-resumo" aria-live="polite"></div>
+<label><span>Seu nome <span class="req" aria-hidden="true">*</span></span><input id="p-nome" autocomplete="name" required aria-required="true"></label>
+<label><span>Nome da clínica ou do negócio <span class="req" aria-hidden="true">*</span></span><input id="p-neg" autocomplete="organization" required aria-required="true"></label>
+<label><span>WhatsApp com DDD <span class="req" aria-hidden="true">*</span></span><input id="p-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-8888" required aria-required="true"></label>
+<label>E-mail para o recibo<input id="p-email" type="email" autocomplete="email"></label>
+<button class="btn pri" type="submit" id="p-go" data-cta="pagar">Ir para o pagamento</button>
+<p class="fmsg" id="p-msg" aria-live="polite"></p>
+<p class="dnote">Você vai para a página segura da InfinitePay e volta para cá com o recibo. Fidelidade de 3 meses, depois mês a mês.</p>
+</form>
+</dialog>
 
 <section id="como" class="band soft"><div class="wrap">
 <h2>Como funciona</h2>
@@ -405,6 +444,7 @@ const faq=[
 ['Preciso trocar o sistema da clínica?','Não. Funcionamos com o WhatsApp e a agenda que você já usa (Google Agenda e planilhas; outros sistemas avaliamos na primeira conversa). Você não aprende sistema novo.'],
 ['O que aparece no painel?','Faltas e quanto elas custaram, confirmações para amanhã, horários vagos, mensagens sem resposta e quanto foi recuperado. No plano Gestão você recebe um resumo no WhatsApp todo dia e consulta o painel quando quiser.'],
 ['Quanto custa?','Os planos vão de R$ 450 a R$ 2.000 por mês, conforme quantos clientes você atende, mais uma implantação única a partir de R$ 990. Os 5 primeiros clientes não pagam implantação. Projetos Sob Medida são orçados à parte. Depois da demonstração você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
+['Como funciona o pagamento?','Você pode contratar aqui pelo site, com Pix ou cartão, na página segura da InfinitePay. O primeiro pagamento já junta a implantação e o 1º mês (os 5 primeiros clientes não pagam implantação). Se preferir, paga os 3 meses da fidelidade de uma vez, no Pix ou parcelado no cartão. Os meses seguintes chegam por link no seu WhatsApp.'],
 ['Tenho que ficar preso a um contrato longo?','Não. A fidelidade é de 3 meses. Depois disso é mês a mês, e você pode cancelar quando quiser.'],
 ['O WhatsApp já tem IA grátis. Por que contratar vocês?','Ela responde perguntas, mas você precisa configurar sozinho e ela não cuida da sua agenda. A gente monta, liga à sua agenda e acompanha os resultados com você todo mês.'],
 ['Funciona com a agenda que eu já uso?','Funciona com Google Agenda e planilhas. Outros sistemas, como os de salão ou de clínica, avaliamos na primeira conversa.'],
@@ -438,6 +478,54 @@ else if(EMAIL){url=`mailto:${EMAIL}?subject=${encodeURIComponent('Demonstração
 if(!url){fmsg.textContent='Nosso contato será publicado em breve. Obrigado pelo interesse!';return}
 const a=document.createElement('a');a.href=url;if(WHATSAPP){a.target='_blank';a.rel='noopener'}document.body.appendChild(a);a.click();a.remove();
 fmsg.textContent='';form.classList.add('done');track('lead');});
+
+// ===== Contratação pelo site (InfinitePay via Supabase). Os valores valem no servidor; aqui é só a vitrine. =====
+const PAGAMENTO='https://rotbtpqkysoolsauexhg.supabase.co/functions/v1/pagamento';
+const PLANOS={essencial:{nome:'Essencial',mes:450},gestao:{nome:'Gestão',mes:1000},premium:{nome:'Premium IA',mes:2000}};
+let IMPL=0,VAGAS=null;
+const real=x=>'R$ '+x.toLocaleString('pt-BR',{minimumFractionDigits:x%1?2:0,maximumFractionDigits:2});
+const post=(r,b)=>fetch(PAGAMENTO+'/'+r,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b||{})}).then(x=>x.json().then(d=>({ok:x.ok,d})));
+post('vagas').then(({d})=>{if(typeof d.vagas_fundador!='number')return;VAGAS=d.vagas_fundador;IMPL=d.implantacao_centavos/100;
+const f=document.getElementById('fund');
+f.textContent=VAGAS>0?`Cliente fundador: os 5 primeiros não pagam implantação. Restam ${VAGAS} ${VAGAS==1?'vaga':'vagas'}.`:'As vagas de cliente fundador acabaram. Obrigado a quem começou com a gente!';
+if(dlg.open)resumo()}).catch(()=>{});
+const dlg=document.getElementById('pay'),pf=document.getElementById('payform'),pmsg=document.getElementById('p-msg'),pgo=document.getElementById('p-go');
+let sel=null,soMensal=false;
+const modo=()=>soMensal?'mensalidade':pf.querySelector('input[name=modo]:checked').value;
+function resumo(){
+const m=sel.mes,imp=soMensal?0:IMPL,implTxt=imp?`implantação de ${real(imp)}`:'implantação grátis de fundador';
+document.getElementById('op-entrada').textContent=`Agora: ${real(imp+m)} (${implTxt} + 1º mês). Depois, ${real(m)} por mês, por link no WhatsApp.`;
+document.getElementById('op-tri').textContent=`Agora: ${real(imp+3*m)} (${implTxt} + 3 meses), no Pix ou parcelado no cartão. Depois, ${real(m)} por mês.`;
+const t=modo(),tot=t=='mensalidade'?m:t=='trimestral'?imp+3*m:imp+m;
+document.getElementById('pay-resumo').innerHTML=`Plano <b style="font-size:inherit;font-family:inherit">${sel.nome}</b><br>Total agora: <b>${real(tot)}</b>${t=='trimestral'?'<br><small>No Pix à vista ou parcelado no cartão. O valor de cada parcela aparece na página de pagamento.</small>':''}`;}
+function abrir(id,mensal){sel=PLANOS[id];if(!sel)return;soMensal=!!mensal;
+pf.querySelector('.modo').hidden=soMensal;document.getElementById('pay-t').textContent=soMensal?'Pagar a mensalidade':'Contratar o '+sel.nome;
+pmsg.textContent='';pgo.disabled=false;pgo.textContent='Ir para o pagamento';resumo();dlg.showModal();document.getElementById('p-nome').focus();track('abrir_'+id)}
+document.querySelectorAll('[data-pagar]').forEach(b=>b.addEventListener('click',()=>abrir(b.dataset.pagar)));
+pf.addEventListener('change',e=>{if(e.target.name=='modo')resumo()});
+document.getElementById('pay-x').addEventListener('click',()=>dlg.close());
+pf.addEventListener('submit',async e=>{e.preventDefault();
+const v=id=>document.getElementById(id).value.trim();
+const falta=[!v('p-nome')&&'seu nome',!v('p-neg')&&'nome do negócio',v('p-tel').replace(/\D/g,'').length<10&&'WhatsApp com DDD'].filter(Boolean);
+if(falta.length){pmsg.textContent='Falta preencher: '+falta.join(', ')+'.';return}
+pgo.disabled=true;pgo.textContent='Abrindo o pagamento…';pmsg.textContent='';
+try{const id=Object.keys(PLANOS).find(k=>PLANOS[k]==sel);
+const {ok,d}=await post('checkout',{plano:id,tipo:modo(),nome:v('p-nome'),negocio:v('p-neg'),telefone:v('p-tel'),email:v('p-email')});
+if(!ok||!d.url)throw new Error(d.erro||'Não foi possível abrir o pagamento agora.');
+track('checkout_'+id+'_'+modo());location.href=d.url;
+}catch(err){pmsg.textContent=err.message||'Não foi possível abrir o pagamento agora.';pgo.disabled=false;pgo.textContent='Ir para o pagamento'}});
+const qs=new URLSearchParams(location.search);
+// Link de cobrança do mês: ?plano=gestao&tipo=mensalidade
+if(qs.get('plano')&&!qs.get('order_nsu'))abrir(qs.get('plano'),qs.get('tipo')=='mensalidade');
+// Volta da InfinitePay: confere o pagamento no servidor
+if(qs.get('order_nsu')){
+const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.innerHTML='<b>Confirmando seu pagamento…</b>Só um instante.';document.body.appendChild(t);
+const x='<button type="button" aria-label="Fechar" onclick="this.parentNode.remove()">×</button>';
+post('confirmar',{order_nsu:qs.get('order_nsu'),slug:qs.get('slug'),transaction_nsu:qs.get('transaction_nsu'),receipt_url:qs.get('receipt_url')})
+.then(({d})=>{if(d.pago){t.className='toast ok';t.innerHTML=x+`<b>Pagamento confirmado ✓</b>${(d.plano||'').replace(/[<>]/g,'')}. A gente te chama no WhatsApp para começar.${/^https:\/\//.test(d.recibo||'')?` <a href="${d.recibo.replace(/"/g,'')}" target="_blank" rel="noopener">Ver recibo</a>`:''}`;track('pagamento_confirmado')}
+else{t.innerHTML=x+'<b>Recebemos seu retorno</b>O pagamento ainda está sendo processado. Assim que confirmar, você recebe o aviso no WhatsApp.'}})
+.catch(()=>{t.className='toast bad';t.innerHTML=x+'<b>Não conseguimos confirmar agora</b>Se você pagou, fique tranquilo: o recibo da InfinitePay vale como comprovante e nós conferimos por aqui.'});
+history.replaceState(null,'',location.pathname+location.hash)}
 
 document.getElementById('ano').textContent=new Date().getFullYear();
 if(WHATSAPP){const wa=document.getElementById('wa');wa.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Olá, Arktos Leon! Quero saber mais.');wa.target='_blank';wa.rel='noopener';wa.classList.add('on')}
