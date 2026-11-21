@@ -110,6 +110,13 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .plan.top .what,.plan.top .val,.plan.top .impl{color:#c9d4ee}.plan.top .val b{color:#fff}
 .plan.top ul{border-color:rgba(255,255,255,.18)}.plan.top li::before{color:var(--gold)}
 .plan .tag{position:absolute;top:-13px;left:24px;background:var(--gold);color:var(--navy);font-size:13px;font-weight:700;padding:4px 12px;border-radius:99px}
+.custom{margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:center;background:var(--navy);color:#fff;border-radius:20px;border-left:6px solid var(--gold);padding:clamp(24px,3vw,36px)}
+.custom h3{font-size:clamp(20px,2.2vw,26px)}.custom p{color:#c9d4ee;margin-top:10px;max-width:70ch}
+.custom ul{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:15px;color:#e3e9f8}
+.custom li{padding-left:24px;position:relative}.custom li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+.cbox{text-align:center}.cbox .val b{font:800 26px Montserrat,sans-serif;color:#fff}.cbox .val{margin:0 0 12px;color:#fff}
+.btn.gold{background:var(--gold);color:var(--navy)}.btn.gold:hover{background:#f0c04a}
+@media(max-width:900px){.custom{grid-template-columns:1fr}.custom ul{grid-template-columns:1fr}.cbox{text-align:left}}
 .small{font-size:14px;color:var(--mute);margin-top:18px;max-width:80ch}
 .cap{position:absolute;bottom:-28px;left:0;right:0;text-align:center;font-size:13px;color:var(--mute)}
 .founder{grid-column:1/-1;text-align:center;font-size:15px;opacity:.95;margin-top:4px}
@@ -219,23 +226,27 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 
 <section id="planos" class="band"><div class="wrap">
 <h2>Planos</h2>
-<p class="lead">Comece pelo plano do tamanho do seu negócio. Dá para subir de plano quando quiser.</p>
-<p class="fund">Primeiros clientes têm condição especial de cliente fundador.</p>
+<p class="lead">O plano acompanha o tamanho do seu negócio: quanto mais clientes você atende por mês, mais recursos fazem diferença. Dá para subir de plano quando quiser.</p>
+<p class="fund">Cliente fundador: os 5 primeiros clientes não pagam implantação.</p>
 <div class="plans">
 <article class="plan"><h3>Essencial</h3><p class="what">Agenda 24h no WhatsApp</p>
-<p class="val"><b>R$ 450</b>/mês</p><p class="impl">+ implantação de R$ 2.000</p>
+<p class="val"><b>R$ 450</b>/mês</p><p class="impl">Até 300 clientes por mês</p>
 <ul><li>Cliente marca, remarca e cancela sozinho, a qualquer hora</li><li>Lembrete automático um dia antes, com confirmação</li><li>Agenda separada por profissional</li><li>Menos faltas e menos telefone tocando</li></ul>
 <a class="btn sec" href="#contato" data-plano="Essencial">Quero o Essencial</a></article>
 <article class="plan top"><span class="tag">Mais escolhido</span><h3>Gestão</h3><p class="what">Atendimento e visão do dono</p>
-<p class="val"><b>R$ 1.000</b>/mês</p><p class="impl">+ implantação de R$ 4.000</p>
+<p class="val"><b>R$ 1.000</b>/mês</p><p class="impl">Até 800 clientes por mês</p>
 <ul><li><b>Tudo do Essencial</b></li><li>Sua equipe controla a agenda pelo WhatsApp: inclui, tira e bloqueia horários</li><li>Check-in do cliente num tablet no balcão</li><li>Resumo diário: atendimentos, faltas e horários vagos</li><li>Painel com os números do negócio</li></ul>
 <a class="btn pri" href="#contato" data-plano="Gestão">Quero o Gestão</a></article>
 <article class="plan"><h3>Premium IA</h3><p class="what">Atendente com inteligência artificial</p>
-<p class="val"><b>R$ 2.000</b>/mês</p><p class="impl">+ implantação de R$ 7.000</p>
+<p class="val"><b>R$ 2.000</b>/mês</p><p class="impl">Até 2.000 clientes por mês</p>
 <ul><li><b>Tudo do Gestão</b></li><li>Atendente com IA que conversa de forma natural e entende áudio</li><li>Tira dúvidas sobre serviços e valores</li><li>Você pergunta e recebe na hora: “quantas faltas tive esta semana?”</li><li>Ajustes e melhorias todo mês</li></ul>
 <a class="btn sec" href="#contato" data-plano="Premium IA">Quero o Premium IA</a></article>
 </div>
-<p class="small">Valores para até 300 atendimentos por dia. As mensagens do WhatsApp, cobradas pela Meta, são repassadas à parte. Contrato mínimo de 12 meses.</p>
+<article class="custom"><div><h3>Sob Medida: sua empresa inteira respondendo pelo WhatsApp</h3>
+<p>A IA aprende com os seus documentos (tabelas de preço, protocolos, manuais, contratos) e responde na hora, com base no que é seu. Você decide o que a equipe e o que os clientes podem consultar.</p>
+<ul><li>Sua equipe pergunta “qual o protocolo pós-procedimento?” e recebe a resposta em segundos</li><li>Seus clientes tiram dúvidas com informação oficial, sem esperar ninguém</li><li>Funcionário novo aprende sem precisar te interromper</li><li>Conectado aos sistemas que você já usa</li><li>Projeto desenhado junto com você, do zero</li></ul></div>
+<div class="cbox"><p class="val"><b>Sob consulta</b></p><a class="btn gold" href="#contato" data-plano="Sob Medida">Quero um projeto sob medida</a></div></article>
+<p class="small">Implantação única a partir de R$ 990, informada na proposta. Cliente é cada pessoa diferente que conversou com você no mês; passou da faixa por 2 meses seguidos, a gente conversa sobre subir de plano. As mensagens do WhatsApp, cobradas pela Meta, são repassadas à parte. Fidelidade de 3 meses, depois mês a mês.</p>
 </div></section>
 
 <section id="como" class="band soft"><div class="wrap">
@@ -263,7 +274,7 @@ footer .kj{font:700 24px serif;letter-spacing:.2em}
 <label><span>Seu nome <span class="req" aria-hidden="true">*</span></span><input id="f-nome" autocomplete="name" required aria-required="true"></label>
 <label><span>Nome do seu negócio <span class="req" aria-hidden="true">*</span></span><input id="f-neg" autocomplete="organization" required aria-required="true"></label>
 <label>Tipo de negócio<select id="f-tipo"><option value="">Escolha uma opção</option><option>Clínica ou consultório</option><option>Salão, barbearia ou estética</option><option>Pet shop ou veterinária</option><option>Academia ou estúdio</option><option>Restaurante ou delivery</option><option>Loja ou comércio</option><option>Outro</option></select></label>
-<label>Plano de interesse<select id="f-plano"><option>Ainda não sei</option><option>Essencial</option><option>Gestão</option><option>Premium IA</option></select></label>
+<label>Plano de interesse<select id="f-plano"><option>Ainda não sei</option><option>Essencial</option><option>Gestão</option><option>Premium IA</option><option>Sob Medida</option></select></label>
 <button class="btn pri" type="submit" id="f-btn" data-cta="form">Pedir demonstração</button>
 <div class="ok-box" role="status"><b>Pedido pronto ✓</b><p id="ok-txt">Abrimos sua mensagem já escrita. É só tocar em enviar.</p></div>
 <p class="fmsg" id="fmsg" aria-live="polite"></p>
@@ -308,7 +319,8 @@ const pain=[
 document.getElementById('pain').innerHTML=pain.map(p=>`<div class="pc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ic[p[0]]}</svg></span><h3>${p[1]}</h3><p>${p[2]}</p></div>`).join('');
 
 const faq=[
-['Quanto custa?','Os planos vão de R$ 450 a R$ 2.000 por mês, mais uma implantação única que começa em R$ 2.000. Depois da demonstração você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
+['Quanto custa?','Os planos vão de R$ 450 a R$ 2.000 por mês, conforme quantos clientes você atende, mais uma implantação única a partir de R$ 990. Os 5 primeiros clientes não pagam implantação. Projetos Sob Medida são orçados à parte. Depois da demonstração você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
+['Tenho que ficar preso a um contrato longo?','Não. A fidelidade é de 3 meses. Depois disso é mês a mês, e você pode cancelar quando quiser.'],
 ['Qual a diferença entre os planos?','No Essencial e no Gestão o cliente agenda por um atendimento automático, com opções simples. No Premium IA uma inteligência artificial conversa de forma natural, entende áudio e tira dúvidas.'],
 ['Preciso entender de tecnologia?','Não. A gente configura e cuida de tudo. Você continua usando o WhatsApp como já usa.'],
 ['A IA pode falar algo errado para o meu cliente?','No Premium IA ela só responde com as informações que você aprovou. Quando não sabe, passa a conversa para você ou sua equipe. Em qualquer plano você pode assumir a conversa quando quiser.'],
