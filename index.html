@@ -272,7 +272,7 @@ dialog#pay::backdrop{background:rgba(7,15,36,.6)}
 </div>
 </div></section>
 
-<section class="band soft"><div class="wrap">
+<section id="dores" class="band soft"><div class="wrap">
 <h2>O dinheiro que some sem passar pelo caixa</h2>
 <p class="lead">A agenda parece cheia, mas a cadeira fica vazia. Quase nenhuma clínica sabe quanto isso custa no mês, porque ninguém soma.</p>
 <div class="pains" id="pain"></div>
@@ -322,7 +322,7 @@ dialog#pay::backdrop{background:rgba(7,15,36,.6)}
 </tbody></table>
 </div></section>
 
-<section class="duo" aria-label="Quem somos"><div class="wrap">
+<section id="quem" class="duo" aria-label="Quem somos"><div class="wrap">
 <div class="a"><b>Arktos, o urso</b><p>Monta e cuida da tecnologia nos bastidores.</p></div>
 <span class="seal"><img src="emblema.webp" width="600" height="325" alt="Emblema Arktos Leon: metade urso, metade leão"></span>
 <div class="l"><b>Leon, o leão</b><p>Fala com você e acompanha os resultados.</p></div>
@@ -416,6 +416,46 @@ dialog#pay::backdrop{background:rgba(7,15,36,.6)}
 
 <script>
 {
+// ===== Métricas: cada passo do visitante vai para vendas.eventos (Supabase). Sem cookies; id aleatório por aba. =====
+const EVT='https://rotbtpqkysoolsauexhg.supabase.co/functions/v1/evento';
+const ss={get:k=>{try{return sessionStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(e){}}};
+const rid=()=>{try{return crypto.randomUUID()}catch(e){return 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,12)}};
+const SESSAO=ss.get('al_s')||(()=>{const v=rid();ss.set('al_s',v);return v})();
+const ORIG=(()=>{const g=ss.get('al_o');if(g){try{return JSON.parse(g)}catch(e){}}
+const q=new URLSearchParams(location.search),ref=document.referrer||'';let host='';try{host=ref?new URL(ref).hostname:''}catch(e){}
+const porRef=!host||host==location.hostname?'direto':/instagram/.test(host)?'instagram':/facebook|fb\./.test(host)?'facebook':/google/.test(host)?'google':/whatsapp|wa\.me/.test(host)?'whatsapp':/linkedin/.test(host)?'linkedin':'outro_site';
+const o={origem:(q.get('origem')||q.get('utm_source')||porRef).toLowerCase().slice(0,40),utm_source:q.get('utm_source'),utm_medium:q.get('utm_medium'),utm_campaign:q.get('utm_campaign'),referrer:host||null};
+ss.set('al_o',JSON.stringify(o));return o})();
+const DISP=matchMedia('(max-width:820px)').matches?'celular':'computador';
+let FILA=[];
+const enviar=(beacon)=>{if(!FILA.length)return;const corpo=JSON.stringify({sessao:SESSAO,dispositivo:DISP,...ORIG,eventos:FILA.splice(0,40)});
+try{if(beacon&&navigator.sendBeacon&&navigator.sendBeacon(EVT,new Blob([corpo],{type:'text/plain'})))return;
+fetch(EVT,{method:'POST',headers:{'content-type':'text/plain'},body:corpo,keepalive:true}).catch(()=>{})}catch(e){}};
+const ev=(evento,dados)=>{FILA.push({evento,t:Date.now(),pagina:location.pathname,dados:dados||{}});if(FILA.length>=15)enviar()};
+setInterval(()=>enviar(),4000);
+const T0=Date.now();let visivelMs=0,visivelDesde=document.hidden?0:Date.now(),rolMax=0,saiu=false;const vistas=new Set();
+const fimVisivel=()=>{if(visivelDesde){visivelMs+=Date.now()-visivelDesde;visivelDesde=0}};
+document.addEventListener('visibilitychange',()=>{if(document.hidden){fimVisivel();ev('aba_oculta',{segundos:Math.round(visivelMs/1000)});enviar(true)}else{visivelDesde=Date.now();ev('aba_voltou')}});
+addEventListener('pagehide',()=>{if(saiu)return;saiu=true;fimVisivel();ev('saida',{segundos_total:Math.round((Date.now()-T0)/1000),segundos_ativos:Math.round(visivelMs/1000),rolagem_max:rolMax,secoes_vistas:vistas.size,ultima_secao:[...vistas].pop()||null});enviar(true)});
+addEventListener('error',e=>ev('erro_js',{msg:String(e.message||'').slice(0,150),linha:e.lineno||0}));
+ev('visita',{titulo:document.title.slice(0,80),largura:innerWidth,idioma:navigator.language||'',hash:location.hash||null,volta:!!ss.get('al_v')});ss.set('al_v','1');
+// seções vistas (40% na tela) e tempo em cada uma
+const secT={};
+const ioS=new IntersectionObserver(es=>es.forEach(x=>{const id=x.target.id;if(x.isIntersecting){secT[id]=Date.now();if(!vistas.has(id)){vistas.add(id);ev('secao_vista',{secao:id,ordem:vistas.size,segundos_desde_inicio:Math.round((Date.now()-T0)/1000)})}}
+else if(secT[id]){const seg=Math.round((Date.now()-secT[id])/1000);delete secT[id];if(seg>=3)ev('secao_tempo',{secao:id,segundos:seg})}}),{threshold:.4});
+document.querySelectorAll('main section[id], footer').forEach(el=>{if(!el.id)el.id='rodape';ioS.observe(el)});
+// rolagem
+const marcos=[25,50,75,90,100];
+addEventListener('scroll',()=>{const h=document.documentElement,pct=Math.min(100,Math.round((h.scrollTop+innerHeight)/h.scrollHeight*100));
+while(marcos.length&&pct>=marcos[0]){const m=marcos.shift();rolMax=m;ev('rolagem',{pct:m,segundos:Math.round((Date.now()-T0)/1000)})}},{passive:true});
+// cliques em links (menu, e-mail, Instagram, WhatsApp, políticas, fontes)
+document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a||a.dataset.cta)return;const h=a.getAttribute('href')||'';
+if(h.startsWith('#'))ev('nav_clique',{destino:h,local:a.closest('nav')?'menu':a.closest('footer')?'rodape':'pagina'});
+else if(h.startsWith('mailto:'))ev('email_clique');
+else if(/instagram\.com/.test(h))ev('instagram_clique',{local:a.closest('footer')?'rodape':'pagina'});
+else if(/wa\.me|whatsapp/.test(h))ev('whatsapp_clique');
+else ev('link_clique',{href:h.slice(0,120)})},true);
+
 // ===== PREENCHA AQUI =====
 // WhatsApp da Arktos Leon: DDI + DDD + número, só dígitos. Ex.: '5511999998888'
 const WHATSAPP = '';
@@ -457,6 +497,7 @@ const faq=[
 ['Funciona com o número que eu já tenho?','Na maioria dos casos, sim. Verificamos o seu número na primeira conversa.'],
 ['E os dados dos meus clientes?','São usados só para atender o seu negócio e tratados conforme a LGPD.']];
 document.getElementById('faq').innerHTML=faq.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
+document.querySelectorAll('#faq details').forEach((d,i)=>d.addEventListener('toggle',()=>{if(d.open)ev('faq_aberta',{n:i+1,pergunta:faq[i][0].slice(0,80)})}));
 
 const brl=x=>'R$ '+Math.round(x).toLocaleString('pt-BR');
 const calc=()=>{const n=id=>{const x=Number(document.getElementById(id).value);return isFinite(x)&&x>0?x:0};
@@ -465,11 +506,27 @@ document.getElementById('c-mes').textContent=brl(mes);document.getElementById('c
 document.getElementById('c-qt').textContent=Math.round(at*fa/100).toLocaleString('pt-BR');
 const nf=va>0?Math.ceil(450/va):0;document.getElementById('c-paga').textContent=nf?`O plano Essencial (R$ 450/mês) se paga com ${nf} ${nf==1?'falta recuperada':'faltas recuperadas'} no mês.`:''};
 ['c-at','c-fa','c-va'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
+let calcUsou=false,calcTmr=0;
+['c-at','c-fa','c-va'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{
+if(!calcUsou){calcUsou=true;ev('calc_interagiu',{campo:id})}
+clearTimeout(calcTmr);calcTmr=setTimeout(()=>{const n=k=>Number(document.getElementById(k).value)||0,at=n('c-at'),fa=n('c-fa'),va=n('c-va');
+ev('calc_valores',{consultas:at,faltas:fa,valor:va,perda_mes:Math.round(at*fa/100*va),faltas_para_pagar:va>0?Math.ceil(450/va):null})},1500)}));
 
-function track(n){try{(window.dataLayer=window.dataLayer||[]).push({event:n})}catch(e){}}
+function track(n,d){try{(window.dataLayer=window.dataLayer||[]).push({event:n})}catch(e){}
+const m=String(n).match(/^(cta|plano|abrir|checkout)_(.+)$/);
+if(m&&m[1]=='cta')ev('cta_clique',{cta:m[2],...(d||{})});
+else if(m&&m[1]=='plano')ev('plano_clique',{plano:m[2]});
+else if(m&&m[1]=='abrir')ev('checkout_aberto',{plano:m[2]});
+else if(m&&m[1]=='checkout'){const k=m[2].split('_');ev('checkout_redirecionado',{plano:k[0],modo:k.slice(1).join('_')})}
+else if(n=='lead')ev('form_concluido',d||{});
+else if(/^[a-z][a-z0-9_]{1,39}$/.test(n))ev(n,d||{})}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-cta]');if(a)track('cta_'+a.dataset.cta)});
 
 const form=document.getElementById('form'),fmsg=document.getElementById('fmsg');
+let formIni=0;
+form.addEventListener('focusin',()=>{if(!formIni){formIni=Date.now();ev('form_inicio',{veio_da_calc:calcUsou})}});
+form.querySelectorAll('input,select').forEach(el=>{if(el.id=='f-site')return;el.addEventListener('change',()=>ev('form_campo',{campo:el.id,preenchido:!!el.value.trim(),segundos:formIni?Math.round((Date.now()-formIni)/1000):0}))});
+addEventListener('pagehide',()=>{if(formIni&&!form.classList.contains('done'))ev('form_abandonado',{campos:[...form.querySelectorAll('input,select')].filter(x=>x.id!='f-site'&&x.value.trim()&&x.id!='f-plano').map(x=>x.id),segundos:Math.round((Date.now()-formIni)/1000)})});
 document.querySelectorAll('[data-plano]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('f-plano').value=a.dataset.plano;track('plano_'+a.dataset.plano)}));
 const LEAD='https://rotbtpqkysoolsauexhg.supabase.co/functions/v1/lead';
 form.addEventListener('submit',async e=>{
@@ -477,21 +534,22 @@ e.preventDefault();
 const v=id=>document.getElementById(id).value.trim();
 const tel=v('f-tel').replace(/\D/g,'');
 const falta=[!v('f-nome')&&'seu nome',!v('f-neg')&&'nome do negócio',tel.length<10&&'WhatsApp com DDD'].filter(Boolean);
-if(falta.length){fmsg.textContent='Falta preencher: '+falta.join(', ')+'.';document.getElementById(!v('f-nome')?'f-nome':!v('f-neg')?'f-neg':'f-tel').focus();return}
+if(falta.length){ev('form_erro',{faltando:falta});fmsg.textContent='Falta preencher: '+falta.join(', ')+'.';document.getElementById(!v('f-nome')?'f-nome':!v('f-neg')?'f-neg':'f-tel').focus();return}
+ev('form_enviado',{plano:v('f-plano'),tipo:v('f-tipo')||null,segundos:formIni?Math.round((Date.now()-formIni)/1000):0});
 const btn=document.getElementById('f-btn');btn.disabled=true;btn.textContent='Enviando…';fmsg.textContent='';
 const n=id=>Number(document.getElementById(id).value)||0,at=n('c-at'),fa=n('c-fa'),va=n('c-va');
 const dados={nome:v('f-nome'),negocio:v('f-neg'),telefone:tel,tipo:v('f-tipo'),plano:v('f-plano'),site:v('f-site'),
-consultas:at,faltas:fa,valor:va,perda:Math.round(at*fa/100*va),pagina:location.pathname+location.search};
+consultas:at,faltas:fa,valor:va,perda:Math.round(at*fa/100*va),pagina:location.pathname+location.search,sessao:SESSAO,...ORIG};
 let gravou=false;
-try{const r=await fetch(LEAD,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(dados)});const d=await r.json();gravou=r.ok&&d.ok;if(!gravou&&d.erro){fmsg.textContent=d.erro;btn.disabled=false;btn.textContent='Pedir demonstração';return}}catch(err){}
+try{const r=await fetch(LEAD,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(dados)});const d=await r.json();gravou=r.ok&&d.ok;if(!gravou&&d.erro){ev('lead_recusado',{erro:String(d.erro).slice(0,80)});fmsg.textContent=d.erro;btn.disabled=false;btn.textContent='Pedir demonstração';return}}catch(err){ev('lead_falhou',{erro:String(err&&err.message||err).slice(0,80)})}
 if(!gravou){
 const txt=`Olá, Arktos Leon! Sou ${v('f-nome')}, do(a) ${v('f-neg')}${v('f-tipo')?' ('+v('f-tipo')+')':''}. WhatsApp: ${v('f-tel')}. Plano de interesse: ${v('f-plano')}. Quero ver uma demonstração.`;
 let url='';
 if(WHATSAPP)url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
 else if(EMAIL){url=`mailto:${EMAIL}?subject=${encodeURIComponent('Demonstração - '+v('f-neg'))}&body=${encodeURIComponent(txt)}`;document.getElementById('ok-txt').textContent='Abrimos seu e-mail com o pedido já escrito. É só tocar em enviar.'}
 if(!url){fmsg.textContent='Não conseguimos enviar agora. Tente de novo em instantes.';btn.disabled=false;btn.textContent='Pedir demonstração';return}
-const a=document.createElement('a');a.href=url;if(WHATSAPP){a.target='_blank';a.rel='noopener'}document.body.appendChild(a);a.click();a.remove();}
-form.classList.add('done');track('lead');});
+ev('form_plano_b',{canal:WHATSAPP?'whatsapp':'email'});const a=document.createElement('a');a.href=url;if(WHATSAPP){a.target='_blank';a.rel='noopener'}document.body.appendChild(a);a.click();a.remove();}
+form.classList.add('done');track('lead',{gravou});enviar();});
 
 // ===== Contratação pelo site (InfinitePay via Supabase). Os valores valem no servidor; aqui é só a vitrine. =====
 const PAGAMENTO='https://rotbtpqkysoolsauexhg.supabase.co/functions/v1/pagamento';
@@ -516,18 +574,20 @@ function abrir(id,mensal){sel=PLANOS[id];if(!sel)return;soMensal=!!mensal;
 pf.querySelector('.modo').hidden=soMensal;document.getElementById('pay-t').textContent=soMensal?'Pagar a mensalidade':'Contratar o '+sel.nome;
 pmsg.textContent='';pgo.disabled=false;pgo.textContent='Ir para o pagamento';resumo();dlg.showModal();document.getElementById('p-nome').focus();track('abrir_'+id)}
 document.querySelectorAll('[data-pagar]').forEach(b=>b.addEventListener('click',()=>abrir(b.dataset.pagar)));
-pf.addEventListener('change',e=>{if(e.target.name=='modo')resumo()});
+pf.addEventListener('change',e=>{if(e.target.name=='modo'){resumo();ev('checkout_modo',{modo:e.target.value,plano:sel&&sel.nome})}else if(e.target.id)ev('checkout_campo',{campo:e.target.id,preenchido:!!String(e.target.value).trim()})});
+dlg.addEventListener('close',()=>{if(!pgo.disabled)ev('checkout_fechado',{plano:sel&&sel.nome})});
 document.getElementById('pay-x').addEventListener('click',()=>dlg.close());
 pf.addEventListener('submit',async e=>{e.preventDefault();
 const v=id=>document.getElementById(id).value.trim();
 const falta=[!v('p-nome')&&'seu nome',!v('p-neg')&&'nome do negócio',v('p-tel').replace(/\D/g,'').length<10&&'WhatsApp com DDD'].filter(Boolean);
-if(falta.length){pmsg.textContent='Falta preencher: '+falta.join(', ')+'.';return}
+if(falta.length){ev('checkout_erro',{faltando:falta,plano:sel&&sel.nome});pmsg.textContent='Falta preencher: '+falta.join(', ')+'.';return}
+ev('checkout_enviado',{plano:sel&&sel.nome,modo:modo()});
 pgo.disabled=true;pgo.textContent='Abrindo o pagamento…';pmsg.textContent='';
 try{const id=Object.keys(PLANOS).find(k=>PLANOS[k]==sel);
 const {ok,d}=await post('checkout',{plano:id,tipo:modo(),nome:v('p-nome'),negocio:v('p-neg'),telefone:v('p-tel'),email:v('p-email')});
 if(!ok||!d.url)throw new Error(d.erro||'Não foi possível abrir o pagamento agora.');
-track('checkout_'+id+'_'+modo());location.href=d.url;
-}catch(err){pmsg.textContent=err.message||'Não foi possível abrir o pagamento agora.';pgo.disabled=false;pgo.textContent='Ir para o pagamento'}});
+track('checkout_'+id+'_'+modo());enviar(true);location.href=d.url;
+}catch(err){ev('checkout_falhou',{erro:String(err&&err.message||'').slice(0,80),plano:sel&&sel.nome});pmsg.textContent=err.message||'Não foi possível abrir o pagamento agora.';pgo.disabled=false;pgo.textContent='Ir para o pagamento'}});
 const qs=new URLSearchParams(location.search);
 // Link de cobrança do mês: ?plano=gestao&tipo=mensalidade
 if(qs.get('plano')&&!qs.get('order_nsu'))abrir(qs.get('plano'),qs.get('tipo')=='mensalidade');
@@ -536,7 +596,7 @@ if(qs.get('order_nsu')){
 const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.innerHTML='<b>Confirmando seu pagamento…</b>Só um instante.';document.body.appendChild(t);
 const x='<button type="button" aria-label="Fechar" onclick="this.parentNode.remove()">×</button>';
 post('confirmar',{order_nsu:qs.get('order_nsu'),slug:qs.get('slug'),transaction_nsu:qs.get('transaction_nsu'),receipt_url:qs.get('receipt_url')})
-.then(({d})=>{if(d.pago){t.className='toast ok';t.innerHTML=x+`<b>Pagamento confirmado ✓</b>${(d.plano||'').replace(/[<>]/g,'')}. A gente te chama no WhatsApp para começar.${/^https:\/\//.test(d.recibo||'')?` <a href="${d.recibo.replace(/"/g,'')}" target="_blank" rel="noopener">Ver recibo</a>`:''}`;track('pagamento_confirmado')}
+.then(({d})=>{ev('pagamento_retorno',{pago:!!d.pago,status:d.status||null});if(d.pago){t.className='toast ok';t.innerHTML=x+`<b>Pagamento confirmado ✓</b>${(d.plano||'').replace(/[<>]/g,'')}. A gente te chama no WhatsApp para começar.${/^https:\/\//.test(d.recibo||'')?` <a href="${d.recibo.replace(/"/g,'')}" target="_blank" rel="noopener">Ver recibo</a>`:''}`;track('pagamento_confirmado')}
 else{t.innerHTML=x+'<b>Recebemos seu retorno</b>O pagamento ainda está sendo processado. Assim que confirmar, você recebe o aviso no WhatsApp.'}})
 .catch(()=>{t.className='toast bad';t.innerHTML=x+'<b>Não conseguimos confirmar agora</b>Se você pagou, fique tranquilo: o recibo da InfinitePay vale como comprovante e nós conferimos por aqui.'});
 history.replaceState(null,'',location.pathname+location.hash)}
