@@ -1,0 +1,11 @@
+{
+  "name": "leon-astral",
+  "version": "0.1.0",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "setup": "npx expo install expo expo-status-bar expo-constants expo-linking expo-web-browser react react-native react-native-svg react-native-safe-area-context react-native-url-polyfill @react-native-async-storage/async-storage @supabase/supabase-js && npm i -D typescript @types/react",
+    "start": "expo start",
+    "android": "expo start --android"
+  }
+}
