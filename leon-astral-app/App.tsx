@@ -264,7 +264,7 @@ function Conversa({ t, s, perfil, dia, uid }: { t: Theme; s: S; perfil: Perfil; 
   ]);
   const [txt, setTxt] = useState('');
   const [digitando, setDigitando] = useState(false);
-  const lista = useRef<ScrollView>(null);
+  const lista = useRef<any>(null);
 
   const enviar = (texto: string) => {
     const v = texto.trim(); if (!v) return;

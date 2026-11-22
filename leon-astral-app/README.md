@@ -8,7 +8,7 @@ App de horóscopo personalizado da Arktos Leon. Backend: Supabase `leon-astral` 
 
 ## Rodar
 ```
-npm run setup      # instala dependências na versão certa do Expo SDK
+npm install        # Expo SDK 58
 npx expo start
 ```
 ## Build

@@ -4,8 +4,27 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "setup": "npx expo install expo expo-status-bar expo-constants expo-linking expo-web-browser react react-native react-native-svg react-native-safe-area-context react-native-url-polyfill @react-native-async-storage/async-storage @supabase/supabase-js && npm i -D typescript @types/react",
     "start": "expo start",
-    "android": "expo start --android"
+    "android": "expo run:android",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@supabase/supabase-js": "^2.119.2",
+    "expo": "^58.0.26",
+    "expo-constants": "~58.0.16",
+    "expo-linking": "~58.0.17",
+    "expo-splash-screen": "~58.0.14",
+    "expo-status-bar": "~58.0.5",
+    "expo-web-browser": "~58.1.0",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.11.1",
+    "react-native-svg": "15.16.0",
+    "react-native-url-polyfill": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.3.0",
+    "typescript": "~6.0.3"
   }
 }

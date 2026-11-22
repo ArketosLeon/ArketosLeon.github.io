@@ -7,11 +7,6 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#f6f5f1"
-    },
     "android": {
       "package": "com.arktosleon.leonastral",
       "versionCode": 1,
@@ -25,7 +20,16 @@
       "supportsTablet": false
     },
     "plugins": [
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "imageWidth": 220,
+          "resizeMode": "contain",
+          "backgroundColor": "#f6f5f1"
+        }
+      ]
     ],
     "extra": {
       "supabaseUrl": "https://rimgeohwknrwgvjburqq.supabase.co",
