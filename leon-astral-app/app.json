@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Leon Astral",
-    "slug": "leon-astral",
+    "slug": "arktos-leon",
     "scheme": "leonastral",
     "version": "0.1.0",
     "orientation": "portrait",
@@ -24,10 +24,16 @@
       "bundleIdentifier": "com.arktosleon.leonastral",
       "supportsTablet": false
     },
-    "plugins": ["expo-web-browser"],
+    "plugins": [
+      "expo-web-browser"
+    ],
     "extra": {
       "supabaseUrl": "https://rimgeohwknrwgvjburqq.supabase.co",
-      "supabaseKey": "sb_publishable_hGhoAsyK38YhewKqXmy3-g_Is__vBCQ"
-    }
+      "supabaseKey": "sb_publishable_hGhoAsyK38YhewKqXmy3-g_Is__vBCQ",
+      "eas": {
+        "projectId": "289c7243-8d34-4537-8add-5f6dba86c4fe"
+      }
+    },
+    "owner": "arktos-leons-team"
   }
 }
