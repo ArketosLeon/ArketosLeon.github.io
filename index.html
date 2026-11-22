@@ -482,7 +482,7 @@ fmsg.textContent='';form.classList.add('done');track('lead');});
 
 // ===== Contratação pelo site (InfinitePay via Supabase). Os valores valem no servidor; aqui é só a vitrine. =====
 const PAGAMENTO='https://rotbtpqkysoolsauexhg.supabase.co/functions/v1/pagamento';
-const PLANOS={essencial:{nome:'Essencial',mes:450},gestao:{nome:'Gestão',mes:1000},premium:{nome:'Premium IA',mes:2000}};
+const PLANOS={essencial:{nome:'Essencial',mes:450},gestao:{nome:'Gestão',mes:1000},premium:{nome:'Premium IA',mes:2000},teste:{nome:'Teste',mes:1}};
 let IMPL=0,VAGAS=null;
 const real=x=>'R$ '+x.toLocaleString('pt-BR',{minimumFractionDigits:x%1?2:0,maximumFractionDigits:2});
 const post=(r,b)=>fetch(PAGAMENTO+'/'+r,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b||{})}).then(x=>x.json().then(d=>({ok:x.ok,d})));
