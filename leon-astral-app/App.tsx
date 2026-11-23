@@ -160,7 +160,7 @@ function Btn({ titulo, onPress, ouro, perigo, carregando, icone }: { titulo: str
   return (
     <Pressable onPress={onPress} disabled={carregando} accessibilityRole="button" accessibilityLabel={titulo} style={({ pressed }) => [{ opacity: pressed ? 0.85 : 1 }]}>
       {ouro ? (
-        <LinearGradient colors={GRAD as unknown as string[]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[s.btn, s.btnOuro]}>{conteudo}</LinearGradient>
+        <LinearGradient colors={GRAD} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[s.btn, s.btnOuro]}>{conteudo}</LinearGradient>
       ) : (
         <View style={[s.btn, perigo && { borderColor: 'rgba(242,167,179,0.35)', backgroundColor: 'transparent' }]}>{conteudo}</View>
       )}
@@ -358,7 +358,7 @@ function Oraculo({ perfil, dia, uid }: { perfil: Perfil; dia: Dia; uid: string }
   ]);
   const [txt, setTxt] = useState('');
   const [digitando, setDigitando] = useState(false);
-  const lista = useRef<ScrollView>(null);
+  const lista = useRef<any>(null);
 
   // histórico salvo no servidor (as últimas 30 mensagens)
   useEffect(() => {
@@ -429,7 +429,7 @@ function Oraculo({ perfil, dia, uid }: { perfil: Perfil; dia: Dia; uid: string }
       <View style={s.envio}>
         <TextInput style={[s.input, { flex: 1, marginBottom: 0 }]} value={txt} onChangeText={setTxt} placeholder="Pergunte à Estela…" placeholderTextColor={T.soft} onSubmitEditing={() => enviar(txt)} returnKeyType="send" maxLength={1000} />
         <Pressable onPress={() => enviar(txt)} accessibilityRole="button" accessibilityLabel="Enviar">
-          <LinearGradient colors={GRAD as unknown as string[]} style={s.enviar}><Text style={{ fontSize: 18, color: '#1B1530' }}>➤</Text></LinearGradient>
+          <LinearGradient colors={GRAD} style={s.enviar}><Text style={{ fontSize: 18, color: '#1B1530' }}>➤</Text></LinearGradient>
         </Pressable>
       </View>
       <Text style={[s.small, { textAlign: 'center', marginBottom: 6 }]}>A Estela é uma IA. Entretenimento e autoconhecimento.</Text>
@@ -441,7 +441,7 @@ function Barra({ rotulo, v }: { rotulo: string; v: number }) {
   return (
     <View style={{ marginTop: 12 }}>
       <View style={[s.row, { justifyContent: 'space-between' }]}><Text style={s.body}>{rotulo}</Text><Text style={[s.body, { color: T.gold }]}>{v}%</Text></View>
-      <View style={s.trilho}><LinearGradient colors={GRAD as unknown as string[]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ height: '100%', width: `${v}%`, borderRadius: 8 }} /></View>
+      <View style={s.trilho}><LinearGradient colors={GRAD} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ height: '100%', width: `${v}%`, borderRadius: 8 }} /></View>
     </View>
   );
 }
