@@ -3,17 +3,20 @@
     "name": "Leon Astral",
     "slug": "arktos-leon",
     "scheme": "leonastral",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "android": {
       "package": "com.arktosleon.leonastral",
-      "versionCode": 1,
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0B0E17"
-      }
+      },
+      "permissions": [
+        "POST_NOTIFICATIONS"
+      ]
     },
     "ios": {
       "bundleIdentifier": "com.arktosleon.leonastral",
@@ -36,6 +39,15 @@
           "organization": "arktos-leon",
           "project": "leon-astral",
           "url": "https://sentry.io/"
+        }
+      ],
+      "expo-font",
+      "expo-localization",
+      [
+        "expo-notifications",
+        {
+          "color": "#A78BFA",
+          "defaultChannel": "diario"
         }
       ]
     ],

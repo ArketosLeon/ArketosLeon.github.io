@@ -6,7 +6,7 @@ export type Ceu = { lua: number; luaSigno: number; proxSigno: number; trocaEm: n
 export const ceuAgora = (t?: number): Ceu => agora(t ?? Date.now());
 export const cidades = CIDADES as unknown as Cidade[];
 export type Cidade = [string, number, number, string, string];
-export type Perfil = { nome: string; data: string; hora: string; cidade: number; whatsapp: string };
+export type Perfil = { nome: string; data: string; hora: string; cidade: number; whatsapp?: string };
 export type Mapa = { sun: number; moon: number; asc: number | null; offset: number; luaDupla: [number, number] | null; solDuplo: [number, number] | null };
 
 export function calcular(p: Perfil): Mapa {
