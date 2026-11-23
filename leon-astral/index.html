@@ -437,6 +437,7 @@ const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 async function user(txt){add(txt,"u");
   if(sb&&UID){$("st").textContent="digitando…";
     try{const j=await chamar("estela",{texto:txt,contexto:{sol:TD.s,lua:TD.m,asc:TD.a,luaHoje:TD.tm,casa:TD.ca,tema:TD.H.t,fase:TD.fase,carta:cartaDoDia(U.nm+U.dt,Date.now()).nome}});
+      if(j.limite&&j.texto){$("st").textContent="Online com seu Mapa Astral";add(j.texto+"\n\nNo app Leon Astral, é só assistir a um vídeo curto para continuar a conversa ✧","t");return}
       if(!j.fallback&&j.texto){$("st").textContent="Online com seu Mapa Astral";add(j.texto,"t",j.id);return}}catch(e){}}
   bot(resp(norm(txt)),900+Math.random()*600)}
 function resp(t){const s=S[TD.s],m=S[TD.m],H=TD.H;

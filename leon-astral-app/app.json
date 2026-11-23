@@ -49,6 +49,15 @@
           "color": "#A78BFA",
           "defaultChannel": "diario"
         }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511",
+          "delayAppMeasurementInit": true,
+          "userTrackingUsageDescription": "Usamos isso para mostrar anúncios mais relevantes no plano grátis."
+        }
       ]
     ],
     "extra": {

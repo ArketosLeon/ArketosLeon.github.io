@@ -5,9 +5,10 @@
 import { admin, CORS, json, SIGNOS, usuario } from "../_shared/comum.ts";
 
 const MODELO = "claude-haiku-5-5";
-// grátis: 5 perguntas por dia, +5 a cada vídeo recompensado (até 2 por dia). Plus: 200.
-const LIMITE = { gratis: 5, plus: 200, premium: 200 } as Record<string, number>;
-const BONUS = 5;
+// grátis: 1 pergunta por dia; cada vídeo recompensado libera +1 (até 10 vídeos por dia). Plus: 200.
+const LIMITE = { gratis: 1, plus: 200, premium: 200 } as Record<string, number>;
+const BONUS = 1;
+const MAX_VIDEOS = 10;
 
 const CRISE = /suicid|me matar|quero morrer|nao aguento mais|me machucar|acabar com tudo|tirar minha vida|sumir de vez/;
 const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -71,9 +72,13 @@ Deno.serve(async (req) => {
   const limite = plus ? LIMITE.plus : LIMITE.gratis + BONUS * recompensas;
   if ((count ?? 0) >= limite) {
     return json({
-      limite: true, podeRecompensa: !plus && recompensas < 2, plus,
+      limite: true, podeRecompensa: !plus && recompensas < MAX_VIDEOS, plus,
       texto: plus ? `${nome}, por hoje a gente já conversou bastante ✧ Amanhã eu volto com o céu novinho.`
-        : `${nome}, suas perguntas grátis de hoje acabaram ✧ ${recompensas < 2 ? "Assista a um vídeo curto e ganhe mais 5, ou" : "Você pode"} conhecer o Leon Astral Plus para conversar sem limite.`,
+        : recompensas === 0
+          ? `${nome}, sua pergunta grátis de hoje já foi ✧ Para fazer a próxima, assista a um vídeo curto. Ou conheça o Leon Astral Plus e converse sem anúncios e sem limite.`
+          : recompensas < MAX_VIDEOS
+            ? `${nome}, para a próxima pergunta é só assistir mais um vídeo curto ✧ Ou converse sem anúncios no Leon Astral Plus.`
+            : `${nome}, por hoje chegamos ao limite de vídeos ✧ Amanhã você tem uma pergunta grátis de novo, ou pode conversar sem limite no Leon Astral Plus.`,
     });
   }
 

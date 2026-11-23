@@ -15,6 +15,7 @@ import { sb, entrarComGoogle, carregarBiblioteca, chamar } from './src/supabase'
 import { T, GRAD, F } from './src/theme';
 import { evento, identificar, sair, Sentry } from './src/telemetria';
 import { cartaDoDia, sintonia } from './src/extras';
+import { verRecompensado } from './src/anuncios';
 import { calcular, ceuAgora, cidades as CIDADES, sg, Mapa, Perfil } from './src/astro';
 import { ASC, CASAS, ELEMENTOS, GLIFOS, LUA, SIGNOS, SOL } from './src/content';
 import { respostaEstela, Dia } from './src/estela';
@@ -358,6 +359,8 @@ function Oraculo({ perfil, dia, uid }: { perfil: Perfil; dia: Dia; uid: string }
   ]);
   const [txt, setTxt] = useState('');
   const [digitando, setDigitando] = useState(false);
+  const [trava, setTrava] = useState<{ pendente: string; podeRecompensa: boolean } | null>(null);
+  const [vendoVideo, setVendoVideo] = useState(false);
   const lista = useRef<any>(null);
 
   // histórico salvo no servidor (as últimas 30 mensagens)
@@ -369,21 +372,46 @@ function Oraculo({ perfil, dia, uid }: { perfil: Perfil; dia: Dia; uid: string }
     });
   }, [uid]);
 
-  const enviar = async (texto: string) => {
+  const enviar = async (texto: string, repetir = false) => {
     const v = texto.trim(); if (!v || digitando) return;
     evento('mensagem_estela');
-    setMsgs((m) => [...m, { id: String(Date.now()), de: 'eu', texto: v, hora: hora() }]);
+    setTrava(null);
+    if (!repetir) setMsgs((m) => [...m, { id: String(Date.now()), de: 'eu', texto: v, hora: hora() }]);
     setTxt(''); setDigitando(true);
     let resposta: string | null = null, mid: number | null = null;
     try {
-      const j = await chamar<{ texto?: string; id?: number; fallback?: boolean; foraDoTema?: boolean }>('estela', {
+      const j = await chamar<{ texto?: string; id?: number; fallback?: boolean; foraDoTema?: boolean; limite?: boolean; podeRecompensa?: boolean }>('estela', {
         texto: v, contexto: { sol: dia.s, lua: dia.m, asc: dia.a, luaHoje: dia.tm, casa: dia.ca, tema: H.t, fase: dia.ceu.fase, carta: cartaDoDia(uid, Date.now()).nome },
       });
+      if (j.limite && j.texto) {
+        // pergunta grátis do dia já usada: mostra o recado e os botões de vídeo e Plus
+        evento('limite_estela', { pode_video: !!j.podeRecompensa });
+        setDigitando(false);
+        setMsgs((m) => [...m, { id: String(Date.now() + 1), de: 'estela', texto: j.texto!, hora: hora(), mid: null }]);
+        setTrava({ pendente: v, podeRecompensa: !!j.podeRecompensa });
+        return;
+      }
       if (!j.fallback && j.texto) { resposta = j.texto; mid = j.id ?? null; if (j.foraDoTema) evento('estela_fora_do_tema'); }
     } catch {}
     if (!resposta) { await new Promise((r) => setTimeout(r, 700)); resposta = respostaEstela(v, perfil.nome, dia); }
     setDigitando(false);
     setMsgs((m) => [...m, { id: String(Date.now() + 1), de: 'estela', texto: resposta!, hora: hora(), mid }]);
+  };
+
+  const assistir = async () => {
+    if (!trava || vendoVideo) return;
+    evento('recompensa_iniciada', { tela: 'oraculo' });
+    setVendoVideo(true);
+    const ok = await verRecompensado();
+    setVendoVideo(false);
+    if (!ok) { Alert.alert('O vídeo não carregou', 'Tente de novo em alguns segundos.'); return; }
+    evento('recompensa_concluida', { tela: 'oraculo' });
+    try { await chamar('recompensa', {}); } catch {}
+    enviar(trava.pendente, true); // responde a pergunta que estava esperando
+  };
+  const conhecerPlus = () => {
+    evento('paywall_visto', { origem: 'estela_limite' });
+    Alert.alert('Leon Astral Plus', 'Conversa sem limite com a Estela e sem anúncios. O Plus chega na próxima atualização ✧');
   };
 
   const denunciar = (m: Msg) => {
@@ -421,6 +449,20 @@ function Oraculo({ perfil, dia, uid }: { perfil: Perfil; dia: Dia; uid: string }
           </View>
         ))}
       </ScrollView>
+      {trava && (
+        <View style={{ paddingHorizontal: 16, gap: 8, marginBottom: 8 }}>
+          {trava.podeRecompensa && (
+            <Pressable onPress={assistir} disabled={vendoVideo} accessibilityRole="button">
+              <LinearGradient colors={GRAD} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={[s.enviar, { width: '100%', height: 52, borderRadius: 16 }]}>
+                {vendoVideo ? <ActivityIndicator color="#1B1530" /> : <Text style={{ fontSize: 16, fontWeight: '700', color: '#1B1530' }}>▶ Assistir vídeo e fazer a pergunta</Text>}
+              </LinearGradient>
+            </Pressable>
+          )}
+          <Pressable onPress={conhecerPlus} accessibilityRole="button" style={[s.chip, { alignItems: 'center', minHeight: 48 }]}>
+            <Text style={[s.chipTxt, { color: T.ink }]}>✦ Conhecer o Plus · sem anúncios</Text>
+          </Pressable>
+        </View>
+      )}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 14, gap: 8 }} style={{ flexGrow: 0, marginBottom: 8 }} keyboardShouldPersistTaps="handled">
         {CHIPS.map((c) => (
           <Pressable key={c} style={s.chip} onPress={() => enviar(c)}><Text style={[s.chipTxt, { color: T.ink }]}>{c}</Text></Pressable>
