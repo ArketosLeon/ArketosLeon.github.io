@@ -34,7 +34,7 @@ jobs:
         run: npx expo prebuild --platform android --no-install
       - name: Compilar APK
         working-directory: leon-astral-app/android
-        run: ./gradlew assembleRelease --no-daemon -PreactNativeArchitectures=arm64-v8a,armeabi-v7a
+        run: ./gradlew assembleRelease --no-daemon -PreactNativeArchitectures=arm64-v8a,armeabi-v7a,x86_64
       - name: Renomear
         run: cp android/app/build/outputs/apk/release/app-release.apk leon-astral-v12-teste.apk
       - uses: actions/upload-artifact@v4
@@ -42,3 +42,36 @@ jobs:
           name: leon-astral-v12-teste
           path: leon-astral-app/leon-astral-v12-teste.apk
           retention-days: 14
+
+  testar-no-emulador:
+    needs: apk
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: leon-astral-v12-teste
+      - name: Habilitar KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: Abrir o app no emulador e capturar o crash
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          script: |
+            adb install -r leon-astral-v12-teste.apk || true
+            adb logcat -c
+            adb shell monkey -p com.arktosleon.leonastral -c android.intent.category.LAUNCHER 1 || true
+            sleep 25
+            adb logcat -d > logcat.txt || true
+            grep -n -A40 "FATAL EXCEPTION\|AndroidRuntime\|ReactNativeJS\|E/libc\|signal 6\|SIGABRT" logcat.txt | head -300 || true
+            adb shell pidof com.arktosleon.leonastral && echo "APP_RODANDO" || echo "APP_NAO_ESTA_RODANDO"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: logcat
+          path: logcat.txt
