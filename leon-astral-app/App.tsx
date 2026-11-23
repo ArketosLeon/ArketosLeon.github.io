@@ -221,7 +221,7 @@ function Hoje({ s, perfil, dia, uid }: { s: S; perfil: Perfil; dia: Dia; uid: st
         <Item s={s} g="?" k="Pergunta para você" v={H.p} />
       </View>
       <Text style={s.small}>A Lua entra em {SIGNOS[dia.ceu.proxSigno]} {quando(dia.ceu.trocaEm)}.</Text>
-      <Text style={[s.h2, { marginTop: 20 }]}>Oráculo do dia</Text>
+      <Text style={[s.h2, { marginTop: 20 }]}>Carta do dia</Text>
       <Pressable style={s.card} onPress={() => { if (!virada) { setVirada(true); evento('carta_virada', { carta: carta.indice }); } }} accessibilityRole="button" accessibilityLabel={virada ? `Carta do dia: ${carta.nome}` : 'Toque para revelar a carta do dia'}>
         {virada ? (
           <>

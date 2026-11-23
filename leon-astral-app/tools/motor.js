@@ -18,7 +18,7 @@ function sg(l){return Math.floor(nn(l)/30)}
 function offMin(z,t){var tb=TZ[z]||TZ.Sao_Paulo,m=t/6e4,o=tb[0][1];for(var i=1;i<tb.length&&tb[i][0]<=m;i++)o=tb[i][1];return o}
 /* hora local (de relógio) -> instante UTC, resolvendo horário de verão */
 function utc(y,mo,d,h,mi,z){var b=Date.UTC(y,mo-1,d,h,mi),t=b-offMin(z,b)*6e4;t=b-offMin(z,t)*6e4;return t}
-function fase(t){var e=nn(lua(t)-sol(t));return e<22.5||e>=337.5?"Lua Nova":e<67.5?"Lua Crescente":e<112.5?"Quarto Crescente":e<157.5?"Crescente Gibosa":e<202.5?"Lua Cheia":e<247.5?"Minguante Gibosa":e<292.5?"Quarto Minguante":"Lua Minguante"}
+function fase(t){var e=nn(lua(t)-sol(t));return e<12||e>=348?"Lua Nova":e<78?"Lua Crescente":e<102?"Quarto Crescente":e<168?"Crescente Gibosa":e<192?"Lua Cheia":e<258?"Minguante Gibosa":e<282?"Quarto Minguante":"Lua Minguante"}
 /* mapa natal. p={data:"AAAA-MM-DD",hora:"HH:MM"|"",cidade:indice} */
 function calcular(p){var c=CIDADES[p.cidade]||CIDADES[0],q=p.data.split("-").map(Number),hh=p.hora?p.hora.split(":").map(Number):[12,0];
  var t=utc(q[0],q[1],q[2],hh[0],hh[1],c[3]),r={sun:sol(t),moon:lua(t),asc:p.hora?asc(t,c[1],c[2]):null,offset:offMin(c[3],t)/60,luaDupla:null,solDuplo:null};

@@ -34,7 +34,7 @@ function aspecto(a,b){var d=Math.abs(((a-b+540)%360)-180);
 var FRASE={conj:"se misturam, intensidade e espelho",trig:"fluem com facilidade, como velhos conhecidos",sext:"se ajudam e criam oportunidades",quad:"geram atrito que faz crescer, se houver diálogo",opos:"se atraem pelos opostos e se completam quando há equilíbrio",elem:"falam a mesma língua",comp:"combinam bem e se estimulam",neutro:"são diferentes e pedem paciência para se entender"};
 function sintonia(A,B,nomeB){var nb=nomeB||"a outra pessoa",P=[["Os dois Sóis","identidade",A.sun,B.sun,2],["As duas Luas","emoções",A.moon,B.moon,2],["Seu Sol e a Lua de "+nb,"acolhimento",A.sun,B.moon,1.5],["Sua Lua e o Sol de "+nb,"acolhimento",A.moon,B.sun,1.5]];
  if(A.asc!=null&&B.asc!=null)P.push(["Os Ascendentes","primeira impressão",A.asc,B.asc,1]);
- var s=0,w=0,linhas=[];for(var i=0;i<P.length;i++){var p=P[i],x=aspecto(p[2],p[3]);s+=x.v*p[4];w+=p[4];linhas.push({par:p[0],tema:p[1],tipo:x.t,texto:p[0]+" "+FRASE[x.t]+"."})}
+ var s=0,w=0,linhas=[];for(var i=0;i<P.length;i++){var p=P[i],x=aspecto(p[2],p[3]);s+=x.v*p[4];w+=p[4];linhas.push({par:p[0],tema:p[1],tipo:x.t,v:x.v,pct:Math.round(Math.max(35,Math.min(97,58+40*x.v))),texto:p[0]+" "+FRASE[x.t]+"."})}
  var pct=Math.round(Math.max(35,Math.min(97,58+40*s/w)));
  var titulo=pct>=85?"Sintonia rara":pct>=72?"Muita afinidade":pct>=60?"Boa combinação":pct>=48?"Combinação de aprendizado":"Desafio que ensina";
  return{pct:pct,titulo:titulo,linhas:linhas}}
