@@ -137,23 +137,23 @@ def make_star_lion(size_w=900, seed=3):
     # rosto = versão atual recortada
     fa=ImageChops.multiply(base.split()[3],face); facel=base.copy(); facel.putalpha(fa)
     # névoa dourada bem leve para a juba ainda ler como forma
-    haze=Image.new('RGBA',(W,H),(240,190,110,0)); haze.putalpha(Image.eval(mane,lambda v:int(v*0.10)))
+    haze=Image.new('RGBA',(W,H),(240,190,110,0)); haze.putalpha(Image.eval(mane,lambda v:int(v*0.06)))
     # estrelas que formam a juba
     st=Image.new('RGBA',(W,H),(0,0,0,0)); d=ImageDraw.Draw(st); random.seed(seed)
     mp=mane.load(); ep=edge.load()
     cols=[(255,236,190),(255,214,130),(255,246,225),(250,200,110)]
-    n=0; tries=0; target=int(W*H/45)
+    n=0; tries=0; target=int(W*H/260)
     while n<target and tries<target*8:
         tries+=1; x,y=random.random()*W,random.random()*H
         m=mp[int(x),int(y)]
         if m<60: continue
         e=ep[int(x),int(y)]/255
-        if random.random()>(0.35+0.65*min(1,e*1.6+0.25)): continue   # mais denso nas bordas das mechas
+        if random.random()>(0.15+0.85*min(1,e*1.8+0.1)): continue   # mais denso nas bordas das mechas
         r=(random.choice([.5,.7,.9,1.1,1.4])+e*1.6)*W/900
         a=int(min(255,(170+85*random.random())*(0.75+0.25*e))*m/255)
         d.ellipse((x-r,y-r,x+r,y+r),fill=random.choice(cols)+(a,)); n+=1
     # algumas estrelas grandes com brilho em cruz
-    for _ in range(int(W*H/9000)):
+    for _ in range(int(W*H/30000)):
         for _t in range(40):
             x,y=random.random()*W,random.random()*H
             if mp[int(x),int(y)]>200: break
