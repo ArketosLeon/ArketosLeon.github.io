@@ -120,12 +120,8 @@ function Login({ t, s }: { t: Theme; s: S }) {
         <Text style={[s.btnIcon, { color: '#4285F4' }]}>G</Text><Text style={s.btnTxt}>Continuar com Google</Text>
         {ocupado === 'google' && <ActivityIndicator color={t.sup} style={{ marginLeft: 'auto' }} />}
       </Pressable>
-      <Pressable style={s.btn} onPress={() => entrar('facebook')} disabled={!!ocupado} accessibilityRole="button">
-        <Text style={[s.btnIcon, { color: '#1877F2' }]}>f</Text><Text style={s.btnTxt}>Continuar com Facebook</Text>
-        {ocupado === 'facebook' && <ActivityIndicator color={t.sup} style={{ marginLeft: 'auto' }} />}
-      </Pressable>
       {!!erro && <Text style={[s.muted, { color: t.acc, fontWeight: '700' }]} accessibilityRole="alert">{erro}</Text>}
-      <Text style={[s.muted, { marginTop: 14 }]}>Entre com a conta que você já usa. Não precisa criar senha nova.</Text>
+      <Text style={[s.muted, { marginTop: 14 }]}>Entre com a sua conta Google. Não precisa criar senha nova.</Text>
       <Text style={[s.small, { textAlign: 'center', marginTop: 24 }]}>Leon Astral · um produto Arktos Leon</Text>
     </ScrollView>
   );
