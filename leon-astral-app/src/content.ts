@@ -106,4 +106,4 @@ export const CASAS: Casa[] = [
   "p": "Do que você precisa se recuperar?"
  }
 ];
-export const CIDADES: [string, number, number, number][] = [["São Paulo",-23.55,-46.63,-3],["Rio de Janeiro",-22.91,-43.17,-3],["Belo Horizonte",-19.92,-43.94,-3],["Brasília",-15.79,-47.88,-3],["Salvador",-12.97,-38.5,-3],["Recife",-8.05,-34.88,-3],["Fortaleza",-3.73,-38.52,-3],["Curitiba",-25.43,-49.27,-3],["Porto Alegre",-30.03,-51.23,-3],["Goiânia",-16.68,-49.25,-3],["Belém",-1.46,-48.5,-3],["Manaus",-3.12,-60.02,-4]];
+// CIDADES agora ficam em src/ceu.ts (com fuso IANA por cidade)

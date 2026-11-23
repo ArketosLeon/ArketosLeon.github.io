@@ -1,7 +1,7 @@
 // Respostas roteirizadas da Estela (v0). Próximo passo: edge function com Claude.
 import { SIGNOS, SOL, LUA, ASC, CASAS } from './content';
 
-export type Dia = { s: number; m: number; a: number | null; tm: number; ca: number };
+export type Dia = { s: number; m: number; a: number | null; tm: number; ca: number; ceu?: any };
 
 const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 

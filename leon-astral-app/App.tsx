@@ -8,8 +8,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Session } from '@supabase/supabase-js';
 import { sb, entrarCom, carregarBiblioteca } from './src/supabase';
 import { useTheme, Theme } from './src/theme';
-import { calcular, dJ, fase, lua, sg, Mapa, Perfil } from './src/astro';
-import { ASC, CASAS, CIDADES, ELEMENTOS, GLIFOS, LUA, SIGNOS, SOL } from './src/content';
+import { calcular, ceuAgora, cidades as CIDADES, sg, Mapa, Perfil } from './src/astro';
+import { ASC, CASAS, ELEMENTOS, GLIFOS, LUA, SIGNOS, SOL } from './src/content';
 import { respostaEstela, Dia } from './src/estela';
 import Wheel from './src/Wheel';
 
@@ -54,11 +54,11 @@ function Root() {
     });
   }, [sessao]);
 
-  const mapa: Mapa | null = useMemo(() => (perfil ? calcular(perfil, CIDADES) : null), [perfil]);
+  const mapa: Mapa | null = useMemo(() => (perfil ? calcular(perfil) : null), [perfil]);
   const dia: Dia | null = useMemo(() => {
     if (!mapa) return null;
-    const tm = sg(lua(dJ(Date.now()))), s0 = sg(mapa.sun);
-    return { s: s0, m: sg(mapa.moon), a: mapa.asc != null ? sg(mapa.asc) : null, tm, ca: (tm - s0 + 12) % 12 };
+    const c = ceuAgora(), tm = c.luaSigno, s0 = sg(mapa.sun);
+    return { s: s0, m: sg(mapa.moon), a: mapa.asc != null ? sg(mapa.asc) : null, tm, ca: (tm - s0 + 12) % 12, ceu: c };
   }, [mapa]);
 
   if (carregando) return <View style={[s.fill, s.center]}><ActivityIndicator color={t.sup} size="large" /></View>;
@@ -139,6 +139,9 @@ function Cadastro({ t, s, sessao, inicial, onSalvo }: { t: Theme; s: S; sessao: 
   const [data, setData] = useState(isoParaBr(inicial?.data ?? ''));
   const [hr, setHr] = useState(inicial?.hora ?? '');
   const [cidade, setCidade] = useState(inicial?.cidade ?? 0);
+  const [busca, setBusca] = useState('');
+  const semAc = (x: string) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const lista = CIDADES.map((c, i) => [c, i] as const).filter(([c]) => !busca || semAc(c[0] + ' ' + c[4]).includes(semAc(busca))).slice(0, busca ? 20 : 12);
   const [wa, setWa] = useState(inicial?.whatsapp ?? '');
   const [ok, setOk] = useState(!!inicial);
   const [erro, setErro] = useState('');
@@ -152,8 +155,8 @@ function Cadastro({ t, s, sessao, inicial, onSalvo }: { t: Theme; s: S; sessao: 
     if (!ok) return setErro('Para continuar, aceite o uso dos dados.');
     setErro(''); setSalvando(true);
     const p: Perfil = { nome: nome.trim(), data: iso, hora: hr, cidade, whatsapp: wa };
-    const c = CIDADES[cidade], m = calcular(p, CIDADES), uid = sessao.user.id;
-    const r1 = await sb.from('perfis').upsert({ id: uid, nome: p.nome, data_nasc: iso, hora_nasc: hr || null, cidade: c[0], lat: c[1], lon: c[2], tz_offset: c[3], whatsapp: wa || null, consentimento_lgpd: true, consentimento_em: new Date().toISOString() });
+    const c = CIDADES[cidade], m = calcular(p), uid = sessao.user.id;
+    const r1 = await sb.from('perfis').upsert({ id: uid, nome: p.nome, data_nasc: iso, hora_nasc: hr || null, cidade: c[0], lat: c[1], lon: c[2], tz_offset: m.offset, whatsapp: wa || null, consentimento_lgpd: true, consentimento_em: new Date().toISOString() });
     const r2 = r1.error ? r1 : await sb.from('mapas').upsert({ user_id: uid, sol_lon: m.sun, lua_lon: m.moon, asc_lon: m.asc, sol_signo: sg(m.sun), lua_signo: sg(m.moon), asc_signo: m.asc == null ? null : sg(m.asc), calculado_em: new Date().toISOString() });
     setSalvando(false);
     if (r2.error) return setErro('Não consegui salvar: ' + r2.error.message);
@@ -172,13 +175,15 @@ function Cadastro({ t, s, sessao, inicial, onSalvo }: { t: Theme; s: S; sessao: 
         <Text style={s.label}>Hora de nascimento <Text style={s.small}>(se não souber, deixe em branco)</Text></Text>
         <TextInput style={s.input} value={hr} onChangeText={(v) => setHr(mascaraHora(v))} placeholder="HH:MM" placeholderTextColor={t.soft} keyboardType="number-pad" />
         <Text style={s.label}>Cidade de nascimento</Text>
+        <TextInput style={s.input} value={busca} onChangeText={setBusca} placeholder={`Buscar cidade (selecionada: ${CIDADES[cidade][0]})`} placeholderTextColor={t.soft} />
         <View style={s.chips}>
-          {CIDADES.map((c, i) => (
+          {lista.map(([c, i]) => (
             <Pressable key={c[0]} onPress={() => setCidade(i)} style={[s.chip, cidade === i && { backgroundColor: t.sup, borderColor: t.sup }]} accessibilityRole="radio" accessibilityState={{ checked: cidade === i }}>
-              <Text style={[s.chipTxt, cidade === i && { color: '#fff' }]}>{c[0]}</Text>
+              <Text style={[s.chipTxt, cidade === i && { color: '#fff' }]}>{c[0]} · {c[4]}</Text>
             </Pressable>
           ))}
         </View>
+        <Text style={s.small}>Não achou? Escolha a cidade grande mais próxima, no mesmo estado.</Text>
         <Text style={s.label}>WhatsApp (opcional)</Text>
         <TextInput style={s.input} value={wa} onChangeText={setWa} placeholder="(11) 99999-9999" placeholderTextColor={t.soft} keyboardType="phone-pad" />
         <View style={[s.row, { marginTop: 14 }]}>
@@ -203,14 +208,22 @@ function Hoje({ s, perfil, dia }: { s: S; perfil: Perfil; dia: Dia }) {
       <Text style={s.k}>{data}</Text>
       <Text style={s.h2}>Bom dia, {perfil.nome}. Hoje: {H.t.toLowerCase()}.</Text>
       <View style={s.card}>
-        <Text style={s.body}>A Lua está em <Text style={{ fontWeight: '700' }}>{SIGNOS[dia.tm]}</Text> ({fase(dJ(Date.now()))}) e passa pela sua casa {dia.ca + 1}, a casa de {H.t.toLowerCase()}. {mesmo ? 'É o mesmo elemento do seu Sol, então o dia tende a fluir com você.' : 'É um elemento diferente do seu Sol, então vale ir com mais calma.'}</Text>
+        <Text style={s.body}>A Lua está em <Text style={{ fontWeight: '700' }}>{SIGNOS[dia.tm]}</Text> ({dia.ceu.fase}) e passa pela sua casa {dia.ca + 1}, a casa de {H.t.toLowerCase()}. {mesmo ? 'É o mesmo elemento do seu Sol, então o dia tende a fluir com você.' : 'É um elemento diferente do seu Sol, então vale ir com mais calma.'}</Text>
         <Item s={s} g="✦" k="Foco do dia" v={H.f} />
         <Item s={s} g="⚠" k="Cuidado com" v={H.c} />
         <Item s={s} g="?" k="Pergunta para você" v={H.p} />
       </View>
+      <Text style={s.small}>A Lua entra em {SIGNOS[dia.ceu.proxSigno]} {quando(dia.ceu.trocaEm)}.</Text>
     </ScrollView>
   );
 }
+
+const quando = (t: number) => {
+  const d = new Date(t), hoje = new Date();
+  const hh = d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+  const dd = Math.round((new Date(d.toDateString()).getTime() - new Date(hoje.toDateString()).getTime()) / 864e5);
+  return dd === 0 ? `hoje às ${hh}` : dd === 1 ? `amanhã às ${hh}` : `em ${d.toLocaleDateString('pt-BR', { weekday: 'long' })} às ${hh}`;
+};
 
 function Item({ s, g, k, v }: { s: S; g: string; k: string; v: string }) {
   return (
@@ -228,7 +241,7 @@ function MeuMapa({ t, s, perfil, mapa, dia, onEditar }: { t: Theme; s: S; perfil
     <ScrollView contentContainerStyle={s.pad}>
       <Text style={s.h2}>O céu de {perfil.nome}</Text>
       <View style={[s.center, { marginVertical: 8 }]}>
-        <Wheel size={Math.min(width - 40, 320)} t={t} sun={mapa.sun} moon={mapa.moon} asc={mapa.asc} today={lua(dJ(Date.now()))} />
+        <Wheel size={Math.min(width - 40, 320)} t={t} sun={mapa.sun} moon={mapa.moon} asc={mapa.asc} today={dia.ceu.lua} />
       </View>
       <View style={s.big3}>
         {big.map(([k, i, x]) => (
@@ -242,10 +255,10 @@ function MeuMapa({ t, s, perfil, mapa, dia, onEditar }: { t: Theme; s: S; perfil
       </View>
       <View style={s.card}>
         <Item s={s} g="☉" k={`Sol em ${SIGNOS[dia.s]} · ${ELEMENTOS[dia.s % 4]}`} v={SOL[dia.s]} />
-        <Item s={s} g="☽" k={`Lua em ${SIGNOS[dia.m]}`} v={LUA[dia.m]} />
+        <Item s={s} g="☽" k={mapa.luaDupla ? `Lua em ${SIGNOS[mapa.luaDupla[0]]} ou ${SIGNOS[mapa.luaDupla[1]]}` : `Lua em ${SIGNOS[dia.m]}`} v={mapa.luaDupla ? `No dia em que você nasceu a Lua mudou de signo. Sem a hora, considero ${SIGNOS[dia.m]} (meio-dia), mas pode ser ${SIGNOS[mapa.luaDupla[0] === dia.m ? mapa.luaDupla[1] : mapa.luaDupla[0]]}. Com a hora eu confirmo. ${LUA[dia.m]}` : LUA[dia.m]} />
         <Item s={s} g="↑" k={`Ascendente${dia.a != null ? ' em ' + SIGNOS[dia.a] : ''}`} v={dia.a != null ? `As pessoas te percebem como alguém ${ASC[dia.a]}.` : 'Para calcular o Ascendente eu preciso da hora em que você nasceu.'} />
       </View>
-      <Text style={s.small}>Linha tracejada: a Lua de hoje, em {SIGNOS[dia.tm]}. Cálculo simplificado nesta versão beta.</Text>
+      <Text style={s.small}>Linha tracejada: a Lua de hoje, em {SIGNOS[dia.tm]}. Posições calculadas com o histórico oficial de fusos e horário de verão do Brasil.</Text>
       <Pressable style={[s.btn, { justifyContent: 'center', marginTop: 16 }]} onPress={onEditar}><Text style={s.btnTxt}>Editar meus dados</Text></Pressable>
       <Pressable style={[s.btn, { justifyContent: 'center' }]} onPress={() => sb.auth.signOut()}><Text style={s.btnTxt}>Sair</Text></Pressable>
     </ScrollView>
