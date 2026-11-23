@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Demo Clínica Santé · recepção 24h</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calma, clínica, direta — uma clínica que responde na hora.
+   IDEA: o próprio WhatsApp da clínica, aberto na mão do dono, em três perfis (mais a versão com IA).
+   PICTURE: o celular com a conversa clicável, grande, logo abaixo do título.
+   COLOUR and TYPE: branco, azul-petróleo profundo, coral de acento; verde só nos balões do WhatsApp. Figtree.
+   LAYOUT: título curto, abas de perfil, celular à esquerda e o que resolve ao lado; proposta abaixo; empilha no celular. */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0d1a22);--ink:light-dark(#10232e,#e8f0f3);--mut:light-dark(#4d6470,#9db3bd);
+--deep:light-dark(#0e4a5f,#7cc7dc);--band:light-dark(#eef5f7,#12252f);--acc:#e8644a;
+--chat:light-dark(#efe7dd,#0b141a);--me:light-dark(#d9fdd3,#005c4b);--them:light-dark(#ffffff,#202c33);
+--wa:light-dark(#075e54,#1f2c34);--line:light-dark(#d5e1e6,#24404d)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1140px;margin:0 auto}
+header.band{padding-bottom:12px}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.05;margin:0 0 10px;text-wrap:balance;font-weight:700}
+.lead{color:var(--mut);max-width:62ch;margin:0;font-size:17px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.tab{font:600 16px Figtree,sans-serif;min-height:46px;padding:0 20px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tab[aria-selected=true]{background:var(--deep);border-color:var(--deep);color:light-dark(#fff,#07202a)}
+.tab .pl{font-size:12px;font-weight:700;color:var(--acc);margin-left:6px}
+.tab[aria-selected=true] .pl{color:light-dark(#ffd2c8,#7a2a19)}
+.tab:focus-visible,.opt:focus-visible,.reset:focus-visible,.cta:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main.band{padding-top:18px}
+.grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.phone{background:#111;border-radius:38px;padding:10px;box-shadow:0 30px 60px -20px rgba(8,40,52,.45),inset 0 0 0 2px #333}
+.screen{border-radius:30px;overflow:hidden;display:flex;flex-direction:column;height:min(680px,78vh);min-height:520px;background:var(--chat)}
+.top{background:var(--wa);color:#fff;display:flex;align-items:center;gap:10px;padding:14px 14px 12px}
+.av{width:38px;height:38px;border-radius:50%;background:#fff;color:#0e4a5f;display:grid;place-items:center;flex:none;font:700 17px Figtree,sans-serif}
+.top b{display:block;font-size:16px;line-height:1.2}.top small{opacity:.8;font-size:13px}
+.msgs{flex:1;overflow-y:auto;padding:14px 10px 10px;display:flex;flex-direction:column;gap:6px;
+background-image:radial-gradient(light-dark(rgba(0,0,0,.035),rgba(255,255,255,.03)) 1px,transparent 1px);background-size:14px 14px}
+.day{align-self:center;font-size:13px;background:var(--them);color:var(--mut);padding:3px 10px;border-radius:8px;margin:4px 0}
+.b{max-width:86%;padding:7px 10px 18px;border-radius:10px;font-size:15px;line-height:1.4;position:relative;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:in .18s ease-out}
+.b.them{align-self:flex-start;background:var(--them);border-top-left-radius:2px}
+.b.me{align-self:flex-end;background:var(--me);border-top-right-radius:2px}
+.b .t{position:absolute;right:8px;bottom:3px;font-size:11px;color:var(--mut);white-space:nowrap}
+.b.sys{align-self:center;background:light-dark(#fff5d6,#2b2a1c);font-size:13px;padding:5px 10px;max-width:92%;text-align:center}
+.voice{display:flex;align-items:center;gap:8px;min-width:190px}
+.voice .pp{width:0;height:0;border-left:11px solid var(--mut);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.voice .wv{flex:1;height:20px;display:flex;align-items:center;gap:2px}
+.voice .wv i{flex:1;background:light-dark(#8db9a5,#6aa892);border-radius:2px}
+.tr{display:block;font-size:12.5px;color:var(--mut);font-style:italic;margin-top:4px}
+.chip{display:inline-block;background:light-dark(#fde6e1,#4a2219);color:light-dark(#a8371f,#ffb3a3);font-size:12px;font-weight:700;padding:0 6px;border-radius:5px;white-space:nowrap}
+.typing{align-self:flex-start;background:var(--them);border-radius:10px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.opts{display:flex;flex-direction:column;gap:5px;align-self:flex-start;width:86%;margin-top:2px}
+.opt{font:600 15px Figtree,sans-serif;min-height:44px;border:0;border-radius:10px;background:var(--them);color:light-dark(#027eb5,#53bdeb);cursor:pointer;box-shadow:0 1px .5px rgba(0,0,0,.13);padding:8px 12px}
+.opt:hover{filter:brightness(.97)}
+.bar{background:light-dark(#f0f2f5,#1f2c34);padding:8px 12px;display:flex;align-items:center;gap:8px}
+.bar span{flex:1;background:var(--them);color:var(--mut);border-radius:20px;padding:9px 14px;font-size:14px}
+.bar form{flex:1;display:none;gap:8px;align-items:center}
+.bar input{flex:1;border:0;outline:0;background:var(--them);color:var(--ink);border-radius:20px;padding:9px 14px;font:16px Figtree,sans-serif;min-width:0}
+.bar button{width:42px;height:42px;border-radius:50%;border:0;background:#00a884;display:grid;place-items:center;cursor:pointer;flex:none}
+.screen.ia .bar span{display:none}.screen.ia .bar form{display:flex}
+.side h2{font-size:28px;line-height:1.1;margin:4px 0 14px;text-wrap:balance}
+.side ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:12px}
+.side li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:17px}
+.side li::before,.plist li::before{content:"";width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--acc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.note{background:var(--band);border-radius:14px;padding:16px 18px;font-size:16px;margin:0 0 16px}
+.note b{color:var(--deep)}
+.hint{color:var(--mut);font-size:15px;margin:0 0 14px}
+.scen{display:grid;gap:8px;margin:0 0 16px}
+.scen button{font:500 15px Figtree,sans-serif;text-align:left;min-height:44px;padding:8px 14px;border-radius:10px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.scen button:hover{border-color:var(--deep)}
+.reset{font:600 15px Figtree,sans-serif;min-height:44px;padding:0 18px;border-radius:10px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+/* proposta */
+.prop{background:var(--band)}
+.ptag{display:inline-block;background:var(--deep);color:light-dark(#fff,#07202a);font-weight:700;font-size:14px;border-radius:999px;padding:4px 12px;margin-bottom:12px}
+.prop h2{font-size:clamp(26px,3.4vw,36px);line-height:1.08;margin:0;text-wrap:balance}
+.diag{background:var(--bg);border-left:4px solid var(--acc);border-radius:12px;padding:16px 18px;margin-top:16px;color:var(--mut)}
+.diag b{color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,4vw,48px);margin-top:24px;align-items:start}
+.prop h3{font-size:19px;margin:0}
+.plist{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.plist li{display:grid;grid-template-columns:28px 1fr;gap:10px}
+.steps{counter-reset:p;display:grid;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.steps li{position:relative;padding-left:40px;min-height:28px}
+.steps li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--deep);color:light-dark(#fff,#07202a);display:grid;place-items:center;font-weight:700;font-size:14px}
+.offer{background:light-dark(#0e4a5f,#0a2f3c);color:#fff;border-radius:18px;padding:22px}
+.offer h3{font-size:20px}
+.offer .pr{font:700 36px Figtree,sans-serif;margin-top:8px}
+.offer .pr small{font:500 15px Figtree,sans-serif;opacity:.75}
+.offer p{opacity:.88;font-size:15px;margin:8px 0 0}
+.offer .alt{border-top:1px solid rgba(255,255,255,.2);margin-top:14px;padding-top:12px;font-size:14px}
+.calc{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:22px}
+.calc .in3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.calc label{font-size:13px;font-weight:600;color:var(--mut);display:grid;gap:4px}
+.calc input{font:16px Figtree,sans-serif;border:1px solid var(--line);border-radius:10px;padding:10px;min-height:44px;width:100%;background:var(--bg);color:var(--ink)}
+.calc .res{margin-top:14px;font-size:15px;color:var(--mut)}
+.calc .res b{display:block;font:700 30px Figtree,sans-serif;color:var(--deep)}
+.calc small{display:block;font-size:12.5px;color:var(--mut);margin-top:8px}
+.ctas{display:grid;gap:10px;margin-top:16px}
+.cta{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:12px;font:600 16px Figtree,sans-serif;text-decoration:none;text-align:center;padding:0 16px}
+.cta.g{background:var(--acc);color:#fff}.cta.g:hover{filter:brightness(.95)}
+.cta.o{border:1.5px solid var(--line);color:var(--ink);background:var(--bg)}.cta.o:hover{border-color:var(--deep)}
+.small{font-size:13px;color:var(--mut);margin-top:10px}
+footer.band{padding-top:8px;color:var(--mut);font-size:14px}
+footer .wrap{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
+@keyframes in{from{opacity:0;transform:translateY(4px)}}
+@keyframes dot{50%{opacity:.3;transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.b{animation:none}.typing i{animation:none}}
+@media(max-width:760px){.grid,.pgrid{grid-template-columns:minmax(0,1fr)}.phone{max-width:420px;width:100%;margin:0 auto}.side h2{font-size:24px}}
+@media(max-width:420px){.phone{padding:6px;border-radius:30px}.screen{border-radius:25px;height:72vh}.calc .in3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="band"><div class="wrap">
+  <h1 id="h1"></h1>
+  <p class="lead" id="lead"></p>
+  <div class="tabs" role="tablist" aria-label="Perfil">
+    <button class="tab" role="tab" data-k="p" aria-selected="true">Paciente</button>
+    <button class="tab" role="tab" data-k="r" aria-selected="false">Recepção</button>
+    <button class="tab" role="tab" data-k="g" aria-selected="false">Gestor</button>
+    <button class="tab" role="tab" data-k="i" aria-selected="false">Paciente com IA<span class="pl">Premium</span></button>
+  </div>
+</div></header>
+
+<main class="band"><div class="wrap grid">
+  <div class="phone" aria-label="Simulação de conversa no WhatsApp">
+    <div class="screen" id="screen">
+      <div class="top">
+        <div class="av" id="av"></div>
+        <div><b id="cname"></b><small id="csub"></small></div>
+      </div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <div class="bar"><span>Toque numa das opções acima</span>
+        <form id="iaf"><input id="iat" placeholder="Escreva como um paciente" aria-label="Mensagem" autocomplete="off"><button aria-label="Enviar"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button></form>
+      </div>
+    </div>
+  </div>
+  <section class="side" aria-labelledby="stitle">
+    <h2 id="stitle"></h2>
+    <ul id="slist"></ul>
+    <p class="note" id="snote"></p>
+    <div class="scen" id="scen"></div>
+    <p class="hint">Os números e nomes da conversa são fictícios, só para demonstração. O que aparece como <span class="chip">A CONFIRMAR</span> a clínica informa na implantação.</p>
+    <button class="reset" id="reset" type="button">Recomeçar a conversa</button>
+  </section>
+</div></main>
+
+<section class="band prop" id="proposta"><div class="wrap">
+  <span class="ptag">Proposta para <span id="pfor"></span></span>
+  <h2 id="ph"></h2>
+  <div class="diag" id="pdiag"></div>
+  <div class="pgrid">
+    <div>
+      <h3>O que entra na proposta <span id="pnome"></span></h3>
+      <ul class="plist" id="pinc"></ul>
+      <h3 style="margin-top:26px">Como começa</h3>
+      <ol class="steps" id="pstep"></ol>
+      <div class="calc">
+        <h3>Quanto volta para a clínica</h3>
+        <div class="in3">
+          <label>Mensagens fora do horário por semana<input id="k-m" type="number" min="0" inputmode="numeric"></label>
+          <label>Quantas viram agendamento (%)<input id="k-c" type="number" min="0" max="100" inputmode="numeric"></label>
+          <label><span id="k-tl"></span><input id="k-t" type="number" min="0" inputmode="numeric"></label>
+        </div>
+        <div class="res" aria-live="polite"><span>Faturamento que hoje se perde e passa a entrar, por mês</span><b id="k-r"></b><span id="k-p"></span></div>
+        <small>Números iniciais de exemplo, para você trocar pelos da clínica. Nenhum deles é promessa de resultado.</small>
+      </div>
+    </div>
+    <aside>
+      <div class="offer">
+        <h3 id="ooname"></h3>
+        <div class="pr" id="oprice"></div>
+        <p>Implantação a partir de R$ 990, grátis para os 5 primeiros clientes (cliente fundador).</p>
+        <p>Fidelidade de 3 meses, depois mês a mês. Pix ou cartão, com recibo na hora. As mensagens cobradas pela Meta são repassadas à parte.</p>
+        <div class="alt" id="oalt"></div>
+      </div>
+      <div class="ctas">
+        <a class="cta g" id="cbuy" target="_blank" rel="noopener"></a>
+        <a class="cta o" id="ctalk" target="_blank" rel="noopener">Quero uma conversa de 15 minutos</a>
+      </div>
+      <p class="small">Os dois botões abrem o site da Arktos Leon: o primeiro já abre a contratação do plano, o segundo o pedido de conversa.</p>
+    </aside>
+  </div>
+</div></section>
+
+<footer class="band"><div class="wrap"><span id="foot"></span><span>demo por Arktos Leon</span></div></footer>
+
+<script>
+{
+const C={"title": "Demo Clínica Santé · recepção 24h", "kicker": "", "lead": "Um número só, três jeitos de usar, e a versão com inteligência artificial. Escolha um perfil e toque nas respostas, como se fosse você do outro lado.", "facts": [], "h2": "", "evidence": "", "cards": [], "startDay": 0, "startMin": 1260, "firstMsg": "Oi, boa noite", "welcome": "", "menuText": "", "menuTitle": "Como podemos ajudar?", "menu": [{"label": "Lentes de porcelana", "go": "lentes"}, {"label": "Prótese e implantes", "go": "protese"}, {"label": "Limpeza ou dor", "go": "clinico"}], "services": [{"id": "lentes", "visit": "a avaliação de lentes", "say": ["Que bom que você quer cuidar do sorriso! O que você procura?"], "ask": [["Lentes de porcelana", "lp", "Lentes de porcelana: valor [A CONFIRMAR] por dente. Na avaliação a dentista analisa seus dentes, mostra uma simulação e indica quantos dentes fazer.", ["lentes de porcelana", "lentes", "porcelana"]], ["Clareamento", "cl", "Clareamento: valor [A CONFIRMAR]. Antes, a dentista avalia dentes e gengiva para indicar o método mais seguro.", ["clareamento", "clareamento"]], ["Quero saber o preço", "pr", "O valor depende de quantos dentes e do tipo de lente, por isso é definido na avaliação: valor [A CONFIRMAR]. Você já sai de lá com o orçamento.", ["quero saber o preco"]]], "kw": ["lente", "porcelana", "faceta", "clare", "sorriso"], "ai": "Na Santé fazemos lentes de porcelana e clareamento. O valor depende de quantos dentes e do tipo de lente, e é definido na avaliação, de onde você já sai com o orçamento e uma simulação.", "menu": "Lentes de porcelana", "visitCap": "Avaliação de lentes"}, {"id": "protese", "visit": "a avaliação de reabilitação", "say": ["Entendi. Hoje o que mais te incomoda?"], "ask": [["Dificuldade para comer", "co", "Dificuldade para mastigar costuma ter solução com prótese ou implante. Na avaliação a dentista examina e explica as opções para você voltar a comer bem: valor [A CONFIRMAR].", ["dificuldade para comer", "dificuldade", "para", "comer"]], ["Prótese solta ou machucando", "ps", "Prótese solta ou machucando dá para ajustar ou trocar. Na avaliação a dentista vê o que é melhor para o seu caso.", ["protese solta ou machucando", "protese", "solta", "machucando"]], ["Perdi dentes", "pd", "Para quem perdeu dentes há implantes e próteses fixas. Na avaliação a dentista explica as opções e os valores: [A CONFIRMAR].", ["perdi dentes"]]], "kw": ["protese", "dentadura", "implant", "comer", "mastig", "perdi", "solta", "machuc"], "ai": "Na Santé cuidamos de quem tem dificuldade para comer, prótese solta ou perdeu dentes: prótese, implante e reabilitação. Na avaliação a dentista examina e explica as opções e o valor.", "menu": "Prótese e implantes", "visitCap": "Avaliação de reabilitação"}, {"id": "clinico", "visit": "a consulta", "say": ["Claro! O que você precisa?"], "ask": [["Limpeza", "li", "Limpeza é rápida e deixa tudo em dia. Vamos marcar?", ["limpeza", "limpeza"]], ["Dor ou sensibilidade", "do", "Vamos marcar logo para a dentista ver. Se a dor estiver forte, escolha \"Falar com a recepção\".", ["dor ou sensibilidade", "sensibilidade"]], ["Check-up", "ch", "No check-up a dentista revisa tudo e indica se precisa de algo mais.", ["check-up", "check-up"]]], "kw": ["limpeza", "dor", "doendo", "quebr", "sensibil", "check", "carie", "revisao"], "ai": "Para limpeza, check-up ou dor é só marcar uma consulta com a dentista, que revisa tudo.", "menu": "Limpeza ou dor", "visitCap": "Consulta"}], "periods": ["Manhã", "Tarde"], "scenarios": [], "address": "", "info": "Estamos em Belo Horizonte. Horário de atendimento, endereço, convênios e formas de pagamento ficam a confirmar com a equipe. Por aqui eu agendo a qualquer hora.", "human": "", "ai": {"firstMsg": "Oi", "hello": "Oi! Aqui é a assistente da Clínica Santé 😊 Me conta o que você precisa que eu já te ajudo a marcar sua avaliação, a qualquer hora.", "prices": "Os valores dependem do tratamento e são definidos na avaliação, de onde você já sai com o orçamento. Me conta o que você procura (lentes, prótese, implante ou limpeza) que eu explico como funciona.", "info": "Estamos em Belo Horizonte. Horário, endereço, convênios e formas de pagamento ficam a confirmar com a equipe. Por aqui eu agendo a qualquer hora.", "fallback": "Entendi! Posso te ajudar com lentes de porcelana e clareamento, prótese e implantes, limpeza ou dor, ou com remarcar sua consulta. Me conta mais?", "urgent": ["muita dor", "dor forte", "sangrando", "inchado", "quebrei", "quebrou", "nao aguento"], "urgentReply": "Sinto muito! Já avisei a equipe como prioridade, e uma pessoa te chama aqui assim que abrir. Se quiser, já deixo reservado o primeiro horário livre para você.", "voiceSample": "Oi, quebrei um dente da frente e tá doendo, consigo ver isso amanhã?"}, "aiScenarios": [{"label": "A mesma pergunta da Iris, levada até o horário", "first": "Oi", "steps": ["comer", "minha prótese tá solta e machuca", "tem horário de manhã?", "segunda 9h", "Mariana Souza"]}, {"label": "Chegou pelo Google perguntando preço de lente", "first": "Oi, encontrei a clínica no Google. Quanto custa lente de porcelana?", "steps": ["e clareamento, vocês fazem?", "pode ser de tarde", "quarta", "Juliana Prado"]}, {"label": "Áudio: dente quebrado e dor", "first": "Oi", "steps": ["🎤 Oi, quebrei um dente da frente e tá doendo, consigo ver isso amanhã?", "quero o primeiro horário", "o primeiro", "Carlos Eduardo"]}], "proposta": {"plano": "premium", "titulo": "Uma assistente com IA que leva o paciente da Santé até a avaliação", "diagnostico": "<b>O que encontramos:</b> a Santé já tem uma assistente, a Iris, que responde na hora. Isso é ótimo. No teste de hoje ela perguntou o que mais incomodava; respondemos \"comer\" às 9h24, a resposta seguinte só veio às 10h30, falando de mudar a alimentação, e depois do nosso \"sim\" a conversa não chegou a nenhum horário. Com 514 avaliações e muita gente chegando pelo Google atrás de lente de porcelana, cada conversa que não termina em agendamento é paciente perdido.", "inclui": ["Assistente com IA preparada só com os tratamentos da Santé (lentes, prótese, implantes e clínico) e com as informações que a clínica aprovar", "Toda conversa termina com uma proposta de horário: o paciente sai com a avaliação marcada", "Entende texto livre e áudio e responde em segundos, 24 horas por dia", "Lembrete na véspera com confirmação e remarcação", "Conversa passa para a equipe quando o paciente pede, com o histórico completo", "Resumo diário no seu WhatsApp e ajustes todo mês"], "passos": ["Conversa de 15 minutos para entender serviços, agenda e o que a Iris faz hoje", "Configuramos a nova assistente e vocês testam antes de ligar", "Ativamos no número atual e acompanhamos as conversas todo mês"], "alternativa": "Se preferir manter a Iris, avaliamos o fluxo atual de vocês e fazemos uma proposta sob medida só para corrigir onde a conversa se perde.", "calc": {"m": 10, "c": 20, "t": 3000, "label": "Valor médio de um tratamento (R$)"}}, "slug": "sante", "name": "Clínica Santé", "article": "a", "na": "na", "da": "da", "unit": "consulta", "unitPl": "consultas", "uArt": "a", "uCap": "Consulta", "h1": "O WhatsApp da Santé levando cada paciente até a avaliação", "hours": "[A CONFIRMAR]", "fecha": "no fim do expediente", "pClock": 1265, "prox": "terça, 24/11, às 10h30", "cadastro": "Encontrei seu cadastro: *Mariana S.*\nSua última consulta foi a avaliação de lentes, em 10/11.", "slots": [["Seg 23/11 · 09h00", "Ter 24/11 · 10h30"], ["Seg 23/11 · 14h00", "Qua 25/11 · 16h00"]], "side": {"p": ["Leva cada conversa até a avaliação marcada, sem se perder no meio", "Quem chega do Google perguntando preço de lente sai com avaliação e orçamento marcados", "Lembrete na véspera, confirmação e remarcação pelo próprio paciente"], "g3": "Encontra quem pediu orçamento de lente ou prótese e não marcou, e chama de volta"}, "note": {"p": "<b>Por que importa:</b> no nosso teste, a Iris perguntou o que incomodava, respondemos \"comer\" às 9h24 e a resposta seguinte veio às 10h30 falando de alimentação, sem oferecer horário. Quem tem prótese solta quer marcar, não conversar."}, "sumiuBtn": "Orçamentos sem retorno", "sumiuTxt": "pediram orçamento de lente ou prótese nos últimos 30 dias e não marcaram a avaliação.", "num": {"dia": 30, "conf": 20, "canc": 2, "prox": "09h00", "proxPac": 3, "proxVagas": 1, "vagasAmanha": "09h00 (1) · 10h30 (2) · 14h00 (2) · 16h00 (1)", "vagasSemana": "Ter 24 · 6 vagas\nQua 25 · 5 vagas\nQui 26 · 8 vagas\nSex 27 · 3 vagas", "sexta": 29, "faltasSex": 3, "cancSex": 2, "remSex": 4, "fora": 22, "foraAg": 13, "foraHu": 2, "pedidos": ["Sônia R. (22:15): prótese machucando, avaliação marcada para segunda", "Paulo A. (06:50): orçamento de lentes nos 6 dentes da frente"], "semana": 144, "pres": 91, "presAnt": 86, "resolvidas": 67, "faltasHor": [["Seg 09h00", "10%"], ["Sex 16h00", "9%"], ["Qua 09h00", "7%"]], "sumiram": 24, "ocup": [["Manhã", 89], ["Tarde", 70]], "ocioso": "Horários mais ociosos: ter e qui, das 14h às 16h."}};
+const $=id=>document.getElementById(id), box=$('msgs');
+const slow=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+const U=C.unit, Us=C.unitPl, N=C.num;
+$('h1').textContent=C.h1;$('lead').textContent=C.lead;$('av').textContent=C.initial;
+$('foot').textContent=`Demonstração preparada para ${C.article} ${C.name} · novembro de 2026`;
+
+/* ===== Paciente (menu com botões, plano Essencial) ===== */
+const P={p0:{m:[`Olá! Aqui é ${C.article} *${C.name}* 👋\nSou o assistente virtual da clínica e respondo 24 horas.\n\nComo posso ajudar?`],
+  o:C.services.map(s=>[s.menu,s.id]).concat([['Remarcar ou cancelar','rm'],['Ver o lembrete de véspera','lb'],['Falar com a recepção','hu']])}};
+C.services.forEach(s=>{
+  P[s.id]={m:s.say,o:s.ask.map(a=>[a[0],s.id+'_'+a[1]])};
+  s.ask.forEach(a=>{P[s.id+'_'+a[1]]={m:[a[2]],o:[['Quero marcar','first_'+s.id],['Ver outro assunto','p0'],['Falar com a recepção','hu']]}});
+  P['first_'+s.id]={m:[`Claro! É a sua primeira vez ${C.na} ${C.name}?`],o:[['Sim, primeira vez','new_'+s.id],['Já sou paciente','old']]};
+  P['new_'+s.id]={m:[`Seja bem-vindo(a)! A primeira etapa é ${s.visit}.`,'Será particular ou por convênio?'],o:[['Particular','per'],['Convênio','conv']]};
+});
+Object.assign(P,{
+ conv:{m:['Convênios atendidos: [A CONFIRMAR].\nNo dia, traga a carteirinha e um documento com foto.'],o:[['Entendi, quero marcar','per']]},
+ old:{m:[C.cadastro],o:[[`Marcar a próxima`,'per']]},
+ per:{m:['Qual período fica melhor para você?'],o:C.periods.map((p,i)=>[p,'sl'+i])},
+ rm:{m:[`Sua próxima ${U} é *${C.prox}*.\nO que você quer fazer?`],o:[['Remarcar','rm2'],[`Cancelar`,'cc']]},
+ rm2:{m:['Para quando você quer mudar?'],o:C.slots.flat().slice(0,3).map(x=>[x,'rmok'])},
+ rmok:{m:['Remarcado ✅',`O horário antigo já voltou para a agenda e foi oferecido a quem está na lista de espera.`],o:[['Voltar ao menu','p0']]},
+ cc:{m:[`Quer cancelar ${C.uArt} ${U} de *${C.prox}*?`],o:[['Sim, cancelar','ccok'],['Prefiro remarcar','rm2']]},
+ ccok:{m:[`${C.uCap} cancelada. A recepção já foi avisada e o horário voltou para a agenda.`,'Quer deixar uma nova data marcada?'],o:[['Sim, marcar outra','per'],['Agora não, obrigado(a)','fim']]},
+ fim:{m:['Combinado! Quando quiser, é só mandar um "oi" por aqui, a qualquer hora.'],o:[['Voltar ao menu','p0']]},
+ lb:{sys:'Mensagem automática enviada ontem às 18:00',m:[`Oi, Mariana! Lembrete ${C.da} *${C.name}*:\nsua ${U} é *${C.prox}*.\n\nVocê confirma?`],o:[['Confirmo','lbok'],['Preciso remarcar','rm2'],['Não vou poder ir','cc']]},
+ lbok:{m:['Presença confirmada ✅ Até lá!'],o:[['Voltar ao menu','p0']]},
+ hu:{m:[`Certo, já chamei a recepção. Atendimento com pessoa: ${C.hours}.`,'Fora desse horário, sua mensagem fica registrada e a equipe responde assim que abrir, com todo o histórico.'],sys2:'A recepção entrou na conversa',o:[['Voltar ao menu','p0']]}
+});
+C.periods.forEach((p,i)=>{P['sl'+i]={m:['Tenho estes horários livres:'],o:C.slots[i].map(x=>[x,'okA']).concat([['Ver outros dias','sl'+((i+1)%C.periods.length)]])}});
+P.okA={m:[`Pronto, ${U} marcada ✅\n\n📍 Endereço: [A CONFIRMAR]\n\nVou te mandar um lembrete *um dia antes*. Se precisar mudar, é só me chamar aqui.`],o:[['Voltar ao menu','p0']]};
+
+/* ===== Recepção ===== */
+const R={
+ r0:{m:['Bom dia, equipe! O que você precisa?'],o:[['Agenda de hoje','rh'],['Horários livres','rl'],['Incluir paciente','ri'],['Bloquear agenda','rb'],['Conversas da madrugada','rn']]},
+ rh:{m:[`*Hoje, seg 23/11*\n• ${N.dia} ${Us} marcadas\n• ${N.conf} confirmadas\n• ${N.canc} cancelaram (horários já liberados)\n• ${N.dia-N.conf-N.canc} ainda sem resposta\n\nPróximo horário, ${N.prox}: ${N.proxPac} pacientes, ${N.proxVagas} vaga${N.proxVagas==1?'':'s'}.`],o:[['Lembrar quem não respondeu','rh2'],['Voltar ao menu','r0']]},
+ rh2:{m:[`Lembrete reenviado para os ${N.dia-N.conf-N.canc} pacientes às 08:35.`,'Eu aviso aqui quem confirmar ou desmarcar.'],o:[['Voltar ao menu','r0']]},
+ rl:{m:['Qual dia?'],o:[['Amanhã','rl2'],['Esta semana','rl3']]},
+ rl2:{m:[`*Ter 24/11*, vagas:\n${N.vagasAmanha}`],o:[['Reservar um horário para alguém','ri'],['Voltar ao menu','r0']]},
+ rl3:{m:[`*Vagas até sexta:*\n${N.vagasSemana}`],o:[['Voltar ao menu','r0']]},
+ ri:{m:['Mande o nome ou o telefone do paciente.'],o:[['Joana Lima','ri2']]},
+ ri2:{m:['Encontrei: *Joana Lima*, final 1234.\nQual horário?'],o:C.slots.flat().slice(0,2).map(x=>[x,'riok'])},
+ riok:{m:['Incluída ✅','A Joana já recebeu a confirmação no WhatsApp dela e vai ganhar o lembrete na véspera.'],o:[['Voltar ao menu','r0']]},
+ rb:{m:['O que você quer bloquear?'],o:[['Uma hora: qua 25/11, 12h às 13h (reunião)','rb1'],['Um dia: sex 27/11','rb2'],['Uma semana: 21 a 25/12','rb3'],['Um mês: janeiro inteiro','rb4']]},
+ rb1:{m:['Bloqueado ✅ Ninguém consegue marcar nesse horário.','Já havia *2 pacientes* marcados. Quer que eu ofereça outro horário para eles?'],o:[['Sim, oferecer','rbok'],['Não, eu ligo para eles','r0']]},
+ rb2:{m:['Bloqueado ✅ Sexta, 27/11, fechada para novas marcações.',`Já havia *${N.sexta} pacientes* marcados. Quer que eu ofereça outro horário para eles?`],o:[['Sim, oferecer','rbok'],['Não, eu ligo para eles','r0']]},
+ rb3:{m:['Bloqueado ✅ Semana de 21 a 25/12 fechada.','Ainda não havia pacientes marcados nesses dias.'],o:[['Voltar ao menu','r0']]},
+ rb4:{m:['Bloqueado ✅ Janeiro fechado para novas marcações.','Quem tentar marcar vai receber a mensagem de recesso e poderá entrar na lista para fevereiro.'],o:[['Voltar ao menu','r0']]},
+ rbok:{m:['Mensagem enviada com 3 opções de horário. Eu aviso aqui quando cada um escolher.'],o:[['Voltar ao menu','r0']]},
+ rn:{m:[`*Fora do horário, desde ontem ${C.fecha}:*\n• ${N.fora} conversas atendidas\n• ${N.foraAg} ${Us} marcadas sozinhas\n• ${N.foraHu} pedidos para falar com a equipe`,'Os pedidos estão na fila com o histórico completo. Quer ver?'],o:[['Ver os pedidos','rn2'],['Voltar ao menu','r0']]},
+ rn2:{m:N.pedidos.map(x=>`• ${x}`).join('\n').length?[N.pedidos.map(x=>`• ${x}`).join('\n')]:['Nenhum pedido.'],o:[['Voltar ao menu','r0']]}
+};
+
+/* ===== Gestor ===== */
+const G={
+ g0:{sys:'Resumo automático das 07:30',m:['Bom dia! Aqui está a clínica em números. O que você quer ver?'],o:[['Resumo de sexta','g1'],['Semana passada','g2'],['Onde estão as faltas','g3'],[C.sumiuBtn,'g4'],['Ocupação por período','g5']]},
+ g1:{m:[`*Sexta, 20/11*\n• ${N.sexta} ${Us} marcadas\n• ${N.sexta-N.faltasSex-N.cancSex} vieram (${Math.round((N.sexta-N.faltasSex-N.cancSex)/N.sexta*100)}%)\n• ${N.faltasSex} faltas sem aviso\n• ${N.cancSex} cancelamentos, ${Math.max(1,N.cancSex-1)} reaproveitados\n• ${N.remSex} remarcações feitas pelo próprio paciente\n• ${N.fora} marcações fora do horário da recepção`],o:[['Voltar ao menu','g0']]},
+ g2:{m:[`*Semana de 16 a 20/11*\n• ${N.semana} ${Us}\n• Presença: ${N.pres}% (na anterior, ${N.presAnt}%)\n• Faltas sem aviso: ${100-N.pres-2}%\n• ${N.resolvidas} conversas resolvidas sem a recepção`],o:[['Voltar ao menu','g0']]},
+ g3:{m:[`*Horários com mais faltas (últimos 30 dias)*\n${N.faltasHor.map((f,i)=>`${i+1}. ${f[0]} · ${f[1]}`).join('\n')}`,'Posso mandar um segundo lembrete, 2 horas antes, só nesses horários.'],o:[['Ativar segundo lembrete','g3ok'],['Voltar ao menu','g0']]},
+ g3ok:{m:['Ativado ✅ A partir de amanhã esses horários recebem um aviso extra.'],o:[['Voltar ao menu','g0']]},
+ g4:{m:[`*${N.sumiram} pacientes* ${C.sumiuTxt}`,'Quer que eu mande uma mensagem convidando para voltar?'],o:[['Sim, enviar','g4ok'],['Agora não','g0']]},
+ g4ok:{m:[`Mensagem enviada para os ${N.sumiram}. Eu aviso quem marcar.`],o:[['Voltar ao menu','g0']]},
+ g5:{m:[`*Ocupação da semana*\n${N.ocup.map(o=>`${o[0]}: ${o[1]}%`).join('\n')}`,N.ocioso],o:[['Voltar ao menu','g0']]}
+};
+
+const S={
+ p:{name:C.name,sub:'conta comercial · online',title:'O paciente resolve sozinho, a qualquer hora',list:C.side.p,note:C.note.p,start:'p0',nodes:P,first:'Oi, boa noite',clock:C.pClock},
+ r:{name:C.name+' · Equipe',sub:'você é da recepção',title:'A recepção controla a agenda pelo próprio WhatsApp',
+   list:['Vê a agenda do dia, as vagas e quem ainda não confirmou','Inclui paciente e bloqueia uma hora, um dia, uma semana ou um mês (reunião, feriado, férias)','Abre o dia sabendo o que entrou de madrugada, sem perder nenhum pedido'],
+   note:'<b>Mesmo número:</b> o assistente reconhece que o celular é da equipe e mostra o menu da recepção. Paciente nunca vê essas opções.',start:'r0',nodes:R,first:'Menu',clock:8*60+32},
+ g:{name:C.name+' · Gestão',sub:'você é da direção',title:'O dono acompanha a clínica sem abrir planilha',
+   list:['Presença, faltas e ocupação no WhatsApp, todo dia de manhã','Mostra os horários com mais faltas e os horários ociosos',C.side.g3],
+   note:'<b>De onde vêm os números:</b> da própria agenda e das respostas dos pacientes. Nada precisa ser digitado de novo.',start:'g0',nodes:G,first:null,clock:7*60+30},
+ i:{name:C.name,sub:'conta comercial · assistente com IA',title:'No Premium IA, o paciente escreve do jeito dele',
+   list:['Entende texto livre e áudio, sem menu: "tem horário à noite essa semana?"','Explica tratamentos com as informações que a clínica aprovou','Marca, remarca e confirma do mesmo jeito, 24 horas por dia'],
+   note:'<b>Plano Premium IA (R$ 2.000/mês, até 6 profissionais):</b> tudo do Essencial e uma assistente que conversa. Escreva qualquer pergunta no campo abaixo ou toque numa situação pronta.',start:null,nodes:{},first:null,clock:C.pClock}
+};
+
+let cur='p',run=0,min=0;
+const hh=m=>String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const clock=()=>hh(min++);
+const fmt=t=>t.replace(/\*(.+?)\*/g,'<b>$1</b>').replace(/\[A CONFIRMAR\]/g,'<span class="chip">A CONFIRMAR</span>').replace(/\n/g,'<br>');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const add=(cls,html)=>{const d=document.createElement('div');d.className=cls;d.innerHTML=html;box.appendChild(d);box.scrollTop=box.scrollHeight;return d};
+const bubble=(who,t,raw)=>add('b '+who,(raw?t:fmt(t))+'<span class="t">'+clock()+(who==='me'?' ✓✓':'')+'</span>');
+const wait=ms=>new Promise(r=>setTimeout(r,slow?ms:0));
+async function say(list,my){for(const t of list){const ty=add('typing','<i></i><i></i><i></i>');await wait(Math.min(450+t.length*6,1300));ty.remove();if(my!==run)return false;bubble('them',t)}return true}
+async function go(id){
+  const my=++run,n=S[cur].nodes[id];
+  if(n.sys)add('b sys',n.sys);
+  if(!await say(n.m,my))return;
+  if(n.sys2){await wait(400);if(my!==run)return;add('b sys',n.sys2)}
+  const o=add('opts',n.o.map((x,i)=>'<button class="opt" type="button" data-i="'+i+'">'+x[0]+'</button>').join(''));
+  o.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const [label,next]=n.o[+b.dataset.i];o.remove();bubble('me',label);setTimeout(()=>go(next),slow?250:0)}));
+}
+
+/* ===== Paciente com IA (Premium) ===== */
+let st={};
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const has=(t,ws)=>ws.some(w=>w&&t.includes(w));
+const fS=x=>x.replace(' · ',' às ').replace(/^./,c=>c.toLowerCase());
+const listS=l=>{const a=l.map(x=>`*${fS(x)}*`);return a.length>1?a.slice(0,-1).join(', ')+' ou '+a[a.length-1]:a[0]};
+function slotsFor(t){const pn=C.periods.map(norm);let idx=pn.map((p,i)=>i);
+  const w=pn.findIndex(p=>(p.startsWith('manha')&&has(t,['manha','cedo']))||(p.startsWith('tarde')&&has(t,['tarde']))||(p.startsWith('noite')&&has(t,['noite','depois do trabalho']))||(p.startsWith('fim do dia')&&has(t,['fim do dia','final do dia','depois do trabalho','noite'])));
+  if(w>=0)idx=[w];return idx.length===1?C.slots[idx[0]].slice(0,3):idx.map(i=>C.slots[i][0]).slice(0,3)}
+function matchSlot(t,list){
+  const tt=t.replace(/(\d{1,2})\s*h\s*(\d{2})?/g,(m,h,mm)=>`${h.padStart(2,'0')}h${mm||'00'}`).replace(/(\d{1,2}):(\d{2})/g,(m,h,mm)=>`${h.padStart(2,'0')}h${mm}`);
+  const dia={seg:['segunda','seg '],ter:['terca','ter '],qua:['quarta','qua '],qui:['quinta','qui '],sex:['sexta','sex ']};
+  const all=C.slots.flat(),hr=s=>s.split(' · ')[1];
+  return list.find(s=>tt.includes(hr(s)))||list.find(s=>has(t+' ',dia[norm(s.slice(0,3))]||[]))
+    ||(has(t,['primeiro','o 1','esse mesmo','fechado','perfeito'])?list[0]:has(t,['segundo','o 2'])?list[1]:null)
+    ||all.find(s=>tt.includes(hr(s)))||all.find(s=>has(t+' ',dia[norm(s.slice(0,3))]||[]))}
+function brain(raw){
+  const t=norm(raw);
+  if(st.etapa==='nome'){const nome=raw.trim().replace(/^(meu nome e|sou a?|e a?)\s+/i,'').split(/\s+/).map(w=>w[0].toUpperCase()+w.slice(1)).join(' ');st.etapa=null;
+    return [`Prontinho, ${nome.split(' ')[0]}! ✅ ${st.sv?st.sv.visitCap:C.uCap} marcada para *${fS(st.slot)}*.\n📍 Endereço: [A CONFIRMAR]\n\nUm dia antes eu te mando um lembrete para confirmar. Se surgir qualquer imprevisto, é só me escrever aqui que eu remarco na hora.`]}
+  if(st.etapa==='slot'){
+    if(has(t,['outro','nenhum','nao da','nao posso','outra'])){st.slots=C.slots.flat().filter(x=>!st.slots.includes(x)).slice(0,3);return [`Sem problema! Também tenho ${listS(st.slots)}. Algum desses funciona?`]}
+    const s=matchSlot(t,st.slots);if(s){st.slot=s;st.etapa='nome';return [`Combinado, *${fS(s)}* está reservado para você. Pode me dizer seu nome completo para eu deixar tudo certo na agenda?`]}}
+  if(has(t,C.ai.urgent)){st.etapa=null;st.sv=C.services.find(s=>has(t,s.kw))||st.sv;return [C.ai.urgentReply]}
+  if(has(t,['atendente','pessoa','humano','alguem da equipe','falar com alguem','recepcao'])){return [`Claro! Já chamei a recepção. Atendimento com pessoa: ${C.hours}. Sua mensagem fica registrada com todo o histórico.`]}
+  if(has(t,['remarc','desmarc','cancel','nao vou conseguir','nao vou poder','confirmar minha','confirmo'])){
+    if(has(t,['confirm'])&&!has(t,['remarc','cancel','nao vou']))return ['Presença confirmada ✅ Obrigada por avisar!'];
+    st.slots=slotsFor(t);st.etapa='slot';
+    return [`Sem problema, a gente remarca. Liberei o seu horário de *${C.prox}*.`,`Tenho ${listS(st.slots)}. Qual fica melhor pra você?`]}
+  if(has(t,['endereco','onde fica','onde voces','localiza','que horas','abre ','abrem','convenio','plano de saude','pagamento','parcel','pix','cartao'])&&!has(t,['agend','marcar'])){return [C.ai.info]}
+  let sv=null,sub=null;
+  for(const s of C.services){for(const a of s.ask){if(has(t,a[3]||[])){sv=s;sub=a;break}}if(sub)break;if(!sv&&has(t,s.kw))sv=s}
+  if(!sub&&st.sv&&(!sv||sv===st.sv)){for(const a of st.sv.ask){if(has(t,[norm(a[0]).replace(/[()]/g,'').split(' ')[0]])){sv=st.sv;sub=a;break}}}
+  if(sv)st.sv=sv;
+  const quer=has(t,['agend','marcar','marco','horario','vaga','disponivel','tem hora','pode ser','sim','bora','essa semana','amanha','segunda','terca','quarta','a noite','de noite','de manha','pela manha','de tarde','a tarde','depois do trabalho']);
+  const out=[];
+  if(sub)out.push(sub[2].replace(/\s*(Quer (já )?(deixar|marcar)[^?]*\?|Escolha o melhor horário\.|Vamos marcar a consulta\.|Vamos marcar logo[^.]*\.)\s*$/,'')||sv.ai);
+  else if(sv)out.push(sv.ai);
+  if(quer){st.slots=slotsFor(t);st.etapa='slot';out.push(`Para ${(st.sv||C.services[0]).visit}, tenho ${listS(st.slots)}. Qual fica melhor pra você?`);return out}
+  if(out.length){if(!st.of){st.of=true;out.push('Quer que eu já veja um horário pra você?')}return out}
+  if(has(t,['obrigad','valeu','brigad']))return ['Imagina! Qualquer coisa é só chamar aqui, a qualquer hora 😊'];
+  if(has(t,['valor','preco','quanto','custa']))return [C.ai.prices];
+  if(has(t,['oi','ola','boa noite','bom dia','boa tarde','tudo bem'])&&t.length<40)return [C.ai.hello];
+  return [C.ai.fallback]}
+let iaBusy=false;
+async function userSays(raw,voice){
+  if(iaBusy||!raw.trim())return;iaBusy=true;const my=run;
+  if(voice){const bars=Array.from({length:26},(_,i)=>`<i style="height:${30+((i*37)%70)}%"></i>`).join('');
+    bubble('me',`<span class="voice"><span class="pp"></span><span class="wv">${bars}</span></span><span class="tr">Áudio transcrito: "${esc(raw)}"</span>`,true)}
+  else bubble('me',esc(raw),true);
+  await say(brain(raw),my);iaBusy=false}
+$('iaf').addEventListener('submit',e=>{e.preventDefault();const v=$('iat').value.trim();$('iat').value='';if(v)userSays(v)});
+
+function renderScen(k){
+  if(k!=='i'){$('scen').innerHTML='';return}
+  $('scen').innerHTML=C.aiScenarios.map((s,i)=>`<button type="button" data-i="${i}">▶ ${s.label}</button>`).join('');
+}
+$('scen').addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;const s=C.aiScenarios[b.dataset.i];
+  if(innerWidth<760)document.querySelector('.phone').scrollIntoView({behavior:'smooth',block:'start'});
+  show('i',true);const my=run;iaBusy=false;
+  for(const step of [s.first].concat(s.steps)){if(my!==run)return;const v=step.startsWith('🎤');await userSays(v?step.slice(2).trim():step,v);await wait(700)}});
+
+function show(k,silent){
+  cur=k;run++;const s=S[k];min=s.clock;st={};iaBusy=false;
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.k===k));
+  $('cname').textContent=s.name;$('csub').textContent=s.sub;$('screen').classList.toggle('ia',k==='i');
+  $('stitle').textContent=s.title;$('slist').innerHTML=s.list.map(x=>'<li>'+x+'</li>').join('');$('snote').innerHTML=s.note;
+  renderScen(k);
+  box.innerHTML='<div class="day">Hoje</div>';
+  if(k==='i'){if(!silent){const my=run;bubble('me',esc(C.ai.firstMsg),true);(async()=>{iaBusy=true;await say(brain(C.ai.firstMsg),my);iaBusy=false})()}}
+  else{if(s.first)bubble('me',s.first);go(s.start)}
+  try{history.replaceState(null,'','#'+{p:'paciente',r:'recepcao',g:'gestor',i:'premium-ia'}[k])}catch(e){}
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>show(t.dataset.k)));
+$('reset').addEventListener('click',()=>show(cur));
+show({'#recepcao':'r','#gestor':'g','#premium-ia':'i'}[location.hash]||'p');
+
+/* ===== proposta ===== */
+{const Pp=C.proposta,PL={essencial:{n:'Essencial',m:450},premium:{n:'Premium IA',m:2000}}[Pp.plano];
+const real=x=>'R$ '+Math.round(x).toLocaleString('pt-BR');
+$('pfor').textContent=C.name;$('ph').textContent=Pp.titulo;$('pdiag').innerHTML=Pp.diagnostico;$('pnome').textContent=PL.n;
+$('pinc').innerHTML=Pp.inclui.map(x=>`<li>${x}</li>`).join('');$('pstep').innerHTML=Pp.passos.map(x=>`<li>${x}</li>`).join('');
+$('ooname').textContent='Plano recomendado: '+PL.n;$('oprice').innerHTML=`${real(PL.m)}<small>/mês</small>`;$('oalt').textContent=Pp.alternativa;
+const q=`origem=demo-${C.slug}&utm_source=demo&utm_medium=proposta&utm_campaign=prospeccao-nov26`;
+$('cbuy').href=`https://arketosleon.github.io/?plano=${Pp.plano}&${q}`;$('cbuy').textContent=`Contratar o ${PL.n}`;
+$('ctalk').href=`https://arketosleon.github.io/?${q}#contato`;
+$('k-m').value=Pp.calc.m;$('k-c').value=Pp.calc.c;$('k-t').value=Pp.calc.t;$('k-tl').textContent=Pp.calc.label;
+const calc=()=>{const n=id=>Math.max(0,Number($(id).value)||0);const pac=n('k-m')*4.3*Math.min(n('k-c'),100)/100,rec=pac*n('k-t');
+  $('k-r').textContent=real(rec);const pg=n('k-t')>0?Math.ceil(PL.m/n('k-t')):0;
+  $('k-p').textContent=`≈ ${Math.round(pac)} paciente${Math.round(pac)==1?'':'s'} por mês. O ${PL.n} (${real(PL.m)}/mês) se paga com ${pg} ${pg==1?'paciente':'pacientes'}.`};
+['k-m','k-c','k-t'].forEach(id=>$(id).addEventListener('input',calc));calc();}
+}
+</script>
+</body>
+</html>
