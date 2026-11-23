@@ -26,5 +26,5 @@ export function respostaEstela(texto: string, nome: string, d: Dia): string {
     return `Vamos com calma. Respira fundo comigo: 4 segundos puxando o ar, 4 soltando.\n\nSua Lua em ${m}: ${LUA[d.m].toLowerCase()}\n\nO que mais está pesando agora? Se for algo que dura muitos dias, conversar com um psicólogo pode ajudar muito.`;
   if (/obrigad|valeu|amei|gostei/.test(t)) return 'Fico feliz! Amanhã cedo eu te mando o céu do dia. ✧';
   if (/\b(oi|ola)\b/.test(t)) return `Oi, ${nome}! Quer saber do seu dia, do amor ou do trabalho?`;
-  return `Entendi. Olhando seu céu, com Sol em ${s} e Lua em ${m}, eu te pergunto: ${H.p.toLowerCase()}\n\nQuer que eu fale do seu dia, do amor ou do trabalho?`;
+  return `${nome}, eu só converso sobre o seu céu e o seu horóscopo ✧ Posso te contar sobre o seu Sol em ${s}, a Lua de hoje em ${SIGNOS[d.tm]} ou a sua carta do dia. Por onde começamos?`;
 }

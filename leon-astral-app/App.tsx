@@ -376,10 +376,10 @@ function Oraculo({ perfil, dia, uid }: { perfil: Perfil; dia: Dia; uid: string }
     setTxt(''); setDigitando(true);
     let resposta: string | null = null, mid: number | null = null;
     try {
-      const j = await chamar<{ texto?: string; id?: number; fallback?: boolean }>('estela', {
-        texto: v, contexto: { sol: dia.s, lua: dia.m, asc: dia.a, luaHoje: dia.tm, casa: dia.ca, tema: H.t, fase: dia.ceu.fase },
+      const j = await chamar<{ texto?: string; id?: number; fallback?: boolean; foraDoTema?: boolean }>('estela', {
+        texto: v, contexto: { sol: dia.s, lua: dia.m, asc: dia.a, luaHoje: dia.tm, casa: dia.ca, tema: H.t, fase: dia.ceu.fase, carta: cartaDoDia(uid, Date.now()).nome },
       });
-      if (!j.fallback && j.texto) { resposta = j.texto; mid = j.id ?? null; }
+      if (!j.fallback && j.texto) { resposta = j.texto; mid = j.id ?? null; if (j.foraDoTema) evento('estela_fora_do_tema'); }
     } catch {}
     if (!resposta) { await new Promise((r) => setTimeout(r, 700)); resposta = respostaEstela(v, perfil.nome, dia); }
     setDigitando(false);
