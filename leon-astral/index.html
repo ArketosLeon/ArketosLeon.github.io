@@ -436,7 +436,7 @@ function chatStart(){add(`Oi, ${U.nm} ✧ Eu sou a Estela.\nJá li o seu céu: S
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 async function user(txt){add(txt,"u");
   if(sb&&UID){$("st").textContent="digitando…";
-    try{const j=await chamar("estela",{texto:txt,contexto:{sol:TD.s,lua:TD.m,asc:TD.a,luaHoje:TD.tm,casa:TD.ca,tema:TD.H.t,fase:TD.fase}});
+    try{const j=await chamar("estela",{texto:txt,contexto:{sol:TD.s,lua:TD.m,asc:TD.a,luaHoje:TD.tm,casa:TD.ca,tema:TD.H.t,fase:TD.fase,carta:cartaDoDia(U.nm+U.dt,Date.now()).nome}});
       if(!j.fallback&&j.texto){$("st").textContent="Online com seu Mapa Astral";add(j.texto,"t",j.id);return}}catch(e){}}
   bot(resp(norm(txt)),900+Math.random()*600)}
 function resp(t){const s=S[TD.s],m=S[TD.m],H=TD.H;
@@ -448,7 +448,7 @@ function resp(t){const s=S[TD.s],m=S[TD.m],H=TD.H;
   if(/trabalh|dinheiro|grana|carreira/.test(t))return`Sol em ${s}: ${SOL[TD.s]}\n\n${[1,5,9].includes(TD.ca)?"O céu favorece trabalho e dinheiro: resolva o que está parado.":"Não é dia de decisões grandes com dinheiro. Planeje e decida amanhã."}`;
   if(/ascendente/.test(t))return TD.a!=null?`Seu Ascendente em ${S[TD.a]} é a primeira impressão que você passa: alguém ${ASC[TD.a]}.`:"Para revelar seu Ascendente eu preciso da hora do seu nascimento. Ela fica na certidão.";
   if(/triste|ansios|cansad|medo|preocup/.test(t))return`Vamos com calma. Respira comigo: 4 segundos puxando o ar, 4 soltando.\n\nSua Lua em ${m}: ${LUA[TD.m].toLowerCase()}\n\nSe esse peso já dura muitos dias, conversar com uma psicóloga pode ajudar muito.`;
-  return`Olhando seu céu, Sol em ${s} e Lua em ${m}, eu te devolvo uma pergunta: ${H.p.toLowerCase()}`}
+  return`${U.nm}, eu só converso sobre o seu céu e o seu horóscopo ✧ Posso te contar sobre o seu Sol em ${s}, a Lua de hoje em ${S[TD.tm]} ou a sua carta do dia. Por onde começamos?`}
 boot();
 }
 </script>
