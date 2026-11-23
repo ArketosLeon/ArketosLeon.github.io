@@ -29,6 +29,14 @@
           "resizeMode": "contain",
           "backgroundColor": "#0B0E17"
         }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "arktos-leon",
+          "project": "leon-astral",
+          "url": "https://sentry.io/"
+        }
       ]
     ],
     "extra": {

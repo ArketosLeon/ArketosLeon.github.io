@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Session } from '@supabase/supabase-js';
 import { sb, entrarCom, carregarBiblioteca } from './src/supabase';
 import { useTheme, Theme } from './src/theme';
+import { evento, identificar, sair, Sentry } from './src/telemetria';
 import { calcular, ceuAgora, cidades as CIDADES, sg, Mapa, Perfil } from './src/astro';
 import { ASC, CASAS, ELEMENTOS, GLIFOS, LUA, SIGNOS, SOL } from './src/content';
 import { respostaEstela, Dia } from './src/estela';
@@ -18,7 +19,9 @@ type Msg = { id: string; de: 'eu' | 'estela'; texto: string; hora: string };
 
 const hora = () => new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
-export default function App() {
+export default Sentry.wrap(App);
+
+function App() {
   return (
     <SafeAreaProvider>
       <Root />
@@ -38,7 +41,7 @@ function Root() {
   useEffect(() => {
     carregarBiblioteca().catch(() => {});
     sb.auth.getSession().then(({ data }) => setSessao(data.session)).finally(() => setCarregando(false));
-    const { data: sub } = sb.auth.onAuthStateChange((_e, sess) => setSessao(sess));
+    const { data: sub } = sb.auth.onAuthStateChange((_e, sess) => { setSessao(sess); if (sess) identificar(sess.user.id); });
     return () => sub.subscription.unsubscribe();
   }, []);
 
@@ -77,7 +80,7 @@ function Root() {
       {!sessao ? (
         <Login t={t} s={s} />
       ) : !perfil || editando ? (
-        <Cadastro t={t} s={s} sessao={sessao} inicial={perfil} onSalvo={(p) => { setPerfil(p); setEditando(false); setAba('hoje'); }} />
+        <Cadastro t={t} s={s} sessao={sessao} inicial={perfil} onSalvo={(p) => { evento('cadastro_concluido', { com_hora: !!p.hora }); setPerfil(p); setEditando(false); setAba('hoje'); }} />
       ) : (
         <>
           <View style={s.fill}>
@@ -87,7 +90,7 @@ function Root() {
           </View>
           <View style={s.tabs} accessibilityRole="tablist">
             {([['hoje', '☼', 'Hoje'], ['mapa', '◎', 'Meu mapa'], ['conversa', '✉', 'Conversa']] as const).map(([k, g, l]) => (
-              <Pressable key={k} style={s.tab} onPress={() => setAba(k)} accessibilityRole="tab" accessibilityState={{ selected: aba === k }}>
+              <Pressable key={k} style={s.tab} onPress={() => { setAba(k); evento('aba_vista', { aba: k }); }} accessibilityRole="tab" accessibilityState={{ selected: aba === k }}>
                 <Text style={[s.tabG, aba === k && { color: t.acc }]}>{g}</Text>
                 <Text style={[s.tabL, aba === k && { color: t.acc }]}>{l}</Text>
               </Pressable>
@@ -260,7 +263,7 @@ function MeuMapa({ t, s, perfil, mapa, dia, onEditar }: { t: Theme; s: S; perfil
       </View>
       <Text style={s.small}>Linha tracejada: a Lua de hoje, em {SIGNOS[dia.tm]}. Posições calculadas com o histórico oficial de fusos e horário de verão do Brasil.</Text>
       <Pressable style={[s.btn, { justifyContent: 'center', marginTop: 16 }]} onPress={onEditar}><Text style={s.btnTxt}>Editar meus dados</Text></Pressable>
-      <Pressable style={[s.btn, { justifyContent: 'center' }]} onPress={() => sb.auth.signOut()}><Text style={s.btnTxt}>Sair</Text></Pressable>
+      <Pressable style={[s.btn, { justifyContent: 'center' }]} onPress={() => { sair(); sb.auth.signOut(); }}><Text style={s.btnTxt}>Sair</Text></Pressable>
     </ScrollView>
   );
 }
@@ -276,6 +279,7 @@ function Conversa({ t, s, perfil, dia, uid }: { t: Theme; s: S; perfil: Perfil; 
   const lista = useRef<any>(null);
 
   const enviar = (texto: string) => {
+    evento('mensagem_estela');
     const v = texto.trim(); if (!v) return;
     setMsgs((m) => [...m, { id: String(Date.now()), de: 'eu', texto: v, hora: hora() }]);
     setTxt('');

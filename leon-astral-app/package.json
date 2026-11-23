@@ -6,7 +6,9 @@
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "setup": "npx expo install @sentry/react-native posthog-react-native expo-file-system expo-application expo-device expo-localization",
+    "testar-ceu": "node tools/testar-ceu.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
