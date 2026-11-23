@@ -58,7 +58,8 @@
           "delayAppMeasurementInit": true,
           "userTrackingUsageDescription": "Usamos isso para mostrar anúncios mais relevantes no plano grátis."
         }
-      ]
+      ],
+      "./plugins/withKeepRules"
     ],
     "extra": {
       "supabaseUrl": "https://rimgeohwknrwgvjburqq.supabase.co",
