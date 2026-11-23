@@ -9,12 +9,13 @@ import { Session } from '@supabase/supabase-js';
 import { sb, entrarCom, carregarBiblioteca } from './src/supabase';
 import { useTheme, Theme } from './src/theme';
 import { evento, identificar, sair, Sentry } from './src/telemetria';
+import { cartaDoDia, sintonia } from './src/extras';
 import { calcular, ceuAgora, cidades as CIDADES, sg, Mapa, Perfil } from './src/astro';
 import { ASC, CASAS, ELEMENTOS, GLIFOS, LUA, SIGNOS, SOL } from './src/content';
 import { respostaEstela, Dia } from './src/estela';
 import Wheel from './src/Wheel';
 
-type Aba = 'hoje' | 'mapa' | 'conversa';
+type Aba = 'hoje' | 'mapa' | 'sintonia' | 'conversa';
 type Msg = { id: string; de: 'eu' | 'estela'; texto: string; hora: string };
 
 const hora = () => new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
@@ -84,12 +85,13 @@ function Root() {
       ) : (
         <>
           <View style={s.fill}>
-            {aba === 'hoje' && dia && <Hoje s={s} perfil={perfil} dia={dia} />}
+            {aba === 'hoje' && dia && <Hoje s={s} perfil={perfil} dia={dia} uid={sessao.user.id} />}
+            {aba === 'sintonia' && mapa && <Sintonia t={t} s={s} mapa={mapa} />}
             {aba === 'mapa' && mapa && dia && <MeuMapa t={t} s={s} perfil={perfil} mapa={mapa} dia={dia} onEditar={() => setEditando(true)} />}
             {aba === 'conversa' && dia && <Conversa t={t} s={s} perfil={perfil} dia={dia} uid={sessao.user.id} />}
           </View>
           <View style={s.tabs} accessibilityRole="tablist">
-            {([['hoje', '☼', 'Hoje'], ['mapa', '◎', 'Meu mapa'], ['conversa', '✉', 'Conversa']] as const).map(([k, g, l]) => (
+            {([['hoje', '☼', 'Hoje'], ['mapa', '◎', 'Meu mapa'], ['sintonia', '♡', 'Sintonia'], ['conversa', '✉', 'Conversa']] as const).map(([k, g, l]) => (
               <Pressable key={k} style={s.tab} onPress={() => { setAba(k); evento('aba_vista', { aba: k }); }} accessibilityRole="tab" accessibilityState={{ selected: aba === k }}>
                 <Text style={[s.tabG, aba === k && { color: t.acc }]}>{g}</Text>
                 <Text style={[s.tabL, aba === k && { color: t.acc }]}>{l}</Text>
@@ -203,8 +205,10 @@ function Cadastro({ t, s, sessao, inicial, onSalvo }: { t: Theme; s: S; sessao: 
   );
 }
 
-function Hoje({ s, perfil, dia }: { s: S; perfil: Perfil; dia: Dia }) {
+function Hoje({ s, perfil, dia, uid }: { s: S; perfil: Perfil; dia: Dia; uid: string }) {
   const H = CASAS[dia.ca], mesmo = dia.tm % 4 === dia.s % 4;
+  const carta = useMemo(() => cartaDoDia(uid, Date.now()), [uid]);
+  const [virada, setVirada] = useState(false);
   const data = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
   return (
     <ScrollView contentContainerStyle={s.pad}>
@@ -217,7 +221,82 @@ function Hoje({ s, perfil, dia }: { s: S; perfil: Perfil; dia: Dia }) {
         <Item s={s} g="?" k="Pergunta para você" v={H.p} />
       </View>
       <Text style={s.small}>A Lua entra em {SIGNOS[dia.ceu.proxSigno]} {quando(dia.ceu.trocaEm)}.</Text>
+      <Text style={[s.h2, { marginTop: 20 }]}>Oráculo do dia</Text>
+      <Pressable style={s.card} onPress={() => { if (!virada) { setVirada(true); evento('carta_virada', { carta: carta.indice }); } }} accessibilityRole="button" accessibilityLabel={virada ? `Carta do dia: ${carta.nome}` : 'Toque para revelar a carta do dia'}>
+        {virada ? (
+          <>
+            <Text style={s.k}>{carta.tema}</Text>
+            <Text style={[s.h2, { marginBottom: 6 }]}>✦ {carta.nome}</Text>
+            <Text style={s.body}>{carta.texto}</Text>
+            <Item s={s} g="➜" k="Conselho" v={carta.conselho} />
+          </>
+        ) : (
+          <View style={[s.center, { paddingVertical: 28 }]}>
+            <Text style={{ fontSize: 40, color: '#F3C68F' }}>✧</Text>
+            <Text style={s.body}>Respire, pense no seu dia e toque para revelar sua carta.</Text>
+          </View>
+        )}
+      </Pressable>
     </ScrollView>
+  );
+}
+
+function Sintonia({ t, s, mapa }: { t: Theme; s: S; mapa: Mapa }) {
+  const [nome, setNome] = useState('');
+  const [data, setData] = useState('');
+  const [hr, setHr] = useState('');
+  const [cidade, setCidade] = useState(0);
+  const [busca, setBusca] = useState('');
+  const [erro, setErro] = useState('');
+  const [res, setRes] = useState<ReturnType<typeof sintonia> | null>(null);
+  const semAc = (x: string) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const lista = CIDADES.map((c, i) => [c, i] as const).filter(([c]) => !busca || semAc(c[0] + ' ' + c[4]).includes(semAc(busca))).slice(0, busca ? 12 : 6);
+  const ver = () => {
+    const iso = brParaIso(data);
+    if (!iso || isNaN(Date.parse(iso))) return setErro('Data no formato DD/MM/AAAA.');
+    if (hr && !/^([01]\d|2[0-3]):[0-5]\d$/.test(hr)) return setErro('Hora no formato HH:MM, ou deixe em branco.');
+    setErro('');
+    const outro = calcular({ nome, data: iso, hora: hr, cidade, whatsapp: '' });
+    const r = sintonia(mapa, outro, nome.trim() || 'a outra pessoa');
+    setRes(r); evento('sintonia_calculada', { pct: r.pct, com_hora: !!hr });
+  };
+  return (
+    <KeyboardAvoidingView style={s.fill} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <ScrollView contentContainerStyle={s.pad} keyboardShouldPersistTaps="handled">
+        <Text style={s.h2}>Sintonia</Text>
+        <Text style={[s.muted, { marginBottom: 12 }]}>Compare seu mapa com o de alguém: amor, amizade, família ou trabalho. Os dados da outra pessoa não são salvos.</Text>
+        {res ? (
+          <View style={s.card}>
+            <View style={[s.center, { marginBottom: 8 }]}>
+              <Text style={{ fontSize: 48, fontWeight: '700', color: '#F3C68F' }}>{res.pct}%</Text>
+              <Text style={s.h2}>{res.titulo}</Text>
+            </View>
+            {res.linhas.map((l) => <Item key={l.par} s={s} g={l.tipo === 'quad' || l.tipo === 'opos' ? '△' : l.tipo === 'neutro' ? '○' : '♡'} k={l.tema} v={l.texto} />)}
+            <Pressable style={[s.btn, { justifyContent: 'center', marginTop: 12 }]} onPress={() => setRes(null)}><Text style={s.btnTxt}>Comparar com outra pessoa</Text></Pressable>
+          </View>
+        ) : (
+          <>
+            <Text style={s.label}>Nome</Text>
+            <TextInput style={s.input} value={nome} onChangeText={setNome} placeholder="Ex.: Rafa" placeholderTextColor={t.soft} />
+            <Text style={s.label}>Data de nascimento</Text>
+            <TextInput style={s.input} value={data} onChangeText={(v) => setData(mascaraData(v))} placeholder="DD/MM/AAAA" placeholderTextColor={t.soft} keyboardType="number-pad" />
+            <Text style={s.label}>Hora <Text style={s.small}>(opcional)</Text></Text>
+            <TextInput style={s.input} value={hr} onChangeText={(v) => setHr(mascaraHora(v))} placeholder="HH:MM" placeholderTextColor={t.soft} keyboardType="number-pad" />
+            <Text style={s.label}>Cidade de nascimento</Text>
+            <TextInput style={s.input} value={busca} onChangeText={setBusca} placeholder={`Buscar cidade (selecionada: ${CIDADES[cidade][0]})`} placeholderTextColor={t.soft} />
+            <View style={s.chips}>
+              {lista.map(([c, i]) => (
+                <Pressable key={c[0]} onPress={() => setCidade(i)} style={[s.chip, cidade === i && { backgroundColor: t.sup, borderColor: t.sup }]} accessibilityRole="radio" accessibilityState={{ checked: cidade === i }}>
+                  <Text style={[s.chipTxt, cidade === i && { color: '#fff' }]}>{c[0]} · {c[4]}</Text>
+                </Pressable>
+              ))}
+            </View>
+            {!!erro && <Text style={[s.small, { color: '#F87171' }]}>{erro}</Text>}
+            <Pressable style={[s.btn, { justifyContent: 'center', marginTop: 12 }]} onPress={ver}><Text style={s.btnTxt}>Ver nossa sintonia</Text></Pressable>
+          </>
+        )}
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
