@@ -121,3 +121,53 @@ def make_icon(S, lion, wheel=True):
 if __name__=='__main__':
     lion=make_lion(900); lion.save('/home/claude/lion_v8.png')
     for s in (1024,512): make_icon(s,lion).save(f'/home/claude/icon_v8_{s}.png')
+
+def make_star_lion(size_w=900, seed=3):
+    base=make_lion(size_w)                     # versão atual (rosto nítido)
+    src0=Image.open('/home/claude/lion_clean.png').convert('RGBA')
+    pad=int(src0.width*0.12); src=Image.new('RGBA',(src0.width+2*pad,src0.height+2*pad),(0,0,0,0)); src.paste(src0,(pad,pad))
+    W,H=base.size; src=src.resize((W,H),Image.LANCZOS); A=src.split()[3]
+    er=A.filter(ImageFilter.MinFilter(int(W*0.02)|1)).filter(ImageFilter.GaussianBlur(W*0.01))
+    edge=ImageChops.subtract(A,er)
+    # máscara do rosto (elipse central suave)
+    face=Image.new('L',(W,H),0); fd=ImageDraw.Draw(face)
+    fd.ellipse((W*0.36,H*0.40,W*0.64,H*0.76),fill=255)
+    face=face.filter(ImageFilter.GaussianBlur(W*0.025))
+    mane=ImageChops.multiply(A,Image.eval(face,lambda v:255-v))
+    # rosto = versão atual recortada
+    fa=ImageChops.multiply(base.split()[3],face); facel=base.copy(); facel.putalpha(fa)
+    # névoa dourada bem leve para a juba ainda ler como forma
+    haze=Image.new('RGBA',(W,H),(240,190,110,0)); haze.putalpha(Image.eval(mane,lambda v:int(v*0.10)))
+    # estrelas que formam a juba
+    st=Image.new('RGBA',(W,H),(0,0,0,0)); d=ImageDraw.Draw(st); random.seed(seed)
+    mp=mane.load(); ep=edge.load()
+    cols=[(255,236,190),(255,214,130),(255,246,225),(250,200,110)]
+    n=0; tries=0; target=int(W*H/45)
+    while n<target and tries<target*8:
+        tries+=1; x,y=random.random()*W,random.random()*H
+        m=mp[int(x),int(y)]
+        if m<60: continue
+        e=ep[int(x),int(y)]/255
+        if random.random()>(0.35+0.65*min(1,e*1.6+0.25)): continue   # mais denso nas bordas das mechas
+        r=(random.choice([.5,.7,.9,1.1,1.4])+e*1.6)*W/900
+        a=int(min(255,(170+85*random.random())*(0.75+0.25*e))*m/255)
+        d.ellipse((x-r,y-r,x+r,y+r),fill=random.choice(cols)+(a,)); n+=1
+    # algumas estrelas grandes com brilho em cruz
+    for _ in range(int(W*H/9000)):
+        for _t in range(40):
+            x,y=random.random()*W,random.random()*H
+            if mp[int(x),int(y)]>200: break
+        L=random.uniform(8,18)*W/900; w=max(1,int(W/650))
+        d.line((x-L,y,x+L,y),fill=(255,244,220,230),width=w); d.line((x,y-L,x,y+L),fill=(255,244,220,230),width=w)
+        r=2.2*W/900; d.ellipse((x-r,y-r,x+r,y+r),fill=(255,255,255,255))
+    glow=st.filter(ImageFilter.GaussianBlur(W/320))
+    stars=Image.alpha_composite(glow,st)
+    out=Image.new('RGBA',(W,H),(0,0,0,0))
+    halo=Image.new('RGBA',(W,H),(255,190,110,0)); halo.putalpha(Image.eval(A.filter(ImageFilter.GaussianBlur(W*0.035)),lambda v:int(v*0.22)))
+    for layer in (halo,haze,stars,facel): out=Image.alpha_composite(out,layer)
+    # símbolo de Leão na testa por cima
+    f=ImageFont.truetype(FONT,int(W*0.10))
+    gl=Image.new('L',(W,H),0); ImageDraw.Draw(gl).text((W/2,H*0.30),'♌',font=f,anchor='mm',fill=255)
+    glyph=Image.merge('RGBA',(*Image.new('RGB',(W,H),(255,226,170)).split(),gl))
+    out=Image.alpha_composite(out,glyph.filter(ImageFilter.GaussianBlur(W*0.01))); out=Image.alpha_composite(out,glyph)
+    return out
