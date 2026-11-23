@@ -5,160 +5,210 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Leon Astral</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Symbols:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
 <style>
-/* VOICE: calma e íntima, com a firmeza da marca Arktos Leon
-   IDEA: uma carta celeste de bolso que vira conversa
-   PICTURE: a roda do zodíaco com Sol, Lua e Ascendente + Lua de hoje
-   COLOUR and TYPE: marinho, ouro e marrom do emblema, azul de destaque; Montserrat + Inter (do site)
-   LAYOUT: app de celular em uma coluna, abas embaixo */
-:root{color-scheme:light dark;
---bg:light-dark(#f6f5f1,#0b1a3a);--card:light-dark(#ffffff,#12254d);--ink:light-dark(#0b1a3a,#f3ecdc);
---soft:light-dark(#38425c,#aab4cc);--line:light-dark(#dcdad2,#223a6b);--acc:light-dark(#b07d12,#e2b23a);
---sup:light-dark(#1d4ed8,#6f97ff);--brown:light-dark(#8a5a34,#c48a5c);--chat:light-dark(#efece4,#0e1f44);--me:light-dark(#dbe6ff,#1d3f8a);--them:light-dark(#fff,#16295a)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+/* VOICE: calma, luxuosa, acolhedora — um santuário noturno de bolso
+   IDEA: céu de meia-noite com nebulosa; cartões de vidro fosco flutuando sobre ele
+   PICTURE: o leão dourado da Arktos Leon e o glifo do signo respirando em luz
+   COLOUR and TYPE: meia-noite #0B0E17, lavanda #A78BFA, blush #E2B4BD, ouro champagne #F3C68F; Cinzel + Plus Jakarta Sans
+   LAYOUT: app de celular em uma coluna, 4 abas embaixo (Hoje, Oráculo, Sintonia, Mapa) */
+:root{color-scheme:dark;--gp:linear-gradient(135deg,#FBE3BB 0%,#F3C68F 38%,#C9A0E0 70%,#A78BFA 100%);--bg:#0B0E17;--ink:#F4EEF8;--soft:#B7B2C8;--lav:#A78BFA;--blush:#E2B4BD;--gold:#F3C68F;
+--glass:rgba(255,255,255,.04);--edge:rgba(255,255,255,.10);--lavglass:rgba(167,139,250,.14)}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
-.app{max-width:460px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;position:relative}
-h1,h2{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.08;text-wrap:balance;margin:0}
-h1{font-size:40px}h2{font-size:26px}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+background:radial-gradient(60% 40% at 15% 10%,rgba(167,139,250,.22),transparent 70%),radial-gradient(50% 35% at 90% 35%,rgba(226,180,189,.14),transparent 70%),radial-gradient(70% 45% at 50% 100%,rgba(124,58,237,.16),transparent 70%)}
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.app{position:relative;z-index:1;max-width:460px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,.serif{font-family:Cinzel,Georgia,serif;font-weight:600;letter-spacing:.02em;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:38px}h2{font-size:24px}
 .g{font-family:"Noto Sans Symbols",sans-serif}
 .pad{padding:20px 20px 0}
 .muted{color:var(--soft);font-size:14px}
-.brand{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--card)}
-.brand img{width:46px;height:auto;flex:none}.brand b{font:800 14px Montserrat,sans-serif;letter-spacing:.06em}
-.kj{margin-left:auto;font-size:20px;color:var(--brown)}.kj span{color:var(--acc)}
-.by{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--soft);margin:18px 0 24px}.by img{width:34px}
-.demo{font-size:13px;color:var(--soft);text-align:center;padding:8px 16px;border-bottom:1px solid var(--line)}
+.k{font-size:13px;font-weight:600;background:var(--gp);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.row .k,.trio .k{display:block;width:fit-content}
+.gt{background:var(--gp);-webkit-background-clip:text;background-clip:text;color:transparent}
+.demo{font-size:13px;color:var(--soft);text-align:center;padding:6px 16px}
 button,input,select{font:inherit;font-size:16px;color:inherit}
-.btn{display:flex;align-items:center;gap:12px;width:100%;min-height:52px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);cursor:pointer;text-align:left;font-weight:600}
-.btn:focus-visible,input:focus-visible,select:focus-visible,.chip:focus-visible,.tab:focus-visible{outline:3px solid var(--sup);outline-offset:2px}
-.btn.main{background:var(--sup);color:#fff;border-color:transparent;justify-content:center}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:22px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
+.card{padding:18px;margin:14px 20px}
+.btn{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;padding:12px 18px;border-radius:16px;border:1px solid var(--edge);background:var(--glass);cursor:pointer;font-weight:600;text-align:left}
+.btn:focus-visible,input:focus-visible,select:focus-visible,.chip:focus-visible,.tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.gold{background:linear-gradient(120deg,#FBE3BB,#F3C68F 35%,#D2A6DC 70%,#B79BFB);color:#1A1323;border:0;justify-content:center;box-shadow:0 6px 24px rgba(201,160,224,.30)}
+.gold:active{transform:scale(.98)}
 .btn svg{flex:none}
 .stack{display:grid;gap:10px}
-.free{margin-left:auto;font-size:12px;font-weight:600;color:var(--sup)}
 label{display:grid;gap:6px;font-weight:600;font-size:14px}
-input,select{min-height:48px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);width:100%}
-.hero{position:relative;height:300px;margin:8px 0 4px}
-.hero svg{position:absolute;inset:0;width:100%;height:100%}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 20px}
-.big3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 20px}
-.b{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
-.b .g{font-size:26px;color:var(--acc)}.b small{display:block;color:var(--soft);font-size:13px}.b strong{font-size:15px}
-.k{font-size:13px;color:var(--soft);font-weight:600}
-.row{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
-.row:first-of-type{border-top:0}.row .g{font-size:22px;color:var(--sup);width:28px;flex:none;text-align:center}
-.tabs{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border-top:1px solid var(--line);margin-top:auto}
-.tab{min-height:58px;border:0;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--soft);display:grid;place-items:center;gap:2px;padding:6px}
-.tab[aria-selected=true]{color:var(--acc)}.tab .g{font-size:20px}
-.view{display:none;padding-bottom:16px}.view.on{display:block}
-.chatwrap{display:flex;flex-direction:column;height:calc(100vh - 58px - 37px)}
-.chead{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line)}
-.av{width:40px;height:40px;border-radius:50%;background:var(--acc);display:grid;place-items:center;color:#fff;font-size:20px;flex:none}
-.msgs{flex:1;overflow-y:auto;padding:14px;background:var(--chat);display:flex;flex-direction:column;gap:8px}
-.m{max-width:84%;padding:9px 12px;border-radius:14px;font-size:15px;white-space:pre-line;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-.m.t{background:var(--them);align-self:flex-start;border-top-left-radius:4px}
-.m.u{background:var(--me);align-self:flex-end;border-top-right-radius:4px}
-.m time{display:block;text-align:right;font-size:12px;color:var(--soft);margin-top:2px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:8px 12px;background:var(--chat)}
-.chip{flex:none;min-height:40px;padding:8px 14px;border-radius:20px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:14px;font-weight:600}
-.send{display:flex;gap:8px;padding:10px 12px;background:var(--card);border-top:1px solid var(--line)}
-.send button{width:48px;flex:none;border-radius:50%;border:0;background:var(--sup);color:#fff;cursor:pointer}
-.typing{color:var(--soft);font-size:14px;font-style:italic}
+input,select{min-height:50px;padding:10px 14px;border-radius:14px;border:1px solid var(--edge);background:rgba(255,255,255,.05);width:100%;color-scheme:dark}
+select option{background:#151827}
+.top{display:flex;align-items:center;gap:10px;padding:12px 20px}
+.top img{width:34px;height:34px;border-radius:50%}
+.top b{font-family:Cinzel,serif;font-size:15px;letter-spacing:.08em}
+.top small{display:block;font-size:12px;color:var(--soft);letter-spacing:0;font-family:"Plus Jakarta Sans",sans-serif}
+.lion{display:block;margin:10px auto 4px;width:min(72vw,280px);border-radius:50%;-webkit-mask-image:radial-gradient(circle,#000 58%,transparent 72%);mask-image:radial-gradient(circle,#000 58%,transparent 72%);filter:drop-shadow(0 0 26px rgba(243,198,143,.28)) drop-shadow(0 18px 30px rgba(124,58,237,.35))}
+@keyframes breathe{0%,100%{box-shadow:0 -10px 30px rgba(243,198,143,.22),0 12px 34px rgba(124,58,237,.25),0 0 0 0 rgba(167,139,250,0);transform:scale(1)}50%{box-shadow:0 -14px 50px rgba(243,198,143,.38),0 16px 60px rgba(124,58,237,.42),0 0 0 18px rgba(167,139,250,.06);transform:scale(1.035)}}
+.orb{width:150px;height:150px;border-radius:50%;margin:8px auto 6px;display:grid;place-items:center;
+background:radial-gradient(circle at 35% 30%,rgba(243,198,143,.25),rgba(167,139,250,.12) 55%,rgba(11,14,23,.6));border:1px solid transparent;background:radial-gradient(circle at 35% 30%,rgba(243,198,143,.22),rgba(167,139,250,.14) 55%,rgba(14,17,32,0)) padding-box,linear-gradient(#0E1120,#0E1120) padding-box,var(--gp) border-box;animation:breathe 4.5s ease-in-out infinite}
+.orb .g{font-size:64px;background:var(--gp);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 12px rgba(201,160,224,.55))}
+.row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--edge)}
+.row:first-of-type{border-top:0;padding-top:4px}.row .g{font-size:20px;color:var(--lav);width:24px;flex:none;text-align:center}
+.aff{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.aff div{text-align:center;padding:10px 6px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--edge)}
+.aff small{display:block;color:var(--soft);font-size:12px}.aff b{font-size:15px}
+.tabs{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);margin:auto 12px 10px;border-radius:24px;padding:4px}
+.tab{min-height:58px;border:0;background:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--soft);display:grid;place-items:center;gap:1px;border-radius:20px}
+.tab[aria-selected=true]{color:#E6C9C8;background:linear-gradient(135deg,rgba(243,198,143,.10),rgba(167,139,250,.14))}.tab[aria-selected=true] .g{background:var(--gp);-webkit-background-clip:text;background-clip:text;color:transparent}.tab .g{font-size:20px}
+.view{display:none;padding-bottom:110px}.view.on{display:block}
+.chatwrap{display:flex;flex-direction:column;height:calc(100vh - 222px);height:calc(100dvh - 222px)}
+.chead{display:flex;align-items:center;gap:12px;padding:10px 20px}
+.av{width:44px;height:44px;border-radius:50%;flex:none;overflow:hidden;border:1px solid rgba(201,160,224,.6);box-shadow:0 0 18px rgba(167,139,250,.35);background:#141729}
+.av img{width:100%;height:100%;object-fit:cover}
+.online{font-size:12px;color:#E2C4C9}.online::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#7EE2A8;margin-right:6px;box-shadow:0 0 8px #7EE2A8}
+.msgs{flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:84%;padding:10px 14px;border-radius:18px;font-size:15px;white-space:pre-line}
+.m.t{background:var(--lavglass);border:1px solid rgba(167,139,250,.25);align-self:flex-start;border-top-left-radius:6px}
+.m.u{background:linear-gradient(135deg,#7C3AED,#9333EA);align-self:flex-end;border-top-right-radius:6px}
+.m time{display:block;text-align:right;font-size:11px;color:rgba(244,238,248,.6);margin-top:3px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:8px 16px}
+.chip{flex:none;min-height:40px;padding:8px 14px;border-radius:20px;border:1px solid rgba(214,172,214,.5);background:linear-gradient(135deg,rgba(243,198,143,.12),rgba(167,139,250,.16));color:#F2DCCB;cursor:pointer;font-size:14px;font-weight:600}
+.send{display:flex;gap:8px;padding:8px 16px 4px}
+.send input{border-radius:24px}
+.send button{width:50px;height:50px;flex:none;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(135deg,#FBE3BB,#F3C68F 40%,#B79BFB);color:#1A1323;font-size:18px}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center}
+.sign{display:grid;justify-items:center;gap:4px}
+.sign .g{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:34px;color:#EBC9B4;border:1px solid rgba(201,160,224,.45);background:linear-gradient(160deg,rgba(243,198,143,.10),rgba(124,58,237,.16))}
+.pct{font-family:Cinzel,serif;font-size:64px;line-height:1;text-align:center;margin:14px 0 2px;background:linear-gradient(180deg,#FBE3BB,#F3C68F 40%,#B79BFB);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar{margin-top:14px}.bar div{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+.track{height:8px;border-radius:8px;background:rgba(255,255,255,.07);margin-top:6px;overflow:hidden}
+.fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#F3C68F,#E2B4BD 45%,#A78BFA);transition:width .8s ease}
+.wheelbox{position:relative;height:310px;margin:6px 0}
+.wheelbox svg{position:absolute;inset:0;width:100%;height:100%}
+.trio{display:grid;gap:10px;margin:0 20px}
+.trio .glass{padding:14px 16px;display:flex;gap:14px;align-items:center}
+.trio .g{font-size:30px;width:44px;text-align:center;flex:none;background:var(--gp);-webkit-background-clip:text;background-clip:text;color:transparent}
+.modal{position:fixed;inset:0;z-index:5;background:rgba(5,6,12,.75);display:grid;place-items:center;padding:20px}
+.story{width:min(78vw,300px);aspect-ratio:9/16;border-radius:24px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;
+background:radial-gradient(70% 45% at 30% 15%,rgba(167,139,250,.45),transparent 70%),radial-gradient(60% 40% at 80% 85%,rgba(226,180,189,.35),transparent 70%),#0B0E17;border:1px solid rgba(201,160,224,.5)}
+.story .g{font-size:70px;background:var(--gp);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hidden{display:none!important}
-.note{font-size:13px;color:var(--soft);margin:8px 20px 0}
-@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.m,.card{animation:rise .35s ease both}
-@media (prefers-reduced-motion:reduce){.m,.card{animation:none}}
+.note{font-size:13px;color:var(--soft);margin:8px 20px 0;text-align:center}
+@media (prefers-reduced-motion:reduce){.orb{animation:none}.fill{transition:none}}
+</style>
+<style>
+.rep{display:block;margin-top:6px;background:none;border:0;padding:0;color:var(--soft);font-size:12px;cursor:pointer;text-decoration:underline}
+.btn.ghost{justify-content:center;background:transparent}
+.btn.danger{justify-content:center;color:#F2A7B3;border-color:rgba(242,167,179,.35)}
+.legal{font-size:12px;color:var(--soft);text-align:center;margin:10px 20px 0}.legal a{color:var(--soft)}
+.erro{color:#F2A7B3;font-size:14px;text-align:center;margin:10px 20px 0}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 </head>
 <body>
+<canvas class="stars" id="stars" aria-hidden="true"></canvas>
 <div class="app">
-<header class="brand"><img src="emblema.webp" alt="Emblema Arktos Leon: metade urso, metade leão"><b>LEON ASTRAL<br><span style="font:500 12px Inter;letter-spacing:0;color:var(--soft)">por Arktos Leon</span></b><span class="kj" aria-hidden="true">熊<span>獅</span></span></header>
-<div class="demo" id="aviso">Versão beta</div>
 
-<!-- 1. LOGIN -->
 <section id="s-login" class="view on">
-  <div class="hero"><svg id="wheel0" aria-hidden="true"></svg></div>
-  <div class="pad">
+  <img class="lion hero" src="hero.webp" alt="Símbolo de Leão dourado cercado pelos 12 signos">
+  <div class="pad" style="text-align:center">
     <h1>Leon Astral</h1>
-    <p class="muted" style="margin:6px 0 18px">Seu horóscopo feito com o seu mapa astral, não só com o seu signo. E a Estela, sua astróloga de bolso, para conversar no WhatsApp.</p>
-    <div class="stack" id="authBtns">
-      <button class="btn" data-a="Google"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.2l7.8 6C12.3 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.8c-.5-1.4-.8-3-.8-4.8s.3-3.3.8-4.8l-7.8-6C.9 16.5 0 20.1 0 24s.9 7.5 2.6 10.8l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.7-4.1-13.6-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>Continuar com Google<span class="free">entrar</span></button>
-    </div>
-    <p class="muted" style="margin:16px 0 0">Entre com a conta que você já usa. Não precisa criar senha nova.</p>
-    <p class="muted hidden" id="authErr" role="alert" style="color:var(--acc);font-weight:600"></p>
-    <div class="by"><img src="emblema.webp" alt="">Leon Astral · um produto Arktos Leon</div>
+    <p class="muted" style="margin:8px 0 22px">Seu horóscopo feito com o seu mapa astral. E a Estela, sua astróloga de bolso, sempre por perto.</p>
   </div>
+  <div class="pad stack" id="authBtns">
+    <button class="btn" data-a="Google"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.2l7.8 6C12.3 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.8c-.5-1.4-.8-3-.8-4.8s.3-3.3.8-4.8l-7.8-6C.9 16.5 0 20.1 0 24s.9 7.5 2.6 10.8l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.7-4.1-13.6-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>Continuar com Google</button>
+  </div>
+  <p class="erro hidden" id="authErr" role="alert"></p>
+  <p class="note" style="margin-top:22px">Leon Astral · um produto Arktos Leon</p>
+  <p class="legal"><a href="privacidade.html">Privacidade</a> · <a href="termos.html">Termos</a></p>
 </section>
 
-<!-- 2. CADASTRO -->
 <section id="s-cad" class="view">
   <div class="pad">
     <h2>Quando você nasceu?</h2>
-    <p class="muted" style="margin:6px 0 16px">Com data, hora e cidade eu calculo seu Sol, sua Lua e seu Ascendente.</p>
+    <p class="muted" style="margin:6px 0 16px">Com data, hora e cidade eu desenho seu céu: Sol, Lua e Ascendente.</p>
     <form id="cadForm" class="stack">
       <label>Como posso te chamar?<input id="nm" required placeholder="Seu nome" autocomplete="given-name"></label>
       <label>Data de nascimento<input id="dt" type="date" required></label>
-      <label>Hora de nascimento <span class="muted" style="font-weight:400">— se não souber, deixe em branco</span><input id="hr" type="time"></label>
+      <label>Hora de nascimento <span class="muted" style="font-weight:400">(se não souber, deixe em branco)</span><input id="hr" type="time"></label>
       <label>Cidade de nascimento<select id="cy"></select></label>
-      <label>WhatsApp para receber o horóscopo<input id="wa" type="tel" inputmode="tel" placeholder="(11) 99999-9999"></label>
-      <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400"><input id="ok" type="checkbox" required style="width:22px;min-height:22px;flex:none;margin-top:2px">Aceito receber mensagens no WhatsApp e o uso dos meus dados de nascimento para gerar meu horóscopo (LGPD).</label>
-      <button class="btn main" type="submit">Ver meu céu</button>
+      <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400"><input id="ok" type="checkbox" required style="width:22px;min-height:22px;flex:none;margin-top:2px">Aceito o uso dos meus dados de nascimento para gerar meu horóscopo (LGPD).</label>
+      <button class="btn gold" type="submit">Ver meu céu ✨</button>
     </form>
-    <p class="muted" style="margin:14px 0 24px">Conteúdo de entretenimento e autoconhecimento. Não substitui ajuda médica ou psicológica.</p>
+    <p class="erro hidden" id="cadErr" role="alert"></p>
+    <p class="muted" style="margin:14px 0 24px">Entretenimento e autoconhecimento. Não substitui ajuda profissional.</p>
   </div>
 </section>
 
-<!-- 3. HOJE -->
+<header class="top hidden" id="topbar"><img src="icone.webp" alt=""><div><b>LEON ASTRAL</b><small id="topSub"></small></div></header>
+
 <section id="s-hoje" class="view">
-  <div class="pad"><p class="k" id="hDate"></p><h2 id="hTitle"></h2></div>
-  <div class="card" id="hCard"></div>
+  <div class="orb"><span class="g" id="hGlyph"></span></div>
+  <div class="pad" style="text-align:center;padding-top:6px"><p class="k" id="hDate"></p><h2 id="hTitle"></h2></div>
+  <div class="glass card" id="hCard"></div>
   <div class="pad" style="padding-bottom:0"><h2>Carta do dia</h2></div>
-  <div class="card" id="oCard" role="button" tabindex="0" style="cursor:pointer"></div>
-  <p class="note">Assim chegaria no seu WhatsApp todo dia de manhã. Quer conversar sobre isso? Toque em Conversa.</p>
+  <div class="glass card" id="oCard" role="button" tabindex="0" style="cursor:pointer"></div>
+  <div class="pad"><button class="btn gold" id="share">Compartilhar no Story ✨</button></div>
 </section>
 
-<!-- SINTONIA -->
-<section id="s-sin" class="view">
-  <div class="pad"><h2>Sintonia</h2><p class="muted" style="margin:6px 0 0">Compare seu mapa com o de alguém: amor, amizade, família ou trabalho. Os dados da outra pessoa não são salvos.</p></div>
-  <div class="pad" id="sinForm"><form id="sinF" class="stack">
-    <label>Nome<input id="sNm" placeholder="Ex.: Rafa"></label>
-    <label>Data de nascimento<input id="sDt" type="date" required></label>
-    <label>Hora <span class="muted" style="font-weight:400">— opcional</span><input id="sHr" type="time"></label>
-    <label>Cidade de nascimento<select id="sCy"></select></label>
-    <button class="btn main" type="submit" style="justify-content:center">Ver nossa sintonia</button>
-  </form></div>
-  <div class="card hidden" id="sinRes"></div>
-</section>
-
-<!-- 4. MAPA -->
-<section id="s-mapa" class="view">
-  <div class="pad"><h2 id="mTitle">Seu mapa</h2></div>
-  <div class="hero" style="height:320px"><svg id="wheel" role="img" aria-label="Roda do zodíaco com seu Sol, Lua e Ascendente"></svg></div>
-  <div class="big3" id="big3"></div>
-  <div class="card" id="mCard"></div>
-  <p class="note" id="mNote"></p>
-  <div class="pad stack"><button class="btn" id="redo" style="justify-content:center">Refazer cadastro</button><button class="btn" id="sair" style="justify-content:center">Sair</button></div>
-</section>
-
-<!-- 5. CONVERSA -->
-<section id="s-chat" class="view" style="padding:0">
+<section id="s-oraculo" class="view" style="padding:0">
   <div class="chatwrap">
-    <div class="chead"><div class="av g">✧</div><div><strong>Estela</strong><div class="muted" id="st">online</div></div></div>
+    <div class="chead"><div class="av"><img src="estela.webp" alt="Constelação de Andrômeda, avatar da Estela"></div><div><strong class="serif" style="font-size:17px">Estela</strong><div class="online" id="st">Online com seu Mapa Astral</div></div></div>
     <div class="msgs" id="msgs" aria-live="polite"></div>
     <div class="chips" id="chips"></div>
-    <form class="send" id="sendF"><input id="txt" placeholder="Escreva para a Estela" autocomplete="off"><button aria-label="Enviar" class="g">➤</button></form>
+    <form class="send" id="sendF"><input id="txt" placeholder="Pergunte à Estela…" autocomplete="off"><button aria-label="Enviar">➤</button></form>
   </div>
 </section>
 
-<nav class="tabs hidden" id="tabs" role="tablist">
+<section id="s-sintonia" class="view">
+  <div class="pad"><h2>Sintonia</h2><p class="muted" style="margin:4px 0 0">Compare seu mapa com o de alguém: amor, amizade, família ou trabalho. Os dados da outra pessoa não são salvos.</p></div>
+  <div class="glass card" id="sinBox"><form id="sinF" class="stack">
+    <label>Nome<input id="sNm" placeholder="Ex.: Rafa"></label>
+    <label>Data de nascimento<input id="sDt" type="date" required></label>
+    <label>Hora <span class="muted" style="font-weight:400">(opcional)</span><input id="sHr" type="time"></label>
+    <label>Cidade de nascimento<select id="sCy"></select></label>
+    <button class="btn gold" type="submit">Ver nossa sintonia ♡</button>
+  </form></div>
+  <div class="glass card hidden" id="sinRes">
+    <div class="pair">
+      <div class="sign"><span class="g" id="sYou"></span><small class="muted">Você</small><b id="sYouN"></b></div>
+      <span class="g" style="font-size:22px;color:var(--blush)">♡</span>
+      <div class="sign"><span class="g" id="sPar"></span><small class="muted" id="sParNm">Outra pessoa</small><b id="sParN"></b></div>
+    </div>
+    <div class="pct" id="pct">0%</div>
+    <p class="muted" style="text-align:center;margin:0" id="pctTxt"></p>
+    <div class="bar"><div><span>Emoções</span><span id="b1v"></span></div><div class="track"><div class="fill" id="b1"></div></div></div>
+    <div class="bar"><div><span>Identidade</span><span id="b2v"></span></div><div class="track"><div class="fill" id="b2"></div></div></div>
+    <div class="bar"><div><span>Acolhimento</span><span id="b3v"></span></div><div class="track"><div class="fill" id="b3"></div></div></div>
+    <div id="sinLinhas" style="margin-top:8px"></div>
+    <button class="btn" id="sinNova" type="button" style="justify-content:center;margin-top:12px">Comparar com outra pessoa</button>
+  </div>
+  <p class="note">Compara Sol, Lua e Ascendente dos dois mapas, com as posições reais do céu.</p>
+</section>
+
+<section id="s-mapa" class="view">
+  <div class="pad"><h2 id="mTitle">Seu mapa</h2></div>
+  <div class="wheelbox"><svg id="wheel" role="img" aria-label="Roda zodiacal com Sol, Lua e Ascendente"></svg></div>
+  <div class="trio" id="trio"></div>
+  <p class="note" id="mNote"></p>
+  <div class="pad stack"><button class="btn" id="redo" style="justify-content:center">Editar meus dados</button>
+    <button class="btn ghost" id="sair">Sair</button>
+    <button class="btn danger" id="excluir">Excluir minha conta</button>
+    <p class="legal" style="margin:0"><a href="privacidade.html">Privacidade</a> · <a href="termos.html">Termos</a> · <a href="privacidade.html#excluir">Como excluímos seus dados</a></p></div>
+</section>
+
+<nav class="tabs glass hidden" id="tabs" role="tablist">
   <button class="tab" role="tab" data-v="s-hoje" aria-selected="true"><span class="g">☼</span>Hoje</button>
-  <button class="tab" role="tab" data-v="s-mapa" aria-selected="false"><span class="g">◎</span>Meu mapa</button>
-  <button class="tab" role="tab" data-v="s-sin" aria-selected="false"><span class="g">♡</span>Sintonia</button>
-  <button class="tab" role="tab" data-v="s-chat" aria-selected="false"><span class="g">✉</span>Conversa</button>
+  <button class="tab" role="tab" data-v="s-oraculo" aria-selected="false"><span class="g">✧</span>Oráculo</button>
+  <button class="tab" role="tab" data-v="s-sintonia" aria-selected="false"><span class="g">♡</span>Sintonia</button>
+  <button class="tab" role="tab" data-v="s-mapa" aria-selected="false"><span class="g">◎</span>Mapa</button>
 </nav>
+</div>
+
+<div class="modal hidden" id="modal" role="dialog" aria-label="Prévia do Story">
+  <div style="display:grid;gap:14px;justify-items:center">
+    <div class="story" id="storyCard"></div>
+    <p class="muted" style="margin:0;text-align:center">No app, este cartão abre direto no Instagram Stories.</p>
+    <button class="btn gold" id="closeM" style="width:auto;padding:0 28px">Fechar</button>
+  </div>
 </div>
 
 <script>
@@ -166,23 +216,12 @@ input,select{min-height:48px;padding:10px 12px;border-radius:12px;border:1px sol
 const $=id=>document.getElementById(id);
 const S=["Áries","Touro","Gêmeos","Câncer","Leão","Virgem","Libra","Escorpião","Sagitário","Capricórnio","Aquário","Peixes"];
 const G=["♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓"].map(c=>c+"︎");
-const EL=["fogo","terra","ar","água"];
-const SOL=["Você nasceu para começar coisas. Coragem e pressa andam juntas, e sua força é a iniciativa.","Você constrói devagar e firme. Conforto, constância e prazeres simples te sustentam.","Sua mente não para. Curiosidade e conversa são o seu combustível.","Você sente antes de pensar. Cuidar e ser cuidado é o centro da sua vida.","Você brilha quando é você mesmo. Generosidade e orgulho caminham juntos.","Você melhora tudo o que toca. Detalhe, utilidade e cuidado com a rotina.","Você busca equilíbrio e beleza. Relações justas são essenciais para você.","Você vai fundo. Intensidade, lealdade e um grande poder de se transformar.","Você precisa de horizonte. Liberdade, fé e vontade de aprender sempre.","Você sobe com paciência. Responsabilidade e metas de longo prazo te movem.","Você pensa diferente. Independência, amizades e ideias para o futuro.","Você sente o mundo inteiro. Imaginação, empatia e intuição forte."];
-const LUA=["Emoções rápidas: você precisa agir para se sentir bem.","Você se acalma com estabilidade, comida boa e rotina.","Falar sobre o que sente é o que mais te alivia.","Casa e família são seu porto seguro.","Você precisa se sentir visto e valorizado.","Organizar as coisas organiza o seu coração.","Paz nas relações é paz por dentro.","Sente tudo com intensidade e não suporta meias-verdades.","Precisa de espaço, novidade e otimismo para se renovar.","Segura a emoção e se sente seguro quando tem o controle.","Precisa de liberdade até para sentir.","Absorve o clima ao redor e precisa de momentos só seus."];
-const ASC=["direto e cheio de energia","calmo e confiável","comunicativo e leve","acolhedor e protetor","marcante e caloroso","discreto e atento","simpático e elegante","magnético e reservado","animado e franco","sério e competente","original e amigável","sensível e sonhador"];
-const CASA=[
-{t:"Você em foco",f:"Bom dia para cuidar de você e tomar a iniciativa.",c:"Reagir no impulso.",p:"O que você quer começar hoje?"},
-{t:"Dinheiro e valor",f:"Revise gastos e valorize o que é seu.",c:"Compras por emoção.",p:"O que realmente vale a pena para você?"},
-{t:"Conversas",f:"Mensagens, estudos e pequenos trajetos fluem bem.",c:"Fofoca e mal-entendidos.",p:"Quem você está devendo uma resposta?"},
-{t:"Casa e família",f:"Fique perto de quem é casa para você.",c:"Mágoas antigas voltando à tona.",p:"Do que o seu lar precisa hoje?"},
-{t:"Prazer e criatividade",f:"Divirta-se, crie, brinque, namore.",c:"Exagero e drama.",p:"O que te dá alegria de verdade?"},
-{t:"Rotina e saúde",f:"Organize tarefas e cuide do corpo.",c:"Se cobrar demais.",p:"Que hábito pequeno ajudaria sua semana?"},
-{t:"Relações",f:"Parcerias e conversas a dois ganham força.",c:"Querer agradar todo mundo.",p:"O que você espera do outro, e já disse isso?"},
-{t:"Profundidade",f:"Bom para encerrar ciclos e resolver pendências.",c:"Ciúme e controle.",p:"O que você precisa deixar ir?"},
-{t:"Horizontes",f:"Estude, planeje uma viagem, pense grande.",c:"Prometer mais do que dá.",p:"Que ideia ou lugar está te chamando?"},
-{t:"Carreira",f:"Seu trabalho fica em evidência hoje.",c:"Rigidez consigo mesmo.",p:"Que passo te aproxima da sua meta?"},
-{t:"Amigos e planos",f:"Grupos, contatos e projetos futuros.",c:"Dispersão.",p:"Quem pode te ajudar nesse plano?"},
-{t:"Recolhimento",f:"Descanse, desacelere, durma mais cedo.",c:"Isolamento e cansaço acumulado.",p:"Do que você precisa se recuperar?"}];
+const SOL=["Você nasceu para começar coisas. Coragem e iniciativa são a sua força.","Você constrói devagar e firme. Conforto e constância te sustentam.","Sua mente não para. Curiosidade e conversa são seu combustível.","Você sente antes de pensar. Cuidar e ser cuidada é o centro da sua vida.","Você brilha quando é você mesma. Generosidade e orgulho caminham juntos.","Você melhora tudo o que toca. Detalhe e cuidado com a rotina.","Você busca equilíbrio e beleza. Relações justas são essenciais.","Você vai fundo. Intensidade, lealdade e poder de transformação.","Você precisa de horizonte. Liberdade, fé e vontade de aprender.","Você sobe com paciência. Metas de longo prazo te movem.","Você pensa diferente. Independência e ideias para o futuro.","Você sente o mundo inteiro. Imaginação, empatia e intuição."];
+const LUA=["Emoções rápidas: você precisa agir para se sentir bem.","Você se acalma com estabilidade, comida boa e rotina.","Falar sobre o que sente é o que mais te alivia.","Casa e família são seu porto seguro.","Você precisa se sentir vista e valorizada.","Organizar as coisas organiza o seu coração.","Paz nas relações é paz por dentro.","Sente tudo com intensidade e não suporta meias-verdades.","Precisa de espaço, novidade e otimismo para se renovar.","Segura a emoção e se sente segura quando tem o controle.","Precisa de liberdade até para sentir.","Absorve o clima ao redor e precisa de momentos só seus."];
+const ASC=["direta e cheia de energia","calma e confiável","comunicativa e leve","acolhedora e protetora","marcante e calorosa","discreta e atenta","simpática e elegante","magnética e reservada","animada e franca","séria e competente","original e amigável","sensível e sonhadora"];
+const CASA=[{t:"Você em foco",f:"Bom dia para cuidar de você e tomar a iniciativa.",c:"Reagir no impulso.",p:"O que você quer começar hoje?"},{t:"Dinheiro e valor",f:"Revise gastos e valorize o que é seu.",c:"Compras por emoção.",p:"O que realmente vale a pena para você?"},{t:"Conversas",f:"Mensagens, estudos e pequenos trajetos fluem bem.",c:"Fofoca e mal-entendidos.",p:"Para quem você está devendo uma resposta?"},{t:"Casa e família",f:"Fique perto de quem é casa para você.",c:"Mágoas antigas voltando à tona.",p:"Do que o seu lar precisa hoje?"},{t:"Prazer e criatividade",f:"Divirta-se, crie, brinque, namore.",c:"Exagero e drama.",p:"O que te dá alegria de verdade?"},{t:"Rotina e saúde",f:"Organize tarefas e cuide do corpo.",c:"Se cobrar demais.",p:"Que hábito pequeno ajudaria sua semana?"},{t:"Relações",f:"Parcerias e conversas a dois ganham força.",c:"Querer agradar todo mundo.",p:"O que você espera do outro, e já disse isso?"},{t:"Profundidade",f:"Bom para encerrar ciclos e resolver pendências.",c:"Ciúme e controle.",p:"O que você precisa deixar ir?"},{t:"Horizontes",f:"Estude, planeje uma viagem, pense grande.",c:"Prometer mais do que dá.",p:"Que ideia ou lugar está te chamando?"},{t:"Carreira",f:"Seu trabalho fica em evidência hoje.",c:"Rigidez consigo mesma.",p:"Que passo te aproxima da sua meta?"},{t:"Amigos e planos",f:"Grupos, contatos e projetos futuros.",c:"Dispersão.",p:"Quem pode te ajudar nesse plano?"},{t:"Recolhimento",f:"Descanse, desacelere, durma mais cedo.",c:"Isolamento e cansaço acumulado.",p:"Do que você precisa se recuperar?"}];
+const CORES=["Vermelho rubi","Verde musgo","Amarelo claro","Prata","Dourado","Bege areia","Rosa quartzo","Vinho","Roxo","Grafite","Azul elétrico","Lilás"];
+/* motor do céu v2 + oráculo + sintonia */
 var TZ={"Sao_Paulo":[[0,-187],[-29453573,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3257100,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180],[9882900,-120],[10034040,-180],[10407060,-120],[10578360,-180],[10941300,-120],[11112600,-180],[11465460,-120],[11626680,-180],[11999700,-120],[12140760,-180],[12513780,-120],[12695160,-180],[13037940,-120],[13219320,-180],[13562100,-120],[13733400,-180],[14076180,-120],[14267640,-180],[14601780,-120],[14811960,-180],[15134580,-120],[15326040,-180],[15648660,-120],[15860280,-180],[16182900,-120],[16374360,-180],[16717140,-120],[16898520,-180],[17271540,-120],[17422680,-180],[17775540,-120],[17946840,-180],[18322740,-120],[18481080,-180],[18823860,-120],[19005240,-180],[19378260,-120],[19539480,-180],[19872180,-120],[20053560,-180],[20406420,-120],[20577720,-180],[20930580,-120],[21111960,-180],[21454740,-120],[21636120,-180],[21978900,-120],[22170360,-180],[22513140,-120],[22684440,-180],[23037300,-120],[23208600,-180],[23561460,-120],[23742840,-180],[24085620,-120],[24267000,-180],[24609780,-120],[24791160,-180],[25133940,-120],[25315320,-180],[25688340,-120],[25839480,-180]],"Bahia":[[0,-155],[-29453605,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3189420,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180],[9882900,-120],[10034040,-180],[10407060,-120],[10578360,-180],[10941300,-120],[11112600,-180],[11465460,-120],[11626680,-180],[11999700,-120],[12140760,-180],[12513780,-120],[12695160,-180],[13037940,-120],[13219320,-180],[13562100,-120],[13733400,-180],[14076180,-120],[14267640,-180],[14601780,-120],[14811960,-180],[15134580,-120],[15326040,-180],[15648660,-120],[15860280,-180],[16182900,-120],[16374360,-180],[16717140,-120],[16898520,-180],[17271540,-120],[17422680,-180],[21978900,-120],[22170360,-180]],"Fortaleza":[[0,-154],[-29453606,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3189420,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180],[9882900,-120],[10034040,-180],[10407060,-120],[10578360,-180],[15648660,-120],[15860280,-180],[16182900,-120],[16203000,-180],[16717140,-120],[16898520,-180]],"Recife":[[0,-140],[-29453620,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3189420,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180],[9882900,-120],[10034040,-180],[10407060,-120],[10578360,-180],[15648660,-120],[15860280,-180],[16182900,-120],[16192920,-180],[16717140,-120],[16898520,-180]],"Maceio":[[0,-143],[-29453617,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3189420,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180],[9882900,-120],[10034040,-180],[10407060,-120],[10578360,-180],[13562100,-120],[13733400,-180],[15648660,-120],[15860280,-180],[16182900,-120],[16203000,-180],[16717140,-120],[16898520,-180]],"Belem":[[0,-194],[-29453566,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3189420,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180]],"Araguaina":[[0,-193],[-29453567,-180],[-20115960,-120],[-19856040,-180],[-19589580,-120],[-19330440,-180],[-10563660,-120],[-10367820,-180],[-10038060,-120],[-9863880,-180],[-9512460,-120],[-9336840,-180],[-8985420,-120],[-8855880,-180],[-3189420,-120],[-3069960,-180],[-2586060,-120],[-2501160,-180],[-2148300,-120],[-2018760,-180],[-1665900,-120],[-1493160,-180],[-1140300,-120],[-966120,-180],[8329140,-120],[8520600,-180],[8843220,-120],[9004440,-180],[9368820,-120],[9519960,-180],[9882900,-120],[10034040,-180],[10407060,-120],[10578360,-180],[13562100,-120],[13733400,-180],[14076180,-120],[14267640,-180],[14601780,-120],[14811960,-180],[15134580,-120],[15326040,-180],[15648660,-120],[15860280,-180],[16182900,-120],[16374360,-180],[16717140,-120],[16898520,-180],[17271540,-120],[17422680,-180],[22513140,-120],[22684440,-180]],"Manaus":[[0,-241],[-29453519,-240],[-20115900,-180],[-19855980,-240],[-19589520,-180],[-19330380,-240],[-10563600,-180],[-10367760,-240],[-10038000,-180],[-9863820,-240],[-9512400,-180],[-9336780,-240],[-8985360,-180],[-8855820,-240],[-3189360,-180],[-3069900,-240],[-2586000,-180],[-2501100,-240],[-2148240,-180],[-2018700,-240],[-1665840,-180],[-1493100,-240],[-1140240,-180],[-966060,-240],[8329200,-180],[8520660,-240],[8843280,-180],[9004500,-240],[9368880,-180],[9520020,-240],[12513840,-180],[12695220,-240]],"Cuiaba":[[0,-225],[-29453535,-240],[-20115900,-180],[-19855980,-240],[-19589520,-180],[-19330380,-240],[-10563600,-180],[-10367760,-240],[-10038000,-180],[-9863820,-240],[-9512400,-180],[-9336780,-240],[-8985360,-180],[-8855820,-240],[-3189360,-180],[-3069900,-240],[-2586000,-180],[-2501100,-240],[-2148240,-180],[-2018700,-240],[-1665840,-180],[-1493100,-240],[-1140240,-180],[-966060,-240],[8329200,-180],[8520660,-240],[8843280,-180],[9004500,-240],[9368880,-180],[9520020,-240],[9882960,-180],[10034100,-240],[10407120,-180],[10578420,-240],[10941360,-180],[11112660,-240],[11465520,-180],[11626740,-240],[11999760,-180],[12140820,-240],[12513840,-180],[12695220,-240],[13038000,-180],[13219380,-240],[13562160,-180],[13733460,-240],[14076240,-180],[14267700,-240],[14601840,-180],[14812020,-240],[15134640,-180],[15326100,-240],[15648720,-180],[15860340,-240],[16182960,-180],[16374420,-240],[16717200,-180],[16898580,-240],[17271600,-180],[17422740,-240],[18322800,-180],[18481140,-240],[18823920,-180],[19005300,-240],[19378320,-180],[19539540,-240],[19872240,-180],[20053620,-240],[20406480,-180],[20577780,-240],[20930640,-180],[21112020,-240],[21454800,-180],[21636180,-240],[21978960,-180],[22170420,-240],[22513200,-180],[22684500,-240],[23037360,-180],[23208660,-240],[23561520,-180],[23742900,-240],[24085680,-180],[24267060,-240],[24609840,-180],[24791220,-240],[25134000,-180],[25315380,-240],[25688400,-180],[25839540,-240]],"Campo_Grande":[[0,-219],[-29453541,-240],[-20115900,-180],[-19855980,-240],[-19589520,-180],[-19330380,-240],[-10563600,-180],[-10367760,-240],[-10038000,-180],[-9863820,-240],[-9512400,-180],[-9336780,-240],[-8985360,-180],[-8855820,-240],[-3189360,-180],[-3069900,-240],[-2586000,-180],[-2501100,-240],[-2148240,-180],[-2018700,-240],[-1665840,-180],[-1493100,-240],[-1140240,-180],[-966060,-240],[8329200,-180],[8520660,-240],[8843280,-180],[9004500,-240],[9368880,-180],[9520020,-240],[9882960,-180],[10034100,-240],[10407120,-180],[10578420,-240],[10941360,-180],[11112660,-240],[11465520,-180],[11626740,-240],[11999760,-180],[12140820,-240],[12513840,-180],[12695220,-240],[13038000,-180],[13219380,-240],[13562160,-180],[13733460,-240],[14076240,-180],[14267700,-240],[14601840,-180],[14812020,-240],[15134640,-180],[15326100,-240],[15648720,-180],[15860340,-240],[16182960,-180],[16374420,-240],[16717200,-180],[16898580,-240],[17271600,-180],[17422740,-240],[17775600,-180],[17946900,-240],[18322800,-180],[18481140,-240],[18823920,-180],[19005300,-240],[19378320,-180],[19539540,-240],[19872240,-180],[20053620,-240],[20406480,-180],[20577780,-240],[20930640,-180],[21112020,-240],[21454800,-180],[21636180,-240],[21978960,-180],[22170420,-240],[22513200,-180],[22684500,-240],[23037360,-180],[23208660,-240],[23561520,-180],[23742900,-240],[24085680,-180],[24267060,-240],[24609840,-180],[24791220,-240],[25134000,-180],[25315380,-240],[25688400,-180],[25839540,-240]],"Porto_Velho":[[0,-256],[-29453504,-240],[-20115900,-180],[-19855980,-240],[-19589520,-180],[-19330380,-240],[-10563600,-180],[-10367760,-240],[-10038000,-180],[-9863820,-240],[-9512400,-180],[-9336780,-240],[-8985360,-180],[-8855820,-240],[-3189360,-180],[-3069900,-240],[-2586000,-180],[-2501100,-240],[-2148240,-180],[-2018700,-240],[-1665840,-180],[-1493100,-240],[-1140240,-180],[-966060,-240],[8329200,-180],[8520660,-240],[8843280,-180],[9004500,-240],[9368880,-180],[9520020,-240]],"Boa_Vista":[[0,-243],[-29453517,-240],[-20115900,-180],[-19855980,-240],[-19589520,-180],[-19330380,-240],[-10563600,-180],[-10367760,-240],[-10038000,-180],[-9863820,-240],[-9512400,-180],[-9336780,-240],[-8985360,-180],[-8855820,-240],[-3189360,-180],[-3069900,-240],[-2586000,-180],[-2501100,-240],[-2148240,-180],[-2018700,-240],[-1665840,-180],[-1493100,-240],[-1140240,-180],[-966060,-240],[8329200,-180],[8520660,-240],[8843280,-180],[9004500,-240],[9368880,-180],[9520020,-240],[15648720,-180],[15860340,-240],[16182960,-180],[16192980,-240]],"Rio_Branco":[[0,-272],[-29453488,-300],[-20115840,-240],[-19855920,-300],[-19589460,-240],[-19330320,-300],[-10563540,-240],[-10367700,-300],[-10037940,-240],[-9863760,-300],[-9512340,-240],[-9336720,-300],[-8985300,-240],[-8855760,-300],[-3189300,-240],[-3069840,-300],[-2585940,-240],[-2501040,-300],[-2148180,-240],[-2018640,-300],[-1665780,-240],[-1493040,-300],[-1140180,-240],[-966000,-300],[8329260,-240],[8520720,-300],[8843340,-240],[9004560,-300],[9368940,-240],[9520080,-300],[20238060,-240],[23067600,-300]],"Noronha":[[0,-130],[-29453630,-120],[-20116020,-60],[-19856100,-120],[-19589640,-60],[-19330500,-120],[-10563720,-60],[-10367880,-120],[-10038120,-60],[-9863940,-120],[-9512520,-60],[-9336900,-120],[-8985480,-60],[-8855940,-120],[-3189480,-60],[-3070020,-120],[-2586120,-60],[-2501220,-120],[-2148360,-60],[-2018820,-120],[-1665960,-60],[-1493220,-120],[-1140360,-60],[-966180,-120],[8329080,-60],[8520540,-120],[8843160,-60],[9004380,-120],[9368760,-60],[9519900,-120],[9882840,-60],[10033980,-120],[10407000,-60],[10578300,-120],[15648600,-60],[15860220,-120],[16182840,-60],[16192860,-120],[16717080,-60],[16898460,-120]],"Santarem":[[0,-219],[-29453541,-240],[-20115900,-180],[-19855980,-240],[-19589520,-180],[-19330380,-240],[-10563600,-180],[-10367760,-240],[-10038000,-180],[-9863820,-240],[-9512400,-180],[-9336780,-240],[-8985360,-180],[-8855820,-240],[-3189360,-180],[-3069900,-240],[-2586000,-180],[-2501100,-240],[-2148240,-180],[-2018700,-240],[-1665840,-180],[-1493100,-240],[-1140240,-180],[-966060,-240],[8329200,-180],[8520660,-240],[8843280,-180],[9004500,-240],[9368880,-180],[9520020,-240],[20238000,-180]]};
 var CIDADES=[["São Paulo",-23.55,-46.63,"Sao_Paulo","SP"],["Rio de Janeiro",-22.91,-43.17,"Sao_Paulo","RJ"],["Belo Horizonte",-19.92,-43.94,"Sao_Paulo","MG"],["Brasília",-15.79,-47.88,"Sao_Paulo","DF"],["Salvador",-12.97,-38.5,"Bahia","BA"],["Fortaleza",-3.73,-38.52,"Fortaleza","CE"],["Recife",-8.05,-34.88,"Recife","PE"],["Curitiba",-25.43,-49.27,"Sao_Paulo","PR"],["Porto Alegre",-30.03,-51.23,"Sao_Paulo","RS"],["Manaus",-3.12,-60.02,"Manaus","AM"],["Belém",-1.46,-48.5,"Belem","PA"],["Goiânia",-16.68,-49.25,"Sao_Paulo","GO"],["Vitória",-20.32,-40.34,"Sao_Paulo","ES"],["Florianópolis",-27.6,-48.55,"Sao_Paulo","SC"],["Aracaju",-10.91,-37.07,"Maceio","SE"],["Maceió",-9.67,-35.74,"Maceio","AL"],["João Pessoa",-7.12,-34.86,"Fortaleza","PB"],["Natal",-5.79,-35.21,"Fortaleza","RN"],["Teresina",-5.09,-42.8,"Fortaleza","PI"],["São Luís",-2.53,-44.3,"Fortaleza","MA"],["Macapá",0.03,-51.07,"Belem","AP"],["Palmas",-10.18,-48.33,"Araguaina","TO"],["Boa Vista",2.82,-60.67,"Boa_Vista","RR"],["Porto Velho",-8.76,-63.9,"Porto_Velho","RO"],["Rio Branco",-9.97,-67.81,"Rio_Branco","AC"],["Cuiabá",-15.6,-56.1,"Cuiaba","MT"],["Campo Grande",-20.47,-54.62,"Campo_Grande","MS"],["Guarulhos",-23.46,-46.53,"Sao_Paulo","SP"],["Campinas",-22.91,-47.06,"Sao_Paulo","SP"],["Osasco",-23.53,-46.79,"Sao_Paulo","SP"],["Santo André",-23.66,-46.53,"Sao_Paulo","SP"],["São Bernardo do Campo",-23.69,-46.56,"Sao_Paulo","SP"],["Santos",-23.96,-46.33,"Sao_Paulo","SP"],["Sorocaba",-23.5,-47.46,"Sao_Paulo","SP"],["Ribeirão Preto",-21.18,-47.81,"Sao_Paulo","SP"],["São José dos Campos",-23.18,-45.89,"Sao_Paulo","SP"],["Jundiaí",-23.19,-46.88,"Sao_Paulo","SP"],["Mogi das Cruzes",-23.52,-46.19,"Sao_Paulo","SP"],["Bauru",-22.31,-49.06,"Sao_Paulo","SP"],["São José do Rio Preto",-20.81,-49.38,"Sao_Paulo","SP"],["Piracicaba",-22.73,-47.65,"Sao_Paulo","SP"],["Niterói",-22.88,-43.1,"Sao_Paulo","RJ"],["Duque de Caxias",-22.79,-43.31,"Sao_Paulo","RJ"],["Nova Iguaçu",-22.76,-43.45,"Sao_Paulo","RJ"],["São Gonçalo",-22.83,-43.05,"Sao_Paulo","RJ"],["Juiz de Fora",-21.76,-43.35,"Sao_Paulo","MG"],["Uberlândia",-18.92,-48.28,"Sao_Paulo","MG"],["Contagem",-19.93,-44.05,"Sao_Paulo","MG"],["Montes Claros",-16.73,-43.86,"Sao_Paulo","MG"],["Londrina",-23.31,-51.16,"Sao_Paulo","PR"],["Maringá",-23.42,-51.94,"Sao_Paulo","PR"],["Ponta Grossa",-25.09,-50.16,"Sao_Paulo","PR"],["Cascavel",-24.96,-53.46,"Sao_Paulo","PR"],["Foz do Iguaçu",-25.55,-54.59,"Sao_Paulo","PR"],["Joinville",-26.3,-48.85,"Sao_Paulo","SC"],["Blumenau",-26.92,-49.07,"Sao_Paulo","SC"],["Caxias do Sul",-29.17,-51.18,"Sao_Paulo","RS"],["Pelotas",-31.77,-52.34,"Sao_Paulo","RS"],["Vila Velha",-20.33,-40.29,"Sao_Paulo","ES"],["Serra",-20.13,-40.31,"Sao_Paulo","ES"],["Aparecida de Goiânia",-16.82,-49.24,"Sao_Paulo","GO"],["Anápolis",-16.33,-48.95,"Sao_Paulo","GO"],["Feira de Santana",-12.27,-38.97,"Bahia","BA"],["Vitória da Conquista",-14.86,-40.84,"Bahia","BA"],["Jaboatão dos Guararapes",-8.11,-35.01,"Recife","PE"],["Caruaru",-8.28,-35.98,"Recife","PE"],["Petrolina",-9.39,-40.5,"Recife","PE"],["Campina Grande",-7.23,-35.88,"Fortaleza","PB"],["Mossoró",-5.19,-37.34,"Fortaleza","RN"],["Juazeiro do Norte",-7.21,-39.31,"Fortaleza","CE"],["Imperatriz",-5.53,-47.48,"Fortaleza","MA"],["Ananindeua",-1.37,-48.37,"Belem","PA"],["Santarém",-2.44,-54.71,"Santarem","PA"],["Várzea Grande",-15.65,-56.13,"Cuiaba","MT"],["Rondonópolis",-16.47,-54.64,"Cuiaba","MT"],["Dourados",-22.22,-54.81,"Campo_Grande","MS"]];
 /* Leon Astral — motor do céu v2 (Meeus cap. 25/47 + histórico oficial de fusos e horário de verão do Brasil, IANA tzdata) */
@@ -216,7 +255,6 @@ function calcular(p){var c=CIDADES[p.cidade]||CIDADES[0],q=p.data.split("-").map
 function ceuAgora(t){t=t||Date.now();var l=lua(t),s=sg(l),a=t,b=t+3*864e5;while(sg(lua(b))==s)b+=864e5;while(b-a>6e4){var m=(a+b)/2;if(sg(lua(m))==s)a=m;else b=m}
  return{lua:l,luaSigno:s,proxSigno:(s+1)%12,trocaEm:b,sol:sol(t),solSigno:sg(sol(t)),fase:fase(t)}}
 
-const CID=CIDADES,n=nn;
 /* Leon Astral — oráculo do dia e sintonia (compatibilidade pelo mapa) */
 var ORACULO=[
 ["O Louco","Começos leves","Hoje pede coragem para dar o primeiro passo sem ter o caminho todo desenhado.","Experimente algo pequeno e novo, sem cobrar perfeição."],
@@ -253,137 +291,164 @@ function aspecto(a,b){var d=Math.abs(((a-b+540)%360)-180);
 var FRASE={conj:"se misturam, intensidade e espelho",trig:"fluem com facilidade, como velhos conhecidos",sext:"se ajudam e criam oportunidades",quad:"geram atrito que faz crescer, se houver diálogo",opos:"se atraem pelos opostos e se completam quando há equilíbrio",elem:"falam a mesma língua",comp:"combinam bem e se estimulam",neutro:"são diferentes e pedem paciência para se entender"};
 function sintonia(A,B,nomeB){var nb=nomeB||"a outra pessoa",P=[["Os dois Sóis","identidade",A.sun,B.sun,2],["As duas Luas","emoções",A.moon,B.moon,2],["Seu Sol e a Lua de "+nb,"acolhimento",A.sun,B.moon,1.5],["Sua Lua e o Sol de "+nb,"acolhimento",A.moon,B.sun,1.5]];
  if(A.asc!=null&&B.asc!=null)P.push(["Os Ascendentes","primeira impressão",A.asc,B.asc,1]);
- var s=0,w=0,linhas=[];for(var i=0;i<P.length;i++){var p=P[i],x=aspecto(p[2],p[3]);s+=x.v*p[4];w+=p[4];linhas.push({par:p[0],tema:p[1],tipo:x.t,texto:p[0]+" "+FRASE[x.t]+"."})}
+ var s=0,w=0,linhas=[];for(var i=0;i<P.length;i++){var p=P[i],x=aspecto(p[2],p[3]);s+=x.v*p[4];w+=p[4];linhas.push({par:p[0],tema:p[1],tipo:x.t,v:x.v,pct:Math.round(Math.max(35,Math.min(97,58+40*x.v))),texto:p[0]+" "+FRASE[x.t]+"."})}
  var pct=Math.round(Math.max(35,Math.min(97,58+40*s/w)));
  var titulo=pct>=85?"Sintonia rara":pct>=72?"Muita afinidade":pct>=60?"Boa combinação":pct>=48?"Combinação de aprendizado":"Desafio que ensina";
  return{pct:pct,titulo:titulo,linhas:linhas}}
 
+const n=nn;
+const CID=CIDADES;
 $("cy").innerHTML=CID.map((c,i)=>`<option value="${i}">${c[0]} · ${c[4]}</option>`).join("");$("sCy").innerHTML=$("cy").innerHTML;
 
-/* astronomia simplificada (precisão de demo) */
+/* céu estrelado */
+const cv=$("stars"),cx=cv.getContext("2d");
+function drawStars(){cv.width=innerWidth;cv.height=innerHeight;cx.clearRect(0,0,cv.width,cv.height);let s=7;const r=()=>(s=(s*9301+49297)%233280)/233280;
+  for(let i=0;i<Math.min(160,cv.width*cv.height/5000);i++){const x=r()*cv.width,y=r()*cv.height,z=r();cx.fillStyle=i%3?`rgba(243,198,143,${.25+z*.55})`:`rgba(190,165,250,${.25+z*.55})`;cx.beginPath();cx.arc(x,y,z*1.3+.2,0,7);cx.fill()}}
+drawStars();addEventListener("resize",drawStars);
 
-const SB_URL="https://rimgeohwknrwgvjburqq.supabase.co",SB_KEY="sb_publishable_hGhoAsyK38YhewKqXmy3-g_Is__vBCQ";
-const sb=window.supabase?window.supabase.createClient(SB_URL,SB_KEY):null;
-let U=null,UID=null;
-/* textos da biblioteca vêm do banco; os do código são reserva */
-async function carregaBiblioteca(){if(!sb)return;const{data,error}=await sb.from("biblioteca").select("tipo,indice,texto,extra");if(error||!data)return;
-  data.forEach(r=>{if(r.tipo==="sol")SOL[r.indice]=r.texto;if(r.tipo==="lua")LUA[r.indice]=r.texto;if(r.tipo==="asc"&&r.extra.adjetivos)ASC[r.indice]=r.extra.adjetivos;
-    if(r.tipo==="casa_transito")CASA[r.indice]={t:CASA[r.indice].t,f:r.texto,c:r.extra.cuidado,p:r.extra.pergunta}})}
-function erroAuth(t){const e=$("authErr");e.textContent=t;e.classList.remove("hidden")}
-
-function quando(t){const d=new Date(t),h=d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}),k=Math.round((new Date(d.toDateString())-new Date(new Date().toDateString()))/864e5);return k===0?`hoje às ${h}`:k===1?`amanhã às ${h}`:`${d.toLocaleDateString("pt-BR",{weekday:"long"})} às ${h}`}
+let U=null,CH=null,TD=null;
 function calc(u){return calcular({data:u.dt,hora:u.hr,cidade:u.c})}
 
-/* roda do zodíaco */
-function wheel(svg,ch){
-  const W=svg.clientWidth||360,H=svg.clientHeight||300,cx=W/2,cy=H/2,r=Math.min(W,H)/2-14;
-  const P=(l,rr)=>{const a=(180+l)*R;return[cx+rr*Math.cos(a),cy-rr*Math.sin(a)]};
-  let s=`<defs><radialGradient id="gl${svg.id}"><stop offset="0" stop-color="var(--sup)" stop-opacity=".25"/><stop offset="1" stop-color="var(--sup)" stop-opacity="0"/></radialGradient></defs>`;
-  s+=`<circle cx="${cx}" cy="${cy}" r="${r+12}" fill="url(#gl${svg.id})"/>`;
-  s+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/><circle cx="${cx}" cy="${cy}" r="${r*.72}" fill="none" stroke="var(--line)"/><circle cx="${cx}" cy="${cy}" r="${r*.3}" fill="var(--bg)" stroke="var(--line)"/>`;
-  for(let i=0;i<12;i++){const[a,b]=P(i*30,r),[c2,d2]=P(i*30,r*.72);s+=`<line x1="${a}" y1="${b}" x2="${c2}" y2="${d2}" stroke="var(--line)"/>`;
-    const[x,y]=P(i*30+15,r*.86),hi=ch&&sg(ch.sun)===i;s+=`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" class="g" font-size="${r>110?18:14}" fill="${hi?'var(--acc)':'var(--soft)'}">${G[i]}</text>`}
-  for(let i=0;i<40;i++){const a=(i*137.5)%360,rr=r*.36+((i*53)%100)/100*r*.3,[x,y]=P(a,rr);s+=`<circle cx="${x}" cy="${y}" r="${i%5?0.9:1.6}" fill="var(--ink)" opacity=".35"/>`}
-  if(ch){const pts=[["☉︎",ch.sun,"var(--acc)"],["☽︎",ch.moon,"var(--sup)"]];if(ch.asc!=null)pts.push(["AC",ch.asc,"var(--ink)"]);
-    if(ch.today!=null)pts.push(["☽︎",ch.today,"var(--soft)",1]);
-    pts.forEach(([g,l,col,dash],k)=>{const[x1,y1]=P(l,r*.3),[x2,y2]=P(l,r*.72),[tx,ty]=P(l,r*.53+(k%2?10:-10));
-      s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="2" ${dash?'stroke-dasharray="4 4"':''}/><circle cx="${x2}" cy="${y2}" r="4" fill="${col}"/>`;
-      s+=`<circle cx="${tx}" cy="${ty}" r="13" fill="var(--bg)" stroke="${col}"/><text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="central" font-size="${g==='AC'?11:15}" font-weight="700" class="g" fill="${col}">${g}</text>`})}
-  else{const[x,y]=P(sol(Date.now()),r*.72);s+=`<circle cx="${x}" cy="${y}" r="6" fill="var(--acc)"/>`}
-  svg.innerHTML=s;
-}
-const ro0=new ResizeObserver(()=>wheel($("wheel0")));ro0.observe($("wheel0"));
-
-/* navegação */
-document.addEventListener("submit",e=>{if(e.target.id!=="sinF")return;e.preventDefault();
-  const nm=$("sNm").value.trim()||"a outra pessoa",o=calcular({data:$("sDt").value,hora:$("sHr").value,cidade:+$("sCy").value}),r=sintonia(CH,o,nm);
-  $("sinRes").innerHTML=`<div style="text-align:center"><div style="font-size:52px;font-weight:700;color:#F3C68F">${r.pct}%</div><h2 style="margin:0 0 8px">${r.titulo}</h2></div>`+r.linhas.map(l=>`<div class="row"><span class="g">${l.tipo==="quad"||l.tipo==="opos"?"△":l.tipo==="neutro"?"○":"♡"}</span><div><div class="k">${l.tema}</div>${l.texto}</div></div>`).join("")+`<button class="btn" id="sinNova" style="justify-content:center;margin-top:12px">Comparar com outra pessoa</button>`;
-  $("sinForm").classList.add("hidden");$("sinRes").classList.remove("hidden");$("sinNova").onclick=()=>{$("sinRes").classList.add("hidden");$("sinForm").classList.remove("hidden")}});
 function show(v){document.querySelectorAll(".view").forEach(e=>e.classList.toggle("on",e.id===v));
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));
-  if(v==="s-mapa")wheel($("wheel"),CH);window.scrollTo(0,0)}
+  if(v==="s-mapa")wheel();window.scrollTo(0,0)}
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>show(t.dataset.v)));
+/* servidor */
+const SB_URL="https://rimgeohwknrwgvjburqq.supabase.co",SB_KEY="sb_publishable_hGhoAsyK38YhewKqXmy3-g_Is__vBCQ";
+const sb=window.supabase?window.supabase.createClient(SB_URL,SB_KEY):null;
+let UID=null;
+const erro=(id,t)=>{const e=$(id);e.textContent=t;e.classList.toggle("hidden",!t)};
+async function carregaBiblioteca(){if(!sb)return;const{data,error}=await sb.from("biblioteca").select("tipo,indice,texto,extra");if(error||!data)return;
+  data.forEach(r=>{if(r.tipo==="sol")SOL[r.indice]=r.texto;if(r.tipo==="lua")LUA[r.indice]=r.texto;if(r.tipo==="asc"&&r.extra&&r.extra.adjetivos)ASC[r.indice]=r.extra.adjetivos;
+    if(r.tipo==="casa_transito")CASA[r.indice]={t:CASA[r.indice].t,f:r.texto,c:r.extra.cuidado,p:r.extra.pergunta}})}
+async function chamar(fn,body){const{data:{session}}=await sb.auth.getSession();if(!session)throw new Error("sessão expirada");
+  const r=await fetch(`${SB_URL}/functions/v1/${fn}`,{method:"POST",headers:{"Content-Type":"application/json",apikey:SB_KEY,Authorization:"Bearer "+session.access_token},body:JSON.stringify(body)});
+  const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.erro||("erro "+r.status));return j}
 
-let modo="";
-$("authBtns").addEventListener("click",async e=>{const b=e.target.closest("button");if(!b)return;modo=b.dataset.a;
-  if(!sb){erroAuth("Sem conexão com o servidor. Tente de novo.");return}
-  b.querySelector(".free").textContent="conectando…";
-  const{error}=await sb.auth.signInWithOAuth({provider:modo.toLowerCase(),options:{redirectTo:location.origin+location.pathname}});
-  if(error){b.querySelector(".free").textContent="entrar";erroAuth(/not enabled|provider/i.test(error.message)?`O login com ${modo} ainda está sendo configurado.`:"Não deu para entrar agora: "+error.message)}});
-function goCad(){if(U){start();return}show("s-cad")}
-$("cadForm").addEventListener("submit",async e=>{e.preventDefault();U={nm:$("nm").value.trim(),dt:$("dt").value,hr:$("hr").value,c:+$("cy").value,wa:$("wa").value};
+$("authBtns").addEventListener("click",async e=>{const b=e.target.closest("button");if(!b)return;erro("authErr","");
+  if(!sb){erro("authErr","Sem conexão com o servidor. Tente de novo.");return}
+  const lbl=b.lastChild,orig=lbl.textContent;lbl.textContent=" Conectando…";
+  const{error}=await sb.auth.signInWithOAuth({provider:"google",options:{redirectTo:location.origin+location.pathname}});
+  if(error){lbl.textContent=orig;erro("authErr","Não deu para entrar agora: "+error.message)}});
+
+$("cadForm").addEventListener("submit",async e=>{e.preventDefault();erro("cadErr","");
+  U={nm:$("nm").value.trim(),dt:$("dt").value,hr:$("hr").value,c:+$("cy").value};
   const btn=e.submitter;if(btn){btn.disabled=true;btn.textContent="Salvando…"}
   if(sb&&UID){const c=CID[U.c],ch=calc(U);
-    const r1=await sb.from("perfis").upsert({id:UID,nome:U.nm,data_nasc:U.dt,hora_nasc:U.hr||null,cidade:c[0],lat:c[1],lon:c[2],tz_offset:ch.offset,whatsapp:U.wa||null,consentimento_lgpd:true,consentimento_em:new Date().toISOString()});
-    const r2=r1.error?r1:await sb.from("mapas").upsert({user_id:UID,sol_lon:ch.sun,lua_lon:ch.moon,asc_lon:ch.asc,sol_signo:sg(ch.sun),lua_signo:sg(ch.moon),asc_signo:ch.asc==null?null:sg(ch.asc),calculado_em:new Date().toISOString()});
-    if(r2.error){if(btn){btn.disabled=false;btn.textContent="Ver meu céu"}$("aviso").textContent="Não consegui salvar: "+r2.error.message;return}}
-  if(btn){btn.disabled=false;btn.textContent="Ver meu céu"}start()});
-$("redo").addEventListener("click",()=>{if(U){$("nm").value=U.nm;$("dt").value=U.dt;$("hr").value=U.hr||"";$("cy").value=U.c;$("wa").value=U.wa||""}U=null;$("tabs").classList.add("hidden");$("msgs").innerHTML="";show("s-cad")});
+    const r1=await sb.from("perfis").upsert({id:UID,nome:U.nm,data_nasc:U.dt,hora_nasc:U.hr||null,cidade:c[0],lat:c[1],lon:c[2],tz_offset:ch.offset,consentimento_lgpd:true,consentimento_em:new Date().toISOString()});
+    const r2=r1.error?r1:await sb.from("mapas").upsert({user_id:UID,sol_lon:ch.sun,lua_lon:ch.moon,asc_lon:ch.asc,sol_signo:sg(ch.sun),lua_signo:sg(ch.moon),asc_signo:ch.asc==null?null:sg(ch.asc),fonte:"motor_v2",calculado_em:new Date().toISOString()});
+    if(r2.error){if(btn){btn.disabled=false;btn.textContent="Ver meu céu ✨"}erro("cadErr","Não consegui salvar: "+r2.error.message);return}}
+  if(btn){btn.disabled=false;btn.textContent="Ver meu céu ✨"}start()});
+
+$("redo").addEventListener("click",()=>{if(U){$("nm").value=U.nm;$("dt").value=U.dt;$("hr").value=U.hr||"";$("cy").value=U.c}
+  $("tabs").classList.add("hidden");$("topbar").classList.add("hidden");$("msgs").innerHTML="";show("s-cad")});
 $("sair").addEventListener("click",async()=>{if(sb)await sb.auth.signOut();location.reload()});
+$("excluir").addEventListener("click",async()=>{
+  if(!confirm("Excluir sua conta apaga seu perfil, seu mapa, suas conversas com a Estela e seus horóscopos. Isso não pode ser desfeito. Continuar?"))return;
+  const b=$("excluir");b.disabled=true;b.textContent="Excluindo…";
+  try{await chamar("excluir-conta",{confirmar:true});await sb.auth.signOut().catch(()=>{});alert("Sua conta e seus dados foram excluídos.");location.reload()}
+  catch(err){b.disabled=false;b.textContent="Excluir minha conta";alert("Não consegui excluir agora: "+err.message+". Tente de novo ou escreva para arktos.leon.ia@gmail.com.")}});
 
-let CH,TD;
-function start(){
-  CH=calc(U);const CU=ceuAgora();CH.today=CU.lua;
-  const s=sg(CH.sun),m=sg(CH.moon),a=CH.asc!=null?sg(CH.asc):null,tm=CU.luaSigno,ca=(tm-s+12)%12,H=CASA[ca];
-  const mesmo=tm%4===s%4;
-  TD={s,m,a,tm,ca,H,fase:CU.fase,cu:CU};
-  $("tabs").classList.remove("hidden");
-  $("hDate").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
-  $("hTitle").textContent=`Bom dia, ${U.nm}. Hoje: ${H.t.toLowerCase()}.`;
-  $("hCard").innerHTML=`<p style="margin:0 0 10px">A Lua está em <b>${S[tm]}</b> (${TD.fase}) e passa pela sua casa ${ca+1}, a casa de ${H.t.toLowerCase()}. ${mesmo?"É o mesmo elemento do seu Sol, então o dia tende a fluir com você.":"É um elemento diferente do seu Sol, então vale ir com mais calma."}</p>
-  <div class="row"><span class="g">✦</span><div><div class="k">Foco do dia</div>${H.f}</div></div>
-  <div class="row"><span class="g">⚠︎</span><div><div class="k">Cuidado com</div>${H.c}</div></div>
-  <div class="row"><span class="g">?</span><div><div class="k">Pergunta para você</div>${H.p}</div></div><p class="muted" style="margin:10px 0 0;font-size:13px">A Lua entra em ${S[CU.proxSigno]} ${quando(CU.trocaEm)}.</p>`;
-  const CA=cartaDoDia(UID||U.nm,Date.now());let vir=false;
-  const oc=$("oCard"),virar=()=>{if(vir)return;vir=true;oc.innerHTML=`<div class="k">${CA.tema}</div><h2 style="margin:4px 0 8px">✦ ${CA.nome}</h2><p style="margin:0 0 10px">${CA.texto}</p><div class="row"><span class="g">➜</span><div><div class="k">Conselho</div>${CA.conselho}</div></div>`};
-  oc.innerHTML=`<div style="text-align:center;padding:24px 8px"><div style="font-size:40px;color:#F3C68F">✧</div><p style="margin:8px 0 0">Respire, pense no seu dia e toque para revelar sua carta.</p></div>`;
-  oc.onclick=virar;oc.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")virar()};
-  $("mTitle").textContent=`O céu de ${U.nm}`;
-  $("big3").innerHTML=[["Sol",s,"quem você é"],["Lua",m,"o que você sente"],["Ascendente",a,"como te veem"]].map(([k,i,x])=>`<div class="b"><small>${k}</small><div class="g">${i==null?"?":G[i]}</div><strong>${i==null?"sem hora":S[i]}</strong><small>${x}</small></div>`).join("");
-  $("mCard").innerHTML=`<div class="row"><span class="g">☉︎</span><div><div class="k">Sol em ${S[s]} · ${EL[s%4]}</div>${SOL[s]}</div></div>
-  <div class="row"><span class="g">☽︎</span><div><div class="k">Lua em ${S[m]}</div>${LUA[m]}</div></div>
-  <div class="row"><span class="g">↑</span><div><div class="k">Ascendente${a!=null?" em "+S[a]:""}</div>${a!=null?"As pessoas te percebem como alguém "+ASC[a]+".":"Para calcular o Ascendente eu preciso da hora em que você nasceu."}</div></div>`;
-  $("mNote").textContent=`Linha tracejada: a Lua de hoje, em ${S[tm]}. ${CH.luaDupla?` Sem a hora: a Lua mudou de signo no dia em que você nasceu (${S[CH.luaDupla[0]]} → ${S[CH.luaDupla[1]]}); informe a hora para confirmar.`:""} Posições com o histórico oficial de fusos e horário de verão do Brasil.`;
-  if(!$("msgs").children.length)chatStart();
-  show("s-hoje");
-}
-
-/* conversa */
-const hora=()=>new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
-function add(txt,who){const d=document.createElement("div");d.className="m "+who;d.textContent=txt;const t=document.createElement("time");t.textContent=hora();d.appendChild(t);$("msgs").appendChild(d);$("msgs").scrollTop=1e9}
-function bot(txt,ms=900){$("st").textContent="digitando…";setTimeout(()=>{$("st").textContent="online";add(txt,"t")},ms)}
-const CHIPS=["Como está meu dia?","E no amor?","Trabalho e dinheiro","O que é meu ascendente?","Me ajuda a refletir"];
-$("chips").innerHTML=CHIPS.map(c=>`<button class="chip" type="button">${c}</button>`).join("");
-$("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b)user(b.textContent)});
-$("sendF").addEventListener("submit",e=>{e.preventDefault();const v=$("txt").value.trim();if(v){user(v);$("txt").value=""}});
-function chatStart(){add(`Oi, ${U.nm}! Eu sou a Estela, do Leon Astral ✧\nLi o seu céu: Sol em ${S[TD.s]}, Lua em ${S[TD.m]}${TD.a!=null?" e Ascendente em "+S[TD.a]:""}.`,"t");
-  bot(`Hoje a Lua está em ${S[TD.tm]} e o tema do seu dia é ${TD.H.t.toLowerCase()}. ${TD.H.f}\n\nMe conta: como você está?`,1200)}
-const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
-function user(txt){add(txt,"u");if(sb&&UID)sb.from("mensagens").insert({user_id:UID,origem:"usuario",canal:"app",texto:txt.slice(0,2000)}).then(()=>{});bot(resp(norm(txt)),900+Math.random()*600)}
-function resp(t){
-  const s=S[TD.s],m=S[TD.m],H=TD.H;
-  if(/suicid|me matar|quero morrer|nao aguento mais|me machucar|acabar com tudo/.test(t))
-    return `${U.nm}, obrigada por me contar. O que você está sentindo é importante e você não precisa passar por isso sozinho.\n\nPor favor, fale agora com o CVV: ligue 188 (grátis, 24h) ou acesse cvv.org.br. Se estiver em perigo, ligue 192.\n\nEu continuo aqui com você.`;
-  if(/dia|hoje|agora/.test(t))return `Hoje a Lua passa pela sua casa ${TD.ca+1}: ${H.t.toLowerCase()}.\n✦ ${H.f}\n⚠ Cuidado com: ${H.c.toLowerCase()}\n\nE uma pergunta para levar com você: ${H.p}`;
-  if(/amor|namor|crush|relac|casad|esposa|marido/.test(t))return `No amor, sua Lua em ${m} diz muito: ${LUA[TD.m].toLowerCase()}\n\n${[4,6].includes(TD.ca)?"E hoje o céu favorece o romance! Bom dia para um gesto de carinho.":"Hoje o céu pede mais escuta do que cobrança."}\n\nO que está acontecendo no seu coração?`;
-  if(/trabalh|dinheiro|grana|emprego|carreira|chefe|negocio/.test(t))return `Com Sol em ${s}, ${SOL[TD.s].split(".")[0].toLowerCase()}.\n\n${[1,5,9].includes(TD.ca)?"Hoje o céu está do seu lado no trabalho e no dinheiro. Aproveite para resolver o que está parado.":"Hoje não é o dia de decisões grandes com dinheiro. Planeje e decida amanhã."}`;
-  if(/ascendente|asc/.test(t))return TD.a!=null?`Seu Ascendente em ${S[TD.a]} é a primeira impressão que você passa: alguém ${ASC[TD.a]}. É o signo que nascia no horizonte na hora exata em que você nasceu.`:"Para saber o seu Ascendente eu preciso da hora do seu nascimento. Ela costuma estar na certidão. Quer refazer o cadastro com a hora?";
-  if(/reflet|ansios|triste|cansad|preocup|confus|medo/.test(t))return `Vamos com calma. Respira fundo comigo: 4 segundos puxando o ar, 4 soltando.\n\nSua Lua em ${m}: ${LUA[TD.m].toLowerCase()}\n\nO que mais está pesando agora? Se for algo que dura muitos dias, conversar com um psicólogo pode ajudar muito.`;
-  if(/obrigad|valeu|amei|gostei/.test(t))return `Fico feliz! Amanhã cedo eu te mando o céu do dia. ✧`;
-  if(/oi|ola|bom dia|boa tarde|boa noite/.test(t))return `Oi, ${U.nm}! Que bom te ver por aqui. Quer saber do seu dia, do amor ou do trabalho?`;
-  return `Entendi. Olhando seu céu, com Sol em ${s} e Lua em ${m}, eu diria: ${H.p.toLowerCase()}\n\nQuer que eu fale do seu dia, do amor ou do trabalho?`;
-}
 async function boot(){
   await carregaBiblioteca();
   if(!sb)return;
   const{data:{session}}=await sb.auth.getSession();if(!session)return;
   UID=session.user.id;
   const{data:p}=await sb.from("perfis").select("*").eq("id",UID).maybeSingle();
-  if(!p){const nome=(session.user.user_metadata&&(session.user.user_metadata.full_name||session.user.user_metadata.name))||"";$("nm").value=nome.split(" ")[0]||"";show("s-cad");return}
+  if(!p){const md=session.user.user_metadata||{},nome=md.full_name||md.name||"";$("nm").value=nome.split(" ")[0]||"";show("s-cad");return}
   const ci=Math.max(0,CID.findIndex(c=>c[0]===p.cidade));
-  U={nm:p.nome,dt:p.data_nasc,hr:p.hora_nasc?p.hora_nasc.slice(0,5):"",c:ci,wa:p.whatsapp||""};start();
+  U={nm:p.nome,dt:p.data_nasc,hr:p.hora_nasc?p.hora_nasc.slice(0,5):"",c:ci};start();
 }
-if(sb)sb.auth.onAuthStateChange((ev)=>{if(ev==="SIGNED_IN"&&!UID)boot()});
+if(sb)sb.auth.onAuthStateChange(ev=>{if(ev==="SIGNED_IN"&&!UID)boot()});
+
+function start(){
+  CH=calc(U);const CU=ceuAgora();CH.today=CU.lua;
+  const s=sg(CH.sun),m=sg(CH.moon),a=CH.asc!=null?sg(CH.asc):null,tm=CU.luaSigno,ca=(tm-s+12)%12,H=CASA[ca];
+  TD={s,m,a,tm,ca,H,fase:CU.fase,cu:CU};
+  $("tabs").classList.remove("hidden");$("topbar").classList.remove("hidden");$("topSub").textContent=`Sol em ${S[s]} · ${TD.fase}`;
+  $("hGlyph").textContent=G[s];
+  $("hDate").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
+  $("hTitle").textContent=`${U.nm}, hoje é dia de ${H.t.toLowerCase()}`;
+  const comp=(s+4)%12,num=((new Date().getDate()+s)%9)+1;
+  $("hCard").innerHTML=`<p style="margin:0 0 6px">A Lua em <b>${S[tm]}</b> atravessa sua casa ${ca+1}. ${tm%4===s%4?"É o mesmo elemento do seu Sol: o dia flui com você.":"Elemento diferente do seu Sol: vá com mais calma."}</p>
+  <div class="row"><span class="g">✦</span><div><div class="k">Conselho do dia</div>${H.f}</div></div>
+  <div class="row"><span class="g">☽︎</span><div><div class="k">Fase da Lua</div>${TD.fase} em ${S[tm]} · entra em ${S[CU.proxSigno]} ${quando(CU.trocaEm)}</div></div>
+  <div class="row"><span class="g">?</span><div><div class="k">Pergunta para você</div>${H.p}</div></div>
+  <div class="aff"><div><small>Cor</small><b>${CORES[(s+tm)%12]}</b></div><div><small>Número</small><b>${num}</b></div><div><small>Sintonia</small><b>${S[comp]}</b></div></div>`;
+  $("mTitle").textContent=`O céu de ${U.nm}`;
+  $("trio").innerHTML=[["Essência","Sol",s,SOL[s]],["Emoções","Lua",m,LUA[m]],["Máscara social","Ascendente",a,a!=null?`As pessoas te percebem como alguém ${ASC[a]}.`:"Informe a hora de nascimento para revelar seu Ascendente."]].map(([t,k,i,x])=>`<div class="glass"><span class="g">${i==null?"?":G[i]}</span><div><div class="k">${t} · ${k} em ${i==null?"—":S[i]}</div><div style="font-size:15px">${x}</div></div></div>`).join("");
+  $("mNote").textContent=`Linha tracejada: a Lua de hoje, em ${S[tm]}. ${CH.luaDupla?` Sem a hora: a Lua mudou de signo no dia do seu nascimento (${S[CH.luaDupla[0]]} → ${S[CH.luaDupla[1]]}).`:""} Posições com o histórico oficial de fusos e horário de verão do Brasil.`;
+  cartaUI();
+  $("sYou").textContent=G[s];$("sYouN").textContent=S[s];
+  if(!$("msgs").children.length)chatStart();
+  show("s-hoje");
+}
+
+/* roda zodiacal com anéis orbitais */
+function wheel(){const svg=$("wheel"),W=svg.clientWidth||360,H=svg.clientHeight||310,c=[W/2,H/2],r=Math.min(W,H)/2-12;
+  const P=(l,rr)=>{const a=(180+l)*R;return[c[0]+rr*Math.cos(a),c[1]-rr*Math.sin(a)]};
+  let s=`<defs><radialGradient id="core"><stop offset="0" stop-color="#F3C68F" stop-opacity=".30"/><stop offset=".6" stop-color="#A78BFA" stop-opacity=".18"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/></radialGradient><linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBE3BB"/><stop offset=".4" stop-color="#F3C68F"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs>
+  <circle cx="${c[0]}" cy="${c[1]}" r="${r*.45}" fill="url(#core)"/>`;
+  [1,.78,.56,.32].forEach((k,i)=>s+=`<circle cx="${c[0]}" cy="${c[1]}" r="${r*k}" fill="none" stroke="${i==0?'url(#gp)':'rgba(255,255,255,.12)'}" stroke-width="${i==0?1.4:1}" ${i==2?'stroke-dasharray="2 5"':''}/>`);
+  for(let i=0;i<12;i++){const[a,b]=P(i*30,r),[x2,y2]=P(i*30,r*.78);s+=`<line x1="${a}" y1="${b}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,.12)"/>`;
+    const[x,y]=P(i*30+15,r*.89),hi=sg(CH.sun)===i;s+=`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" class="g" font-size="${r>120?17:14}" fill="${hi?'url(#gp)':'rgba(244,238,248,.55)'}">${G[i]}</text>`}
+  const pts=[["☉︎",CH.sun,"url(#gp)"],["☽︎",CH.moon,"#A78BFA"]];if(CH.asc!=null)pts.push(["AC",CH.asc,"#E2B4BD"]);pts.push(["☽︎",CH.today,"rgba(244,238,248,.5)",1]);
+  pts.forEach(([g,l,col,dash],k)=>{const[x1,y1]=P(l,r*.32),[x2,y2]=P(l,r*.78),[tx,ty]=P(l,r*.56+(k%2?12:-12));
+    s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="1.6" ${dash?'stroke-dasharray="4 4"':''}/><circle cx="${x2}" cy="${y2}" r="4" fill="${col}"/>
+    <circle cx="${tx}" cy="${ty}" r="14" fill="#11142080" stroke="${col}"/><text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="central" font-size="${g==='AC'?11:15}" font-weight="700" class="g" fill="${col}">${g}</text>`});
+  svg.innerHTML=s}
+new ResizeObserver(()=>{if(CH&&$("s-mapa").classList.contains("on"))wheel()}).observe($("wheel"));
+
+/* sintonia pelo mapa completo */
+$("sinF").addEventListener("submit",e=>{e.preventDefault();if(!CH)return;
+  const nm=$("sNm").value.trim()||"a outra pessoa",o=calcular({data:$("sDt").value,hora:$("sHr").value,cidade:+$("sCy").value}),r=sintonia(CH,o,nm),b=sg(o.sun);
+  $("sPar").textContent=G[b];$("sParN").textContent=S[b];$("sParNm").textContent=$("sNm").value.trim()||"Outra pessoa";
+  $("pct").textContent=r.pct+"%";$("pctTxt").textContent=r.titulo;
+  const L=r.linhas,ac=Math.round((L[2].pct+L[3].pct)/2);
+  [["b1",L[1].pct],["b2",L[0].pct],["b3",ac]].forEach(([id,v])=>{$(id).style.width=v+"%";$(id+"v").textContent=v+"%"});
+  $("sinLinhas").innerHTML=L.map(l=>`<div class="row"><span class="g">${l.tipo==="quad"||l.tipo==="opos"?"△":l.tipo==="neutro"?"○":"♡"}</span><div><div class="k">${l.tema}</div>${l.texto}</div></div>`).join("");
+  $("sinBox").classList.add("hidden");$("sinRes").classList.remove("hidden");window.scrollTo(0,0)});
+$("sinNova").addEventListener("click",()=>{$("sinRes").classList.add("hidden");$("sinBox").classList.remove("hidden")});
+/* carta do dia */
+function quando(t){const d=new Date(t),h=d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}),k=Math.round((new Date(d.toDateString())-new Date(new Date().toDateString()))/864e5);return k===0?`hoje às ${h}`:k===1?`amanhã às ${h}`:`${d.toLocaleDateString("pt-BR",{weekday:"long"})} às ${h}`}
+function cartaUI(){const CA=cartaDoDia(U.nm+U.dt,Date.now()),oc=$("oCard");let vir=false;
+  const virar=()=>{if(vir)return;vir=true;oc.innerHTML=`<div class="k">${CA.tema}</div><div class="serif gt" style="font-size:24px;margin:4px 0 8px">${CA.nome}</div><p style="margin:0 0 6px">${CA.texto}</p><div class="row"><span class="g">✦</span><div><div class="k">Conselho</div>${CA.conselho}</div></div>`};
+  oc.innerHTML=`<div style="text-align:center;padding:22px 8px"><div class="g gt" style="font-size:44px">✧</div><p style="margin:8px 0 0">Respire, pense no seu dia e toque para revelar sua carta.</p></div>`;
+  oc.onclick=virar;oc.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")virar()}}
+
+/* story */
+$("share").addEventListener("click",()=>{$("storyCard").innerHTML=`<div class="serif gt" style="font-size:14px;letter-spacing:.2em">LEON ASTRAL</div><div><div class="g">${G[TD.s]}</div><div class="serif" style="font-size:24px;margin:6px 0">${S[TD.s]}</div><div style="font-size:14px;color:#E9E2F2">${TD.H.f}</div></div><div style="font-size:12px;color:#B7B2C8">${TD.fase} em ${S[TD.tm]}</div>`;$("modal").classList.remove("hidden")});
+$("closeM").addEventListener("click",()=>$("modal").classList.add("hidden"));
+
+/* oráculo */
+const hora=()=>new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+function add(txt,who,mid){const d=document.createElement("div");d.className="m "+who;d.textContent=txt;const t=document.createElement("time");t.textContent=hora();d.appendChild(t);
+  if(who==="t"&&UID){const r=document.createElement("button");r.type="button";r.className="rep";r.textContent="Denunciar resposta";
+    r.onclick=async()=>{const motivo=prompt("O que há de errado com esta resposta? (opcional)");if(motivo===null)return;
+      const{error}=await sb.from("denuncias").insert({user_id:UID,mensagem_id:mid||null,texto:txt.slice(0,2000),motivo:(motivo||"").slice(0,500)||null});
+      r.textContent=error?"Não foi possível enviar":"Denúncia enviada. Obrigada!";r.disabled=true};d.appendChild(r)}
+  $("msgs").appendChild(d);$("msgs").scrollTop=1e9}
+function bot(txt,ms=900,mid){$("st").textContent="digitando…";setTimeout(()=>{$("st").textContent="Online com seu Mapa Astral";add(txt,"t",mid)},ms)}
+$("chips").innerHTML=["Conselho de hoje","Amor este mês","Ele vai me procurar?","Trabalho e dinheiro","Meu ascendente"].map(c=>`<button class="chip" type="button">${c}</button>`).join("");
+$("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b)user(b.textContent)});
+$("sendF").addEventListener("submit",e=>{e.preventDefault();const v=$("txt").value.trim();if(v){user(v);$("txt").value=""}});
+function chatStart(){add(`Oi, ${U.nm} ✧ Eu sou a Estela.\nJá li o seu céu: Sol em ${S[TD.s]}, Lua em ${S[TD.m]}${TD.a!=null?" e Ascendente em "+S[TD.a]:""}.`,"t");bot(`Hoje a Lua está em ${S[TD.tm]} e o tema do seu dia é ${TD.H.t.toLowerCase()}.\n\nComo você está se sentindo?`,1200)}
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+async function user(txt){add(txt,"u");
+  if(sb&&UID){$("st").textContent="digitando…";
+    try{const j=await chamar("estela",{texto:txt,contexto:{sol:TD.s,lua:TD.m,asc:TD.a,luaHoje:TD.tm,casa:TD.ca,tema:TD.H.t,fase:TD.fase}});
+      if(!j.fallback&&j.texto){$("st").textContent="Online com seu Mapa Astral";add(j.texto,"t",j.id);return}}catch(e){}}
+  bot(resp(norm(txt)),900+Math.random()*600)}
+function resp(t){const s=S[TD.s],m=S[TD.m],H=TD.H;
+  if(/suicid|me matar|quero morrer|nao aguento mais|me machucar|acabar com tudo/.test(t))return`${U.nm}, obrigada por me contar. O que você sente importa e você não precisa passar por isso sozinha.\n\nFale agora com o CVV: ligue 188 (grátis, 24h) ou acesse cvv.org.br. Em perigo, ligue 192.\n\nEu continuo aqui com você.`;
+  if(/procurar|vai voltar|me liga|ele vai|ela vai/.test(t))return`Eu não consigo ver as escolhas de outra pessoa, e nenhum céu decide por ela.\n\nO que o seu mapa mostra é você: com Lua em ${m}, ${LUA[TD.m].toLowerCase()}\n\nEm vez de esperar, me conta: o que você quer sentir, seja qual for a resposta?`;
+  if(/amor|namor|crush|relac/.test(t))return`No amor, sua Lua em ${m} fala alto: ${LUA[TD.m].toLowerCase()}\n\n${[4,6].includes(TD.ca)?"Este é um bom momento para gestos de carinho e encontros.":"O céu pede mais escuta do que cobrança neste período."}\n\nVeja também a aba Sintonia ♡`;
+  if(/^(oi|ola|oie|bom dia|boa tarde|boa noite)\b/.test(t))return`Oi, ${U.nm}! Que bom te ver por aqui ✧ Quer o conselho de hoje, falar de amor ou de trabalho?`;
+  if(/conselho|hoje|dia/.test(t))return`✦ ${H.f}\n⚠ Cuidado com: ${H.c.toLowerCase()}\n\nLeve esta pergunta com você: ${H.p}`;
+  if(/trabalh|dinheiro|grana|carreira/.test(t))return`Sol em ${s}: ${SOL[TD.s]}\n\n${[1,5,9].includes(TD.ca)?"O céu favorece trabalho e dinheiro: resolva o que está parado.":"Não é dia de decisões grandes com dinheiro. Planeje e decida amanhã."}`;
+  if(/ascendente/.test(t))return TD.a!=null?`Seu Ascendente em ${S[TD.a]} é a primeira impressão que você passa: alguém ${ASC[TD.a]}.`:"Para revelar seu Ascendente eu preciso da hora do seu nascimento. Ela fica na certidão.";
+  if(/triste|ansios|cansad|medo|preocup/.test(t))return`Vamos com calma. Respira comigo: 4 segundos puxando o ar, 4 soltando.\n\nSua Lua em ${m}: ${LUA[TD.m].toLowerCase()}\n\nSe esse peso já dura muitos dias, conversar com uma psicóloga pode ajudar muito.`;
+  return`Olhando seu céu, Sol em ${s} e Lua em ${m}, eu te devolvo uma pergunta: ${H.p.toLowerCase()}`}
 boot();
 }
 </script>
