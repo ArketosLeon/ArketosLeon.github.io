@@ -1,0 +1,1052 @@
+[
+{
+"categoria": "signo_perfil",
+"chave": "Áries",
+"titulo": "Áries: perfil do signo",
+"texto": "Áries é o primeiro signo do zodíaco: começo, coragem e impulso. Quem tem Áries forte gosta de agir antes de esperar, abre caminhos e se anima com desafios. A luz é a iniciativa; a sombra é a impaciência e a tendência a brigar quando contrariada. Elemento fogo, modalidade cardinal, regente Marte.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Áries",
+"titulo": "Áries no amor",
+"texto": "No amor, Áries é direta e intensa: gosta de conquistar e de sentir paixão. Precisa de alguém que acompanhe o seu ritmo sem tentar controlá-la, e aprende muito quando pratica a escuta antes da resposta.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Áries",
+"titulo": "Áries no trabalho e dinheiro",
+"texto": "No trabalho, Áries rende em funções que pedem liderança, rapidez e coragem para começar projetos. O desafio é terminar o que começou e não perder o interesse quando a novidade passa.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Áries",
+"titulo": "Áries e autocuidado",
+"texto": "Para Áries, autocuidado é gastar energia de forma saudável, com movimento e metas curtas, e aprender a pausar antes de reagir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Touro",
+"titulo": "Touro: perfil do signo",
+"texto": "Touro é estabilidade, prazer e paciência. Quem tem Touro forte valoriza segurança, beleza, conforto e coisas que duram. A luz é a constância; a sombra é a teimosia e a resistência a mudanças. Elemento terra, modalidade fixo, regente Vênus.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Touro",
+"titulo": "Touro no amor",
+"texto": "No amor, Touro é leal e carinhosa, demonstra afeto com presença, toque e cuidado no dia a dia. Precisa de confiança e calma, e cresce quando aprende a falar do que sente em vez de guardar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Touro",
+"titulo": "Touro no trabalho e dinheiro",
+"texto": "No trabalho, Touro brilha em tarefas que pedem método, persistência e senso prático, além de áreas ligadas a finanças, natureza e estética. O desafio é aceitar mudanças de plano.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Touro",
+"titulo": "Touro e autocuidado",
+"texto": "Para Touro, autocuidado passa pelos sentidos: comida feita com calma, música, natureza e uma rotina que dê sensação de segurança.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Gêmeos",
+"titulo": "Gêmeos: perfil do signo",
+"texto": "Gêmeos é curiosidade, comunicação e leveza. Quem tem Gêmeos forte aprende rápido, conversa com todo mundo e se interessa por muitas coisas ao mesmo tempo. A luz é a versatilidade; a sombra é a dispersão e a ansiedade mental. Elemento ar, modalidade mutável, regente Mercúrio.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Gêmeos",
+"titulo": "Gêmeos no amor",
+"texto": "No amor, Gêmeos precisa de conversa, humor e novidade. Se encanta por mentes interessantes e cresce quando aprende a aprofundar os vínculos em vez de só passear por eles.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Gêmeos",
+"titulo": "Gêmeos no trabalho e dinheiro",
+"texto": "No trabalho, Gêmeos rende com comunicação, vendas, escrita, ensino e tarefas variadas. O desafio é foco: escolher prioridades e concluir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Gêmeos",
+"titulo": "Gêmeos e autocuidado",
+"texto": "Para Gêmeos, autocuidado é dar descanso à mente: anotar ideias, reduzir o excesso de telas e reservar momentos de silêncio.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Câncer",
+"titulo": "Câncer: perfil do signo",
+"texto": "Câncer é acolhimento, memória e sensibilidade. Quem tem Câncer forte cuida das pessoas, valoriza a família e sente tudo com profundidade. A luz é o cuidado; a sombra é a mágoa guardada e o medo de se expor. Elemento água, modalidade cardinal, regente Lua.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Câncer",
+"titulo": "Câncer no amor",
+"texto": "No amor, Câncer se entrega quando se sente segura. Gosta de intimidade, gestos de carinho e de construir um lar emocional. Cresce quando pede o que precisa em vez de esperar que adivinhem.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Câncer",
+"titulo": "Câncer no trabalho e dinheiro",
+"texto": "No trabalho, Câncer rende onde pode cuidar, proteger e criar ambientes acolhedores: atendimento, educação, gastronomia, saúde e negócios de família. O desafio é não levar tudo para o lado pessoal.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Câncer",
+"titulo": "Câncer e autocuidado",
+"texto": "Para Câncer, autocuidado é ter um canto seu, estar perto de quem ama e respeitar os próprios ciclos de energia.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Leão",
+"titulo": "Leão: perfil do signo",
+"texto": "Leão é brilho, criatividade e coração generoso. Quem tem Leão forte gosta de se expressar, liderar com calor e ser reconhecida pelo que faz. A luz é a generosidade; a sombra é o orgulho e a necessidade de aplauso. Elemento fogo, modalidade fixo, regente Sol.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Leão",
+"titulo": "Leão no amor",
+"texto": "No amor, Leão é romântica, leal e calorosa. Gosta de admiração mútua, de gestos grandiosos e de ser prioridade. Cresce quando oferece o mesmo palco que deseja receber.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Leão",
+"titulo": "Leão no trabalho e dinheiro",
+"texto": "No trabalho, Leão rende em papéis de liderança, criação, arte, comunicação e tudo que pede presença. O desafio é dividir o protagonismo e ouvir críticas sem se ferir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Leão",
+"titulo": "Leão e autocuidado",
+"texto": "Para Leão, autocuidado é fazer algo criativo só por prazer, celebrar as próprias conquistas e estar com quem a valoriza.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Virgem",
+"titulo": "Virgem: perfil do signo",
+"texto": "Virgem é cuidado com os detalhes, utilidade e aperfeiçoamento. Quem tem Virgem forte organiza, analisa e gosta de ser útil. A luz é a dedicação; a sombra é a autocobrança e a crítica excessiva. Elemento terra, modalidade mutável, regente Mercúrio.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Virgem",
+"titulo": "Virgem no amor",
+"texto": "No amor, Virgem demonstra carinho com atitudes práticas: lembrar, ajudar, resolver. Precisa de confiança e respeito à sua rotina, e cresce quando se permite ser imperfeita na frente de quem ama.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Virgem",
+"titulo": "Virgem no trabalho e dinheiro",
+"texto": "No trabalho, Virgem brilha em organização, análise, saúde, revisão, processos e serviços. O desafio é não se perder no perfeccionismo e saber delegar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Virgem",
+"titulo": "Virgem e autocuidado",
+"texto": "Para Virgem, autocuidado é ter rotina leve, ambiente organizado e momentos em que nada precisa ser produtivo.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Libra",
+"titulo": "Libra: perfil do signo",
+"texto": "Libra é harmonia, beleza e relações. Quem tem Libra forte busca equilíbrio, justiça e convivência agradável. A luz é a diplomacia; a sombra é a indecisão e o medo de desagradar. Elemento ar, modalidade cardinal, regente Vênus.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Libra",
+"titulo": "Libra no amor",
+"texto": "No amor, Libra é romântica e valoriza parceria, gentileza e estética. Precisa de reciprocidade e conversa, e cresce quando aprende a dizer o que quer mesmo que gere conflito.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Libra",
+"titulo": "Libra no trabalho e dinheiro",
+"texto": "No trabalho, Libra rende em negociação, mediação, design, moda, direito e atendimento. O desafio é decidir com firmeza e não adiar escolhas.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Libra",
+"titulo": "Libra e autocuidado",
+"texto": "Para Libra, autocuidado é cercar-se de beleza, de boas companhias e de relações equilibradas, sem se anular para agradar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Escorpião",
+"titulo": "Escorpião: perfil do signo",
+"texto": "Escorpião é intensidade, profundidade e transformação. Quem tem Escorpião forte sente com força, investiga o que está escondido e se reinventa depois das crises. A luz é a coragem emocional; a sombra é o ciúme e a dificuldade de perdoar. Elemento água, modalidade fixo, regente Marte (clássico) e Plutão (moderno).",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Escorpião",
+"titulo": "Escorpião no amor",
+"texto": "No amor, Escorpião quer entrega total, verdade e intimidade profunda. Não gosta de superficialidade e cresce quando confia sem precisar controlar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Escorpião",
+"titulo": "Escorpião no trabalho e dinheiro",
+"texto": "No trabalho, Escorpião rende em pesquisa, estratégia, psicologia, finanças e qualquer tarefa que exija foco e discrição. O desafio é não carregar tudo sozinha.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Escorpião",
+"titulo": "Escorpião e autocuidado",
+"texto": "Para Escorpião, autocuidado é ter espaço para sentir, escrever ou desabafar com alguém de confiança e deixar ir o que já pesou demais.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Sagitário",
+"titulo": "Sagitário: perfil do signo",
+"texto": "Sagitário é liberdade, otimismo e busca de sentido. Quem tem Sagitário forte ama viajar, aprender e ampliar horizontes. A luz é a fé no futuro; a sombra é o exagero e a dificuldade com limites. Elemento fogo, modalidade mutável, regente Júpiter.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Sagitário",
+"titulo": "Sagitário no amor",
+"texto": "No amor, Sagitário precisa de aventura, risadas e espaço. Se encanta por quem a faz crescer e cresce quando une liberdade e compromisso.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Sagitário",
+"titulo": "Sagitário no trabalho e dinheiro",
+"texto": "No trabalho, Sagitário rende em ensino, viagens, comunicação, vendas e projetos com propósito. O desafio é cuidar dos detalhes e cumprir prazos.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Sagitário",
+"titulo": "Sagitário e autocuidado",
+"texto": "Para Sagitário, autocuidado é movimento ao ar livre, aprender algo novo e planejar a próxima aventura, mesmo que pequena.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Capricórnio",
+"titulo": "Capricórnio: perfil do signo",
+"texto": "Capricórnio é responsabilidade, ambição e paciência. Quem tem Capricórnio forte constrói passo a passo e não desiste fácil. A luz é a disciplina; a sombra é a rigidez e o excesso de cobrança. Elemento terra, modalidade cardinal, regente Saturno.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Capricórnio",
+"titulo": "Capricórnio no amor",
+"texto": "No amor, Capricórnio é leal e séria, demonstra afeto com compromisso e presença constante. Cresce quando se permite brincar e mostrar vulnerabilidade.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Capricórnio",
+"titulo": "Capricórnio no trabalho e dinheiro",
+"texto": "No trabalho, Capricórnio rende em gestão, planejamento, finanças e cargos de responsabilidade. O desafio é equilibrar carreira e descanso.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Capricórnio",
+"titulo": "Capricórnio e autocuidado",
+"texto": "Para Capricórnio, autocuidado é marcar pausas na agenda como compromisso sério e reconhecer o quanto já conquistou.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Aquário",
+"titulo": "Aquário: perfil do signo",
+"texto": "Aquário é originalidade, amizade e futuro. Quem tem Aquário forte pensa diferente, valoriza a liberdade e se importa com causas coletivas. A luz é a inovação; a sombra é o distanciamento emocional e a teimosia de ideias. Elemento ar, modalidade fixo, regente Saturno (clássico) e Urano (moderno).",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Aquário",
+"titulo": "Aquário no amor",
+"texto": "No amor, Aquário precisa de amizade, liberdade e conversas que estimulem a mente. Cresce quando se permite mostrar o que sente, não só o que pensa.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Aquário",
+"titulo": "Aquário no trabalho e dinheiro",
+"texto": "No trabalho, Aquário rende em tecnologia, ciência, inovação, projetos sociais e equipes criativas. O desafio é a constância nas tarefas repetitivas.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Aquário",
+"titulo": "Aquário e autocuidado",
+"texto": "Para Aquário, autocuidado é estar com a sua turma, ter tempo para projetos próprios e respeitar a necessidade de espaço.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_perfil",
+"chave": "Peixes",
+"titulo": "Peixes: perfil do signo",
+"texto": "Peixes é sensibilidade, imaginação e compaixão. Quem tem Peixes forte sente o ambiente, sonha alto e ajuda sem pedir nada em troca. A luz é a empatia; a sombra é a fuga da realidade e a dificuldade de colocar limites. Elemento água, modalidade mutável, regente Júpiter (clássico) e Netuno (moderno).",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "signo_amor",
+"chave": "Peixes",
+"titulo": "Peixes no amor",
+"texto": "No amor, Peixes é romântica, doce e entregue. Busca conexão de alma e cresce quando cuida de si com o mesmo carinho que cuida de quem ama.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_trabalho",
+"chave": "Peixes",
+"titulo": "Peixes no trabalho e dinheiro",
+"texto": "No trabalho, Peixes rende em artes, música, cuidado com pessoas, espiritualidade e criação. O desafio é organização e limites claros.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "signo_autocuidado",
+"chave": "Peixes",
+"titulo": "Peixes e autocuidado",
+"texto": "Para Peixes, autocuidado é água, música, descanso e momentos de silêncio para separar o que é seu do que é dos outros.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "planeta",
+"chave": "Sol",
+"titulo": "Planeta Sol",
+"texto": "O Sol representa a essência, a identidade e a vitalidade. No mapa, mostra quem você está se tornando e onde quer brilhar. É o seu signo mais conhecido.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Lua",
+"titulo": "Planeta Lua",
+"texto": "A Lua representa as emoções, a intuição, as necessidades e a forma de se sentir segura. Ela muda de signo a cada dois dias e meio, por isso marca o clima emocional de cada dia.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Mercúrio",
+"titulo": "Planeta Mercúrio",
+"texto": "Mercúrio rege a mente, a comunicação, os estudos e as trocas do dia a dia: conversas, mensagens, contratos e pequenas viagens.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Vênus",
+"titulo": "Planeta Vênus",
+"texto": "Vênus rege o amor, a beleza, o prazer, a arte e a forma como você se relaciona e o que valoriza.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Marte",
+"titulo": "Planeta Marte",
+"texto": "Marte rege a ação, a coragem, o desejo e a forma como você luta pelo que quer.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Júpiter",
+"titulo": "Planeta Júpiter",
+"texto": "Júpiter é o planeta da expansão, da sorte, do otimismo e do crescimento. Onde ele passa, as oportunidades tendem a aparecer.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Saturno",
+"titulo": "Planeta Saturno",
+"texto": "Saturno é o planeta da responsabilidade, do tempo, dos limites e da maturidade. Ele ensina com disciplina e recompensa a constância.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Urano",
+"titulo": "Planeta Urano",
+"texto": "Urano traz mudanças repentinas, originalidade, liberdade e inovação. Mostra onde você quer romper padrões.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Netuno",
+"titulo": "Planeta Netuno",
+"texto": "Netuno rege a imaginação, os sonhos, a espiritualidade e a sensibilidade. Pede atenção para não confundir ilusão com realidade.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "planeta",
+"chave": "Plutão",
+"titulo": "Planeta Plutão",
+"texto": "Plutão representa transformações profundas, poder pessoal e renascimentos. Fala de ciclos que terminam para outros começarem.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 1",
+"titulo": "Casa 1",
+"texto": "A casa 1 é a casa do eu: aparência, jeito de chegar nos lugares e a primeira impressão. Começa no Ascendente.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 2",
+"titulo": "Casa 2",
+"texto": "A casa 2 fala de dinheiro, bens, talentos e do que você valoriza.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 3",
+"titulo": "Casa 3",
+"texto": "A casa 3 fala de comunicação, estudos, irmãos, vizinhos e deslocamentos curtos.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 4",
+"titulo": "Casa 4",
+"texto": "A casa 4 fala de lar, família, raízes e da sua base emocional.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 5",
+"titulo": "Casa 5",
+"texto": "A casa 5 fala de romance, criatividade, diversão, filhos e de tudo que dá prazer.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 6",
+"titulo": "Casa 6",
+"texto": "A casa 6 fala de rotina, trabalho do dia a dia, hábitos e autocuidado.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 7",
+"titulo": "Casa 7",
+"texto": "A casa 7 fala de parcerias: casamento, namoro sério, sociedades e contratos.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 8",
+"titulo": "Casa 8",
+"texto": "A casa 8 fala de intimidade, transformações, recursos compartilhados e heranças.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 9",
+"titulo": "Casa 9",
+"texto": "A casa 9 fala de viagens longas, estudos superiores, filosofia, fé e outras culturas.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 10",
+"titulo": "Casa 10",
+"texto": "A casa 10 fala de carreira, reputação, objetivos e de como o mundo te vê profissionalmente.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 11",
+"titulo": "Casa 11",
+"texto": "A casa 11 fala de amizades, grupos, redes e sonhos para o futuro.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "casa",
+"chave": "casa 12",
+"titulo": "Casa 12",
+"texto": "A casa 12 fala do mundo interior, descanso, intuição, espiritualidade e do que está escondido.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "aspecto",
+"chave": "Conjunção (0°)",
+"titulo": "Aspecto Conjunção (0°)",
+"texto": "Na conjunção, dois planetas estão juntos e somam forças. O efeito depende dos planetas: pode ser intensidade boa ou excesso.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "aspecto",
+"chave": "Sextil (60°)",
+"titulo": "Aspecto Sextil (60°)",
+"texto": "O sextil é um aspecto harmonioso que traz oportunidades. Funciona melhor quando você toma a iniciativa.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "aspecto",
+"chave": "Quadratura (90°)",
+"titulo": "Aspecto Quadratura (90°)",
+"texto": "A quadratura gera tensão e atrito. É um desafio que pede ação e costuma fazer crescer.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "aspecto",
+"chave": "Trígono (120°)",
+"titulo": "Aspecto Trígono (120°)",
+"texto": "O trígono é o aspecto mais fluido: talentos naturais e facilidade entre as áreas envolvidas.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "aspecto",
+"chave": "Oposição (180°)",
+"titulo": "Aspecto Oposição (180°)",
+"texto": "A oposição mostra dois lados que se puxam. Pede equilíbrio e diálogo, e muitas vezes aparece nas relações.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "elemento",
+"chave": "fogo",
+"titulo": "Elemento fogo",
+"texto": "Os signos de fogo são entusiasmados, corajosos e espontâneos. Vivem de inspiração e ação. Signos: Áries, Leão e Sagitário.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "elemento",
+"chave": "terra",
+"titulo": "Elemento terra",
+"texto": "Os signos de terra são práticos, estáveis e realistas. Gostam de construir coisas concretas. Signos: Touro, Virgem e Capricórnio.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "elemento",
+"chave": "ar",
+"titulo": "Elemento ar",
+"texto": "Os signos de ar são comunicativos, sociáveis e racionais. Vivem de ideias e trocas. Signos: Gêmeos, Libra e Aquário.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "elemento",
+"chave": "água",
+"titulo": "Elemento água",
+"texto": "Os signos de água são emotivos, intuitivos e empáticos. Sentem antes de pensar. Signos: Câncer, Escorpião e Peixes.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "modalidade",
+"chave": "cardinal",
+"titulo": "Signos cardinais",
+"texto": "Os signos cardinais começam as estações e têm iniciativa, ambição e vontade de abrir caminhos. Signos: Áries, Câncer, Libra e Capricórnio.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "modalidade",
+"chave": "fixo",
+"titulo": "Signos fixos",
+"texto": "Os signos fixos são estáveis, persistentes e determinados. Mantêm o que começam. Signos: Touro, Leão, Escorpião e Aquário.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "modalidade",
+"chave": "mutável",
+"titulo": "Signos mutáveis",
+"texto": "Os signos mutáveis são adaptáveis, versáteis e flexíveis. Lidam bem com mudanças. Signos: Gêmeos, Virgem, Sagitário e Peixes.",
+"fonte": "Arktos Leon, com estrutura clássica de Sepharial (1920, domínio público)"
+},
+{
+"categoria": "compatibilidade",
+"chave": "fogo-fogo",
+"titulo": "Compatibilidade fogo e fogo",
+"texto": "Fogo com fogo: muita paixão, energia e aventura. Cuidado com disputas de ego.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "fogo-ar",
+"titulo": "Compatibilidade fogo e ar",
+"texto": "Fogo com ar: o ar alimenta o fogo. Combinação animada, criativa e cheia de conversa.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "fogo-terra",
+"titulo": "Compatibilidade fogo e terra",
+"texto": "Fogo com terra: um traz entusiasmo, o outro traz estrutura. Funciona com paciência dos dois lados.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "fogo-água",
+"titulo": "Compatibilidade fogo e água",
+"texto": "Fogo com água: atração forte e emoções intensas. Pede delicadeza para não apagar nem ferver.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "terra-terra",
+"titulo": "Compatibilidade terra e terra",
+"texto": "Terra com terra: estabilidade, lealdade e planos concretos. Cuidado com a rotina demais.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "terra-água",
+"titulo": "Compatibilidade terra e água",
+"texto": "Terra com água: a água nutre a terra. Combinação acolhedora, segura e afetiva.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "terra-ar",
+"titulo": "Compatibilidade terra e ar",
+"texto": "Terra com ar: um é prático, o outro é cheio de ideias. Dá certo quando um respeita o tempo do outro.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "ar-ar",
+"titulo": "Compatibilidade ar e ar",
+"texto": "Ar com ar: muita conversa, amizade e liberdade. Pede atenção ao lado emocional.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "ar-água",
+"titulo": "Compatibilidade ar e água",
+"texto": "Ar com água: razão e emoção se encontram. Aprendem muito juntos quando há paciência.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "compatibilidade",
+"chave": "água-água",
+"titulo": "Compatibilidade água e água",
+"texto": "Água com água: entendimento profundo e muito carinho. Cuidado para não se afogar nas emoções.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Lua Nova",
+"titulo": "Lua Nova",
+"texto": "A Lua Nova marca começos. Bom momento para definir intenções e plantar ideias.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Lua Crescente",
+"titulo": "Lua Crescente",
+"texto": "Na Lua Crescente, o que foi plantado começa a ganhar forma. Hora de agir e persistir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Quarto Crescente",
+"titulo": "Quarto Crescente",
+"texto": "No Quarto Crescente surgem os primeiros desafios. Pede decisão e ajuste de rota.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Crescente Gibosa",
+"titulo": "Crescente Gibosa",
+"texto": "Na Crescente Gibosa é hora de aperfeiçoar e preparar, porque a Lua Cheia está chegando.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Lua Cheia",
+"titulo": "Lua Cheia",
+"texto": "A Lua Cheia ilumina tudo: emoções à flor da pele, resultados e revelações. Bom momento para celebrar e fechar ciclos.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Minguante Gibosa",
+"titulo": "Minguante Gibosa",
+"texto": "Na Minguante Gibosa é tempo de agradecer, compartilhar o que aprendeu e distribuir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Quarto Minguante",
+"titulo": "Quarto Minguante",
+"texto": "No Quarto Minguante é hora de soltar, revisar e desapegar do que não serve mais.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "fase_lua",
+"chave": "Lua Minguante",
+"titulo": "Lua Minguante",
+"texto": "Na Lua Minguante a energia diminui. Bom momento para descansar, limpar e se preparar para recomeçar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Áries",
+"titulo": "Lua em Áries hoje",
+"texto": "Com a Lua em Áries, o dia pede iniciativa e coragem, mas também paciência para não agir no impulso.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Touro",
+"titulo": "Lua em Touro hoje",
+"texto": "Com a Lua em Touro, o dia favorece calma, conforto, boa comida e cuidar das finanças.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Gêmeos",
+"titulo": "Lua em Gêmeos hoje",
+"texto": "Com a Lua em Gêmeos, o dia é bom para conversas, mensagens, estudos e pequenos passeios.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Câncer",
+"titulo": "Lua em Câncer hoje",
+"texto": "Com a Lua em Câncer, as emoções ficam mais sensíveis. Bom dia para ficar em casa e estar com a família.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Leão",
+"titulo": "Lua em Leão hoje",
+"texto": "Com a Lua em Leão, o dia pede brilho, criatividade, diversão e um pouco de carinho para si.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Virgem",
+"titulo": "Lua em Virgem hoje",
+"texto": "Com a Lua em Virgem, o dia é bom para organizar, cuidar da rotina e resolver pendências.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Libra",
+"titulo": "Lua em Libra hoje",
+"texto": "Com a Lua em Libra, o dia favorece encontros, acordos, beleza e relações harmoniosas.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Escorpião",
+"titulo": "Lua em Escorpião hoje",
+"texto": "Com a Lua em Escorpião, as emoções ficam intensas. Bom dia para conversas profundas e para desapegar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Sagitário",
+"titulo": "Lua em Sagitário hoje",
+"texto": "Com a Lua em Sagitário, o dia pede otimismo, aprendizado, movimento e planos de viagem.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Capricórnio",
+"titulo": "Lua em Capricórnio hoje",
+"texto": "Com a Lua em Capricórnio, o dia favorece foco, trabalho sério e decisões práticas.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Aquário",
+"titulo": "Lua em Aquário hoje",
+"texto": "Com a Lua em Aquário, o dia é bom para amigos, ideias novas e fazer algo diferente.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "lua_transito",
+"chave": "Peixes",
+"titulo": "Lua em Peixes hoje",
+"texto": "Com a Lua em Peixes, o dia fica mais sensível e intuitivo. Bom para descansar, sonhar e criar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "O que é mapa astral",
+"titulo": "O que é mapa astral",
+"texto": "O mapa astral é uma foto do céu no exato momento e lugar do seu nascimento. Ele mostra onde estavam o Sol, a Lua, os planetas e o Ascendente. Por isso a data, a hora e a cidade de nascimento são importantes.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Signo solar",
+"titulo": "Signo solar",
+"texto": "O signo solar é o signo em que o Sol estava quando você nasceu. É o seu 'signo' do dia a dia e fala da sua essência.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Signo lunar",
+"titulo": "Signo lunar",
+"texto": "O signo lunar é o signo em que a Lua estava quando você nasceu. Fala das suas emoções, do que te acalma e de como você se sente segura.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Ascendente",
+"titulo": "Ascendente",
+"texto": "O Ascendente é o signo que nascia no horizonte leste na hora do seu nascimento. Mostra a primeira impressão que você passa e o seu jeito de começar as coisas. Para calculá-lo é preciso a hora exata.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Hora de nascimento",
+"titulo": "Hora de nascimento",
+"texto": "A hora de nascimento define o Ascendente e as casas. Ela costuma estar na certidão de nascimento. Quem nasceu em horário de verão precisa informar a hora do relógio, e o Leon Astral faz a correção automaticamente.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Casas astrológicas",
+"titulo": "Casas astrológicas",
+"texto": "As casas são 12 áreas da vida no mapa, como dinheiro, amor, trabalho e família. O signo e os planetas em cada casa mostram como você vive aquela área.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Trânsito",
+"titulo": "Trânsito",
+"texto": "Trânsito é a posição dos planetas no céu de hoje em relação ao seu mapa. O horóscopo do dia do Leon Astral usa a Lua de hoje passando pelas casas do seu mapa.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Planeta retrógrado",
+"titulo": "Planeta retrógrado",
+"texto": "Um planeta fica retrógrado quando, visto da Terra, parece andar para trás. Na astrologia, é um período de revisar, refazer e repensar os temas daquele planeta.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Mercúrio retrógrado",
+"titulo": "Mercúrio retrógrado",
+"texto": "Mercúrio retrógrado acontece cerca de três vezes por ano, por umas três semanas. É tradicionalmente um período para revisar mensagens, contratos e planos com mais atenção e ter paciência com atrasos.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Retorno solar",
+"titulo": "Retorno solar",
+"texto": "O retorno solar é o momento em que o Sol volta à posição exata do seu nascimento, perto do seu aniversário. Marca o início do seu ano astral.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Sinastria e compatibilidade",
+"titulo": "Sinastria e compatibilidade",
+"texto": "Sinastria é a comparação entre dois mapas. O Leon Astral compara Sol, Lua e Ascendente das duas pessoas na aba Sintonia para mostrar onde vocês fluem e onde pedem diálogo.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Cúspide",
+"titulo": "Cúspide",
+"texto": "Quem nasce perto da troca de signo diz que nasceu na 'cúspide'. Mas o Sol está sempre em um signo só; com a data, a hora e a cidade o mapa mostra qual é o seu.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Regente",
+"titulo": "Regente",
+"texto": "Cada signo tem um planeta regente, que tem afinidade com ele. Por exemplo, Áries é regido por Marte e Touro por Vênus.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Eclipses",
+"titulo": "Eclipses",
+"texto": "Eclipses acontecem perto da Lua Nova (eclipse do Sol) ou da Lua Cheia (eclipse da Lua). Na astrologia, marcam viradas e fechamentos de ciclos.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Astrologia e entretenimento",
+"titulo": "Astrologia e entretenimento",
+"texto": "No Leon Astral, a astrologia é um convite ao autoconhecimento e à reflexão. Ela não decide o seu futuro nem substitui ajuda médica, psicológica, jurídica ou financeira.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "conceito",
+"chave": "Carta do dia",
+"titulo": "Carta do dia",
+"texto": "A Carta do dia do Leon Astral sorteia uma das 22 cartas principais do tarô, uma por dia para cada pessoa, com uma mensagem e um conselho para refletir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Louco",
+"titulo": "Carta O Louco (Começos leves)",
+"texto": "Hoje pede coragem para dar o primeiro passo sem ter o caminho todo desenhado. Conselho: Experimente algo pequeno e novo, sem cobrar perfeição.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Mago",
+"titulo": "Carta O Mago (Você tem as ferramentas)",
+"texto": "O que você precisa já está nas suas mãos: talento, palavra e vontade. Conselho: Escolha uma coisa e coloque energia nela até o fim do dia.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Sacerdotisa",
+"titulo": "Carta A Sacerdotisa (Escute por dentro)",
+"texto": "A resposta não vem do barulho de fora. Ela aparece quando você silencia. Conselho: Antes de decidir, respire e pergunte o que você sente de verdade.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Imperatriz",
+"titulo": "Carta A Imperatriz (Cuidado que floresce)",
+"texto": "É dia de nutrir: seu corpo, seus projetos e quem você ama. Conselho: Faça algo bonito por você, sem precisar de motivo.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Imperador",
+"titulo": "Carta O Imperador (Estrutura e firmeza)",
+"texto": "Organizar traz paz. Limites claros protegem o que importa. Conselho: Diga um não que você vem adiando.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Hierofante",
+"titulo": "Carta O Hierofante (Sabedoria compartilhada)",
+"texto": "Alguém mais experiente pode encurtar seu caminho hoje. Conselho: Peça um conselho ou volte a um ensinamento que te fez bem.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "Os Enamorados",
+"titulo": "Carta Os Enamorados (Escolha com o coração)",
+"texto": "Uma decisão pede que você seja fiel aos seus valores. Conselho: Escolha o que combina com quem você quer ser, não com o medo.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Carro",
+"titulo": "Carta O Carro (Avance com foco)",
+"texto": "O movimento está a seu favor quando você segura as rédeas. Conselho: Defina uma meta para hoje e não se distraia com o resto.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Força",
+"titulo": "Carta A Força (Firmeza doce)",
+"texto": "A verdadeira força hoje é a calma, não a briga. Conselho: Responda com gentileza onde antes você reagiria.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Eremita",
+"titulo": "Carta O Eremita (Um tempo só seu)",
+"texto": "Recolher-se não é fugir: é se reencontrar. Conselho: Reserve alguns minutos sem tela e sem ninguém.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Roda da Fortuna",
+"titulo": "Carta A Roda da Fortuna (Ciclos virando)",
+"texto": "Algo está mudando de lugar. Aceitar o giro deixa tudo mais leve. Conselho: Solte o controle de uma situação que não depende de você.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Justiça",
+"titulo": "Carta A Justiça (Equilíbrio e verdade)",
+"texto": "O que é justo tende a se ajeitar. Seja honesta consigo. Conselho: Reveja um acordo, uma conta ou uma promessa pendente.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Enforcado",
+"titulo": "Carta O Enforcado (Outro ângulo)",
+"texto": "Pausar e olhar diferente revela uma saída que você não via. Conselho: Antes de insistir, mude a pergunta.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Morte",
+"titulo": "Carta A Morte (Fim que abre espaço)",
+"texto": "Algo precisa terminar para o novo chegar. Não é perda, é renovação. Conselho: Desapegue de um hábito, objeto ou pensamento que já pesou demais.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Temperança",
+"titulo": "Carta A Temperança (Medida certa)",
+"texto": "Nem oito nem oitenta: o meio-termo traz saúde e paz. Conselho: Equilibre o dia entre fazer e descansar.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Diabo",
+"titulo": "Carta O Diabo (Olhe para o que prende)",
+"texto": "Um apego ou excesso pede atenção, sem culpa. Conselho: Perceba o que você faz no automático e escolha diferente uma vez.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Torre",
+"titulo": "Carta A Torre (Verdades que libertam)",
+"texto": "Uma surpresa pode sacudir, mas tira do caminho o que era frágil. Conselho: Se algo cair hoje, pergunte o que ficou de pé.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Estrela",
+"titulo": "Carta A Estrela (Esperança renovada)",
+"texto": "Depois da tempestade, a luz volta. Confie no seu ritmo. Conselho: Escreva um desejo e guarde num lugar especial.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "A Lua",
+"titulo": "Carta A Lua (Intuição e névoa)",
+"texto": "Nem tudo está claro, e tudo bem. Sua intuição enxerga no escuro. Conselho: Anote um sonho ou pressentimento antes de dormir.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Sol",
+"titulo": "Carta O Sol (Alegria simples)",
+"texto": "Dia de brilho, clareza e vontade de estar com gente querida. Conselho: Compartilhe uma conquista, por menor que seja.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Julgamento",
+"titulo": "Carta O Julgamento (Chamado interior)",
+"texto": "Algo dentro de você pede para renascer e ser ouvido. Conselho: Retome um sonho que você tinha deixado de lado.",
+"fonte": "Arktos Leon"
+},
+{
+"categoria": "carta",
+"chave": "O Mundo",
+"titulo": "Carta O Mundo (Ciclo completo)",
+"texto": "Uma etapa se fecha com sensação de missão cumprida. Conselho: Comemore o caminho até aqui antes de pensar no próximo.",
+"fonte": "Arktos Leon"
+}
+]
