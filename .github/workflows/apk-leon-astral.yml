@@ -20,13 +20,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
       - name: Instalar dependências
-        run: npm install --no-audit --no-fund
+        run: |
+          npm install --no-audit --no-fund
+          npm ls react-native-google-mobile-ads >/dev/null 2>&1 || npm install --no-audit --no-fund react-native-google-mobile-ads@latest
+          echo "Versão de anúncios: $(node -p "require('react-native-google-mobile-ads/package.json').version")"
       - name: Gerar projeto Android
         run: npx expo prebuild --platform android --no-install
       - name: Compilar APK
