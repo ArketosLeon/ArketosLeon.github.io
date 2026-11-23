@@ -49,23 +49,19 @@ def draw(S=1024, bg=True, seed=8):
     ty=cy-R-S*.085; r1,r2=S*.042,S*.018
     m.ellipse((cx-r1,ty-r1,cx+r1,ty+r1),outline=255,width=lw); m.ellipse((cx-r2,ty-r2,cx+r2,ty+r2),outline=255,width=thin)
     m.line((cx,ty-r1-S*.05,cx,ty-r1),fill=255,width=thin); m.line((cx,ty+r1,cx,cy-R),fill=255,width=thin)
-    m.line((cx-S*.08,ty,cx-r1,ty),fill=200,width=thin); m.line((cx+r1,ty,cx+S*.08,ty),fill=200,width=thin)
+    m.line((cx-S*.062,ty,cx-r1,ty),fill=200,width=thin); m.line((cx+r1,ty,cx+S*.062,ty),fill=200,width=thin)
     # ornamento de baixo
     by=cy+R+S*.08; m.ellipse((cx-r1*.85,by-r1*.85,cx+r1*.85,by+r1*.85),outline=255,width=lw); m.ellipse((cx-r2*.8,by-r2*.8,cx+r2*.8,by+r2*.8),fill=255)
     m.line((cx,cy+R,cx,by-r1*.85),fill=255,width=thin)
     for k in range(1,4):
         y=by+r1+S*.018*k; r=S*.004*(1.2-k*.25); m.ellipse((cx-r,y-r,cx+r,y+r),fill=220)
-    # luas crescentes
-    for sx,flip in [(.2,1),(.8,-1)]:
-        x,y=S*sx,S*.17; rr=S*.034
-        m.ellipse((x-rr,y-rr,x+rr,y+rr),fill=255); m.ellipse((x-rr+flip*rr*.45,y-rr-rr*.1,x+rr+flip*rr*.45,y+rr-rr*.1),fill=0)
-    # estrelas decorativas ao redor
+    # 12 signos em volta (degradê vem da máscara)
+    fz=ImageFont.truetype(FONT,int(S*.052))
+    glyphs='\u2648\u2649\u264A\u264B\u264C\u264D\u264E\u264F\u2650\u2651\u2652\u2653'
+    for i,gch in enumerate(glyphs):
+        a=math.radians(195+i*30); rr=S*.445
+        m.text((cx+rr*math.cos(a),cy-rr*math.sin(a)),gch,font=fz,anchor='mm',fill=255)
     random.seed(seed)
-    deco=[(.30,.13,.035),(.70,.13,.03),(.12,.30,.022),(.88,.30,.022),(.08,.47,.03),(.92,.47,.03),(.12,.64,.02),(.88,.64,.02),
-          (.17,.80,.035),(.83,.80,.035),(.30,.92,.02),(.70,.92,.02),(.06,.75,.014),(.94,.75,.014),(.24,.40,.012),(.76,.40,.012)]
-    for x,y,L in deco:
-        if L>=.03: star8(m,S*x,S*y,S*L,255)
-        else: sparkle(m,S*x,S*y,S*L,0,230)
     for _ in range(int(S*.14)):  # poeira estelar
         a=random.random()*2*math.pi; rr=S*(.36+random.random()*.12); x=cx+rr*math.cos(a); y=cy+rr*math.sin(a)
         if abs(x-cx)<S*.06 and (y<cy-R or y>cy+R): continue
@@ -73,30 +69,21 @@ def draw(S=1024, bg=True, seed=8):
     G=gradient(S)
     orn=Image.merge('RGBA',(*G.split(),M))
     img.alpha_composite(orn.filter(ImageFilter.GaussianBlur(S*.004))); img.alpha_composite(orn)
-    # ---------- constelação de Leão (dourada) ----------
-    P={'reg':(.665,.640),'eta':(.650,.540),'alg':(.610,.445),'zet':(.630,.360),'mu':(.705,.300),'eps':(.770,.335),
-       'zos':(.395,.430),'the':(.415,.585),'den':(.245,.515)}
-    # centraliza a constelação no círculo
-    xs=[v[0] for v in P.values()]; ys=[v[1] for v in P.values()]
-    ox=.5-(min(xs)+max(xs))/2; oy=.5-(min(ys)+max(ys))/2
-    P={k:((x+ox)*S,(y+oy)*S) for k,(x,y) in P.items()}
-    lines=[('reg','eta'),('eta','alg'),('alg','zet'),('zet','mu'),('mu','eps'),('alg','zos'),('zos','den'),('den','the'),('the','zos'),('the','reg')]
-    L=Image.new('L',(S,S),0); ld=ImageDraw.Draw(L)
-    for a,b in lines: ld.line((P[a],P[b]),fill=255,width=max(2,int(S*.0035)))
+    # ---------- símbolo de Leão (dourado) ----------
     gold=Image.new('RGB',(S,S),(247,212,150))
-    ln=Image.merge('RGBA',(*gold.split(),Image.eval(L,lambda v:int(v*.75))))
-    img.alpha_composite(ln.filter(ImageFilter.GaussianBlur(S*.005))); img.alpha_composite(ln)
+    f=ImageFont.truetype(FONT,int(S*.50))
+    gm=Image.new('L',(S,S),0); ImageDraw.Draw(gm).text((cx,cy+S*.01),'\u264C',font=f,anchor='mm',fill=255)
+    gg=Image.new('RGB',(S,S)); gq=gg.load()
+    for y in range(S):
+        t=min(1,max(0,(y-S*.33)/(S*.34))); c=(int(255*(1-t)+236*t),int(236*(1-t)+184*t),int(196*(1-t)+108*t))
+        for x in range(S): gq[x,y]=c
+    sym=Image.merge('RGBA',(*gg.split(),gm))
+    halo=Image.merge('RGBA',(*gold.split(),Image.eval(gm.filter(ImageFilter.GaussianBlur(S*.03)),lambda v:int(v*.55))))
+    img.alpha_composite(halo); img.alpha_composite(sym.filter(ImageFilter.GaussianBlur(S*.004))); img.alpha_composite(sym)
     st=Image.new('RGBA',(S,S),(0,0,0,0)); sd=ImageDraw.Draw(st)
-    size={'reg':1.5,'den':1.2,'alg':1.25,'zos':1.0,'the':.85,'eta':.75,'zet':.8,'mu':.75,'eps':.9}
-    for k,(x,y) in P.items():
-        s=size[k]; r=S*.011*s
-        sd.ellipse((x-r,y-r,x+r,y+r),fill=(255,247,228,255))
-        sparkle(sd,x,y,S*.04*s,0,(255,236,196,235),0.12)
-    img.alpha_composite(st.filter(ImageFilter.GaussianBlur(S*.016))); img.alpha_composite(st.filter(ImageFilter.GaussianBlur(S*.004))); img.alpha_composite(st)
-    # nome discreto e símbolo dentro do círculo
-    f=ImageFont.truetype(FONT,int(S*.05))
-    gm=Image.new('L',(S,S),0); ImageDraw.Draw(gm).text((cx,cy+R*.72),'♌',font=f,anchor='mm',fill=230)
-    img.alpha_composite(Image.merge('RGBA',(*gold.split(),gm)))
+    for (x,y,L) in [(.66,.36,.035),(.34,.66,.025),(.63,.70,.018)]:
+        sparkle(sd,S*x,S*y,S*L,0,(255,240,210,230),0.12); r=S*.005; sd.ellipse((S*x-r,S*y-r,S*x+r,S*y+r),fill=(255,255,255,255))
+    img.alpha_composite(st.filter(ImageFilter.GaussianBlur(S*.006))); img.alpha_composite(st)
     # poeira dourada dentro do círculo (bem leve)
     dust=Image.new('RGBA',(S,S),(0,0,0,0)); dd=ImageDraw.Draw(dust)
     for _ in range(int(S*.12)):
