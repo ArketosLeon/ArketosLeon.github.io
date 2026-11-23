@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.f{width:1024px;height:500px;position:relative;overflow:hidden;background:radial-gradient(60% 80% at 20% 30%,rgba(167,139,250,.35),transparent 70%),radial-gradient(50% 70% at 90% 80%,rgba(226,180,189,.22),transparent 70%),#0B0E17;color:#F4EEF8;font-family:"Plus Jakarta Sans",sans-serif;display:flex;align-items:center;gap:56px;padding:0 70px;box-sizing:border-box}
+.f img{width:300px;height:300px;border-radius:50%;box-shadow:0 0 70px rgba(167,139,250,.55),0 0 30px rgba(243,198,143,.35)}
+h1{font-family:Cinzel,Georgia,serif;font-size:62px;letter-spacing:.08em;margin:0;background:linear-gradient(120deg,#FBE3BB,#F3C68F 40%,#C9A0E0 75%,#A78BFA);-webkit-background-clip:text;color:transparent}
+p{font-size:28px;line-height:1.35;margin:16px 0 0;color:#E9E2F2;max-width:520px}
+small{display:block;margin-top:22px;font-size:20px;color:#B7B2C8;letter-spacing:.04em}
+canvas{position:absolute;inset:0}
+</style></head><body><div class="f"><canvas id="c" width="1024" height="500"></canvas>
+<img src="icon.png" alt="" style="position:relative"><div style="position:relative"><h1>LEON ASTRAL</h1><p>Seu horóscopo pelo mapa astral, a carta do dia e a Estela para conversar.</p><small>✦ por Arktos Leon</small></div></div>
+<script>const c=document.getElementById('c').getContext('2d');let s=7;const r=()=>(s=(s*9301+49297)%233280)/233280;for(let i=0;i<110;i++){const x=r()*1024,y=r()*500,z=r();c.fillStyle=i%3?`rgba(243,198,143,${.2+z*.5})`:`rgba(190,165,250,${.2+z*.5})`;c.beginPath();c.arc(x,y,z*1.4+.2,0,7);c.fill()}</script>
+</body></html>
