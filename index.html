@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arktos Leon | Quanto sua clínica perde com faltas, todo dia no seu WhatsApp</title>
-<meta name="description" content="Para clínicas e consultórios: faltas, horários vagos e mensagens sem resposta em reais, todo dia no seu WhatsApp, sem trocar de sistema. A assistente confirma, remarca e preenche a agenda. A gente monta tudo. A partir de R$ 450/mês.">
+<title>Arktos Leon | Automação e IA no WhatsApp para pequenos negócios</title>
+<meta name="description" content="Assistentes de WhatsApp com IA, agenda e lembretes automáticos, painel do dono, automações e apps sob medida. A Arktos Leon monta, implanta e acompanha. Peça sua demonstração grátis.">
 <link rel="icon" href="emblema.png">
 <meta name="theme-color" content="#0b1a3a">
 <meta name="facebook-domain-verification" content="4jyu7r6f8ojnco7zl371gm3jfbnf1b" />
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arktos Leon">
-<meta property="og:title" content="Arktos Leon | Quanto sua clínica perde com faltas, todo dia no seu WhatsApp">
-<meta property="og:description" content="Faltas, horários vagos e mensagens sem resposta em reais, todo dia no seu WhatsApp. Sem trocar de sistema. Calcule quanto sua clínica perde.">
+<meta property="og:title" content="Arktos Leon | Automação e IA no WhatsApp para pequenos negócios">
+<meta property="og:description" content="Assistentes de WhatsApp com IA, agenda e lembretes automáticos, painel do dono, automações e apps sob medida. A Arktos Leon monta, implanta e acompanha. Peça sua demonstração grátis.">
 <meta property="og:image" content="https://arketosleon.github.io/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://arketosleon.github.io/">
@@ -20,227 +20,106 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Versão enxuta: uma promessa, três provas, um botão.
-   Ordem: hero → dores → produtos → como funciona → dúvidas → contato. */
 :root{color-scheme:light dark;
 --bg:light-dark(#f6f5f1,#0c1224);--soft:light-dark(#ecebe5,#121a33);--card:light-dark(#fff,#14213f);
 --ink:light-dark(#0b1a3a,#eef2fb);--mute:light-dark(#38425c,#b9c3dc);--line:light-dark(#dcdad2,#26355c);
 --navy:#0b1a3a;--blue:#1d4ed8;--blue2:light-dark(#1d4ed8,#6f97ff);--gold:#e0ad2e;--brown:#c08a5c;--ok:#16a34a}
-*{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
-h1,h2,h3{font-family:Montserrat,Inter,sans-serif;line-height:1.1;text-wrap:balance;margin:0}
-h1{font-size:clamp(32px,5vw,52px);font-weight:800}
-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800}
-h3{font-size:18px;font-weight:700;line-height:1.25}
-p{margin:0}a{color:inherit}
-img{height:auto;max-width:100%}
-.wrap{max-width:1140px;margin:0 auto}
-.band{padding:clamp(44px,6vw,88px) max(5vw,16px)}
-.soft{background:var(--soft)}
-.lead{font-size:18px;color:var(--mute);max-width:58ch;margin-top:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:12px;font:600 16px Inter,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn.pri{background:var(--blue);color:#fff}.btn.pri:hover{background:#1a43bb}
-.btn.sec{border-color:var(--line);color:var(--ink)}.btn.sec:hover{border-color:var(--blue2)}
-:focus-visible{outline:3px solid #6f97ff;outline-offset:2px}
-.skip{position:absolute;left:-999px;top:8px;background:var(--blue);color:#fff;padding:10px 16px;border-radius:8px;z-index:50}.skip:focus{left:8px}
-
-/* topo */
-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:18px;padding:10px max(5vw,16px);max-width:1240px;margin:0 auto}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.badge{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
-.badge img{width:150%;max-width:none;margin-left:-8%}
-.brand b{font:800 17px Montserrat,sans-serif;letter-spacing:.06em}.brand b span{color:var(--blue2)}
-.links{display:flex;gap:4px;margin-left:auto}
-.links a{text-decoration:none;font-weight:500;color:var(--mute);padding:10px 12px;border-radius:8px}
-.links a:hover{color:var(--ink);background:var(--soft)}
-.nav .btn{min-height:44px;padding:0 18px}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:var(--blue2)}
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(34px,5.4vw,58px);font-weight:800}
+h2{font-size:clamp(27px,3.6vw,40px);font-weight:800;margin-bottom:12px}
+h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.wrap{width:min(1140px,92vw);margin:0 auto}
+.band{padding:84px 0}.band.alt{background:var(--soft)}
+.lead{font-size:19px;color:var(--mute);max-width:720px}
+.eyebrow{display:inline-block;font:700 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin-bottom:10px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 12px}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(11,26,58,.94);backdrop-filter:blur(10px)}
+.nav{width:min(1140px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:800 18px Montserrat,sans-serif;letter-spacing:.08em}
+.brand span{color:var(--gold)}.badge img{height:34px;width:auto}
+.links{display:flex;gap:22px}.links a{color:#d6def2;text-decoration:none;font-weight:500;font-size:15px}.links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;font:700 16px Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:var(--gold);color:#0b1a3a;box-shadow:0 10px 26px -10px rgba(224,173,46,.8)}
+.btn.sec{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.btn.out{background:transparent;color:var(--ink);border:2px solid var(--line)}
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:center}
-.pill{display:inline-flex;gap:8px;align-items:center;background:var(--soft);border-radius:99px;padding:6px 14px;font-size:14px;font-weight:600;color:var(--blue2);margin-bottom:16px}
-.pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;align-items:center}
-.price{font-size:15px;color:var(--mute)}.price b{color:var(--ink)}
-.ticks{display:flex;gap:8px 20px;flex-wrap:wrap;margin-top:22px;color:var(--mute);font-size:15px}
-.ticks span::before{content:"✓ ";color:var(--ok);font-weight:700}
-.stage{position:relative;display:flex;justify-content:center;padding:10px 0}
-.stage::before{content:"";position:absolute;inset:6% 4%;border-radius:40px;background:linear-gradient(150deg,var(--navy) 0 50%,var(--blue) 50% 100%)}
-.phone{position:relative;width:min(310px,84%);background:#ece5dd;border-radius:34px;border:10px solid #0d1325;box-shadow:0 30px 60px -20px rgba(11,26,58,.55);overflow:hidden;color:#111;font-size:14px}
-.ph-top{background:#075e54;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
-.ph-top .av{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#075e54;font-weight:700}
-.ph-top small{display:block;opacity:.8;font-size:12px}
-.chat{padding:14px 12px 18px;display:flex;flex-direction:column;gap:8px;min-height:340px}
-.msg{max-width:84%;padding:8px 10px 6px;border-radius:10px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.1);opacity:0;transform:translateY(8px);animation:in .5s forwards}
-.msg em{display:block;text-align:right;font-style:normal;font-size:11px;color:#667;margin-top:2px}
-.in{background:#fff;align-self:flex-start}.out{background:#dcf8c6;align-self:flex-end}
-.chip{position:absolute;right:0;top:-2%;background:var(--card);color:var(--ink);border-radius:14px;padding:10px 14px;box-shadow:0 14px 30px -12px rgba(11,26,58,.45);font-size:13px;line-height:1.3}
-.chip b{display:block;font-size:18px;font-family:Montserrat,sans-serif}
+#hero{background:radial-gradient(1200px 600px at 85% -10%,#1d4ed855,transparent 60%),linear-gradient(160deg,#0b1a3a,#0a1430 70%);color:#fff;padding:90px 0 100px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+#hero .lead{color:#c9d3ea;margin:20px 0 30px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:999px;font-size:14px;margin-bottom:20px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px #16a34a33}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.ticks{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;font-size:15px;color:#c9d3ea}.ticks span:before{content:"✓ ";color:var(--gold);font-weight:800}
+h1 em{font-style:normal;color:var(--gold)}
+/* phone mock */
+.phone{background:#0e1a35;border:1px solid #26355c;border-radius:30px;padding:16px;box-shadow:0 40px 80px -30px #000;max-width:360px;margin-left:auto}
+.ph-top{display:flex;align-items:center;gap:10px;padding:6px 6px 14px;border-bottom:1px solid #26355c;margin-bottom:12px}
+.ph-top img{width:38px;height:38px;border-radius:50%;object-fit:contain;background:#0b1a3a}
+.ph-top b{display:block;font-size:15px}.ph-top small{color:#8fe3a6;font-size:12px}
+.msg{max-width:84%;padding:9px 13px;border-radius:14px;font-size:14px;line-height:1.45;margin:7px 0;opacity:0;transform:translateY(6px);animation:in .4s forwards}
+.msg.in{background:#1f2c4d;border-top-left-radius:4px}
+.msg.out{background:#1d6b4a;margin-left:auto;border-top-right-radius:4px}
 @keyframes in{to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.msg{animation:none;opacity:1;transform:none}html{scroll-behavior:auto}}
-
+/* grids */
+.grid{display:grid;gap:20px;margin-top:40px}
+.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.card p{color:var(--mute);font-size:16px}
+.ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#1d4ed822,#e0ad2e33);margin-bottom:16px}
+.card ul{list-style:none;margin-top:14px}.card li{font-size:15px;color:var(--mute);padding:4px 0 4px 22px;position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
 /* dores */
-.pains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px}
-.pc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.pc .ic{width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue2);display:grid;place-items:center;margin-bottom:12px}
-.pc p{color:var(--mute);margin-top:6px;font-size:15px}
-
-.srcs{font-size:13px;color:var(--mute);margin-top:16px}
-
-/* calculadora */
-.calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
-.cbox2{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,30px);display:grid;gap:20px}
-.cin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.cin input{background:var(--bg);color:var(--ink);border-color:var(--line);font-size:18px}
-.cout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border-top:1px solid var(--line);padding-top:18px}
-.cout span{display:block;font-size:14px;color:var(--mute)}
-.cout b{display:block;font:800 clamp(28px,3.4vw,38px)/1.15 Montserrat,sans-serif;color:light-dark(#b42318,#ff8a7a)}
-.cnote{font-size:15px;color:var(--mute)}
-
-/* painel do dono */
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
-.kp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.kp p{color:var(--mute);margin-top:6px;font-size:15px}
-
-/* comparação */
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;font-size:15px}
-.cmp th,.cmp td{padding:15px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
-.cmp tr:last-child td{border-bottom:0}
-.cmp thead th{font:700 15px Montserrat,sans-serif;background:var(--soft)}
-.cmp thead th:last-child{background:var(--navy);color:#fff}
-.cmp td:first-child{font-weight:600;width:22%}
-.cmp td:nth-child(2),.cmp td:nth-child(3){color:var(--mute)}
-.cmp td:last-child{background:color-mix(in srgb,var(--blue) 8%,var(--card));font-weight:600}
-@media(max-width:700px){.cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:auto!important}.cmp thead{display:none}
-.cmp tr{border-bottom:1px solid var(--line);padding:14px 16px}.cmp tr:last-child{border-bottom:0}
-.cmp td{border:0;padding:3px 0}.cmp td:first-child{font:700 16px Montserrat,sans-serif;margin-bottom:4px}
-.cmp td:nth-child(2)::before{content:"Faça você mesmo: ";font-weight:600;color:var(--ink)}
-.cmp td:nth-child(3)::before{content:"Sistema de gestão: ";font-weight:600;color:var(--ink)}
-.cmp td:last-child{padding:8px 10px;border-radius:10px;margin-top:6px}
-.cmp td:last-child::before{content:"Arktos Leon: ";color:var(--blue2)}}
-
-/* faixa urso | leão */
-.duo{background:linear-gradient(90deg,var(--navy) 0 50%,var(--blue) 50% 100%);color:#fff;padding:28px max(5vw,16px)}
-.duo .wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center}
-.duo .k{font:700 30px/1 serif;margin-right:10px;vertical-align:-4px}
-.duo .a .k{color:var(--brown)}.duo .l .k{color:var(--gold)}
-.duo b{font:800 18px Montserrat,sans-serif}.duo p{opacity:.85;font-size:15px;margin-top:4px}
-.duo .l{text-align:right}
-.seal{width:96px;height:96px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 12px 30px -8px rgba(0,0,0,.5)}
-.seal img{width:165%;max-width:none;margin-left:-9%}
-
-/* planos */
-.fund{display:inline-block;margin-top:18px;padding:8px 14px;border-radius:10px;background:color-mix(in srgb,var(--gold) 22%,var(--card));font-weight:600;font-size:15px}
-.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px;align-items:stretch;max-width:860px;margin-left:auto;margin-right:auto}
-.plan{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;gap:6px}
-.plan .what{color:var(--mute);font-size:15px}
-.plan .val{margin-top:14px;font-size:15px;color:var(--mute)}.plan .val b{font:800 34px Montserrat,sans-serif;color:var(--ink)}
-.plan .impl{font-size:14px;color:var(--mute)}
-.plan ul{list-style:none;padding:16px 0 0;margin:12px 0 18px;border-top:1px solid var(--line);display:grid;gap:9px;font-size:15px}
-.plan li{padding-left:24px;position:relative}.plan li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
-.plan .btn{margin-top:auto}
-.plan.top{background:var(--navy);color:#fff;border:2px solid var(--gold);box-shadow:0 24px 50px -24px rgba(11,26,58,.6)}
-.plan.top .what,.plan.top .val,.plan.top .impl{color:#c9d4ee}.plan.top .val b{color:#fff}
-.plan.top ul{border-color:rgba(255,255,255,.18)}.plan.top li::before{color:var(--gold)}
-.plan .tag{position:absolute;top:-13px;left:24px;background:var(--gold);color:var(--navy);font-size:13px;font-weight:700;padding:4px 12px;border-radius:99px}
-.custom{margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:center;background:var(--navy);color:#fff;border-radius:20px;border-left:6px solid var(--gold);padding:clamp(24px,3vw,36px)}
-.custom h3{font-size:clamp(20px,2.2vw,26px)}.custom p{color:#c9d4ee;margin-top:10px;max-width:70ch}
-.custom ul{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:15px;color:#e3e9f8}
-.custom li{padding-left:24px;position:relative}.custom li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
-.cbox{text-align:center}.cbox .val b{font:800 26px Montserrat,sans-serif;color:#fff}.cbox .val{margin:0 0 12px;color:#fff}
-.btn.gold{background:var(--gold);color:var(--navy)}.btn.gold:hover{background:#f0c04a}
-@media(max-width:900px){.custom{grid-template-columns:1fr}.custom ul{grid-template-columns:1fr}.cbox{text-align:left}}
-.small{font-size:14px;color:var(--mute);margin-top:18px;max-width:80ch}
-.cap{position:absolute;bottom:-28px;left:0;right:0;text-align:center;font-size:13px;color:var(--mute)}
-.founder{grid-column:1/-1;text-align:center;font-size:15px;opacity:.95;margin-top:4px}
-.segh{margin-top:40px}
-a.price{text-decoration:none}a.price:hover b{text-decoration:underline}
-
+.pain{display:flex;gap:14px;align-items:flex-start}.pain b{font-size:26px;line-height:1}
+/* produto destaque */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:linear-gradient(140deg,#0b1a3a,#14213f);color:#fff;border-radius:26px;padding:44px;margin-top:40px}
+.feat p{color:#c9d3ea}.feat img{border-radius:20px;max-height:340px;margin:auto}
+/* setores */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.chips span{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px}
 /* passos */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:34px;counter-reset:s}
-.st{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
-.st::before{counter-increment:s;content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font:800 17px Montserrat,sans-serif;margin-bottom:14px}
-.st p{color:var(--mute);font-size:15px;margin-top:6px}
-.segs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.segs span{border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:15px;background:var(--card)}
-
-/* dúvidas */
-.faq{max-width:780px;margin-top:22px}
-details{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:600;position:relative}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:6px;top:13px;font-size:26px;color:var(--blue2)}
-details[open] summary::after{content:"–"}
-details p{color:var(--mute);padding:0 0 18px}
-
+.step{counter-increment:s}.step h3:before{content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#0b1a3a;margin-right:10px;font-size:16px}
+.steps{counter-reset:s}
+/* planos */
+.plan{display:flex;flex-direction:column}.plan .tag{font:700 12px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--brown);margin-bottom:8px}
+.plan ul{flex:1;margin-bottom:20px}.plan.hi{border:2px solid var(--gold);box-shadow:0 20px 40px -24px rgba(224,173,46,.7)}
+.plan .btn{width:100%}
+.small{font-size:14px;color:var(--mute);margin-top:22px;text-align:center}
+/* sobre */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+.about img{max-width:340px;margin:auto}
+/* faq */
+#faq details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-top:12px}
+#faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+#faq summary:after{content:"+";font-size:22px;color:var(--brown)}#faq details[open] summary:after{content:"–"}
+#faq details p{color:var(--mute);margin-top:10px}
 /* contato */
-.final{background:var(--navy);color:#fff}
-.final .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
-.final h2{color:#fff}.final .lead{color:#c9d4ee}
-.trust{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;font-size:14px;color:#b9c6e6}.trust a{color:#ffe08a}
-form{background:#fff;color:#0b1a3a;border-radius:20px;padding:clamp(20px,3vw,30px);display:grid;gap:14px}
-label{font-weight:600;font-size:14px;display:grid;gap:6px}
-input,select{font:16px Inter,sans-serif;min-height:48px;padding:0 14px;border:1px solid #cfd8ea;border-radius:10px;color:#0b1a3a;background:#fff;width:100%}
-.req{color:#b42318}
-.fmsg{font-size:14px;color:#4a5878;min-height:1.4em}
-.ok-box{display:none;text-align:center;padding:10px 0}.ok-box b{display:block;font:800 22px Montserrat,sans-serif;margin-bottom:6px}
-form.done .ok-box{display:block}form.done label,form.done button{display:none}
-footer{background:#070f24;color:#a9b4cf;padding:32px max(5vw,16px);font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
-footer .kj{display:inline-block;background:#fff;border-radius:10px;padding:4px 8px;line-height:0}footer .kj img{height:34px;width:auto}
-.isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.cpay{margin-top:10px;font-weight:600;color:var(--ink)}
-
-/* barra fixa no celular + botão WhatsApp */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+.final{background:linear-gradient(160deg,#0b1a3a,#0a1430);color:#fff}
+.final .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.final .lead{color:#c9d3ea}
+.trust{display:flex;flex-direction:column;gap:8px;margin-top:24px;font-size:15px;color:#c9d3ea}.trust a{color:var(--gold)}
+form{background:var(--card);color:var(--ink);border-radius:22px;padding:28px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,select,textarea{font:16px Inter,sans-serif;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-height:48px}
+.req{color:#b42318}.isca{position:absolute;left:-9999px}
+.ok-box{display:none}form.done>*:not(.ok-box){display:none}form.done .ok-box{display:block}.ok-box b{font:800 22px Montserrat;color:var(--ok)}
+.fmsg{color:#b42318;font-size:14px}
+/* rodapé e flutuantes */
+footer{background:#070f24;color:#9aa6c4;padding:40px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer a{color:#d6def2}.kj img{height:44px;width:auto}
+.mbar{position:fixed;left:0;right:0;bottom:0;padding:10px 4vw calc(10px + env(safe-area-inset-bottom));background:rgba(11,26,58,.96);z-index:40;transform:translateY(110%);transition:transform .25s;display:none}
 .mbar.on{transform:none}.mbar .btn{width:100%}
-.wa{position:fixed;right:18px;bottom:18px;z-index:31;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:none;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}.wa.on{display:grid}
-
-@media(max-width:900px){
-.links{display:none}.nav .btn{margin-left:auto}
-.pains{grid-template-columns:1fr 1fr}
-.calc{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}
-.plans{grid-template-columns:1fr;max-width:520px;gap:26px}
-}
-@media(max-width:760px){
-.hero,.final .wrap{grid-template-columns:1fr}
-.mbar{display:block}footer{padding-bottom:96px}.wa{bottom:84px}
-.steps{grid-template-columns:1fr}
-.duo{background:var(--navy)}
-.duo .wrap{grid-template-columns:1fr;text-align:center;justify-items:center;gap:14px}.duo .l{text-align:center}
-.seal{order:-1}
-}
-@media(max-width:480px){
-.nav .btn{font-size:14px;padding:0 14px}.nav .g{display:none}.brand b{white-space:nowrap;font-size:15px}
-.pains{grid-template-columns:1fr}
-.cin,.kpis,.cout{grid-template-columns:1fr}
-.pc{display:grid;grid-template-columns:40px 1fr;gap:2px 14px;padding:16px}.pc .ic{grid-row:span 2;margin:0}
-.cta .btn{width:100%}
-.chip{display:none}
-}
-
-/* contratação pelo site */
-.pays{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:14px;color:var(--mute)}.pays span::before{content:"✓ ";color:var(--ok);font-weight:700}
-.plan .demo{display:block;text-align:center;margin-top:10px;font-size:14px;color:var(--mute);padding:6px}.plan.top .demo{color:#c9d4ee}
-dialog#pay{border:0;border-radius:20px;padding:0;width:min(480px,94vw);color-scheme:light;--card:#fff;--bg:#fff;--soft:#eef2fb;--ink:#0b1a3a;--mute:#4a5878;--line:#cfd8ea;--blue2:#1d4ed8;background:#fff;color:#0b1a3a}
-#payform{background:#fff!important;color:#0b1a3a!important}
-#payform input{background:#fff!important;color:#0b1a3a!important;border:1px solid #cfd8ea!important;-webkit-text-fill-color:#0b1a3a}
-dialog#pay::backdrop{background:rgba(7,15,36,.6)}
-#payform{display:grid;gap:14px;padding:clamp(20px,3vw,28px)}
-.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px}.dhead h3{font-size:22px}
-.dhead button{background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:var(--mute);min-width:44px;min-height:44px}
-.modo{border:0;margin:0;padding:0;display:grid;gap:8px}.modo legend{font-weight:600;font-size:14px;margin-bottom:6px}
-.op{display:flex!important;flex-direction:row!important;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
-.op:has(input:checked){border-color:var(--blue2);box-shadow:0 0 0 1px var(--blue2)}
-.op input{width:auto;min-height:0;margin-top:4px;accent-color:var(--blue)}.op b{display:block}.op small{display:block;font-weight:400;color:var(--mute);font-size:14px;line-height:1.4}
-.resumo{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:15px}.resumo b{font:800 22px Montserrat,sans-serif}
-.dnote{font-size:13px;color:var(--mute)}
-.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:60;width:min(560px,92vw);background:var(--card);color:var(--ink);border-radius:16px;padding:18px 20px;box-shadow:0 20px 50px -12px rgba(7,15,36,.5);border-left:6px solid var(--blue)}
-.toast.ok{border-color:var(--ok)}.toast.bad{border-color:#b42318}.toast b{display:block;font:800 18px Montserrat,sans-serif;margin-bottom:4px}
-.toast button{float:right;background:none;border:0;font-size:24px;cursor:pointer;color:var(--mute);min-width:44px;min-height:44px;margin:-10px -10px 0 0}
+.wa{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:none;place-items:center;z-index:45;box-shadow:0 12px 30px -8px rgba(0,0,0,.5)}
+.wa.on{display:grid}
+@media (max-width:920px){.links{display:none}.hero,.feat,.about,.final .wrap{grid-template-columns:1fr}.phone{margin:0 auto}.g3,.g4{grid-template-columns:1fr 1fr}.mbar{display:block}.wa{bottom:84px}}
+@media (max-width:600px){.g3,.g4,.g2{grid-template-columns:1fr}.band{padding:64px 0}.feat{padding:28px}.nav .btn{padding:0 16px;font-size:14px}.nav .g{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.msg{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -248,169 +127,138 @@ dialog#pay::backdrop{background:rgba(7,15,36,.6)}
 <header>
 <nav class="nav" aria-label="Principal">
 <a class="brand" href="#hero"><span class="badge"><img src="emblema.webp" width="600" height="325" alt=""></span><b>ARKTOS <span>LEON</span></b></a>
-<div class="links"><a href="#calculadora">Calcule</a><a href="#painel">Painel</a><a href="#diferenca">Por que nós</a><a href="#planos">Planos</a><a href="#como">Como funciona</a><a href="#duvidas">Dúvidas</a></div>
-<a class="btn pri" href="#contato" data-cta="nav">Demonstração<span class="g"> grátis</span></a>
+<div class="links"><a href="#solucoes">Soluções</a><a href="#produtos">Produtos</a><a href="#como">Como funciona</a><a href="#planos">Planos</a><a href="#duvidas">Dúvidas</a></div>
+<a class="btn pri" href="#contato" data-cta="nav">Demonstração<span class="g">&nbsp;grátis</span></a>
 </nav>
 </header>
 
 <main id="conteudo">
 <section class="band" id="hero"><div class="wrap hero">
 <div>
-<span class="pill"><i></i>Para clínicas e consultórios</span>
-<h1>Quanto sua clínica perde com faltas, todo dia no seu WhatsApp.</h1>
-<p class="lead">Sem trocar de sistema: usamos o WhatsApp e a agenda que você já tem. Faltas, horários vagos e mensagens sem resposta viram números em reais no seu celular, e a assistente confirma, remarca e preenche os horários para recuperar esse dinheiro. A gente monta e acompanha com você.</p>
-<div class="cta"><a class="btn pri" href="#calculadora" data-cta="hero-calc">Calcular quanto eu perco</a><a class="btn sec" href="#contato" data-cta="hero">Pedir demonstração grátis</a></div>
-<div class="ticks"><span>Sem trocar de sistema</span><span>Resumo diário no seu WhatsApp</span><span>A partir de R$ 450/mês</span></div>
+<span class="pill"><i></i>Automação e inteligência artificial para pequenos negócios</span>
+<h1>Seu negócio atendendo, vendendo e organizando <em>sozinho</em>, 24 horas por dia.</h1>
+<p class="lead">A Arktos Leon cria assistentes de WhatsApp com IA, automações de rotina, painéis e apps sob medida para a sua empresa. Você continua com as ferramentas que já usa; a gente monta, coloca para rodar e acompanha com você.</p>
+<div class="cta"><a class="btn pri" href="#contato" data-cta="hero">Quero uma demonstração grátis</a><a class="btn sec" href="#solucoes" data-cta="hero-solucoes">Ver o que fazemos</a></div>
+<div class="ticks"><span>Sem trocar de sistema</span><span>Implantação feita por nós</span><span>Suporte de gente de verdade</span></div>
 </div>
-<div class="stage" aria-label="Exemplo de conversa do dono com o painel">
-<div class="phone">
-<div class="ph-top"><span class="av">A</span><div><b>Arktos · seu painel</b><small>online</small></div></div>
-<div class="chat" id="chat"></div>
-</div>
-<div class="chip"><b>R$ 1.500 em faltas</b>na semana, no seu WhatsApp</div>
-<p class="cap">Exemplo ilustrativo</p>
-</div>
-</div></section>
-
-<section id="dores" class="band soft"><div class="wrap">
-<h2>O dinheiro que some sem passar pelo caixa</h2>
-<p class="lead">A agenda parece cheia, mas a cadeira fica vazia. Quase nenhuma clínica sabe quanto isso custa no mês, porque ninguém soma.</p>
-<div class="pains" id="pain"></div>
-<p class="srcs">Fontes: <a href="https://agilize.com.br/artigos/?p=2339" target="_blank" rel="noopener">Agilize</a> (faltas em consultórios sem automação) e levantamento do BoaConsulta com 21,9 mil pedidos em 2026, publicado pela <a href="https://medicinasa.com.br/?p=174980" target="_blank" rel="noopener">Medicina S/A</a> (tempo de resposta).</p>
-</div></section>
-
-<section id="calculadora" class="band"><div class="wrap calc">
-<div><h2>Calcule quanto você perde com faltas</h2>
-<p class="lead">Coloque os números da sua clínica. A conta é simples: consultas por mês × taxa de faltas × valor da consulta.</p></div>
-<div class="cbox2">
-<div class="cin">
-<label>Consultas por mês<input id="c-at" type="number" inputmode="numeric" min="0" value="200"></label>
-<label>Faltas (%)<input id="c-fa" type="number" inputmode="numeric" min="0" max="100" value="15"></label>
-<label>Valor da consulta (R$)<input id="c-va" type="number" inputmode="numeric" min="0" value="200"></label>
-</div>
-<div class="cout" aria-live="polite"><div><span>Você perde por mês</span><b id="c-mes">R$ 6.000</b></div><div><span>Em um ano</span><b id="c-ano">R$ 72.000</b></div></div>
-<p class="cnote"><b id="c-qt">30</b> consultas por mês viram cadeira vazia. A Arktos confirma cada uma na véspera, oferece o horário liberado e mostra no seu WhatsApp quanto foi recuperado.</p>
-<p class="cnote cpay" id="c-paga">O plano Essencial (R$ 450/mês) se paga com 3 faltas recuperadas no mês.</p>
-<a class="btn pri" href="#contato" data-cta="calc">Quero ver isso na minha clínica</a>
+<div class="phone" aria-label="Exemplo de conversa no WhatsApp com a assistente">
+<div class="ph-top"><img src="emblema.webp" alt=""><div><b>Assistente do seu negócio</b><small>online agora</small></div></div>
+<div class="msg in" style="animation-delay:.3s">Oi! Vocês têm horário amanhã à tarde?</div>
+<div class="msg out" style="animation-delay:1.2s">Olá! 😊 Tenho 14h, 15h30 e 17h. Qual fica melhor pra você?</div>
+<div class="msg in" style="animation-delay:2.2s">15h30</div>
+<div class="msg out" style="animation-delay:3s">Pronto, reservado para amanhã às 15h30 ✅ Te lembro um dia antes. Posso ajudar em mais alguma coisa?</div>
+<div class="msg in" style="animation-delay:4s">Vocês aceitam cartão?</div>
+<div class="msg out" style="animation-delay:4.8s">Aceitamos crédito, débito e Pix. Até amanhã!</div>
 </div>
 </div></section>
 
-<section id="painel" class="band soft"><div class="wrap">
-<h2>O painel do dono</h2>
-<p class="lead">Os números que importam para o caixa, sem planilha, sem sistema novo para aprender e sem perguntar para a recepção. Chegam no seu WhatsApp todo dia, e você pergunta o que quiser.</p>
-<div class="kpis">
-<div class="kp"><h3>Faltas em reais</h3><p>Quem faltou e quanto custou, por dia, profissional e horário.</p></div>
-<div class="kp"><h3>Confirmações</h3><p>Quem confirmou, quem remarcou e quem ainda não respondeu para amanhã.</p></div>
-<div class="kp"><h3>Horários vagos</h3><p>Buracos da semana e quantos a assistente conseguiu preencher.</p></div>
-<div class="kp"><h3>Mensagens sem resposta</h3><p>Quantas chegaram, em quanto tempo foram respondidas e quantas viraram consulta marcada.</p></div>
-<div class="kp"><h3>Dinheiro recuperado</h3><p>Quanto as remarcações e os horários preenchidos trouxeram de volta no mês.</p></div>
-<div class="kp"><h3>Previsão da semana</h3><p>Atendimentos confirmados e o faturamento esperado até sexta.</p></div>
+<section class="band" id="dores"><div class="wrap">
+<span class="eyebrow">O problema</span>
+<h2>Tempo e dinheiro escapando todo dia</h2>
+<p class="lead">Quem toca um pequeno negócio sabe: o cliente quer resposta na hora, e você não consegue estar em todo lugar.</p>
+<div class="grid g3">
+<div class="card pain"><b>💬</b><div><h3>Mensagens sem resposta</h3><p>Cliente que espera demais no WhatsApp fecha com o concorrente.</p></div></div>
+<div class="card pain"><b>📅</b><div><h3>Faltas e horários vagos</h3><p>Agenda furada é receita perdida que não volta.</p></div></div>
+<div class="card pain"><b>🔁</b><div><h3>Trabalho repetitivo</h3><p>Planilha, lembrete, cobrança, cadastro: horas que poderiam ir para vender.</p></div></div>
 </div>
 </div></section>
 
-<section id="diferenca" class="band"><div class="wrap">
-<h2>Por que não fazer sozinho?</h2>
-<p class="lead">Hoje existem ferramentas que você mesmo configura e sistemas de gestão que trazem lembrete. A diferença é quem faz o trabalho.</p>
-<table class="cmp">
-<thead><tr><th><span class="sr">Item</span></th><th>Faça você mesmo</th><th>Sistema de gestão</th><th>Arktos Leon</th></tr></thead>
-<tbody>
-<tr><td>Quem monta</td><td>Você, depois de aprender a ferramenta</td><td>Vem pronto, você configura</td><td>A gente monta, com as suas regras</td></tr>
-<tr><td>Ligado à sua agenda</td><td>Só se você fizer a integração</td><td>Sim, dentro daquele sistema</td><td>Sim: Google Agenda e planilhas; outros sistemas sob consulta</td></tr>
-<tr><td>Usa o que você já tem</td><td>Você adapta a ferramenta</td><td>Você troca de sistema</td><td>Seu WhatsApp e sua agenda de hoje</td></tr>
-<tr><td>Quanto você perde</td><td>Você soma na mão, se somar</td><td>Relatórios dentro do sistema, se você for procurar</td><td>Faltas e horários vagos em reais, todo dia no seu WhatsApp</td></tr>
-<tr><td>Acompanhamento</td><td>Você procura os números sozinho</td><td>Suporte quando você chama</td><td>Todo mês, com os números e o que ajustar</td></tr>
-</tbody></table>
-</div></section>
-
-<section id="quem" class="duo" aria-label="Quem somos"><div class="wrap">
-<div class="a"><b>Arktos, o urso</b><p>Monta e cuida da tecnologia nos bastidores.</p></div>
-<span class="seal"><img src="emblema.webp" width="600" height="325" alt="Emblema Arktos Leon: metade urso, metade leão"></span>
-<div class="l"><b>Leon, o leão</b><p>Fala com você e acompanha os resultados.</p></div>
-<p class="founder">Empresa de São Paulo fundada por <b>Carlos Henrique</b>, que cuida pessoalmente de cada projeto.</p>
-</div></section>
-
-<section id="planos" class="band"><div class="wrap">
-<h2>Planos</h2>
-<p class="lead">Dois planos, pelo tamanho da sua equipe. Comece pelo Essencial e suba para o Premium IA quando quiser.</p>
-<p class="fund" id="fund">Cliente fundador: os 5 primeiros clientes não pagam implantação.</p>
-<p class="pays"><span>Contrate pelo site</span><span>Pix ou cartão</span><span>Pagamento seguro pela InfinitePay</span><span>Recibo na hora</span></p>
-<div class="plans">
-<article class="plan top"><span class="tag">Comece por aqui</span><h3>Essencial</h3><p class="what">Menos faltas e o prejuízo em reais no seu WhatsApp</p>
-<p class="val"><b>R$ 450</b>/mês</p><p class="impl">Até 3 profissionais</p>
-<ul><li>A gente monta e ajusta para você</li><li>Lembrete automático um dia antes, com confirmação</li><li>Cliente marca, remarca e cancela sozinho, a qualquer hora</li><li>Horário liberado é oferecido para quem está esperando</li><li>Resumo diário no seu WhatsApp: faltas em reais, confirmações e horários vagos</li><li>Agenda separada por profissional</li></ul>
-<button class="btn pri" type="button" data-pagar="essencial">Contratar o Essencial</button><a class="demo" href="#contato" data-plano="Essencial">ou peça a demonstração grátis</a></article>
-<article class="plan"><h3>Premium IA</h3><p class="what">Atendente com inteligência artificial</p>
-<p class="val"><b>R$ 2.000</b>/mês</p><p class="impl">Até 6 profissionais</p>
-<ul><li><b>Tudo do Essencial</b></li><li>Atendente com IA que conversa de forma natural e entende áudio</li><li>Tira dúvidas sobre serviços e valores, com as informações que você aprovou</li><li>Você pergunta e recebe na hora: “quanto perdi com faltas esta semana?”</li><li>Painel online com os números da clínica</li><li>Ajustes e melhorias todo mês</li></ul>
-<button class="btn sec" type="button" data-pagar="premium">Contratar o Premium IA</button><a class="demo" href="#contato" data-plano="Premium IA">ou peça a demonstração grátis</a></article>
+<section class="band alt" id="solucoes"><div class="wrap">
+<span class="eyebrow">Soluções</span>
+<h2>Tudo o que a gente monta para o seu negócio</h2>
+<p class="lead">Escolha uma frente ou combine várias. Cada projeto é desenhado em cima da rotina da sua empresa.</p>
+<div class="grid g3">
+<article class="card"><div class="ico">🤖</div><h3>Atendimento com IA no WhatsApp</h3><p>Uma assistente que conversa de forma natural, entende áudio, tira dúvidas e passa para você quando precisa.</p><ul><li>Responde em segundos, 24h</li><li>Fala com o tom da sua marca</li><li>Você assume a conversa quando quiser</li></ul></article>
+<article class="card"><div class="ico">📆</div><h3>Agenda, lembretes e confirmações</h3><p>Integração com Google Agenda ou o sistema que você já usa: lembra o cliente na véspera, confirma e remarca sozinha.</p><ul><li>Menos faltas</li><li>Remarcação automática</li><li>Lista de espera para horários vagos</li></ul></article>
+<article class="card"><div class="ico">📊</div><h3>Painel do dono</h3><p>Os números que importam chegam no seu WhatsApp todo dia: atendimentos, confirmações, faltas e oportunidades.</p><ul><li>Resumo diário no celular</li><li>Previsão da semana</li><li>Sem precisar abrir sistema</li></ul></article>
+<article class="card"><div class="ico">📚</div><h3>IA que conhece a sua empresa</h3><p>A inteligência aprende com seus documentos (tabelas, manuais, contratos, protocolos) e responde equipe e clientes com base no que é seu.</p><ul><li>Você decide quem consulta o quê</li><li>Respostas com a fonte</li><li>Treinamento contínuo</li></ul></article>
+<article class="card"><div class="ico">⚙️</div><h3>Automações de rotina</h3><p>Conectamos WhatsApp, e-mail, planilhas, agenda e CRM para tirar das suas mãos o trabalho repetitivo.</p><ul><li>Cadastros e follow-ups automáticos</li><li>Funil de vendas organizado</li><li>Avisos quando você precisa agir</li></ul></article>
+<article class="card"><div class="ico">📱</div><h3>Apps e sites sob medida</h3><p>Do site que gera pedidos ao aplicativo publicado na loja, com login, notificações e IA dentro.</p><ul><li>Landing pages que vendem</li><li>Apps Android e iOS</li><li>Métricas de cada visita</li></ul></article>
 </div>
-<article class="custom"><div><h3>Sob Medida: sua empresa inteira respondendo pelo WhatsApp</h3>
-<p>A IA aprende com os seus documentos (tabelas de preço, protocolos, manuais, contratos) e responde na hora, com base no que é seu. Você decide o que a equipe e o que os clientes podem consultar.</p>
-<ul><li>Sua equipe pergunta “qual o protocolo pós-procedimento?” e recebe a resposta em segundos</li><li>Seus clientes tiram dúvidas com informação oficial, sem esperar ninguém</li><li>Funcionário novo aprende sem precisar te interromper</li><li>Conectado aos sistemas que você já usa</li><li>Projeto desenhado junto com você, do zero</li></ul></div>
-<div class="cbox"><p class="val"><b>Sob consulta</b></p><a class="btn gold" href="#contato" data-plano="Sob Medida">Quero um projeto sob medida</a></div></article>
-<p class="small">Implantação única a partir de R$ 990 (grátis para os 5 primeiros clientes), já incluída no primeiro pagamento. Pelo site você paga a implantação junto com o 1º mês, ou os 3 meses da fidelidade de uma vez, no Pix ou parcelado no cartão; os meses seguintes chegam por link no seu WhatsApp. A faixa é pelo número de profissionais que atendem na agenda; mais profissionais, a gente faz a proposta na demonstração. As mensagens do WhatsApp, cobradas pela Meta, são repassadas à parte. Fidelidade de 3 meses, depois mês a mês.</p>
 </div></section>
 
-
-<dialog id="pay" aria-labelledby="pay-t">
-<form id="payform" novalidate>
-<div class="dhead"><h3 id="pay-t">Contratar o plano</h3><button type="button" id="pay-x" aria-label="Fechar">×</button></div>
-<fieldset class="modo"><legend>Como prefere pagar?</legend>
-<label class="op"><input type="radio" name="modo" value="entrada" checked><span><b>Mês a mês</b><small id="op-entrada"></small></span></label>
-<label class="op"><input type="radio" name="modo" value="trimestral"><span><b>3 meses de uma vez</b><small id="op-tri"></small></span></label>
-</fieldset>
-<div class="resumo" id="pay-resumo" aria-live="polite"></div>
-<label><span>Seu nome <span class="req" aria-hidden="true">*</span></span><input id="p-nome" autocomplete="name" required aria-required="true"></label>
-<label><span>Nome da clínica ou do negócio <span class="req" aria-hidden="true">*</span></span><input id="p-neg" autocomplete="organization" required aria-required="true"></label>
-<label><span>WhatsApp com DDD <span class="req" aria-hidden="true">*</span></span><input id="p-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-8888" required aria-required="true"></label>
-<label>E-mail para o recibo<input id="p-email" type="email" autocomplete="email"></label>
-<button class="btn pri" type="submit" id="p-go" data-cta="pagar">Ir para o pagamento</button>
-<p class="fmsg" id="p-msg" aria-live="polite"></p>
-<p class="dnote">Você vai para a página segura da InfinitePay e volta para cá com o recibo. Fidelidade de 3 meses, depois mês a mês.</p>
-</form>
-</dialog>
-
-<section id="como" class="band soft"><div class="wrap">
-<h2>Como funciona</h2>
-<p class="lead">Você não instala nada nem aprende sistema novo. A gente faz o trabalho pesado.</p>
-<div class="steps">
-<div class="st"><h3>Uma conversa rápida</h3><p>Entendemos sua rotina, seus serviços e seus horários.</p></div>
-<div class="st"><h3>Demonstração com a sua clínica</h3><p>Você vê o atendimento e o resumo dos números como se fossem da sua clínica. Grátis.</p></div>
-<div class="st"><h3>A gente coloca para rodar</h3><p>Configuramos tudo no seu WhatsApp e acompanhamos com você todo mês.</p></div>
+<section class="band" id="produtos"><div class="wrap">
+<span class="eyebrow">Feito por nós</span>
+<h2>A gente usa o que vende</h2>
+<p class="lead">Nossos próprios produtos rodam com a mesma tecnologia que levamos para os clientes.</p>
+<div class="feat">
+<div><span class="eyebrow" style="color:var(--gold)">App próprio</span><h3 style="font-size:28px">Leon Astral</h3><p style="margin:10px 0 20px">Aplicativo de horóscopo personalizado pelo mapa astral, com a Estela, uma astróloga de bolso movida a IA. Login, notificações diárias e conteúdo gerado sob medida para cada pessoa.</p><a class="btn pri" href="leon-astral/" data-cta="produto-astral">Conhecer o Leon Astral</a></div>
+<img src="leon-astral/hero.webp" alt="Símbolo do Leon Astral: leão dourado cercado pelos signos" loading="lazy">
 </div>
-<h3 class="segh">Feito para clínicas e consultórios de 1 a 6 profissionais</h3>
-<div class="segs"><span>Clínicas médicas</span><span>Odontologia</span><span>Estética</span><span>Fisioterapia</span><span>Psicologia</span><span>Nutrição</span></div>
-<p class="small">Também atendemos outros negócios de agenda, como salões e pet shops.</p>
+<div class="grid g3">
+<div class="card"><div class="ico">🎯</div><h3>Demonstração na hora</h3><p>Montamos uma prévia do atendimento com o nome e as informações do seu negócio, para você testar no celular antes de decidir.</p></div>
+<div class="card"><div class="ico">🧭</div><h3>Prospecção com agentes</h3><p>Agentes de IA que pesquisam, organizam contatos e atualizam um painel de vendas, avisando quando é hora de negociar.</p></div>
+<div class="card"><div class="ico">🔒</div><h3>Assistente local e privado</h3><p>Para quem precisa de sigilo: IA rodando no próprio computador da empresa, usando a nuvem só quando você permitir.</p></div>
+</div>
 </div></section>
 
-<section id="duvidas" class="band"><div class="wrap">
-<h2>Dúvidas comuns</h2>
-<div class="faq" id="faq"></div>
+<section class="band alt" id="setores"><div class="wrap">
+<span class="eyebrow">Para quem</span>
+<h2>Para qualquer negócio que atende pelo WhatsApp</h2>
+<p class="lead">Se o seu cliente chama no WhatsApp, agenda horário ou faz pedido, a gente automatiza.</p>
+<div class="chips"><span>Clínicas e consultórios</span><span>Odontologia</span><span>Estética</span><span>Fisioterapia</span><span>Salões e barbearias</span><span>Pet shops</span><span>Academias e estúdios</span><span>Restaurantes e delivery</span><span>Lojas e e-commerce</span><span>Prestadores de serviço</span><span>Escritórios</span></div>
+</div></section>
+
+<section class="band" id="como"><div class="wrap">
+<span class="eyebrow">Como funciona</span>
+<h2>Do primeiro papo ao robô trabalhando</h2>
+<div class="grid g3 steps">
+<div class="card step"><h3>Conversa rápida</h3><p>Entendemos como o seu negócio funciona hoje e onde está o gargalo.</p></div>
+<div class="card step"><h3>Demonstração com o seu negócio</h3><p>Você testa uma prévia com os seus dados, sem compromisso, e recebe a proposta por escrito.</p></div>
+<div class="card step"><h3>A gente coloca para rodar</h3><p>Implantamos, treinamos a IA, conectamos suas ferramentas e acompanhamos os resultados com você.</p></div>
+</div>
+</div></section>
+
+<section class="band alt" id="planos"><div class="wrap">
+<span class="eyebrow">Planos</span>
+<h2>Um plano para cada momento do seu negócio</h2>
+<p class="lead">O valor é definido pelo tamanho da operação, e você recebe a proposta depois da demonstração gratuita.</p>
+<div class="grid g4">
+<article class="card plan"><span class="tag">Para começar</span><h3>Essencial</h3><p>Atendimento automático com opções simples e lembretes.</p><ul><li>Menu de atendimento no WhatsApp</li><li>Agendamento e lembretes</li><li>Confirmação automática</li></ul><a class="btn out" href="#contato" data-plano="Essencial">Pedir proposta</a></article>
+<article class="card plan"><span class="tag">Para organizar</span><h3>Gestão</h3><p>Tudo do Essencial, mais controle e números do negócio.</p><ul><li>Painel do dono no WhatsApp</li><li>Remarcação e lista de espera</li><li>Automações de rotina</li></ul><a class="btn out" href="#contato" data-plano="Gestão">Pedir proposta</a></article>
+<article class="card plan hi"><span class="tag">Mais completo</span><h3>Premium IA</h3><p>Uma inteligência artificial que conversa como gente.</p><ul><li>Conversa natural e entende áudio</li><li>Tira dúvidas e vende</li><li>Passa para a equipe quando precisa</li></ul><a class="btn pri" href="#contato" data-plano="Premium IA">Pedir proposta</a></article>
+<article class="card plan"><span class="tag">Projeto exclusivo</span><h3>Sob Medida</h3><p>IA treinada com os documentos da sua empresa, apps e integrações.</p><ul><li>Consulta seus documentos</li><li>Integrações e apps próprios</li><li>Projeto desenhado com você</li></ul><a class="btn out" href="#contato" data-plano="Sob Medida">Falar sobre o projeto</a></article>
+</div>
+<p class="small">Sem letras miúdas: você vê tudo funcionando antes e só decide depois de receber a proposta por escrito.</p>
+</div></section>
+
+<section class="band" id="sobre"><div class="wrap about">
+<img src="emblema.webp" width="600" height="325" alt="Emblema Arktos Leon com os kanjis de urso e leão" loading="lazy">
+<div><span class="eyebrow">Quem somos</span><h2>A força do urso, a coragem do leão</h2>
+<p class="lead">Arktos é urso em grego; Leon é leão. O nome homenageia dois filhos e resume como trabalhamos: tecnologia sólida e paciente como um urso, atendimento comercial presente e corajoso como um leão.</p>
+<p class="lead" style="margin-top:14px">Somos uma empresa de São Paulo, criada por Carlos Henrique, que vem da operação de TI e leva para pequenos negócios o mesmo cuidado com prazo, monitoramento e confiabilidade.</p></div>
+</div></section>
+
+<section class="band alt" id="duvidas"><div class="wrap" id="faq">
+<span class="eyebrow">Dúvidas</span>
+<h2>Perguntas frequentes</h2>
+<div id="faq-list"></div>
 </div></section>
 
 <section id="contato" class="band final"><div class="wrap">
-<div><h2>Veja quanto sua clínica perde, e como recuperar.</h2>
-<p class="lead">Preencha em menos de 1 minuto. A gente responde e mostra a demonstração com os números da sua clínica, sem compromisso.</p>
-<p class="trust"><span>Prefere escrever direto? <a href="mailto:arktos.leon.ia@gmail.com">arktos.leon.ia@gmail.com</a></span><span>Seus dados são tratados conforme a LGPD. <a href="privacidade.html">Privacidade</a></span><span>Instagram: <a href="https://www.instagram.com/arketos.leon.ia/" target="_blank" rel="noopener">@arketos.leon.ia</a></span></p></div>
+<div><h2>Veja a automação funcionando no seu negócio.</h2>
+<p class="lead">Preencha em menos de 1 minuto. A gente te chama e mostra a demonstração com o seu negócio, sem compromisso.</p>
+<p class="trust"><span>WhatsApp: <a href="https://wa.me/5511970742631" target="_blank" rel="noopener">(11) 97074-2631</a></span><span>E-mail: <a href="mailto:arktos.leon.ia@gmail.com">arktos.leon.ia@gmail.com</a></span><span>Instagram: <a href="https://www.instagram.com/arketos.leon.ia/" target="_blank" rel="noopener">@arketos.leon.ia</a></span><span>Seus dados são tratados conforme a LGPD. <a href="privacidade.html">Privacidade</a></span></p></div>
 <form id="form" novalidate>
 <label><span>Seu nome <span class="req" aria-hidden="true">*</span></span><input id="f-nome" autocomplete="name" required aria-required="true"></label>
-<label><span>Nome da clínica ou do negócio <span class="req" aria-hidden="true">*</span></span><input id="f-neg" autocomplete="organization" required aria-required="true"></label>
+<label><span>Nome do negócio <span class="req" aria-hidden="true">*</span></span><input id="f-neg" autocomplete="organization" required aria-required="true"></label>
 <label><span>WhatsApp com DDD <span class="req" aria-hidden="true">*</span></span><input id="f-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-8888" required aria-required="true"></label>
 <label class="isca" aria-hidden="true">Site<input id="f-site" tabindex="-1" autocomplete="off"></label>
-<label>Tipo de negócio<select id="f-tipo"><option value="">Escolha uma opção</option><option>Clínica médica ou consultório</option><option>Odontologia</option><option>Estética</option><option>Fisioterapia, psicologia ou nutrição</option><option>Salão ou barbearia</option><option>Pet shop ou veterinária</option><option>Academia ou estúdio</option><option>Restaurante ou delivery</option><option>Loja ou comércio</option><option>Outro</option></select></label>
-<label>Plano de interesse<select id="f-plano"><option>Ainda não sei</option><option>Essencial</option><option>Premium IA</option><option>Sob Medida</option></select></label>
+<label>Tipo de negócio<select id="f-tipo"><option value="">Escolha uma opção</option><option>Clínica médica ou consultório</option><option>Odontologia</option><option>Estética</option><option>Fisioterapia, psicologia ou nutrição</option><option>Salão ou barbearia</option><option>Pet shop ou veterinária</option><option>Academia ou estúdio</option><option>Restaurante ou delivery</option><option>Loja ou comércio</option><option>Prestador de serviço</option><option>Outro</option></select></label>
+<label>Interesse<select id="f-plano"><option>Ainda não sei</option><option>Essencial</option><option>Gestão</option><option>Premium IA</option><option>Sob Medida</option><option>App ou site</option></select></label>
 <button class="btn pri" type="submit" id="f-btn" data-cta="form">Pedir demonstração</button>
-<div class="ok-box" role="status"><b>Pedido recebido ✓</b><p id="ok-txt">A gente te chama no WhatsApp para mostrar a demonstração com a sua clínica.</p></div>
+<div class="ok-box" role="status"><b>Pedido recebido ✓</b><p id="ok-txt">A gente te chama no WhatsApp para mostrar a demonstração com o seu negócio.</p></div>
 <p class="fmsg" id="fmsg" aria-live="polite"></p>
 </form>
 </div></section>
 </main>
 
+
 <div class="mbar" id="mbar"><a class="btn pri" href="#contato" data-cta="mbar">Quero uma demonstração grátis</a></div>
 <a class="wa" id="wa" href="#contato" aria-label="Conversar no WhatsApp" data-cta="whatsapp-flutuante"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
 <footer><div class="wrap">
 <span class="kj"><img src="emblema.webp" width="600" height="325" alt="Emblema Arktos Leon" loading="lazy"></span>
-<span><b style="color:#fff">ARKTOS LEON</b>, automação e gestão de agendas. São Paulo, SP<br><small>Arktos Leon é o nome fantasia de 70.234.742 CARLOS HENRIQUE DA SILVA SANTOS, CNPJ 70.234.742/0001-67.</small></span>
+<span><b style="color:#fff">ARKTOS LEON</b>, automação e inteligência artificial. São Paulo, SP<br><small>Arktos Leon é o nome fantasia de 70.234.742 CARLOS HENRIQUE DA SILVA SANTOS, CNPJ 70.234.742/0001-67.</small></span>
 <span><a href="mailto:arktos.leon.ia@gmail.com">arktos.leon.ia@gmail.com</a> &nbsp; <a href="https://www.instagram.com/arketos.leon.ia/" target="_blank" rel="noopener">Instagram</a></span><span><a href="privacidade.html">Privacidade</a> &nbsp; <a href="termos.html">Termos de Uso</a> &nbsp; © <span id="ano">2026</span></span>
 </div></footer>
 
@@ -457,60 +305,19 @@ else if(/wa\.me|whatsapp/.test(h))ev('whatsapp_clique');
 else ev('link_clique',{href:h.slice(0,120)})},true);
 
 // ===== PREENCHA AQUI =====
-// WhatsApp da Arktos Leon: DDI + DDD + número, só dígitos. Ex.: '5511999998888'
-const WHATSAPP = '';
-// E-mail de contato (usado enquanto não houver WhatsApp). Ex.: 'contato@arktosleon.com.br'
+const WHATSAPP = '5511970742631';
 const EMAIL = 'arktos.leon.ia@gmail.com';
-// =========================
-
-const chat=[
-['in','Quanto perdi com faltas esta semana?','18:02'],
-['out','6 faltas, cerca de R$ 1.500. Já remarquei 4 🙂','18:02'],
-['in','E amanhã?','18:03'],
-['out','22 confirmados. O horário vago já foi preenchido ✅','18:03']];
-document.getElementById('chat').innerHTML=chat.map((m,i)=>`<div class="msg ${m[0]}" style="animation-delay:${.4+i*.9}s">${m[1]}<em>${m[2]}${m[0]=='out'?' ✓✓':''}</em></div>`).join('');
-
-const ic={
-moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>',
-cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
-user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',
-eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'};
-const pain=[
-['cal','Cliente marca e não vem','Em consultórios sem confirmação automática, faltas costumam levar de 15% a 30% da agenda.'],
-['moon','Mensagem sem resposta','Quando a primeira resposta demora mais de um dia, 57% dos pedidos de consulta expiram.'],
-['eye','Você não vê o prejuízo','Ninguém soma quanto o horário vazio custou no mês.'],
-['user','Recepção sem tempo','Confirmar um por um, por telefone, não cabe no dia.']];
-document.getElementById('pain').innerHTML=pain.map(p=>`<div class="pc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ic[p[0]]}</svg></span><h3>${p[1]}</h3><p>${p[2]}</p></div>`).join('');
-
 const faq=[
-['Preciso trocar o sistema da clínica?','Não. Funcionamos com o WhatsApp e a agenda que você já usa (Google Agenda e planilhas; outros sistemas avaliamos na primeira conversa). Você não aprende sistema novo.'],
-['O que aparece no painel?','Faltas e quanto elas custaram, confirmações para amanhã, horários vagos, mensagens sem resposta e quanto foi recuperado. Desde o Essencial você recebe um resumo no WhatsApp todo dia; no Premium IA também consulta o painel online e pergunta o que quiser.'],
-['Quanto custa?','O Essencial custa R$ 450 por mês (até 3 profissionais) e o Premium IA, R$ 2.000 (até 6), mais uma implantação única a partir de R$ 990. Os 5 primeiros clientes não pagam implantação. Projetos Sob Medida são orçados à parte. Depois da demonstração você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
-['Como funciona o pagamento?','Você pode contratar aqui pelo site, com Pix ou cartão, na página segura da InfinitePay. O primeiro pagamento já junta a implantação e o 1º mês (os 5 primeiros clientes não pagam implantação). Se preferir, paga os 3 meses da fidelidade de uma vez, no Pix ou parcelado no cartão. Os meses seguintes chegam por link no seu WhatsApp.'],
-['Tenho que ficar preso a um contrato longo?','Não. A fidelidade é de 3 meses. Depois disso é mês a mês, e você pode cancelar quando quiser.'],
-['O WhatsApp já tem IA grátis. Por que contratar vocês?','Ela responde perguntas, mas você precisa configurar sozinho e ela não cuida da sua agenda. A gente monta, liga à sua agenda e acompanha os resultados com você todo mês.'],
-['Funciona com a agenda que eu já uso?','Funciona com Google Agenda e planilhas. Outros sistemas, como os de salão ou de clínica, avaliamos na primeira conversa.'],
-['Qual a diferença entre os planos?','No Essencial o cliente agenda por um atendimento automático, com opções simples. No Premium IA uma inteligência artificial conversa de forma natural, entende áudio e tira dúvidas.'],
-['Preciso entender de tecnologia?','Não. A gente configura e cuida de tudo. Você continua usando o WhatsApp como já usa.'],
-['O Essencial vale o preço?','Faça a conta na calculadora: com consulta de R$ 200, bastam 3 faltas recuperadas no mês para o Essencial se pagar. Todo dia você vê no WhatsApp quanto foi recuperado.'],
-['A IA pode falar algo errado para o meu cliente?','No Premium IA ela só responde com as informações que você aprovou. Quando não sabe, passa a conversa para você ou sua equipe. Em qualquer plano você pode assumir a conversa quando quiser.'],
-['Funciona com o número que eu já tenho?','Na maioria dos casos, sim. Verificamos o seu número na primeira conversa.'],
-['E os dados dos meus clientes?','São usados só para atender o seu negócio e tratados conforme a LGPD.']];
-document.getElementById('faq').innerHTML=faq.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
+['Preciso trocar o sistema que eu já uso?','Não. Trabalhamos com o WhatsApp, a agenda e as ferramentas que você já tem, e conectamos o que for preciso.'],
+['Quanto custa?','Depende do tamanho da operação e do que você quer automatizar. Depois da demonstração gratuita você recebe a proposta por escrito, antes de decidir qualquer coisa.'],
+['Quanto tempo leva para começar?','Projetos simples ficam prontos em poucos dias. Projetos Sob Medida têm o prazo combinado na proposta.'],
+['A IA pode falar algo errado para o meu cliente?','Ela só responde com as informações que você aprovou. Quando não sabe, passa a conversa para você ou sua equipe, e você pode assumir quando quiser.'],
+['Funciona para o meu tipo de negócio?','Se o seu cliente fala com você pelo WhatsApp, agenda horário ou faz pedido, funciona. Na demonstração você vê com o seu caso.'],
+['E os meus dados e os dos meus clientes?','Tratamos tudo conforme a LGPD, com acesso restrito. Para quem precisa de sigilo maior, a IA pode rodar no computador da própria empresa.'],
+['Vocês dão suporte depois?','Sim. Acompanhamos os resultados, ajustamos as respostas e ficamos a um WhatsApp de distância.']];
+const fl=document.getElementById('faq-list');
+fl.innerHTML=faq.map(p=>`<details><summary>${p[0]}</summary><p>${p[1]}</p></details>`).join('');
 document.querySelectorAll('#faq details').forEach((d,i)=>d.addEventListener('toggle',()=>{if(d.open)ev('faq_aberta',{n:i+1,pergunta:faq[i][0].slice(0,80)})}));
-
-const brl=x=>'R$ '+Math.round(x).toLocaleString('pt-BR');
-const calc=()=>{const n=id=>{const x=Number(document.getElementById(id).value);return isFinite(x)&&x>0?x:0};
-const at=n('c-at'),fa=Math.min(n('c-fa'),100),va=n('c-va'),mes=at*fa/100*va;
-document.getElementById('c-mes').textContent=brl(mes);document.getElementById('c-ano').textContent=brl(mes*12);
-document.getElementById('c-qt').textContent=Math.round(at*fa/100).toLocaleString('pt-BR');
-const nf=va>0?Math.ceil(450/va):0;document.getElementById('c-paga').textContent=nf?`O plano Essencial (R$ 450/mês) se paga com ${nf} ${nf==1?'falta recuperada':'faltas recuperadas'} no mês.`:''};
-['c-at','c-fa','c-va'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
-let calcUsou=false,calcTmr=0;
-['c-at','c-fa','c-va'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{
-if(!calcUsou){calcUsou=true;ev('calc_interagiu',{campo:id})}
-clearTimeout(calcTmr);calcTmr=setTimeout(()=>{const n=k=>Number(document.getElementById(k).value)||0,at=n('c-at'),fa=n('c-fa'),va=n('c-va');
-ev('calc_valores',{consultas:at,faltas:fa,valor:va,perda_mes:Math.round(at*fa/100*va),faltas_para_pagar:va>0?Math.ceil(450/va):null})},1500)}));
 
 function track(n,d){try{(window.dataLayer=window.dataLayer||[]).push({event:n})}catch(e){}
 const m=String(n).match(/^(cta|plano|abrir|checkout)_(.+)$/);
@@ -524,7 +331,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-cta]');if(
 
 const form=document.getElementById('form'),fmsg=document.getElementById('fmsg');
 let formIni=0;
-form.addEventListener('focusin',()=>{if(!formIni){formIni=Date.now();ev('form_inicio',{veio_da_calc:calcUsou})}});
+form.addEventListener('focusin',()=>{if(!formIni){formIni=Date.now();ev('form_inicio')}});
 form.querySelectorAll('input,select').forEach(el=>{if(el.id=='f-site')return;el.addEventListener('change',()=>ev('form_campo',{campo:el.id,preenchido:!!el.value.trim(),segundos:formIni?Math.round((Date.now()-formIni)/1000):0}))});
 addEventListener('pagehide',()=>{if(formIni&&!form.classList.contains('done'))ev('form_abandonado',{campos:[...form.querySelectorAll('input,select')].filter(x=>x.id!='f-site'&&x.value.trim()&&x.id!='f-plano').map(x=>x.id),segundos:Math.round((Date.now()-formIni)/1000)})});
 document.querySelectorAll('[data-plano]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('f-plano').value=a.dataset.plano;track('plano_'+a.dataset.plano)}));
@@ -537,69 +344,18 @@ const falta=[!v('f-nome')&&'seu nome',!v('f-neg')&&'nome do negócio',tel.length
 if(falta.length){ev('form_erro',{faltando:falta});fmsg.textContent='Falta preencher: '+falta.join(', ')+'.';document.getElementById(!v('f-nome')?'f-nome':!v('f-neg')?'f-neg':'f-tel').focus();return}
 ev('form_enviado',{plano:v('f-plano'),tipo:v('f-tipo')||null,segundos:formIni?Math.round((Date.now()-formIni)/1000):0});
 const btn=document.getElementById('f-btn');btn.disabled=true;btn.textContent='Enviando…';fmsg.textContent='';
-const n=id=>Number(document.getElementById(id).value)||0,at=n('c-at'),fa=n('c-fa'),va=n('c-va');
 const dados={nome:v('f-nome'),negocio:v('f-neg'),telefone:tel,tipo:v('f-tipo'),plano:v('f-plano'),site:v('f-site'),
-consultas:at,faltas:fa,valor:va,perda:Math.round(at*fa/100*va),pagina:location.pathname+location.search,sessao:SESSAO,...ORIG};
+pagina:location.pathname+location.search,sessao:SESSAO,...ORIG};
 let gravou=false;
 try{const r=await fetch(LEAD,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(dados)});const d=await r.json();gravou=r.ok&&d.ok;if(!gravou&&d.erro){ev('lead_recusado',{erro:String(d.erro).slice(0,80)});fmsg.textContent=d.erro;btn.disabled=false;btn.textContent='Pedir demonstração';return}}catch(err){ev('lead_falhou',{erro:String(err&&err.message||err).slice(0,80)})}
 if(!gravou){
-const txt=`Olá, Arktos Leon! Sou ${v('f-nome')}, do(a) ${v('f-neg')}${v('f-tipo')?' ('+v('f-tipo')+')':''}. WhatsApp: ${v('f-tel')}. Plano de interesse: ${v('f-plano')}. Quero ver uma demonstração.`;
+const txt=`Olá, Arktos Leon! Sou ${v('f-nome')}, do(a) ${v('f-neg')}${v('f-tipo')?' ('+v('f-tipo')+')':''}. WhatsApp: ${v('f-tel')}. Interesse: ${v('f-plano')}. Quero ver uma demonstração.`;
 let url='';
 if(WHATSAPP)url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
 else if(EMAIL){url=`mailto:${EMAIL}?subject=${encodeURIComponent('Demonstração - '+v('f-neg'))}&body=${encodeURIComponent(txt)}`;document.getElementById('ok-txt').textContent='Abrimos seu e-mail com o pedido já escrito. É só tocar em enviar.'}
 if(!url){fmsg.textContent='Não conseguimos enviar agora. Tente de novo em instantes.';btn.disabled=false;btn.textContent='Pedir demonstração';return}
 ev('form_plano_b',{canal:WHATSAPP?'whatsapp':'email'});const a=document.createElement('a');a.href=url;if(WHATSAPP){a.target='_blank';a.rel='noopener'}document.body.appendChild(a);a.click();a.remove();}
 form.classList.add('done');track('lead',{gravou});enviar();});
-
-// ===== Contratação pelo site (InfinitePay via Supabase). Os valores valem no servidor; aqui é só a vitrine. =====
-const PAGAMENTO='https://rotbtpqkysoolsauexhg.supabase.co/functions/v1/pagamento';
-const PLANOS={essencial:{nome:'Essencial',mes:450},gestao:{nome:'Gestão',mes:1000},premium:{nome:'Premium IA',mes:2000},teste:{nome:'Teste',mes:1}};
-let IMPL=0,VAGAS=null;
-const real=x=>'R$ '+x.toLocaleString('pt-BR',{minimumFractionDigits:x%1?2:0,maximumFractionDigits:2});
-const post=(r,b)=>fetch(PAGAMENTO+'/'+r,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b||{})}).then(x=>x.json().then(d=>({ok:x.ok,d})));
-post('vagas').then(({d})=>{if(typeof d.vagas_fundador!='number')return;VAGAS=d.vagas_fundador;IMPL=d.implantacao_centavos/100;
-const f=document.getElementById('fund');
-f.textContent=VAGAS>0?`Cliente fundador: os 5 primeiros não pagam implantação. Restam ${VAGAS} ${VAGAS==1?'vaga':'vagas'}.`:'As vagas de cliente fundador acabaram. Obrigado a quem começou com a gente!';
-if(dlg.open)resumo()}).catch(()=>{});
-const dlg=document.getElementById('pay'),pf=document.getElementById('payform'),pmsg=document.getElementById('p-msg'),pgo=document.getElementById('p-go');
-let sel=null,soMensal=false;
-const modo=()=>soMensal?'mensalidade':pf.querySelector('input[name=modo]:checked').value;
-function resumo(){
-const m=sel.mes,imp=soMensal?0:IMPL,implTxt=imp?`implantação de ${real(imp)}`:'implantação grátis de fundador';
-document.getElementById('op-entrada').textContent=`Agora: ${real(imp+m)} (${implTxt} + 1º mês). Depois, ${real(m)} por mês, por link no WhatsApp.`;
-document.getElementById('op-tri').textContent=`Agora: ${real(imp+3*m)} (${implTxt} + 3 meses), no Pix ou parcelado no cartão. Depois, ${real(m)} por mês.`;
-const t=modo(),tot=t=='mensalidade'?m:t=='trimestral'?imp+3*m:imp+m;
-document.getElementById('pay-resumo').innerHTML=`Plano <b style="font-size:inherit;font-family:inherit">${sel.nome}</b><br>Total agora: <b>${real(tot)}</b>${t=='trimestral'?'<br><small>No Pix à vista ou parcelado no cartão. O valor de cada parcela aparece na página de pagamento.</small>':''}`;}
-function abrir(id,mensal){sel=PLANOS[id];if(!sel)return;soMensal=!!mensal;
-pf.querySelector('.modo').hidden=soMensal;document.getElementById('pay-t').textContent=soMensal?'Pagar a mensalidade':'Contratar o '+sel.nome;
-pmsg.textContent='';pgo.disabled=false;pgo.textContent='Ir para o pagamento';resumo();dlg.showModal();document.getElementById('p-nome').focus();track('abrir_'+id)}
-document.querySelectorAll('[data-pagar]').forEach(b=>b.addEventListener('click',()=>abrir(b.dataset.pagar)));
-pf.addEventListener('change',e=>{if(e.target.name=='modo'){resumo();ev('checkout_modo',{modo:e.target.value,plano:sel&&sel.nome})}else if(e.target.id)ev('checkout_campo',{campo:e.target.id,preenchido:!!String(e.target.value).trim()})});
-dlg.addEventListener('close',()=>{if(!pgo.disabled)ev('checkout_fechado',{plano:sel&&sel.nome})});
-document.getElementById('pay-x').addEventListener('click',()=>dlg.close());
-pf.addEventListener('submit',async e=>{e.preventDefault();
-const v=id=>document.getElementById(id).value.trim();
-const falta=[!v('p-nome')&&'seu nome',!v('p-neg')&&'nome do negócio',v('p-tel').replace(/\D/g,'').length<10&&'WhatsApp com DDD'].filter(Boolean);
-if(falta.length){ev('checkout_erro',{faltando:falta,plano:sel&&sel.nome});pmsg.textContent='Falta preencher: '+falta.join(', ')+'.';return}
-ev('checkout_enviado',{plano:sel&&sel.nome,modo:modo()});
-pgo.disabled=true;pgo.textContent='Abrindo o pagamento…';pmsg.textContent='';
-try{const id=Object.keys(PLANOS).find(k=>PLANOS[k]==sel);
-const {ok,d}=await post('checkout',{plano:id,tipo:modo(),nome:v('p-nome'),negocio:v('p-neg'),telefone:v('p-tel'),email:v('p-email')});
-if(!ok||!d.url)throw new Error(d.erro||'Não foi possível abrir o pagamento agora.');
-track('checkout_'+id+'_'+modo());enviar(true);location.href=d.url;
-}catch(err){ev('checkout_falhou',{erro:String(err&&err.message||'').slice(0,80),plano:sel&&sel.nome});pmsg.textContent=err.message||'Não foi possível abrir o pagamento agora.';pgo.disabled=false;pgo.textContent='Ir para o pagamento'}});
-const qs=new URLSearchParams(location.search);
-// Link de cobrança do mês: ?plano=gestao&tipo=mensalidade
-if(qs.get('plano')&&!qs.get('order_nsu'))abrir(qs.get('plano'),qs.get('tipo')=='mensalidade');
-// Volta da InfinitePay: confere o pagamento no servidor
-if(qs.get('order_nsu')){
-const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.innerHTML='<b>Confirmando seu pagamento…</b>Só um instante.';document.body.appendChild(t);
-const x='<button type="button" aria-label="Fechar" onclick="this.parentNode.remove()">×</button>';
-post('confirmar',{order_nsu:qs.get('order_nsu'),slug:qs.get('slug'),transaction_nsu:qs.get('transaction_nsu'),receipt_url:qs.get('receipt_url')})
-.then(({d})=>{ev('pagamento_retorno',{pago:!!d.pago,status:d.status||null});if(d.pago){t.className='toast ok';t.innerHTML=x+`<b>Pagamento confirmado ✓</b>${(d.plano||'').replace(/[<>]/g,'')}. A gente te chama no WhatsApp para começar.${/^https:\/\//.test(d.recibo||'')?` <a href="${d.recibo.replace(/"/g,'')}" target="_blank" rel="noopener">Ver recibo</a>`:''}`;track('pagamento_confirmado')}
-else{t.innerHTML=x+'<b>Recebemos seu retorno</b>O pagamento ainda está sendo processado. Assim que confirmar, você recebe o aviso no WhatsApp.'}})
-.catch(()=>{t.className='toast bad';t.innerHTML=x+'<b>Não conseguimos confirmar agora</b>Se você pagou, fique tranquilo: o recibo da InfinitePay vale como comprovante e nós conferimos por aqui.'});
-history.replaceState(null,'',location.pathname+location.hash)}
 
 document.getElementById('ano').textContent=new Date().getFullYear();
 if(WHATSAPP){const wa=document.getElementById('wa');wa.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Olá, Arktos Leon! Quero saber mais.');wa.target='_blank';wa.rel='noopener';wa.classList.add('on')}
