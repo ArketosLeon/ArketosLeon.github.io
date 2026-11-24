@@ -1,0 +1,87 @@
+<!doctype html><html><head>
+<meta name="robots" content="noindex, nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Recepção Maniri</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: contexto à esquerda, celular com o chat clicável à direita; empilha no celular */
+:root{
+ --bg:#eef2f1; --panel:#ffffff; --ink:#15211f; --muted:#5a6b68; --line:#d5dfdc;
+ --accent:#0f6e5c; --accent-soft:#dcefe9; --chat:#e7e1d6; --in:#ffffff; --out:#d8f1df; --warn:#b5541a; --warn-soft:#fbeadd;
+ --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+ --bg:#0f1514; --panel:#172120; --ink:#e4ecea; --muted:#93a5a1; --line:#2a3836;
+ --accent:#4cc2a6; --accent-soft:#183a33; --chat:#0c1311; --in:#1f2b29; --out:#1d4a3c; --warn:#f0a06a; --warn-soft:#3a2416; color-scheme:dark}}
+:root[data-theme="dark"]{
+ --bg:#0f1514; --panel:#172120; --ink:#e4ecea; --muted:#93a5a1; --line:#2a3836;
+ --accent:#4cc2a6; --accent-soft:#183a33; --chat:#0c1311; --in:#1f2b29; --out:#1d4a3c; --warn:#f0a06a; --warn-soft:#3a2416; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding-block:32px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--display);font-size:clamp(28px,4vw,40px);line-height:1.1;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 24px}
+.ctx{display:flex;flex-direction:column;gap:16px;min-width:0}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.box h2{font-family:var(--display);font-size:16px;margin:0 0 6px}
+.box p{margin:0;color:var(--ink)}
+.box.test{background:var(--warn-soft);border-color:transparent}
+.box.test h2{color:var(--warn)}
+ul{margin:6px 0 0;padding-left:18px} li{margin:3px 0}
+.note{font-size:13px;color:var(--muted)}
+.phone{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.08);position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.ph-head{display:flex;align-items:center;gap:10px;padding:8px 10px 12px}
+.av{width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--panel);display:grid;place-items:center;font-family:var(--display);font-weight:600}
+.ph-head b{display:block;font-size:15px} .ph-head span{font-size:12px;color:var(--accent)}
+.clock{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.chat{background:var(--chat);border-radius:18px;height:470px;overflow-y:auto;padding:14px 10px;display:flex;flex-direction:column;gap:6px}
+.msg{max-width:84%;padding:8px 11px;border-radius:12px;white-space:pre-line;font-size:14px;line-height:1.4;animation:in .2s ease-out}
+.msg.b{background:var(--in);align-self:flex-start;border-top-left-radius:4px}
+.msg.p{background:var(--out);align-self:flex-end;border-top-right-radius:4px}
+.tag{display:inline-block;background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:0 4px;font-size:12px;font-weight:600}
+.typing{align-self:flex-start;background:var(--in);border-radius:12px;padding:8px 12px;font-size:13px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:6px;padding:10px 4px 4px}
+.opts button,.reset{font:inherit;font-size:13px;border:1px solid var(--accent);color:var(--accent);background:var(--panel);border-radius:999px;padding:6px 12px;cursor:pointer}
+.opts button:hover,.opts button:focus-visible{background:var(--accent-soft);outline:none}
+.opts button[disabled]{opacity:.45;cursor:default}
+.reset{border-color:var(--line);color:var(--muted)}
+.foot{text-align:center;font-size:12px;color:var(--muted);padding-top:8px}
+@keyframes in{from{transform:translateY(4px);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.msg{animation:none}}
+</style>
+<div class="wrap">
+ <section class="ctx">
+  <div><div class="eyebrow">Simulação · recepção 24h no WhatsApp</div>
+  <h1>Maniri</h1><p class="sub">Estética avançada · Moinhos de Vento</p></div>
+  <div class="box test"><h2>Como é hoje</h2><p>Hoje o site recebe contato por formulário, e o WhatsApp fica no link da bio do Instagram.</p></div>
+  <div class="box"><h2>O que a recepção 24h resolve</h2><p>Assuntos delicados, como harmonização íntima, pedem resposta rápida e discreta. Ela responde na hora, entende o que o paciente quer e já deixa a consulta marcada, inclusive à noite e no fim de semana.</p>
+   <ul><li>Agenda, confirma e remarca sozinha</li><li>Lembrete automático 1 dia antes da consulta</li><li>Fala no tom da clínica: sofisticado e discreto</li><li>Horário de atendimento humano: [horário A CONFIRMAR]</li></ul></div>
+  <div class="box"><h2>Quando passa para a equipe</h2><p>Se o paciente pedir para falar com uma pessoa, tiver uma dúvida clínica ou uma reclamação, a recepção avisa a equipe e deixa o resumo da conversa pronto. Ela informa que usa assistente virtual e não dá diagnóstico.</p></div>
+  <p class="note">Toque nas opções do chat para ver as conversas. Itens marcados <span class="tag">[A CONFIRMAR]</span> (preços, convênios, horários livres) são preenchidos com os dados reais da clínica antes de ativar. Os nomes de pacientes são fictícios.</p>
+ </section>
+ <aside class="phone" aria-label="Simulação do WhatsApp">
+  <div class="ph-head"><div class="av">M</div><div><b>Maniri</b><span>online · responde na hora</span></div><div class="clock">23:20</div></div>
+  <div class="chat" id="chat" aria-live="polite"></div>
+  <div class="opts" id="opts"></div>
+  <div class="foot">demo por Arktos</div>
+ </aside>
+</div>
+<script>
+const D={"boas": "Olá! Maniri, estética avançada. Atendimento discreto, 24h. Sobre o que você gostaria de saber?", "menu": ["Harmonização íntima", "Full face", "Lábios", "Pele", "Falar com a Paula"], "conv": {"Harmonização íntima": [["p", "Queria saber sobre ninfoplastia sem cortes"], ["b", "Claro, com toda discrição. É um procedimento sem cortes, e a indicação é feita em avaliação individual com a Paula Martins. Valores: [A CONFIRMAR]."], ["p", "Quero agendar"], ["b", "Tenho quarta 15h ou sexta 10h. Qual prefere?"], ["p", "Sexta 10h"], ["b", "Agendado ✅ Sexta às 10h. Rua Mostardeiro, 800, sala 601."]], "Full face": [["p", "O que é full face?"], ["b", "É um plano para o rosto todo, feito a partir da leitura das suas proporções, com foco em naturalidade. Quer marcar a avaliação?"]], "Lábios": [["p", "Quero preencher os lábios"], ["b", "A Maniri busca resultado natural. Quer agendar uma avaliação?"]], "Pele": [["p", "Vocês fazem limpeza de pele?"], ["b", "Sim! Valores: [A CONFIRMAR]. Quer ver horários?"]], "Falar com a Paula": [["p", "Quero falar com a Paula"], ["b", "Claro, já deixei sua mensagem para ela."]]}};
+const chat=document.getElementById('chat'),opts=document.getElementById('opts');
+let busy=false;
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function add(w,t){const d=document.createElement('div');d.className='msg '+w;d.innerHTML=esc(t).replace(/\[A CONFIRMAR\]/g,'<span class="tag">[A CONFIRMAR]</span>');chat.appendChild(d);chat.scrollTop=chat.scrollHeight}
+const wait=ms=>new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion: reduce)').matches?0:ms));
+function menu(){opts.innerHTML='';D.menu.forEach(m=>{const b=document.createElement('button');b.id='op-'+m.replace(/\W+/g,'-');b.textContent=m;b.onclick=()=>play(m);opts.appendChild(b)});const r=document.createElement('button');r.className='reset';r.id='op-reset';r.textContent='Recomeçar';r.onclick=start;opts.appendChild(r)}
+async function play(m){if(busy)return;busy=true;[...opts.querySelectorAll('button')].forEach(b=>b.disabled=true);
+ const seq=D.conv[m];if(seq[0][0]!=='p'||seq[0][1].startsWith('(')){} 
+ if(seq[0][0]==='b'&&!seq[0][1].startsWith('(')){add('p',m)} 
+ for(const [w,t] of seq){if(w==='b'){const ty=document.createElement('div');ty.className='typing';ty.textContent='digitando…';chat.appendChild(ty);chat.scrollTop=chat.scrollHeight;await wait(700);ty.remove()}else{await wait(450)}add(w,t)}
+ await wait(300);add('b','Posso ajudar em mais alguma coisa?');busy=false;[...opts.querySelectorAll('button')].forEach(b=>b.disabled=false)}
+function start(){chat.innerHTML='';add('b',D.boas);menu()}
+start();
+</script>
+
+</body></html>
